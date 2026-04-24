@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio & Referenzen – Özdemir Fensterbau</title>
+  <meta name="description" content="Einblicke in unsere realisierten Projekte – Wohnbau, Gewerbeprojekte und Sanierungen. Bildergalerie und Referenzen von Özdemir Fensterbau.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/logo.png">
+</head>
+<body>
+
+<header id="header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo.png" alt="Özdemir Fensterbau Logo">
+        <div class="nav-logo-text"><strong>Özdemir</strong><span>Fensterbau</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:+4951112345678" class="nav-phone">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.14 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +49 511 123 456 78
+        </a>
+        <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
+      </div>
+      <button class="hamburger" aria-label="Menü"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Startseite</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="leistungen.html">Leistungen</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+</header>
+
+<section class="page-hero"><div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1600&q=80');"></div><div class="page-hero-overlay"></div>
+  <div class="container page-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Startseite</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>Portfolio</span>
+    </div>
+    <h1>PORTFOLIO &amp; <span style="color:var(--accent);">REFERENZEN</span></h1>
+    <p>Einblicke in über 500 erfolgreich realisierte Projekte – von Wohnungsbau bis zu gewerblichen Großprojekten.</p>
+  </div>
+</section>
+
+<!-- Filter + Galerie -->
+<section class="section">
+  <div class="container">
+    <div class="katalog-filter">
+      <button class="filter-btn active" data-filter="all">Alle Projekte</button>
+      <button class="filter-btn" data-filter="wohnbau">Wohnungsbau</button>
+      <button class="filter-btn" data-filter="gewerbe">Gewerbebau</button>
+      <button class="filter-btn" data-filter="sanierung">Sanierung</button>
+      <button class="filter-btn" data-filter="neubau">Neubau</button>
+    </div>
+
+    <!-- Galerie Grid mit Placeholder-Kacheln -->
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px;" id="portfolioGrid">
+
+      <div class="katalog-item" data-cat="neubau" style="cursor:default;">
+        <div class="katalog-img" style="height:260px;">
+          <div class="galerie-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+            <span>Projektfoto folgt</span>
+          </div>
+          <span class="katalog-badge">Neubau</span>
+        </div>
+        <div class="katalog-body">
+          <h3>Wohnanlage "Am Maschsee"</h3>
+          <p>32 Wohneinheiten, Kunststofffenster 3-fach verglast, Haustüren mit Fingerprint-Schloss, Hannover 2023.</p>
+          <div class="katalog-specs">
+            <span class="spec-tag">320 Einheiten</span>
+            <span class="spec-tag">Kunststoff</span>
+            <span class="spec-tag">Hannover</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="katalog-item" data-cat="gewerbe" style="cursor:default;">
+        <div class="katalog-img" style="height:260px;">
+          <div class="galerie-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+            <span>Projektfoto folgt</span>
+          </div>
+          <span class="katalog-badge">Gewerbe</span>
+        </div>
+        <div class="katalog-body">
+          <h3>Bürokomplex Nordstadt</h3>
+          <p>Komplette Fassadenbekleidung mit Aluminium-Vorhangfassade, Pfosten-Riegel-System, Hannover 2022.</p>
+          <div class="katalog-specs">
+            <span class="spec-tag">Fassade</span>
+            <span class="spec-tag">Aluminium</span>
+            <span class="spec-tag">5.200 m²</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="katalog-item" data-cat="sanierung" style="cursor:default;">
+        <div class="katalog-img" style="height:260px;">
+          <div class="galerie-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Projektfoto folgt</span>
+          </div>
+          <span class="katalog-badge">Sanierung</span>
+        </div>
+        <div class="katalog-body">
+          <h3>MFH-Sanierung Linden</h3>
+          <p>Komplettsanierung Mehrfamilienhaus, 48 Fenster und 6 Haustüren, Energieklasse A nach Sanierung.</p>
+          <div class="katalog-specs">
+            <span class="spec-tag">48 Fenster</span>
+            <span class="spec-tag">Energieklasse A</span>
+            <span class="spec-tag">KfW-gefördert</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="katalog-item" data-cat="wohnbau" style="cursor:default;">
+        <div class="katalog-img" style="height:260px;">
+          <div class="galerie-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+            <span>Projektfoto folgt</span>
+          </div>
+        </div>
+        <div class="katalog-body">
+          <h3>Einfamilienhaus Garbsen</h3>
+          <p>Maßgefertigte Holzfenster mit Dreifachverglasung, Hebe-Schiebetür Wintergarten, 2023.</p>
+          <div class="katalog-specs">
+            <span class="spec-tag">Holz</span>
+            <span class="spec-tag">Hebe-Schiebe</span>
+            <span class="spec-tag">Maßanfertigung</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="katalog-item" data-cat="gewerbe" style="cursor:default;">
+        <div class="katalog-img" style="height:260px;">
+          <div class="galerie-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="21" x2="8" y2="3"/><line x1="16" y1="21" x2="16" y2="3"/><line x1="2" y1="9" x2="22" y2="9"/><line x1="2" y1="15" x2="22" y2="15"/></svg>
+            <span>Projektfoto folgt</span>
+          </div>
+          <span class="katalog-badge">Industrie</span>
+        </div>
+        <div class="katalog-body">
+          <h3>Logistikzentrum Langenhagen</h3>
+          <p>Industriefenster und Brandschutzverglasung F60, Tor- und Türanlagen, Hallenkomplex 2021.</p>
+          <div class="katalog-specs">
+            <span class="spec-tag">Brandschutz F60</span>
+            <span class="spec-tag">Industrie</span>
+            <span class="spec-tag">8.000 m²</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="katalog-item" data-cat="neubau" style="cursor:default;">
+        <div class="katalog-img" style="height:260px;">
+          <div class="galerie-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Projektfoto folgt</span>
+          </div>
+        </div>
+        <div class="katalog-body">
+          <h3>Neubau Pflegeheim Misburg</h3>
+          <p>Barrierefreie Fenster- und Türlösungen, automatische Schiebetüren, Rollläden, 2022.</p>
+          <div class="katalog-specs">
+            <span class="spec-tag">Barrierefrei</span>
+            <span class="spec-tag">Automatik</span>
+            <span class="spec-tag">120 Einheiten</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Bildergalerie / Fotostrecke -->
+<section class="section katalog-section">
+  <div class="container">
+    <div class="text-center">
+      <span class="badge">— Impressionen</span>
+      <h2 class="section-title">FOTO-<span>GALERIE</span></h2>
+      <p class="section-subtitle">Eindrücke aus unseren Projekten und unserer Fertigung.</p>
+    </div>
+    <div class="galerie-grid" style="margin-top:48px;">
+      <div class="galerie-item wide" data-label="Montage Großprojekt">
+        <div class="galerie-placeholder" style="height:100%;background:linear-gradient(135deg,#c8d8f0,#e8f0fb);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.3;"><rect x="2" y="3" width="20" height="18" rx="2"/></svg>
+          <span>Montage Großprojekt<br><small style="opacity:.6;">Foto wird ergänzt</small></span>
+        </div>
+        <div class="galerie-overlay"><span>Montage Großprojekt</span></div>
+      </div>
+      <div class="galerie-item" data-label="Fensterfertigung">
+        <div class="galerie-placeholder" style="height:100%;background:linear-gradient(135deg,#d0def5,#c8d8f0);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.3;"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+          <span>Fensterfertigung</span>
+        </div>
+        <div class="galerie-overlay"><span>Fensterfertigung</span></div>
+      </div>
+      <div class="galerie-item tall" data-label="Alufassade Gewerbe">
+        <div class="galerie-placeholder" style="height:100%;background:linear-gradient(135deg,#dde9f8,#d0def5);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.3;"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8"/></svg>
+          <span>Alufassade Gewerbe</span>
+        </div>
+        <div class="galerie-overlay"><span>Alufassade</span></div>
+      </div>
+      <div class="galerie-item" data-label="Hebe-Schiebetür XXL">
+        <div class="galerie-placeholder" style="height:100%;background:linear-gradient(135deg,#e0ecff,#d8e6f8);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.3;"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="2" y1="9" x2="22" y2="9"/></svg>
+          <span>Hebe-Schiebetür XXL</span>
+        </div>
+        <div class="galerie-overlay"><span>Hebe-Schiebetür</span></div>
+      </div>
+      <div class="galerie-item" data-label="Holzfenster Wohnbau">
+        <div class="galerie-placeholder" style="height:100%;background:linear-gradient(135deg,#c8d8f0,#dde9f8);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.3;"><rect x="3" y="3" width="18" height="18" rx="1"/></svg>
+          <span>Holzfenster Wohnbau</span>
+        </div>
+        <div class="galerie-overlay"><span>Holzfenster</span></div>
+      </div>
+      <div class="galerie-item" data-label="Team auf der Baustelle">
+        <div class="galerie-placeholder" style="height:100%;background:linear-gradient(135deg,#e8f0fb,#d0def5);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.3;"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+          <span>Team auf der Baustelle</span>
+        </div>
+        <div class="galerie-overlay"><span>Unser Team</span></div>
+      </div>
+      <div class="galerie-item" data-label="Referenz Bürogebäude">
+        <div class="galerie-placeholder" style="height:100%;background:linear-gradient(135deg,#d0def5,#e8f0fb);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.3;"><rect x="2" y="7" width="20" height="14" rx="2"/></svg>
+          <span>Referenz Bürogebäude</span>
+        </div>
+        <div class="galerie-overlay"><span>Bürogebäude</span></div>
+      </div>
+      <div class="galerie-item" data-label="Sanitätsfenster">
+        <div class="galerie-placeholder" style="height:100%;background:linear-gradient(135deg,#dde9f8,#c8d8f0);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.3;"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+          <span>Sanitäres Sonderfenster</span>
+        </div>
+        <div class="galerie-overlay"><span>Sonderfenster</span></div>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:24px;color:var(--gray);font-size:14px;">
+      * Aktuelle Projektfotos werden ergänzt – sprechen Sie uns an für Referenzbesuche.
+    </p>
+  </div>
+</section>
+
+<!-- Referenz-Logos -->
+<section class="section-sm">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:40px;">
+      <span class="badge">— Unsere Partner</span>
+      <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);">VERTRAUEN VON <span>MARKTFÜHRERN</span></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:24px;align-items:center;">
+      <div style="border:2px solid var(--border);border-radius:10px;padding:20px;text-align:center;background:var(--light);">
+        <strong style="font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;font-weight:600;color:var(--primary);">BAUPARTNER GmbH</strong>
+      </div>
+      <div style="border:2px solid var(--border);border-radius:10px;padding:20px;text-align:center;background:var(--light);">
+        <strong style="font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;font-weight:600;color:var(--primary);">NEUBAU AG</strong>
+      </div>
+      <div style="border:2px solid var(--border);border-radius:10px;padding:20px;text-align:center;background:var(--light);">
+        <strong style="font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;font-weight:600;color:var(--primary);">ARCHITEKTEN KG</strong>
+      </div>
+      <div style="border:2px solid var(--border);border-radius:10px;padding:20px;text-align:center;background:var(--light);">
+        <strong style="font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;font-weight:600;color:var(--primary);">WOHNBAU NORD</strong>
+      </div>
+      <div style="border:2px solid var(--border);border-radius:10px;padding:20px;text-align:center;background:var(--light);">
+        <strong style="font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;font-weight:600;color:var(--primary);">INVEST BUILD</strong>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container" style="position:relative;z-index:1;">
+    <h2>IHR PROJEKT IST<br><span>DAS NÄCHSTE?</span></h2>
+    <p>Kontaktieren Sie uns und lassen Sie uns gemeinsam Ihr Bauprojekt erfolgreich umsetzen.</p>
+    <div class="cta-buttons">
+      <a href="kontakt.html" class="btn btn-primary">Jetzt anfragen</a>
+      <a href="katalog.html" class="btn btn-outline">Katalog ansehen</a>
+    </div>
+  </div>
+</section>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="Özdemir Fensterbau">
+        <p>Ihr zuverlässiger Partner für Fenster, Türen und Fassaden.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Startseite</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="katalog.html">Fenster-Katalog</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
+      <div class="footer-col"><h4>Leistungen</h4><ul><li><a href="leistungen.html">Fenster-Fertigung</a></li><li><a href="leistungen.html">Montage & Einbau</a></li><li><a href="leistungen.html">Fassadensysteme</a></li><li><a href="leistungen.html">Service & Wartung</a></li></ul></div>
+      <div class="footer-col"><h4>Kontakt</h4><ul class="footer-contact"><li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Musterstraße 12, 30159 Hannover</li><li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.14 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+49 511 123 456 78</li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2024 Özdemir Fensterbau. Alle Rechte vorbehalten.</span>
+      <div class="footer-bottom-links"><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <button id="lightboxClose" class="lightbox-close">✕</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+<button id="scrollTop" aria-label="Nach oben"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg></button>
+<script src="js/main.js"></script>
+</body>
+</html>
