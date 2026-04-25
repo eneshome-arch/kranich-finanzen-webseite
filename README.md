@@ -11,7 +11,7 @@ ozdemir-fensterbau/
 ├── index.html          # Startseite
 ├── ueber-uns.html      # Über uns
 ├── leistungen.html     # Leistungen
-├── portfolio.html      # Portfolio & Referenzen
+├── sortiment.html      # Unser Sortiment (Produktübersicht)
 ├── kontakt.html        # Kontakt mit Formular & Google Maps
 ├── katalog.html        # Filterbarer Produktkatalog
 ├── datenschutz.html    # Datenschutzerklärung (DSGVO)
@@ -21,9 +21,11 @@ ozdemir-fensterbau/
 ├── js/
 │   └── main.js         # Interaktivität & Animationen
 └── images/
-    ├── logo.png        # Firmenlogo
-    ├── hero-bg.jpg     # Hero-Hintergrundbild Startseite
-    └── montage.jpg     # Bild Profimontage (Leistungen-Seite)
+    ├── logo.png               # Firmenlogo
+    ├── fenster-fertigung.png  # Bild Fensterfertigung (Leistungskarte)
+    ├── montage-einbau.png     # Bild Montage & Einbau (Leistungskarte)
+    ├── lieferung-logistik.jpg # Bild Lieferung & Logistik (Leistungskarte)
+    └── team-handshake.jpg     # Bild Über uns Section
 ```
 
 ---
@@ -32,12 +34,12 @@ ozdemir-fensterbau/
 
 | Seite | Datei | Beschreibung |
 |-------|-------|--------------|
-| Startseite | `index.html` | Hero mit Hintergrundbild, Leistungsübersicht, Katalog-Teaser, Galerie, CTA |
+| Startseite | `index.html` | Hero, Leistungsübersicht, Über-uns-Teaser, ROI-Rechner, Projekt-Timeline, Referenzen, CTA |
 | Über uns | `ueber-uns.html` | Unternehmensstory, Team, Werte, Zertifizierungen |
-| Leistungen | `leistungen.html` | 6 Leistungsbereiche im Detail mit Fotos |
-| Portfolio | `portfolio.html` | Referenzprojekte, Bildergalerie mit Lightbox |
-| Kontakt | `kontakt.html` | Kontaktformular, Standort (Google Maps), FAQ |
-| Katalog | `katalog.html` | Produktkatalog mit Filterung nach Kategorien |
+| Leistungen | `leistungen.html` | 6 Leistungsbereiche im Detail |
+| Sortiment | `sortiment.html` | Produktkatalog mit Filterung (Kunststoff, Holz, Alu, Hebe-Schiebe) |
+| Kontakt | `kontakt.html` | Kontaktformular, Standort (Google Maps) |
+| Katalog | `katalog.html` | Erweiterter Produktkatalog |
 | Datenschutz | `datenschutz.html` | DSGVO-Datenschutzerklärung |
 | Impressum | `impressum.html` | Impressum gemäß §5 TMG |
 
@@ -45,12 +47,13 @@ ozdemir-fensterbau/
 
 ## Features
 
-- **Filterbarer Katalog** – Kunststoff, Holz, Alu, Hebe-Schiebe, Türen, Sonderlösungen
-- **Bildergalerie & Lightbox** – Portfolio-Bilder mit Klick-Vergrößerung
-- **Kontaktformular** – Mit Validierung und Erfolgsanzeige
-- **Google Maps** – Standorteinbettung auf der Kontaktseite
-- **Scroll-Animationen** – Fade-in via IntersectionObserver
+- **ROI-Rechner** – Interaktiver Energieeinsparungs-Rechner (Fenstertyp, Heizkosten, Fläche → jährliche Ersparnis, CO₂, Amortisation)
+- **Projekt-Timeline** – 6-stufige visuelle Darstellung des Auftragsprozesses
+- **Filterbarer Katalog** – Kunststoff, Holz, Alu, Hebe-Schiebe
+- **Leistungskarten mit Bildhintergrund** – Fenster-Fertigung, Montage & Einbau, Lieferung & Logistik mit echten Fotos
+- **Hero-Karten-Animation** – Sanfte Breathing-Animation auf der „Unsere Stärken"-Karte
 - **Counter-Animation** – Zahlen zählen beim Einblenden hoch
+- **Fade-in on Scroll** – Karten und Galerie-Items via IntersectionObserver
 - **Responsives Design** – Mobile-first, Hamburger-Menü ab 768px
 - **SEO-Optimiert** – Meta-Tags, OG-Tags, Canonical-Links
 - **Scroll-to-Top Button** – Erscheint ab 400px Scrolltiefe
@@ -62,31 +65,29 @@ ozdemir-fensterbau/
 | Eigenschaft | Wert |
 |-------------|------|
 | Font | Inter (Google Fonts) |
-| Primärfarbe | `#1B4F8A` |
-| Primär-Dunkel | `#0D2E5A` |
-| Akzentfarbe | `#4B8FD4` |
-| Hintergrund | `#F4F7FB` |
+| Primärfarbe | `#0f172a` (Near-Black) |
+| Akzentfarbe | `#2563eb` (Clean Blue) |
+| Hintergrund | `#ffffff` / `#f8fafc` |
+| Stil | Minimalistisch, OpenAI-inspiriert |
 | Zielgruppe | B2B (Bauunternehmen, Architekten, Projektentwickler) |
 
 ### Header
-- Startet transparent (über dunklen Hero-Sections)
-- Blendet beim Scrollen mit Frosted-Glass-Effekt ein (`rgba(255,255,255,0.85)` + `backdrop-filter: blur`)
-- „Anfrage stellen"-Button pill-förmig mit Shimmer-Animation
-
-### Animationen
-- Hero-Karte „Unsere Stärken": sanfte Breathing-Animation (scale)
-- Shimmer-Effekt auf dem Header-CTA-Button
-- Fade-in on Scroll für Karten und Galerie-Items
+- Startet transparent über dem dunklen Hero
+- Blendet beim Scrollen mit Frosted-Glass-Effekt ein (`backdrop-filter: blur(20px)`)
+- Höhe: 68px (kompakt)
 
 ---
 
-## Team (Über uns)
+## ROI-Rechner – Berechnungsgrundlage
 
-| Name | Position |
-|------|----------|
-| Mehmet Özdemir | Geschäftsführer & Gründer |
-| Cem Özdemir | Technischer Leiter |
-| Cevat Özdemir | Vertrieb & Kundenbetreuung |
+| Fenstertyp | Einsparfaktor | Basis |
+|---|---|---|
+| Einfachverglasung (vor 1990) | 17 % der Heizkosten | Uw ≈ 4,5 → 0,7, ~85 % Reduktion × 20 % Fensteranteil |
+| Doppelverglasung (1990–2010) | 12 % | Uw ≈ 2,8 → 0,7, ~75 % Reduktion × 20 % Fensteranteil |
+| Doppelverglasung (nach 2010) | 5 % | Uw ≈ 1,4 → 0,7, ~50 % Reduktion × 20 % Fensteranteil |
+| Investition pro Fenster | 600 € | Marktpreis inkl. Montage |
+| CO₂-Faktor | 0,201 kg/kWh | Erdgas (Umweltbundesamt) |
+| Gaspreis Annahme | 0,10 €/kWh | Durchschnitt Gewerbe |
 
 ---
 
@@ -94,16 +95,14 @@ ozdemir-fensterbau/
 
 ```bash
 cd ozdemir-fensterbau
-python3 -m http.server 8081
+python3 -m http.server 3333
 ```
 
-Dann im Browser öffnen: [http://localhost:8081](http://localhost:8081)
+Dann im Browser öffnen: [http://localhost:3333](http://localhost:3333)
 
 ---
 
 ## Vor Veröffentlichung ausfüllen
-
-Folgende Platzhalter müssen vor dem Go-Live mit echten Daten ersetzt werden:
 
 - [ ] Adresse (`Musterstraße 12, 30159 Hannover`)
 - [ ] Telefonnummer (`+49 511 123 456 78`)
@@ -112,7 +111,7 @@ Folgende Platzhalter müssen vor dem Go-Live mit echten Daten ersetzt werden:
 - [ ] Umsatzsteuer-ID (`DE XXXXXXXXX`)
 - [ ] Google Maps Embed-URL (echte Adresse)
 - [ ] Produktbilder im Katalog (echte Fotos)
-- [ ] Galerie-Bilder im Portfolio (echte Projektfotos)
+- [ ] Galerie-Bilder (echte Projektfotos)
 
 ---
 
@@ -122,4 +121,3 @@ Folgende Platzhalter müssen vor dem Go-Live mit echten Daten ersetzt werden:
 - CSS3 (Custom Properties, Grid, Flexbox, backdrop-filter)
 - Vanilla JavaScript (ES6+)
 - Google Fonts – Inter
-- Unsplash (Platzhalter-Bilder für Hero-Sections)
