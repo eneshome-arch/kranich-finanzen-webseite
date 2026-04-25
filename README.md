@@ -21,7 +21,9 @@ ozdemir-fensterbau/
 ├── js/
 │   └── main.js         # Interaktivität & Animationen
 └── images/
-    └── logo.png        # Firmenlogo
+    ├── logo.png        # Firmenlogo
+    ├── hero-bg.jpg     # Hero-Hintergrundbild Startseite
+    └── montage.jpg     # Bild Profimontage (Leistungen-Seite)
 ```
 
 ---
@@ -30,9 +32,9 @@ ozdemir-fensterbau/
 
 | Seite | Datei | Beschreibung |
 |-------|-------|--------------|
-| Startseite | `index.html` | Hero, Leistungsübersicht, Katalog-Teaser, Galerie, CTA |
+| Startseite | `index.html` | Hero mit Hintergrundbild, Leistungsübersicht, Katalog-Teaser, Galerie, CTA |
 | Über uns | `ueber-uns.html` | Unternehmensstory, Team, Werte, Zertifizierungen |
-| Leistungen | `leistungen.html` | 6 Leistungsbereiche im Detail |
+| Leistungen | `leistungen.html` | 6 Leistungsbereiche im Detail mit Fotos |
 | Portfolio | `portfolio.html` | Referenzprojekte, Bildergalerie mit Lightbox |
 | Kontakt | `kontakt.html` | Kontaktformular, Standort (Google Maps), FAQ |
 | Katalog | `katalog.html` | Produktkatalog mit Filterung nach Kategorien |
@@ -66,6 +68,26 @@ ozdemir-fensterbau/
 | Hintergrund | `#F4F7FB` |
 | Zielgruppe | B2B (Bauunternehmen, Architekten, Projektentwickler) |
 
+### Header
+- Startet transparent (über dunklen Hero-Sections)
+- Blendet beim Scrollen mit Frosted-Glass-Effekt ein (`rgba(255,255,255,0.85)` + `backdrop-filter: blur`)
+- „Anfrage stellen"-Button pill-förmig mit Shimmer-Animation
+
+### Animationen
+- Hero-Karte „Unsere Stärken": sanfte Breathing-Animation (scale)
+- Shimmer-Effekt auf dem Header-CTA-Button
+- Fade-in on Scroll für Karten und Galerie-Items
+
+---
+
+## Team (Über uns)
+
+| Name | Position |
+|------|----------|
+| Mehmet Özdemir | Geschäftsführer & Gründer |
+| Cem Özdemir | Technischer Leiter |
+| Cevat Özdemir | Vertrieb & Kundenbetreuung |
+
 ---
 
 ## Lokal starten
@@ -97,7 +119,7 @@ Folgende Platzhalter müssen vor dem Go-Live mit echten Daten ersetzt werden:
 ## Technologien
 
 - HTML5
-- CSS3 (Custom Properties, Grid, Flexbox)
+- CSS3 (Custom Properties, Grid, Flexbox, backdrop-filter)
 - Vanilla JavaScript (ES6+)
 - Google Fonts – Inter
-- Unsplash (Platzhalter-Bilder)
+- Unsplash (Platzhalter-Bilder für Hero-Sections)
