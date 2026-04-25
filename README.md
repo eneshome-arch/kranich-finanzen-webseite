@@ -22,6 +22,7 @@ ozdemir-fensterbau/
 │   └── main.js         # Interaktivität & Animationen
 └── images/
     ├── logo.png               # Firmenlogo
+    ├── hero-bg.jpg            # Hero-Hintergrundbild (Gebäudefassade mit Fenstern)
     ├── fenster-fertigung.png  # Bild Fensterfertigung (Leistungskarte)
     ├── montage-einbau.png     # Bild Montage & Einbau (Leistungskarte)
     ├── lieferung-logistik.jpg # Bild Lieferung & Logistik (Leistungskarte)
@@ -34,7 +35,7 @@ ozdemir-fensterbau/
 
 | Seite | Datei | Beschreibung |
 |-------|-------|--------------|
-| Startseite | `index.html` | Hero, Leistungsübersicht, Über-uns-Teaser, ROI-Rechner, Projekt-Timeline, Referenzen, CTA |
+| Startseite | `index.html` | Hero, Leistungsübersicht, Über-uns-Teaser, Vorteile-Grid, ROI-Rechner, Projekt-Timeline, CTA |
 | Über uns | `ueber-uns.html` | Unternehmensstory, Team, Werte, Zertifizierungen |
 | Leistungen | `leistungen.html` | 6 Leistungsbereiche im Detail |
 | Sortiment | `sortiment.html` | Produktkatalog mit Filterung (Kunststoff, Holz, Alu, Hebe-Schiebe) |
@@ -47,11 +48,14 @@ ozdemir-fensterbau/
 
 ## Features
 
+- **Hero mit Ken-Burns-Animation** – Hintergrundbild zoomt und driftet sanft (22s, alternate), 98%-Overlay
 - **ROI-Rechner** – Interaktiver Energieeinsparungs-Rechner (Fenstertyp, Heizkosten, Fläche → jährliche Ersparnis, CO₂, Amortisation)
 - **Projekt-Timeline** – 6-stufige visuelle Darstellung des Auftragsprozesses
+- **Vorteile-Grid** – 6 Karten auf dunklem Hintergrund ("Warum Profis auf uns setzen")
 - **Filterbarer Katalog** – Kunststoff, Holz, Alu, Hebe-Schiebe
-- **Leistungskarten mit Bildhintergrund** – Fenster-Fertigung, Montage & Einbau, Lieferung & Logistik mit echten Fotos
-- **Hero-Karten-Animation** – Sanfte Breathing-Animation auf der „Unsere Stärken"-Karte
+- **Leistungskarten mit Bildhintergrund** – Fenster-Fertigung, Montage & Einbau, Lieferung & Logistik
+- **Trust Bar** – 5 konkrete Vertrauenssignale unterhalb des Heroes
+- **Rechner-Button im Header** – Direktlink zum ROI-Rechner
 - **Counter-Animation** – Zahlen zählen beim Einblenden hoch
 - **Fade-in on Scroll** – Karten und Galerie-Items via IntersectionObserver
 - **Responsives Design** – Mobile-first, Hamburger-Menü ab 768px
@@ -64,17 +68,36 @@ ozdemir-fensterbau/
 
 | Eigenschaft | Wert |
 |-------------|------|
-| Font | Inter (Google Fonts) |
+| Body-Font | Inter (Google Fonts) |
+| Heading-Font | System Font Stack (`-apple-system, BlinkMacSystemFont, SF Pro Display`) |
 | Primärfarbe | `#0f172a` (Near-Black) |
 | Akzentfarbe | `#2563eb` (Clean Blue) |
 | Hintergrund | `#ffffff` / `#f8fafc` |
-| Stil | Minimalistisch, OpenAI-inspiriert |
+| Stil | Minimalistisch, Apple/OpenAI-inspiriert |
 | Zielgruppe | B2B (Bauunternehmen, Architekten, Projektentwickler) |
 
 ### Header
 - Startet transparent über dem dunklen Hero
 - Blendet beim Scrollen mit Frosted-Glass-Effekt ein (`backdrop-filter: blur(20px)`)
 - Höhe: 68px (kompakt)
+- Enthält: Logo, Navigation, Telefon, Rechner-Button, Anfrage-Button
+
+### Hero
+- Vollbild-Hintergrundbild mit Ken-Burns-Animation (langsamer Zoom + Drift)
+- 98%-Overlay für maximale Lesbarkeit bei subtiler Bildwirkung
+- Zentriertes Layout (einspaltig), großer Headline-Block
+- Headline: "FENSTER. TÜREN. FÜR PROFIS."
+
+### Seitenstruktur (Startseite)
+1. Hero (dark)
+2. Trust Bar (light)
+3. Leistungen (white)
+4. Über uns (light, `#f8fafc`)
+5. Vorteile-Grid (dark)
+6. ROI-Rechner (white)
+7. Projekt-Timeline (light)
+8. CTA (dark)
+9. Footer (dark)
 
 ---
 
@@ -112,12 +135,13 @@ Dann im Browser öffnen: [http://localhost:3333](http://localhost:3333)
 - [ ] Google Maps Embed-URL (echte Adresse)
 - [ ] Produktbilder im Katalog (echte Fotos)
 - [ ] Galerie-Bilder (echte Projektfotos)
+- [ ] Gründungsjahr prüfen (aktuell: 2009)
 
 ---
 
 ## Technologien
 
 - HTML5
-- CSS3 (Custom Properties, Grid, Flexbox, backdrop-filter)
+- CSS3 (Custom Properties, Grid, Flexbox, backdrop-filter, CSS Animations)
 - Vanilla JavaScript (ES6+)
 - Google Fonts – Inter
