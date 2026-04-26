@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt – Özdemir Fensterbau</title>
-  <meta name="description" content="Kontaktieren Sie Özdemir Fensterbau für Anfragen, Angebote und Beratung. Wir melden uns innerhalb von 24 Stunden.">
+  <meta name="description" content="Anfrage stellen, Angebot einholen oder direkt anrufen – wir antworten innerhalb von 24 Stunden. Özdemir Fensterbau, Hannover.">
   <meta name="robots" content="index, follow">
-  <link rel="stylesheet" href="css/style.css?v=10">
+  <link rel="canonical" href="https://ozdemir-fensterbau.de/kontakt.html">
+  <link rel="stylesheet" href="css/style.css?v=31">
   <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
@@ -23,12 +24,16 @@
         <li><a href="ueber-uns.html">Über uns</a></li>
         <li><a href="leistungen.html">Leistungen</a></li>
         <li><a href="sortiment.html">Sortiment</a></li>
-        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="kontakt.html" class="active">Kontakt</a></li>
       </ul>
       <div class="nav-cta">
         <a href="tel:+4951112345678" class="nav-phone">
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.14 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           +49 511 123 456 78
+        </a>
+        <a href="index.html#rechner" class="nav-calc" title="Einsparpotenzial berechnen">
+          <svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="14" y1="18" x2="16" y2="18"/></svg>
+          <span>Rechner</span>
         </a>
         <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
       </div>
@@ -40,19 +45,21 @@
     <a href="ueber-uns.html">Über uns</a>
     <a href="leistungen.html">Leistungen</a>
     <a href="sortiment.html">Sortiment</a>
-    <a href="kontakt.html">Kontakt</a>
+    <a href="kontakt.html" class="active">Kontakt</a>
+    <hr>
+    <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
   </div>
 </header>
 
-<section class="page-hero"><div class="page-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80');"></div><div class="page-hero-overlay"></div>
+<section class="page-hero">
   <div class="container page-hero-inner">
     <div class="breadcrumb">
       <a href="index.html">Startseite</a>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
       <span>Kontakt</span>
     </div>
-    <h1>KONTAKT &amp; <span style="color:var(--accent);">ANFRAGE</span></h1>
-    <p>Wir melden uns innerhalb von 24 Stunden bei Ihnen. Nutzen Sie unser Formular oder kontaktieren Sie uns direkt.</p>
+    <h1>SPRECHEN WIR<br><span style="color:var(--accent);">ÜBER IHR PROJEKT.</span></h1>
+    <p>Kein Formular-Ping-Pong. Wir lesen Ihre Anfrage, melden uns persönlich – und liefern innerhalb von 24 Stunden ein konkretes Angebot.</p>
   </div>
 </section>
 
@@ -155,12 +162,13 @@
               <option value="beratung">Beratung & Planung</option>
               <option value="service">Service & Wartung</option>
               <option value="katalog">Katalog anfordern</option>
+              <option value="rahmenvertrag">Rahmenvertrag / B2B-Partnerschaft</option>
               <option value="sonstiges">Sonstiges</option>
             </select>
           </div>
           <div class="form-group">
             <label for="nachricht">Nachricht *</label>
-            <textarea id="nachricht" name="nachricht" placeholder="Beschreiben Sie Ihr Projekt oder Ihre Anfrage..." required></textarea>
+            <textarea id="nachricht" name="nachricht" placeholder="Schildern Sie kurz Ihr Projekt – Objekttyp, Stückzahl, gewünschte Materialien, Zeitrahmen..." required></textarea>
           </div>
           <div class="form-check">
             <input type="checkbox" id="datenschutz" name="datenschutz" required>
@@ -173,7 +181,7 @@
             Anfrage absenden
           </button>
           <div id="formSuccess" class="form-success">
-            ✓ Vielen Dank! Ihre Anfrage wurde erfolgreich gesendet. Wir melden uns innerhalb von 24 Stunden.
+            ✓ Vielen Dank – Ihre Anfrage ist eingegangen. Wir melden uns innerhalb von 24 Stunden persönlich bei Ihnen.
           </div>
         </form>
       </div>
@@ -186,44 +194,45 @@
   <div class="container">
     <div class="text-center">
       <span class="badge">— Häufige Fragen</span>
-      <h2 class="section-title">FAQ</h2>
+      <h2 class="section-title">SCHNELLE <span>ANTWORTEN</span></h2>
+      <p class="section-subtitle">Die Fragen, die uns B2B-Kunden am häufigsten stellen – direkt beantwortet.</p>
     </div>
     <div style="max-width:760px;margin:48px auto 0;">
       <div style="border:2px solid var(--border);border-radius:12px;overflow:hidden;">
         <details style="border-bottom:1px solid var(--border);" open>
-          <summary style="padding:20px 24px;cursor:pointer;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:600;font-size:17px;color:var(--primary-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:17px;color:var(--primary-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+            Wie schnell erhalte ich ein Angebot?
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </summary>
+          <p style="padding:0 24px 20px;color:var(--gray);font-size:15px;line-height:1.7;">
+            Innerhalb von 24 Stunden nach Ihrer Anfrage – werktags. Für Großprojekte vereinbaren wir auf Wunsch einen Vor-Ort-Termin zur genauen Aufnahme, bevor das Angebot erstellt wird.
+          </p>
+        </details>
+        <details style="border-bottom:1px solid var(--border);">
+          <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:17px;color:var(--primary-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
             Wie lange dauert die Lieferung?
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <p style="padding:0 24px 20px;color:var(--gray);font-size:15px;line-height:1.7;">
-            Standard-Kunststofffenster liefern wir innerhalb von 3–5 Werktagen. Maßanfertigungen und Sonderprofile benötigen 7–14 Werktage. Bei Großbestellungen stimmen wir Liefertermine individuell ab.
+            Standard-Kunststofffenster liefern wir in 3–5 Werktagen. Maßanfertigungen und Sonderprofile benötigen 7–14 Werktage. Bei Großbestellungen stimmen wir den Lieferrhythmus individuell auf Ihren Bauablauf ab.
           </p>
         </details>
         <details style="border-bottom:1px solid var(--border);">
-          <summary style="padding:20px 24px;cursor:pointer;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:600;font-size:17px;color:var(--primary-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+          <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:17px;color:var(--primary-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
             Bieten Sie Rahmenverträge für B2B-Kunden an?
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <p style="padding:0 24px 20px;color:var(--gray);font-size:15px;line-height:1.7;">
-            Ja, wir arbeiten mit zahlreichen Bauunternehmen und Projektentwicklern auf Basis von Rahmenverträgen. Diese beinhalten feste Konditionen, Abruflieferungen und bevorzugte Bearbeitung.
-          </p>
-        </details>
-        <details style="border-bottom:1px solid var(--border);">
-          <summary style="padding:20px 24px;cursor:pointer;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:600;font-size:17px;color:var(--primary-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
-            Wie erhalte ich ein Angebot?
-            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <p style="padding:0 24px 20px;color:var(--gray);font-size:15px;line-height:1.7;">
-            Senden Sie uns Ihre Anfrage über das Kontaktformular oder rufen Sie uns an. Wir erstellen Ihnen innerhalb von 24 Stunden ein kostenloses und unverbindliches Angebot.
+            Ja. Für Bauunternehmen und Projektentwickler, die regelmäßig bestellen, bieten wir Rahmenverträge mit festen Konditionen, bevorzugter Bearbeitung und Abruflieferungen. Sprechen Sie uns an.
           </p>
         </details>
         <details>
-          <summary style="padding:20px 24px;cursor:pointer;font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:600;font-size:17px;color:var(--primary-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
-            Welche Garantien bieten Sie?
+          <summary style="padding:20px 24px;cursor:pointer;font-weight:600;font-size:17px;color:var(--primary-dark);list-style:none;display:flex;justify-content:space-between;align-items:center;">
+            Welche Garantien erhalte ich?
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <p style="padding:0 24px 20px;color:var(--gray);font-size:15px;line-height:1.7;">
-            Auf alle unsere Produkte gewähren wir 5 Jahre Herstellergarantie. Auf Montageleistungen 2 Jahre. Für zertifizierte Profile gelten die jeweiligen Systemgarantien der Hersteller.
+            5 Jahre Herstellergarantie auf alle Produkte, 2 Jahre auf Montageleistungen. Für zertifizierte Profile gelten zusätzlich die Systemgarantien der jeweiligen Hersteller.
           </p>
         </details>
       </div>
@@ -236,7 +245,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img src="images/logo.png" alt="Özdemir Fensterbau">
-        <p>Ihr zuverlässiger Partner für Fenster, Türen und Fassaden. Qualität, die bleibt.</p>
+        <p>Fenster, Türen und Fassaden – direkt vom Spezialisten. Seit 2009 in Hannover.</p>
         <div class="footer-social">
           <a href="#" aria-label="LinkedIn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
           <a href="#" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
@@ -247,7 +256,7 @@
       <div class="footer-col"><h4>Kontakt</h4><ul class="footer-contact"><li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Musterstraße 12, 30159 Hannover</li><li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.14 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>+49 511 123 456 78</li><li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@ozdemir-fensterbau.de</li></ul></div>
     </div>
     <div class="footer-bottom">
-      <span>© 2024 Özdemir Fensterbau. Alle Rechte vorbehalten.</span>
+      <span>© 2025 Özdemir Fensterbau. Alle Rechte vorbehalten.</span>
       <div class="footer-bottom-links"><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></div>
     </div>
   </div>

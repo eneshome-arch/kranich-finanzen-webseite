@@ -11,7 +11,7 @@
   <meta property="og:description" content="Hochwertige Fenster, Türen und Fassaden für Bauunternehmen, Architekten und Projektentwickler.">
   <meta property="og:type" content="website">
   <link rel="canonical" href="https://www.ozdemir-fensterbau.de/">
-  <link rel="stylesheet" href="css/style.css?v=21">
+  <link rel="stylesheet" href="css/style.css?v=31">
   <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
@@ -28,7 +28,7 @@
         </div>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html">Startseite</a></li>
+        <li><a href="index.html" class="active">Startseite</a></li>
         <li><a href="ueber-uns.html">Über uns</a></li>
         <li><a href="leistungen.html">Leistungen</a></li>
         <li><a href="sortiment.html">Sortiment</a></li>
@@ -49,12 +49,13 @@
     </nav>
   </div>
   <div class="mobile-menu">
-    <a href="index.html">Startseite</a>
+    <a href="index.html" class="active">Startseite</a>
     <a href="ueber-uns.html">Über uns</a>
     <a href="leistungen.html">Leistungen</a>
     <a href="sortiment.html">Sortiment</a>
     <a href="kontakt.html">Kontakt</a>
-    <a href="kontakt.html" class="btn btn-primary" style="margin-top:16px;display:inline-flex;">Anfrage stellen</a>
+    <hr>
+    <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
   </div>
 </header>
 
@@ -134,10 +135,12 @@
           <p style="color:rgba(255,255,255,0.85);">Professioneller Einbau durch erfahrene Fachkräfte – termin- und qualitätsgerecht auf jeder Baustelle.</p>
         </div>
       </div>
-      <div class="leistung-card">
-        <div class="leistung-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
-        <h3>Fassadensysteme</h3>
-        <p>Moderne Fassadenlösungen mit Wärmedämmung und Schallschutz für Wohn- und Gewerbebau.</p>
+      <div class="leistung-card leistung-card--img-bg" style="background-image: url('images/fassade-bg.jpg');">
+        <div class="leistung-card-overlay">
+          <div class="leistung-icon leistung-icon--light"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+          <h3 style="color:#fff;">Fassadensysteme</h3>
+          <p style="color:rgba(255,255,255,0.85);">Moderne Fassadenlösungen mit Wärmedämmung und Schallschutz für Wohn- und Gewerbebau.</p>
+        </div>
       </div>
       <div class="leistung-card leistung-card--img-bg" style="background-image: url('images/lieferung-logistik.jpg');">
         <div class="leistung-card-overlay">
@@ -146,15 +149,19 @@
           <p style="color:rgba(255,255,255,0.85);">Termintreue Lieferung direkt auf die Baustelle – zuverlässig, flexibel und deutschlandweit.</p>
         </div>
       </div>
-      <div class="leistung-card">
-        <div class="leistung-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-        <h3>Beratung & Planung</h3>
-        <p>Individuelle Beratung für Architekten, Bauträger und Generalunternehmer mit technischer Detailplanung.</p>
+      <div class="leistung-card leistung-card--img-bg" style="background-image: url('images/beratung-planung.jpg');">
+        <div class="leistung-card-overlay">
+          <div class="leistung-icon leistung-icon--light"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+          <h3 style="color:#fff;">Beratung & Planung</h3>
+          <p style="color:rgba(255,255,255,0.85);">Individuelle Beratung für Architekten, Bauträger und Generalunternehmer mit technischer Detailplanung.</p>
+        </div>
       </div>
-      <div class="leistung-card">
-        <div class="leistung-icon"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
-        <h3>Service & Wartung</h3>
-        <p>Langfristiger After-Sales-Service, Wartungsverträge und schnelle Reparatur – für maximale Betriebssicherheit.</p>
+      <div class="leistung-card leistung-card--img-bg" style="background-image: url('images/service-wartung.jpg');">
+        <div class="leistung-card-overlay">
+          <div class="leistung-icon leistung-icon--light"><svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg></div>
+          <h3 style="color:#fff;">Service & Wartung</h3>
+          <p style="color:rgba(255,255,255,0.85);">Langfristiger After-Sales-Service, Wartungsverträge und schnelle Reparatur – für maximale Betriebssicherheit.</p>
+        </div>
       </div>
     </div>
     <div class="text-center" style="margin-top:48px;">

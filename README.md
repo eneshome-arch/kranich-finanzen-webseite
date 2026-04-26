@@ -17,29 +17,31 @@ ozdemir-fensterbau/
 ├── datenschutz.html    # Datenschutzerklärung (DSGVO)
 ├── impressum.html      # Impressum (§5 TMG)
 ├── css/
-│   └── style.css       # Gesamtes Styling
+│   └── style.css       # Gesamtes Styling (v31)
 ├── js/
 │   └── main.js         # Interaktivität & Animationen
 └── images/
-    ├── logo.png               # Firmenlogo
-    ├── hero-bg.jpg            # Hero-Hintergrundbild (Gebäudefassade mit Fenstern)
-    ├── fenster-fertigung.png  # Bild Fensterfertigung (Leistungskarte)
-    ├── montage-einbau.png     # Bild Montage & Einbau (Leistungskarte)
-    ├── lieferung-logistik.jpg # Bild Lieferung & Logistik (Leistungskarte)
-    └── team-handshake.jpg     # Bild Über uns Section
+    ├── logo.png                # Firmenlogo
+    ├── hero-bg.jpg             # Hero-Hintergrundbild (Gebäudefassade)
+    ├── fenster-fertigung.png   # Leistungskarte: Fenster-Fertigung
+    ├── montage-einbau.png      # Leistungskarte: Montage & Einbau
+    ├── lieferung-logistik.jpg  # Leistungskarte: Lieferung & Logistik
+    ├── fassade-bg.jpg          # Leistungskarte: Fassadensysteme
+    ├── beratung-planung.jpg    # Leistungskarte: Beratung & Planung
+    └── service-wartung.jpg     # Leistungskarte: Service & Wartung
 ```
 
 ---
 
 ## Seiten
 
-| Seite | Datei | Beschreibung |
-|-------|-------|--------------|
-| Startseite | `index.html` | Hero, Leistungsübersicht, Über-uns-Teaser, Vorteile-Grid, ROI-Rechner, Projekt-Timeline, CTA |
-| Über uns | `ueber-uns.html` | Unternehmensstory, Team, Werte, Zertifizierungen |
-| Leistungen | `leistungen.html` | 6 Leistungsbereiche im Detail |
-| Sortiment | `sortiment.html` | Produktkatalog mit Filterung (Kunststoff, Holz, Alu, Hebe-Schiebe) |
-| Kontakt | `kontakt.html` | Kontaktformular, Standort (Google Maps) |
+| Seite | Datei | Headline |
+|-------|-------|----------|
+| Startseite | `index.html` | FENSTER. TÜREN. FÜR PROFIS. |
+| Über uns | `ueber-uns.html` | KEIN MITTELSMANN. DIREKT VOM PROFI. |
+| Leistungen | `leistungen.html` | SECHS LEISTUNGEN. EIN ANSPRECHPARTNER. |
+| Sortiment | `sortiment.html` | ALLE SYSTEME. EIN PARTNER. |
+| Kontakt | `kontakt.html` | SPRECHEN WIR ÜBER IHR PROJEKT. |
 | Katalog | `katalog.html` | Erweiterter Produktkatalog |
 | Datenschutz | `datenschutz.html` | DSGVO-Datenschutzerklärung |
 | Impressum | `impressum.html` | Impressum gemäß §5 TMG |
@@ -49,16 +51,19 @@ ozdemir-fensterbau/
 ## Features
 
 - **Hero mit Ken-Burns-Animation** – Hintergrundbild zoomt und driftet sanft (22s, alternate), 98%-Overlay
+- **Leistungskarten mit Bildhintergrund** – Alle 6 Karten (Fenster-Fertigung, Montage, Lieferung, Fassade, Beratung, Service) mit eigenen Hintergrundbildern, kein Bild doppelt verwendet
 - **ROI-Rechner** – Interaktiver Energieeinsparungs-Rechner (Fenstertyp, Heizkosten, Fläche → jährliche Ersparnis, CO₂, Amortisation)
 - **Projekt-Timeline** – 6-stufige visuelle Darstellung des Auftragsprozesses
-- **Vorteile-Grid** – 6 Karten auf dunklem Hintergrund ("Warum Profis auf uns setzen")
+- **Vorteile-Grid** – 6 Karten auf dunklem Hintergrund
 - **Filterbarer Katalog** – Kunststoff, Holz, Alu, Hebe-Schiebe
-- **Leistungskarten mit Bildhintergrund** – Fenster-Fertigung, Montage & Einbau, Lieferung & Logistik
+- **Schwebedropdown-Menü** – Floating-Dropdown auf Mobile (position: absolute, border-radius, box-shadow), mit aktivem Seitenindikator (blau)
+- **Aktiver Navlink** – Aktuelle Seite in Desktop-Nav und Mobile-Dropdown blau markiert
 - **Trust Bar** – 5 konkrete Vertrauenssignale unterhalb des Heroes
 - **Rechner-Button im Header** – Direktlink zum ROI-Rechner
 - **Counter-Animation** – Zahlen zählen beim Einblenden hoch
 - **Fade-in on Scroll** – Karten und Galerie-Items via IntersectionObserver
-- **Responsives Design** – Mobile-first, Hamburger-Menü ab 768px
+- **Vollständig responsives Design** – 6 Breakpoints (1200 / 1100 / 1024 / 900 / 768 / 480 / 380px), kein horizontaler Overflow
+- **Frosted-Glass-Header** – Startet transparent, blendet beim Scrollen mit `backdrop-filter: blur(20px)` ein
 - **SEO-Optimiert** – Meta-Tags, OG-Tags, Canonical-Links
 - **Scroll-to-Top Button** – Erscheint ab 400px Scrolltiefe
 
@@ -80,18 +85,25 @@ ozdemir-fensterbau/
 - Startet transparent über dem dunklen Hero
 - Blendet beim Scrollen mit Frosted-Glass-Effekt ein (`backdrop-filter: blur(20px)`)
 - Höhe: 68px (kompakt)
-- Enthält: Logo, Navigation, Telefon, Rechner-Button, Anfrage-Button
+- Desktop: Logo · Navigation · Telefon · Rechner-Button · Anfrage-Button
+- Mobile: Logo · Hamburger → Schwebendes Dropdown-Menü mit aktivem Seitenindikator
 
-### Hero
-- Vollbild-Hintergrundbild mit Ken-Burns-Animation (langsamer Zoom + Drift)
-- 98%-Overlay für maximale Lesbarkeit bei subtiler Bildwirkung
-- Zentriertes Layout (einspaltig), großer Headline-Block
-- Headline: "FENSTER. TÜREN. FÜR PROFIS."
+### Responsive Breakpoints
+
+| Breakpoint | Änderungen |
+|-----------|-----------|
+| ≤ 1200px | Nav-Links enger |
+| ≤ 1100px | Telefonnummer ausgeblendet, Benefits 2-spaltig |
+| ≤ 1024px | Tablet-Layout, 2-spaltige Grids, Kontakt 1-spaltig |
+| ≤ 900px | Rechner-Button ausgeblendet, Leistungen 1-spaltig |
+| ≤ 768px | Vollständig mobil: Hamburger-Menü, 1-spaltige Layouts |
+| ≤ 480px | Kleines Mobil: kleinere Schriften, gestapelte Buttons |
+| ≤ 380px | Sehr kleines Mobil: minimalste Abstände |
 
 ### Seitenstruktur (Startseite)
 1. Hero (dark)
 2. Trust Bar (light)
-3. Leistungen (white)
+3. Leistungen mit Bildhintergründen (white)
 4. Über uns (light, `#f8fafc`)
 5. Vorteile-Grid (dark)
 6. ROI-Rechner (white)
@@ -142,6 +154,6 @@ Dann im Browser öffnen: [http://localhost:3333](http://localhost:3333)
 ## Technologien
 
 - HTML5
-- CSS3 (Custom Properties, Grid, Flexbox, backdrop-filter, CSS Animations)
+- CSS3 (Custom Properties, Grid, Flexbox, clamp(), backdrop-filter, CSS Animations, svh-Unit)
 - Vanilla JavaScript (ES6+)
 - Google Fonts – Inter
