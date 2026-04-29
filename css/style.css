@@ -49,9 +49,29 @@
   --text:         #0f172a;
   --border:       #e2e8f0;
   --shadow-sm:    0 1px 2px rgba(0,0,0,0.05);
-  --shadow:       0 4px 16px rgba(0,0,0,0.08);
+  --shadow:       0 4px 20px rgba(0,0,0,0.08);
+  --shadow-hover: 0 8px 28px rgba(37,99,235,0.14);
   --radius:       8px;
+  --radius-btn:   100px;
+  --radius-card:  14px;
   --transition:   0.2s ease;
+  /* Blob-Dekoration (HannoHyp-Stil) */
+  --blobs-a:
+    radial-gradient(circle 310px at calc(100% + 90px) 42%, rgba(37,99,235,0.09) 99.5%, transparent 100%),
+    radial-gradient(circle 210px at calc(100% - 10px) 70%, rgba(37,99,235,0.065) 99.5%, transparent 100%);
+  --blobs-b:
+    radial-gradient(circle 250px at -85px 62%, rgba(37,99,235,0.08) 99.5%, transparent 100%),
+    radial-gradient(circle 140px at  55px 26%, rgba(37,99,235,0.07) 99.5%, transparent 100%),
+    radial-gradient(circle  72px at 115px 50%, rgba(37,99,235,0.06) 99.5%, transparent 100%),
+    radial-gradient(circle  46px at 152px 70%, rgba(37,99,235,0.06) 99.5%, transparent 100%);
+  --blobs-a-dark:
+    radial-gradient(circle 310px at calc(100% + 90px) 42%, rgba(147,197,253,0.10) 99.5%, transparent 100%),
+    radial-gradient(circle 210px at calc(100% - 10px) 70%, rgba(147,197,253,0.075) 99.5%, transparent 100%);
+  --blobs-b-dark:
+    radial-gradient(circle 250px at -85px 62%, rgba(147,197,253,0.10) 99.5%, transparent 100%),
+    radial-gradient(circle 140px at  55px 26%, rgba(147,197,253,0.08) 99.5%, transparent 100%),
+    radial-gradient(circle  72px at 115px 50%, rgba(147,197,253,0.07) 99.5%, transparent 100%),
+    radial-gradient(circle  46px at 152px 70%, rgba(147,197,253,0.07) 99.5%, transparent 100%);
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -64,8 +84,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 
 /* ── UTILITIES ─────────────────────────────── */
 .container { max-width: 1160px; margin: 0 auto; padding: 0 32px; }
-.section    { padding: 112px 0; }
-.section-sm { padding: 72px 0; }
+.section    { padding: 112px 0; background-image: var(--blobs-a); }
+.section-sm { padding: 72px 0;  background-image: var(--blobs-a); }
 
 .badge {
   display: inline-block;
@@ -77,8 +97,18 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   margin-bottom: 16px;
 }
 
-.section-title { font-size: clamp(28px, 3.5vw, 48px); color: var(--text); margin-bottom: 16px; }
+.section-title { font-size: clamp(28px, 3.5vw, 48px); color: var(--text); margin-bottom: 20px; }
 .section-title span { color: var(--accent); }
+.section-title::after {
+  content: '';
+  display: block;
+  width: 44px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+  margin-top: 18px;
+}
+.text-center .section-title::after { margin-left: auto; margin-right: auto; }
 .section-subtitle { font-size: 17px; color: var(--gray); max-width: 540px; line-height: 1.75; font-weight: 400; }
 .text-center { text-align: center; }
 .text-center .section-subtitle { margin: 0 auto; }
@@ -89,7 +119,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  border-radius: var(--radius);
+  border-radius: var(--radius-btn);
   font-weight: 500;
   font-size: 14px;
   border: 1px solid transparent;
@@ -127,17 +157,21 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 /* ── HEADER / NAV ──────────────────────────── */
 #header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 16px; left: 16px; right: 16px;
   z-index: 1000;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  transition: background 0.3s ease, border-color 0.3s ease;
+  background: rgba(15,23,42,0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 #header.scrolled {
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.94);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom-color: var(--border);
+  border-color: rgba(0,0,0,0.06);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
 
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
@@ -164,7 +198,6 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 
 .nav-cta { display: flex; align-items: center; gap: 12px; }
 .nav-cta .btn {
-  border-radius: 6px;
   padding: 8px 18px;
   font-size: 13px;
 }
@@ -174,7 +207,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   color: rgba(255,255,255,0.7);
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.12);
-  padding: 6px 12px; border-radius: 6px;
+  padding: 6px 14px; border-radius: 100px;
   transition: all 0.2s ease;
 }
 .nav-calc:hover { background: rgba(255,255,255,0.14); color: var(--white); }
@@ -199,9 +232,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .mobile-menu {
   display: none;
   position: absolute;
-  top: 68px;
-  left: 16px;
-  right: 16px;
+  top: 76px;
+  left: 0;
+  right: 0;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 12px;
@@ -232,6 +265,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .hero {
   min-height: 100vh;
   background-color: var(--primary-dark);
+  background-image: var(--blobs-a-dark);
   display: flex;
   align-items: center;
   padding-top: 90px;
@@ -327,7 +361,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .trust-item svg { color: var(--accent); }
 
 /* ── STATS STRIP ───────────────────────────── */
-.stats-strip { background: var(--primary-dark); padding: 72px 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
+.stats-strip { background: var(--primary-dark); background-image: var(--blobs-a-dark); padding: 72px 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
 .stats-strip-inner { display: grid; grid-template-columns: repeat(4, 1fr); }
 .stats-strip-item { text-align: center; padding: 0 24px; border-right: 1px solid rgba(255,255,255,0.07); }
 .stats-strip-item:last-child { border-right: none; }
@@ -335,7 +369,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .stats-strip-item span { font-size: 13px; color: rgba(255,255,255,0.35); letter-spacing: 0.03em; text-transform: uppercase; }
 
 /* ── VORTEILE / BENEFITS ───────────────────── */
-.vorteile-section { background: var(--primary-dark); }
+.vorteile-section { background: var(--primary-dark); background-image: var(--blobs-b-dark); }
+.vorteile-section .section-title::after { background: rgba(255,255,255,0.25); }
+
 .badge--light { color: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); }
 .benefits-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.07); border-radius: var(--radius); overflow: hidden; margin-top: 64px; }
 .benefit-card { background: rgba(255,255,255,0.02); padding: 40px 32px; transition: background var(--transition); }
@@ -350,11 +386,11 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .leistung-card {
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-card);
   padding: 32px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
-.leistung-card:hover { border-color: #cbd5e1; box-shadow: var(--shadow); }
+.leistung-card:hover { border-color: #cbd5e1; box-shadow: var(--shadow-hover); transform: translateY(-3px); }
 
 .leistung-icon { width: 48px; height: 48px; background: var(--light); border: 1px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--accent); margin-bottom: 20px; }
 .leistung-card h3 { font-size: 17px; color: var(--text); margin-bottom: 10px; font-weight: 600; }
@@ -364,12 +400,12 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .leistung-icon--light { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.15); color: var(--white); }
 
 /* ── KATALOG / FENSTER ─────────────────────── */
-.katalog-section { background: var(--light); }
+.katalog-section { background: var(--light); background-image: var(--blobs-b); }
 
 .katalog-filter { display: flex; gap: 8px; flex-wrap: wrap; margin: 40px 0 32px; }
 .filter-btn {
   padding: 8px 18px; border: 1px solid var(--border); background: var(--white);
-  border-radius: 6px; font-weight: 500; font-size: 13px;
+  border-radius: 100px; font-weight: 500; font-size: 13px;
   cursor: pointer; transition: var(--transition); color: var(--gray);
 }
 .filter-btn:hover { border-color: #94a3b8; color: var(--text); }
@@ -377,8 +413,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 
 .katalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
 
-.katalog-item { background: var(--white); border-radius: 10px; overflow: hidden; border: 1px solid var(--border); transition: box-shadow 0.2s ease; }
-.katalog-item:hover { box-shadow: var(--shadow); }
+.katalog-item { background: var(--white); border-radius: var(--radius-card); overflow: hidden; border: 1px solid var(--border); transition: box-shadow 0.2s ease, transform 0.2s ease; }
+.katalog-item:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
 
 .katalog-img { height: 200px; background: var(--light); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
 .katalog-img svg { width: 64px; height: 64px; color: var(--border); }
@@ -450,7 +486,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .map-embed { margin-top: 32px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); }
 .map-embed iframe { display: block; width: 100%; height: 240px; }
 
-.kontakt-form { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 40px; }
+.kontakt-form { background: var(--white); border: 1px solid var(--border); border-radius: 18px; padding: 40px; }
 .kontakt-form h3 { font-size: 22px; color: var(--text); margin-bottom: 32px; }
 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -480,7 +516,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .cta-section .badge { color: rgba(255,255,255,0.35); }
 
 /* ── FOOTER ────────────────────────────────── */
-#footer { background: var(--primary-dark); border-top: 1px solid rgba(255,255,255,0.06); }
+#footer { background: var(--primary-dark); background-image: var(--blobs-b-dark); border-top: 1px solid rgba(255,255,255,0.06); }
 .footer-top { padding: 72px 0 48px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 48px; border-bottom: 1px solid rgba(255,255,255,0.06); }
 .footer-brand img { height: 48px; width: auto; margin-bottom: 16px; filter: brightness(0) invert(1); opacity: 0.9; }
 .footer-brand p { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.35); margin-bottom: 24px; }
@@ -511,6 +547,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   overflow: hidden;
   isolation: isolate;
   background:
+    radial-gradient(circle 280px at calc(100% + 70px) 38%, rgba(147,197,253,0.10) 99.5%, transparent 100%),
+    radial-gradient(circle 190px at calc(100% - 20px) 66%, rgba(147,197,253,0.075) 99.5%, transparent 100%),
     radial-gradient(ellipse 70% 80% at 18% 90%, rgba(37,99,235,0.28), transparent 65%),
     radial-gradient(ellipse 60% 70% at 90% 10%, rgba(59,130,246,0.18), transparent 65%),
     linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 55%, #0c1f4a 100%);

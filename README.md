@@ -1,6 +1,6 @@
 # Özdemir Fensterbau – Website
 
-Statische B2B-Website für **Özdemir Fensterbau GmbH**, Hannover. Gebaut mit reinem HTML, CSS und Vanilla JavaScript – kein Framework, kein Build-Prozess.
+Statische Website für **Özdemir Fensterbau GmbH**, Hannover. Gebaut mit reinem HTML, CSS und Vanilla JavaScript – kein Framework, kein Build-Prozess. Zielgruppe: Privatkunden, Bauunternehmen, Architekten und Projektentwickler.
 
 ---
 
@@ -16,8 +16,11 @@ ozdemir-fensterbau/
 ├── katalog.html        # Filterbarer Produktkatalog
 ├── datenschutz.html    # Datenschutzerklärung (DSGVO)
 ├── impressum.html      # Impressum (§5 TMG)
+├── robots.txt          # Crawler-Direktiven
+├── sitemap.xml         # Alle 6 indexierbaren Seiten
+├── .nojekyll           # GitHub Pages: Jekyll-Build überspringen
 ├── css/
-│   └── style.css       # Gesamtes Styling (v31)
+│   └── style.css       # Gesamtes Styling (v44)
 ├── js/
 │   └── main.js         # Interaktivität & Animationen
 └── images/
@@ -41,7 +44,7 @@ ozdemir-fensterbau/
 
 | Seite | Datei | Headline |
 |-------|-------|----------|
-| Startseite | `index.html` | FENSTER. TÜREN. FÜR PROFIS. |
+| Startseite | `index.html` | FENSTER. TÜREN. FÜR JEDES PROJEKT. |
 | Über uns | `ueber-uns.html` | KEIN MITTELSMANN. DIREKT VOM PROFI. |
 | Leistungen | `leistungen.html` | SECHS LEISTUNGEN. EIN ANSPRECHPARTNER. |
 | Sortiment | `sortiment.html` | ALLE SYSTEME. EIN PARTNER. |
@@ -54,23 +57,25 @@ ozdemir-fensterbau/
 
 ## Features
 
+- **Floating Island Navigation** – Header schwebt als pill-förmige Insel mit 16px Abstand zu den Rändern; dunkel-transparent über dem Hero, weiß mit `backdrop-filter: blur(20px)` beim Scrollen
+- **HannoHyp-Stil Blob-Dekoration** – Weiche Kreis-Gruppen als Hintergrunddekoration auf allen Sections: Pattern A (zwei überlappende Kreise, rechts) für helle Sections; Pattern B (1 großer + 3 kleinere Kreise, links) für alternierenden Sections; dunkle Varianten in Hellblau für dunkle Sections
+- **Page-Hero auf Unterseiten** – Markenfarben-Gradient mit pulsierenden Akzent-Glows, driftenden Partikeln und animiertem Linien-Gitter – alles CSS-only, `prefers-reduced-motion`-konform
+- **Pill-Buttons** – Alle Buttons mit `border-radius: 100px` (vollständig gerundet)
+- **Section-Divider** – Kurze blaue Linie (44×4px) unter allen Abschnittsüberschriften; weiß in dunklen Sections
+- **Verbesserte Cards** – `border-radius: 14px`, Hover mit `translateY(-3px)` und leicht blauem Schatten
 - **Hero mit Ken-Burns-Animation** – Hintergrundbild zoomt und driftet sanft (22s, alternate), 98%-Overlay
-- **Page-Hero auf Unterseiten** – Markenfarben-Gradient (radial × linear) mit pulsierenden Akzent-Glows, driftenden Partikeln und animiertem Linien-Gitter – alles CSS-only, ohne Foto, `prefers-reduced-motion`-konform
-- **Leistungskarten mit Bildhintergrund** – Alle 6 Karten (Fenster-Fertigung, Montage, Lieferung, Fassade, Beratung, Service) mit eigenen Hintergrundbildern, kein Bild doppelt verwendet
 - **ROI-Rechner** – Interaktiver Energieeinsparungs-Rechner (Fenstertyp, Heizkosten, Fläche → jährliche Ersparnis, CO₂, Amortisation)
 - **Projekt-Timeline** – 6-stufige visuelle Darstellung des Auftragsprozesses
 - **Vorteile-Grid** – 6 Karten auf dunklem Hintergrund
-- **Filterbarer Katalog** – Kunststoff, Holz, Alu, Hebe-Schiebe
-- **Schwebedropdown-Menü** – Floating-Dropdown auf Mobile (position: absolute, border-radius, box-shadow), mit aktivem Seitenindikator (blau)
-- **Aktiver Navlink** – Aktuelle Seite in Desktop-Nav und Mobile-Dropdown blau markiert
-- **Trust Bar** – 5 konkrete Vertrauenssignale unterhalb des Heroes
-- **Rechner-Button im Header** – Direktlink zum ROI-Rechner
+- **Filterbarer Katalog** – Kunststoff, Holz, Alu, Hebe-Schiebe; Filter-Buttons ebenfalls Pill-Form
+- **Trust Bar** – 5 Vertrauenssignale unterhalb des Heroes
 - **Counter-Animation** – Zahlen zählen beim Einblenden hoch
 - **Fade-in on Scroll** – Karten und Galerie-Items via IntersectionObserver
-- **Vollständig responsives Design** – 6 Breakpoints (1200 / 1100 / 1024 / 900 / 768 / 480 / 380px), kein horizontaler Overflow
-- **Frosted-Glass-Header** – Startet transparent, blendet beim Scrollen mit `backdrop-filter: blur(20px)` ein
-- **SEO-Optimiert** – Meta-Tags, OG-Tags, Canonical-Links
-- **Scroll-to-Top Button** – Erscheint ab 400px Scrolltiefe
+- **Vollständig responsives Design** – 6 Breakpoints, kein horizontaler Overflow
+- **SEO-Optimiert** – Meta-Tags, OG-Tags, Canonical-Links, Schema.org JSON-LD (LocalBusiness, ContactPage)
+- **Web3Forms Kontaktformular** – Mit Honeypot, `aria-invalid`-Validierung, Erfolgs-/Fehlermeldung
+- **Google Maps** eingebettet auf der Kontaktseite
+- **Barrierefreiheit** – Skip-Link, `sr-only`, `:focus-visible`, `prefers-reduced-motion`
 
 ---
 
@@ -79,19 +84,31 @@ ozdemir-fensterbau/
 | Eigenschaft | Wert |
 |-------------|------|
 | Body-Font | Inter (Google Fonts) |
-| Heading-Font | System Font Stack (`-apple-system, BlinkMacSystemFont, SF Pro Display`) |
+| Heading-Font | System Font Stack (`-apple-system, SF Pro Display, Inter`) |
 | Primärfarbe | `#0f172a` (Near-Black) |
 | Akzentfarbe | `#2563eb` (Clean Blue) |
-| Hintergrund | `#ffffff` / `#f8fafc` |
-| Stil | Minimalistisch, Apple/OpenAI-inspiriert |
-| Zielgruppe | B2B (Bauunternehmen, Architekten, Projektentwickler) |
+| Hintergrund | `#f6f6f8` (sanftes Grau) / `#f8fafc` (helle Sections) |
+| Stil | Minimalistisch, HannoHyp/OpenAI-inspiriert |
+| Zielgruppe | Privatkunden + Gewerbe (Bauunternehmen, Architekten, Projektentwickler) |
 
-### Header
-- Startet transparent über dem dunklen Hero
-- Blendet beim Scrollen mit Frosted-Glass-Effekt ein (`backdrop-filter: blur(20px)`)
-- Höhe: 68px (kompakt)
-- Desktop: Logo · Navigation · Telefon · Rechner-Button · Anfrage-Button
-- Mobile: Logo · Hamburger → Schwebendes Dropdown-Menü mit aktivem Seitenindikator
+### Navigation
+
+- **Reihenfolge:** Startseite · Sortiment · Leistungen · Über uns · Kontakt
+- Schwebt als pill-förmige Insel (top/left/right: 16px, border-radius: 16px)
+- Startet dunkel-transparent über dem Hero, wird weiß beim Scrollen (>50px)
+- Mobile: schwebendes Dropdown-Menü mit aktivem Seitenindikator
+
+### Blob-Hintergründe
+
+| Section-Typ | Muster | Farbe |
+|-------------|--------|-------|
+| `.section`, `.section-sm` | Pattern A (2 Kreise, rechts) | Akzentblau, 6–9% |
+| `.katalog-section` | Pattern B (4 Kreise, links) | Akzentblau, 6–8% |
+| `.vorteile-section` | Pattern B (4 Kreise, links) | Hellblau, 7–10% |
+| `.stats-strip` | Pattern A (2 Kreise, rechts) | Hellblau, 7–10% |
+| `#footer` | Pattern B (4 Kreise, links) | Hellblau, 7–10% |
+| `.hero` | Pattern A (2 Kreise, rechts) | Hellblau, 7–10% |
+| `.page-hero` | 2 Kreise, rechts (im Gradient) | Hellblau, 7–10% |
 
 ### Responsive Breakpoints
 
@@ -135,10 +152,10 @@ ozdemir-fensterbau/
 
 ```bash
 cd ozdemir-fensterbau
-python3 -m http.server 3333
+python3 -m http.server 5050
 ```
 
-Dann im Browser öffnen: [http://localhost:3333](http://localhost:3333)
+Dann im Browser öffnen: [http://localhost:5050](http://localhost:5050)
 
 ---
 
@@ -155,7 +172,7 @@ Dann im Browser öffnen: [http://localhost:3333](http://localhost:3333)
 - [ ] Gründungsjahr prüfen (aktuell: 2009)
 - [ ] **Web3Forms Access-Key** in `kontakt.html` einsetzen (siehe unten)
 - [ ] **JSON-LD-Adresse** in `index.html` und `kontakt.html` aktualisieren (Schema.org LocalBusiness)
-- [ ] Strecke Domain prüfen: aktuell `https://www.ozdemir-fensterbau.de/` als Canonical/OG/Sitemap
+- [ ] Domain prüfen: aktuell `https://www.ozdemir-fensterbau.de/` als Canonical/OG/Sitemap
 
 ---
 
@@ -170,8 +187,6 @@ Das Formular auf `kontakt.html` ist mit [Web3Forms](https://web3forms.com) verka
    ```
 3. Optional: `redirect`-URL anpassen (steht aktuell auf `https://www.ozdemir-fensterbau.de/kontakt.html?ok=1`).
 
-Solange der Platzhalter nicht ersetzt ist, läuft das Formular im **Demo-Modus** (zeigt Erfolgsmeldung, sendet aber nicht).
-
 Honeypot-Feld (`botcheck`), `aria-invalid`-Validierung und Erfolgs-/Fehler-Toasts sind bereits vorhanden.
 
 ---
@@ -185,13 +200,13 @@ Honeypot-Feld (`botcheck`), `aria-invalid`-Validierung und Erfolgs-/Fehler-Toast
 3. Speichern – Seite ist nach 1–2 Minuten live unter `https://eneshome-arch.github.io/-zdemir-fensterbau/`
 4. Für eigene Domain: in **Settings → Pages → Custom domain** `www.ozdemir-fensterbau.de` eintragen, beim Domain-Hoster CNAME auf `eneshome-arch.github.io` setzen.
 
-`.nojekyll` ist im Repo – GitHub Pages überspringt damit den Jekyll-Build (sonst werden Dateien wie `_originals/` ignoriert).
+`.nojekyll` ist im Repo – GitHub Pages überspringt damit den Jekyll-Build.
 
 ### Option B: Vercel (auch kostenlos, schneller CDN)
 
 1. [vercel.com](https://vercel.com) → **Add New… → Project** → Repo importieren
 2. Framework Preset: `Other`, Build Command leer lassen, Output Directory: `/`
-3. Deploy → fertig. Custom Domain analog zu GitHub Pages über Vercel-Dashboard.
+3. Deploy → fertig.
 
 ### robots.txt & sitemap.xml
 
@@ -212,6 +227,7 @@ Honeypot-Feld (`botcheck`), `aria-invalid`-Validierung und Erfolgs-/Fehler-Toast
 ## Technologien
 
 - HTML5
-- CSS3 (Custom Properties, Grid, Flexbox, clamp(), backdrop-filter, CSS Animations, svh-Unit)
+- CSS3 (Custom Properties, Grid, Flexbox, `clamp()`, `backdrop-filter`, CSS Animations, `svh`-Unit)
 - Vanilla JavaScript (ES6+)
 - Google Fonts – Inter
+- Web3Forms (Kontaktformular, kein Backend)
