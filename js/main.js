@@ -12,16 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const hamburger = document.querySelector('.hamburger');
   const mobileMenu = document.querySelector('.mobile-menu');
   if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('open');
-      mobileMenu.classList.toggle('open');
-    });
-    mobileMenu.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        mobileMenu.classList.remove('open');
-      });
-    });
+    const setOpen = (open) => {
+      hamburger.classList.toggle('open', open);
+      mobileMenu.classList.toggle('open', open);
+      hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      hamburger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
+    };
+    hamburger.addEventListener('click', () => setOpen(!mobileMenu.classList.contains('open')));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
   }
 
   // ── Active nav link ───────────────────────
@@ -84,25 +83,96 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // ── Contact form ──────────────────────────
+  // ── Contact form (Web3Forms) ──────────────
   const form = document.getElementById('kontaktForm');
   if (form) {
-    form.addEventListener('submit', e => {
+    const success = document.getElementById('formSuccess');
+    const errorEl = document.getElementById('formError');
+
+    // Erfolg-Hinweis nach Web3Forms-Redirect (?ok=1)
+    if (new URLSearchParams(location.search).get('ok') === '1' && success) {
+      success.style.display = 'block';
+      success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    const setInvalid = (el, invalid) => {
+      if (invalid) el.setAttribute('aria-invalid', 'true');
+      else el.removeAttribute('aria-invalid');
+    };
+
+    form.addEventListener('submit', async (e) => {
+      // Native Validierung
+      let valid = true;
+      form.querySelectorAll('[required]').forEach(el => {
+        const empty = el.type === 'checkbox' ? !el.checked : !el.value.trim();
+        const badEmail = el.type === 'email' && el.value && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value);
+        const ok = !empty && !badEmail;
+        setInvalid(el, !ok);
+        if (!ok) valid = false;
+      });
+      if (!valid) {
+        e.preventDefault();
+        if (errorEl) {
+          errorEl.textContent = '✗ Bitte füllen Sie die markierten Pflichtfelder korrekt aus.';
+          errorEl.style.display = 'block';
+        }
+        const firstBad = form.querySelector('[aria-invalid="true"]');
+        if (firstBad) firstBad.focus();
+        return;
+      }
+
+      // Wenn kein Web3Forms-Key gesetzt → fallback (kein echtes Senden)
+      const accessKey = form.querySelector('[name="access_key"]')?.value;
+      if (!accessKey || accessKey === 'DEIN_WEB3FORMS_ACCESS_KEY') {
+        e.preventDefault();
+        console.warn('[Web3Forms] Access-Key fehlt – Demo-Modus aktiv.');
+        if (success) {
+          success.style.display = 'block';
+          form.reset();
+          setTimeout(() => success.style.display = 'none', 6000);
+        }
+        return;
+      }
+
+      // Echter Submit per fetch (kein Page-Reload)
       e.preventDefault();
       const btn = form.querySelector('button[type="submit"]');
       const orig = btn.innerHTML;
       btn.innerHTML = 'Wird gesendet...';
       btn.disabled = true;
-      setTimeout(() => {
+      if (errorEl) errorEl.style.display = 'none';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        const data = await res.json().catch(() => ({}));
+        if (res.ok && data.success !== false) {
+          form.reset();
+          if (success) {
+            success.style.display = 'block';
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        } else {
+          throw new Error(data.message || 'Senden fehlgeschlagen');
+        }
+      } catch (err) {
+        console.error(err);
+        if (errorEl) {
+          errorEl.textContent = '✗ Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie uns direkt an.';
+          errorEl.style.display = 'block';
+        }
+      } finally {
         btn.innerHTML = orig;
         btn.disabled = false;
-        form.reset();
-        const success = document.getElementById('formSuccess');
-        if (success) {
-          success.style.display = 'block';
-          setTimeout(() => success.style.display = 'none', 5000);
-        }
-      }, 1400);
+      }
+    });
+
+    // aria-invalid bei Korrektur entfernen
+    form.querySelectorAll('input,textarea,select').forEach(el => {
+      el.addEventListener('input', () => setInvalid(el, false));
+      el.addEventListener('change', () => setInvalid(el, false));
     });
   }
 

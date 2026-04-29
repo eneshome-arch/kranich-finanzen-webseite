@@ -22,14 +22,18 @@ ozdemir-fensterbau/
 │   └── main.js         # Interaktivität & Animationen
 └── images/
     ├── logo.png                # Firmenlogo
-    ├── hero-bg.jpg             # Hero-Hintergrundbild (Gebäudefassade)
-    ├── fenster-fertigung.png   # Leistungskarte: Fenster-Fertigung
-    ├── montage-einbau.png      # Leistungskarte: Montage & Einbau
+    ├── og-image.jpg            # 1200×630 Social-Sharing-Bild
+    ├── hero-bg.jpg             # Hero-Hintergrundbild Startseite
+    ├── fenster-fertigung.jpg   # Leistungskarte: Fenster-Fertigung
+    ├── montage-einbau.jpg      # Leistungskarte: Montage & Einbau
     ├── lieferung-logistik.jpg  # Leistungskarte: Lieferung & Logistik
     ├── fassade-bg.jpg          # Leistungskarte: Fassadensysteme
     ├── beratung-planung.jpg    # Leistungskarte: Beratung & Planung
-    └── service-wartung.jpg     # Leistungskarte: Service & Wartung
+    ├── service-wartung.jpg     # Leistungskarte: Service & Wartung
+    └── team-handshake.jpg      # Über-uns-Section (Startseite)
 ```
+
+> **Hinweis:** Die Hero-Sections der Unterseiten arbeiten ohne Foto – nur mit einem Markenfarben-Gradient und animierten CSS-Layern (Glows, Partikel, Linien-Gitter). Falls dort später Bilder gewünscht sind, lässt sich pro Seite ein `<div class="page-hero-bg" style="background-image:url(...)">` als erster Child der `.page-hero` ergänzen – die Animations-Layer liegen dann darüber.
 
 ---
 
@@ -51,6 +55,7 @@ ozdemir-fensterbau/
 ## Features
 
 - **Hero mit Ken-Burns-Animation** – Hintergrundbild zoomt und driftet sanft (22s, alternate), 98%-Overlay
+- **Page-Hero auf Unterseiten** – Markenfarben-Gradient (radial × linear) mit pulsierenden Akzent-Glows, driftenden Partikeln und animiertem Linien-Gitter – alles CSS-only, ohne Foto, `prefers-reduced-motion`-konform
 - **Leistungskarten mit Bildhintergrund** – Alle 6 Karten (Fenster-Fertigung, Montage, Lieferung, Fassade, Beratung, Service) mit eigenen Hintergrundbildern, kein Bild doppelt verwendet
 - **ROI-Rechner** – Interaktiver Energieeinsparungs-Rechner (Fenstertyp, Heizkosten, Fläche → jährliche Ersparnis, CO₂, Amortisation)
 - **Projekt-Timeline** – 6-stufige visuelle Darstellung des Auftragsprozesses
@@ -148,6 +153,59 @@ Dann im Browser öffnen: [http://localhost:3333](http://localhost:3333)
 - [ ] Produktbilder im Katalog (echte Fotos)
 - [ ] Galerie-Bilder (echte Projektfotos)
 - [ ] Gründungsjahr prüfen (aktuell: 2009)
+- [ ] **Web3Forms Access-Key** in `kontakt.html` einsetzen (siehe unten)
+- [ ] **JSON-LD-Adresse** in `index.html` und `kontakt.html` aktualisieren (Schema.org LocalBusiness)
+- [ ] Strecke Domain prüfen: aktuell `https://www.ozdemir-fensterbau.de/` als Canonical/OG/Sitemap
+
+---
+
+## Kontaktformular einrichten (Web3Forms)
+
+Das Formular auf `kontakt.html` ist mit [Web3Forms](https://web3forms.com) verkabelt – kostenlos, kein Backend nötig, E-Mails landen direkt im Postfach.
+
+1. Auf [web3forms.com](https://web3forms.com) mit der Empfänger-E-Mail-Adresse anmelden – Access-Key wird per Mail zugeschickt.
+2. In `kontakt.html` den Platzhalter `DEIN_WEB3FORMS_ACCESS_KEY` durch den echten Key ersetzen:
+   ```html
+   <input type="hidden" name="access_key" value="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+   ```
+3. Optional: `redirect`-URL anpassen (steht aktuell auf `https://www.ozdemir-fensterbau.de/kontakt.html?ok=1`).
+
+Solange der Platzhalter nicht ersetzt ist, läuft das Formular im **Demo-Modus** (zeigt Erfolgsmeldung, sendet aber nicht).
+
+Honeypot-Feld (`botcheck`), `aria-invalid`-Validierung und Erfolgs-/Fehler-Toasts sind bereits vorhanden.
+
+---
+
+## Deployment
+
+### Option A: GitHub Pages (kostenlos)
+
+1. GitHub → Repo `eneshome-arch/-zdemir-fensterbau` → **Settings → Pages**
+2. **Source:** `Deploy from a branch`, **Branch:** `main`, **Folder:** `/ (root)`
+3. Speichern – Seite ist nach 1–2 Minuten live unter `https://eneshome-arch.github.io/-zdemir-fensterbau/`
+4. Für eigene Domain: in **Settings → Pages → Custom domain** `www.ozdemir-fensterbau.de` eintragen, beim Domain-Hoster CNAME auf `eneshome-arch.github.io` setzen.
+
+`.nojekyll` ist im Repo – GitHub Pages überspringt damit den Jekyll-Build (sonst werden Dateien wie `_originals/` ignoriert).
+
+### Option B: Vercel (auch kostenlos, schneller CDN)
+
+1. [vercel.com](https://vercel.com) → **Add New… → Project** → Repo importieren
+2. Framework Preset: `Other`, Build Command leer lassen, Output Directory: `/`
+3. Deploy → fertig. Custom Domain analog zu GitHub Pages über Vercel-Dashboard.
+
+### robots.txt & sitemap.xml
+
+`robots.txt` und `sitemap.xml` liegen im Root. Nach Deployment in der **Google Search Console** registrieren:
+- Property hinzufügen: `https://www.ozdemir-fensterbau.de/`
+- Sitemap einreichen: `sitemap.xml`
+
+---
+
+## Performance-Hinweise
+
+- Bilder sind auf max. 1400px Breite skaliert und auf JPEG q72 komprimiert (Hero auf 1920px / q75). Originale liegen unter `images/_originals/` (von `.gitignore` ausgeschlossen).
+- Vor neuen Bildern: zuerst Original sichern, dann skalieren mit `sips -Z 1400 -s format jpeg -s formatOptions 72 input.jpg --out output.jpg`.
+- `loading="lazy"` und `decoding="async"` ist auf allen Below-the-Fold-Bildern gesetzt; Header-Logos haben explizite `width`/`height` (CLS-Schutz).
 
 ---
 

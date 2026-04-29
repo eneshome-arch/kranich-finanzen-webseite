@@ -1,0 +1,5 @@
+images/_originals/
+.DS_Store
+.vscode/
+.idea/
+*.log
