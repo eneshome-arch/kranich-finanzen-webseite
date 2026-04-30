@@ -160,7 +160,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
-  max-width: calc(100vw - 32px);
+  width: calc(100vw - 32px);
+  max-width: 1280px;
   z-index: 1000;
   background: rgba(15,23,42,0.65);
   backdrop-filter: blur(16px);
@@ -168,7 +169,6 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  white-space: nowrap;
 }
 #header .container { max-width: none; padding: 0; }
 
@@ -961,20 +961,24 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 
 /* ── RESPONSIVE ────────────────────────────── */
 
+/* ≤ 1300px – Telefonnummer ausblenden */
+@media (max-width: 1300px) {
+  .nav-phone { display: none; }
+}
+
 /* ≤ 1200px – großes Tablet / kleiner Desktop */
 @media (max-width: 1200px) {
-  .nav-links { gap: 24px; }
+  .nav-links { gap: 20px; }
+  .nav-calc  { display: none; }
   .footer-top { grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 32px; }
 }
 
 /* ≤ 1100px – Tablet Landscape / Mobile Nav */
 @media (max-width: 1100px) {
-  .nav-phone { display: none; }
-  .nav-calc  { display: none; }
   .nav-links { display: none; }
   .nav-cta   { display: none; }
   .hamburger { display: flex; }
-  #header    { left: 16px; right: 16px; transform: none; white-space: normal; }
+  #header    { left: 16px; right: 16px; transform: none; }
   .benefits-grid { grid-template-columns: 1fr 1fr; }
   .about-grid { gap: 56px; }
   .leistung-detail { gap: 48px; }
