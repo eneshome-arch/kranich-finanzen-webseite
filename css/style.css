@@ -282,7 +282,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   position: absolute;
   inset: -6%;
   z-index: 0;
-  background-image: url('../images/hero-bg.jpg');
+  background-image: url('../images/hero-fassade.jpg');
   background-size: cover;
   background-position: center center;
   animation: ken-burns 22s ease-in-out infinite alternate;
