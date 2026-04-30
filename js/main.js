@@ -262,13 +262,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     let touchX = 0;
+    let dragging = false;
+    let baseOffset = 0;
+
     benefitsGrid.addEventListener('touchstart', e => {
       touchX = e.touches[0].clientX;
+      dragging = true;
+      baseOffset = current * 100;
       clearInterval(autoTimer);
+      benefitsGrid.style.transition = 'none';
     }, { passive: true });
+
+    benefitsGrid.addEventListener('touchmove', e => {
+      if (!dragging) return;
+      const diffPx = e.touches[0].clientX - touchX;
+      const diffPct = (diffPx / benefitsGrid.offsetWidth) * 100;
+      benefitsGrid.style.transform = 'translateX(' + (-(baseOffset - diffPct)) + '%)';
+    }, { passive: true });
+
     benefitsGrid.addEventListener('touchend', e => {
+      if (!dragging) return;
+      dragging = false;
+      benefitsGrid.style.transition = 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)';
       const diff = touchX - e.changedTouches[0].clientX;
       if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+      else goTo(current);
       resetAuto();
     }, { passive: true });
 
