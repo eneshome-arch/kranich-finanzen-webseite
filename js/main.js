@@ -346,39 +346,47 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
   }
 
-  // ── Timeline Carousel Animation ──────────
+  // ── Timeline 3D Carousel ─────────────────
   const timeline = document.querySelector('.timeline');
   if (timeline) {
     timeline.classList.add('timeline-animated');
 
-    // Wrap all children in a sliding track
     const track = document.createElement('div');
     track.className = 'timeline-track';
     Array.from(timeline.children).forEach(child => track.appendChild(child));
     timeline.appendChild(track);
 
     const tlItems = Array.from(track.querySelectorAll('.timeline-item'));
-    let tlStep = 0;
+    const n = tlItems.length;
+    const angleStep = 360 / n;
 
-    function tlCenter(idx) {
-      const containerW = timeline.offsetWidth;
-      const item = tlItems[idx];
-      const offset = containerW / 2 - item.offsetLeft - item.offsetWidth / 2;
-      track.style.transform = `translateX(${offset}px)`;
+    function getRadius() {
+      return Math.round(Math.min(220, Math.max(130, timeline.offsetWidth / 3.2)));
     }
+
+    function placeItems() {
+      const r = getRadius();
+      tlItems.forEach((item, i) => {
+        item.style.transform = `rotateY(${i * angleStep}deg) translateZ(${r}px)`;
+      });
+    }
+
+    let tlStep = 0;
 
     function tlShow(idx) {
       tlItems.forEach((it, i) => it.classList.toggle('tl-show', i === idx));
-      tlCenter(idx);
+      track.style.transform = `rotateY(${-idx * angleStep}deg)`;
       setTimeout(() => {
         tlItems[idx].classList.remove('tl-show');
         setTimeout(() => {
-          tlStep = (idx + 1) % tlItems.length;
+          tlStep = (idx + 1) % n;
           tlShow(tlStep);
         }, 500);
       }, 3000);
     }
 
+    placeItems();
+    window.addEventListener('resize', placeItems);
     setTimeout(() => tlShow(0), 80);
   }
 
