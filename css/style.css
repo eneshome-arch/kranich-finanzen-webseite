@@ -157,7 +157,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 /* ── HEADER / NAV ──────────────────────────── */
 #header {
   position: fixed;
-  top: 16px; left: 16px; right: 16px;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1000;
   background: rgba(15,23,42,0.65);
   backdrop-filter: blur(16px);
@@ -165,7 +167,10 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 16px;
   transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  white-space: nowrap;
 }
+#header .container { max-width: none; padding: 0; }
+
 #header.scrolled {
   background: rgba(255,255,255,0.94);
   backdrop-filter: blur(20px);
@@ -174,7 +179,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
 }
 
-.nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; }
+.nav-inner { display: flex; align-items: center; justify-content: center; gap: 32px; height: 68px; padding: 0 24px; }
 
 .nav-logo { display: flex; align-items: center; gap: 12px; }
 .nav-logo img { height: 48px; width: auto; }
@@ -882,6 +887,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .container  { padding: 0 20px; }
 
   /* Nav */
+  #header { left: 16px; right: 16px; transform: none; white-space: normal; }
   .nav-links { display: none; }
   .nav-cta   { display: none; }
   .hamburger { display: flex; }
