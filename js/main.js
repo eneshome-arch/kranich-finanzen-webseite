@@ -275,10 +275,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     benefitsGrid.addEventListener('touchmove', e => {
       if (!dragging) return;
+      e.preventDefault();
       const diffPx = e.touches[0].clientX - touchX;
       const diffPct = (diffPx / benefitsGrid.offsetWidth) * 100;
       benefitsGrid.style.transform = 'translateX(' + (-(baseOffset - diffPct)) + '%)';
-    }, { passive: true });
+    }, { passive: false });
 
     benefitsGrid.addEventListener('touchend', e => {
       if (!dragging) return;
