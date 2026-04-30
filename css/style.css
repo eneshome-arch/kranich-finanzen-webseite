@@ -1035,6 +1035,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .nav-cta   { display: none; }
   .hamburger { display: flex; }
   #header    { left: 16px; right: 16px; transform: none; }
+  .nav-inner { justify-content: space-between; }
   .benefits-grid { grid-template-columns: 1fr 1fr; }
   .about-grid { gap: 56px; }
   .leistung-detail { gap: 48px; }
