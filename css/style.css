@@ -366,6 +366,29 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .trust-item { display: flex; align-items: center; gap: 8px; color: var(--gray); font-size: 13px; font-weight: 500; }
 .trust-item svg { color: var(--accent); }
 
+.trust-bar-inner.trust-animated {
+  position: relative;
+  min-height: 54px;
+  perspective: 600px;
+  justify-content: center;
+}
+.trust-bar-inner.trust-animated .trust-item {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.72) translateZ(-80px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+.trust-bar-inner.trust-animated .trust-item.tr-show {
+  opacity: 1;
+  transform: scale(1) translateZ(0);
+  pointer-events: auto;
+}
+
 /* ── STATS STRIP ───────────────────────────── */
 .stats-strip { background: var(--primary-dark); background-image: var(--blobs-a-dark); padding: 72px 0; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05); }
 .stats-strip-inner { display: grid; grid-template-columns: repeat(4, 1fr); }

@@ -369,6 +369,27 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => tlShow(0), 80);
   }
 
+  // ── Trust Bar Animation ───────────────────
+  const trustInner = document.querySelector('.trust-bar-inner');
+  if (trustInner) {
+    const trItems = Array.from(trustInner.querySelectorAll('.trust-item'));
+    let trStep = 0;
+
+    function trShow(idx) {
+      trItems.forEach((it, i) => it.classList.toggle('tr-show', i === idx));
+      setTimeout(() => {
+        trItems[idx].classList.remove('tr-show');
+        setTimeout(() => {
+          trStep = (idx + 1) % trItems.length;
+          trShow(trStep);
+        }, 500);
+      }, 3000);
+    }
+
+    trustInner.classList.add('trust-animated');
+    setTimeout(() => trShow(0), 80);
+  }
+
   // ── Counter animation ─────────────────────
   const counters = document.querySelectorAll('[data-count]');
   const cObserver = new IntersectionObserver((entries) => {
