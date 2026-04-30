@@ -391,10 +391,6 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .benefits-carousel-wrap .benefits-grid { margin-top: 0; }
 
 @media (max-width: 768px) {
-  .benefits-carousel-wrap {
-    margin-left: -20px;
-    margin-right: -20px;
-  }
   .benefits-carousel-wrap .benefits-grid {
     display: flex;
     flex-wrap: nowrap;
@@ -407,13 +403,13 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
     background: transparent;
     border: none;
     border-radius: 0;
-    padding: 0 20px;
+    padding: 0;
   }
   .benefits-carousel-wrap .benefits-grid::-webkit-scrollbar { display: none; }
   .benefits-carousel-wrap .benefit-card {
     flex: 0 0 100%;
     width: 100%;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
     border-radius: 12px;
     border: 1px solid rgba(255,255,255,0.1);
     box-sizing: border-box;
