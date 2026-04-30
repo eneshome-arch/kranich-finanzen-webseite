@@ -303,22 +303,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 3000);
     }
 
-    function initTimeline() {
-      const mobile = window.innerWidth <= 768;
-      if (mobile && !tlActive) {
-        tlActive = true;
-        timeline.classList.add('timeline-animated');
-        tlStep = 0;
-        setTimeout(() => tlShow(0), 80);
-      } else if (!mobile && tlActive) {
-        tlActive = false;
-        clearTimeout(tlTimer);
-        timeline.classList.remove('timeline-animated');
-        tlItems.forEach(it => it.classList.remove('tl-show'));
-      }
-    }
-    window.addEventListener('resize', initTimeline);
-    initTimeline();
+    timeline.classList.add('timeline-animated');
+    setTimeout(() => tlShow(0), 80);
   }
 
   // ── Counter animation ─────────────────────
