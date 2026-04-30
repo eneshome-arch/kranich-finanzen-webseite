@@ -921,43 +921,71 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 
 @media (max-width: 768px) {
   .roi-wrapper { grid-template-columns: 1fr; }
-  .timeline { flex-direction: column; align-items: flex-start; gap: 0; }
-  .timeline-item { flex-direction: row; text-align: left; gap: 16px; width: 100%; }
-  .timeline-icon { margin-bottom: 0; flex-shrink: 0; }
-  .timeline-connector { width: 1px; height: 32px; min-width: unset; margin-top: 0; margin-left: 23px; }
-  .timeline-content { padding: 0; padding-bottom: 8px; }
+  .timeline:not(.timeline-animated) { flex-direction: column; align-items: flex-start; gap: 0; }
+  .timeline:not(.timeline-animated) .timeline-item { flex-direction: row; text-align: left; gap: 16px; width: 100%; }
+  .timeline:not(.timeline-animated) .timeline-icon { margin-bottom: 0; flex-shrink: 0; }
+  .timeline:not(.timeline-animated) .timeline-connector { width: 1px; height: 32px; min-width: unset; margin-top: 0; margin-left: 23px; }
+  .timeline:not(.timeline-animated) .timeline-content { padding: 0; padding-bottom: 8px; }
+  .timeline.timeline-animated { padding-bottom: 140px; }
+  .timeline.timeline-animated .timeline-icon { width: 36px; height: 36px; }
+  .timeline.timeline-animated .timeline-icon svg { width: 16px; height: 16px; }
+  .timeline.timeline-animated .timeline-connector { margin-top: 18px; }
+  .timeline.timeline-animated .timeline-item .timeline-content { width: 160px; }
 }
 
 /* ── TIMELINE ANIMATION (alle Geräte) ─────────── */
 .timeline.timeline-animated {
   position: relative;
-  min-height: 240px;
-  perspective: 600px;
-  display: flex;
-  align-items: center;
+  flex-direction: row;
+  align-items: flex-start;
   justify-content: center;
+  flex-wrap: nowrap;
+  overflow: visible;
+  padding-bottom: 160px;
+  perspective: 600px;
+  margin-top: 48px;
 }
-.timeline.timeline-animated .timeline-connector { display: none; }
+.timeline.timeline-animated .timeline-connector {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin-top: 24px;
+  min-width: 16px;
+  display: block;
+}
 .timeline.timeline-animated .timeline-item {
-  position: absolute;
-  inset: 0;
+  position: relative;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  gap: 16px;
-  opacity: 0;
-  transform: scale(0.72) translateZ(-80px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  pointer-events: none;
-  max-width: 520px;
-  margin: 0 auto;
+  transition: transform 0.45s ease;
 }
-.timeline.timeline-animated .timeline-item .timeline-content { padding: 0; }
-.timeline.timeline-animated .timeline-item.tl-show {
+.timeline.timeline-animated .timeline-item .timeline-icon {
+  transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.45s ease;
+}
+.timeline.timeline-animated .timeline-item .timeline-content {
+  position: absolute;
+  top: calc(100% + 24px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px) scale(0.9);
+  width: 220px;
+  opacity: 0;
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  pointer-events: none;
+  padding: 0;
+}
+.timeline.timeline-animated .timeline-item.tl-show .timeline-icon {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+  box-shadow: 0 0 0 6px rgba(37,99,235,0.15);
+  transform: scale(1.25) translateZ(0);
+}
+.timeline.timeline-animated .timeline-item.tl-show .timeline-content {
   opacity: 1;
-  transform: scale(1) translateZ(0);
+  transform: translateX(-50%) translateY(0) scale(1);
   pointer-events: auto;
 }
 
@@ -1089,11 +1117,11 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .roi-result-main .roi-result-value { font-size: 40px; }
 
   /* Timeline */
-  .timeline { flex-direction: column; align-items: flex-start; }
-  .timeline-item { flex-direction: row; text-align: left; gap: 16px; width: 100%; }
-  .timeline-icon { margin-bottom: 0; flex-shrink: 0; }
-  .timeline-connector { width: 1px; height: 32px; min-width: unset; margin-top: 0; margin-left: 23px; }
-  .timeline-content { padding: 0; padding-bottom: 8px; }
+  .timeline:not(.timeline-animated) { flex-direction: column; align-items: flex-start; }
+  .timeline:not(.timeline-animated) .timeline-item { flex-direction: row; text-align: left; gap: 16px; width: 100%; }
+  .timeline:not(.timeline-animated) .timeline-icon { margin-bottom: 0; flex-shrink: 0; }
+  .timeline:not(.timeline-animated) .timeline-connector { width: 1px; height: 32px; min-width: unset; margin-top: 0; margin-left: 23px; }
+  .timeline:not(.timeline-animated) .timeline-content { padding: 0; padding-bottom: 8px; }
 
   /* Kontakt */
   .form-row     { grid-template-columns: 1fr; }
