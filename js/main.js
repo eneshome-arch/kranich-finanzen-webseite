@@ -346,26 +346,39 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
   }
 
-  // ── Timeline Animation (mobile) ──────────
+  // ── Timeline Carousel Animation ──────────
   const timeline = document.querySelector('.timeline');
   if (timeline) {
-    const tlItems = Array.from(timeline.querySelectorAll('.timeline-item'));
+    timeline.classList.add('timeline-animated');
+
+    // Wrap all children in a sliding track
+    const track = document.createElement('div');
+    track.className = 'timeline-track';
+    Array.from(timeline.children).forEach(child => track.appendChild(child));
+    timeline.appendChild(track);
+
+    const tlItems = Array.from(track.querySelectorAll('.timeline-item'));
     let tlStep = 0;
-    let tlTimer = null;
-    let tlActive = false;
+
+    function tlCenter(idx) {
+      const containerW = timeline.offsetWidth;
+      const item = tlItems[idx];
+      const offset = containerW / 2 - item.offsetLeft - item.offsetWidth / 2;
+      track.style.transform = `translateX(${offset}px)`;
+    }
 
     function tlShow(idx) {
       tlItems.forEach((it, i) => it.classList.toggle('tl-show', i === idx));
-      tlTimer = setTimeout(() => {
+      tlCenter(idx);
+      setTimeout(() => {
         tlItems[idx].classList.remove('tl-show');
-        tlTimer = setTimeout(() => {
+        setTimeout(() => {
           tlStep = (idx + 1) % tlItems.length;
           tlShow(tlStep);
         }, 500);
       }, 3000);
     }
 
-    timeline.classList.add('timeline-animated');
     setTimeout(() => tlShow(0), 80);
   }
 
