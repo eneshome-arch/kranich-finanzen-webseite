@@ -443,6 +443,39 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 /* ── LEISTUNGEN HOME ───────────────────────── */
 .leistungen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 56px; }
 
+/* ── LEISTUNGEN CAROUSEL ────────────────────── */
+.leistungen-carousel-wrap { margin-top: 56px; }
+.leistungen-carousel-wrap .leistungen-grid { margin-top: 0; }
+
+@media (max-width: 768px) {
+  .leistungen-carousel-wrap .leistungen-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0;
+  }
+  .leistungen-carousel-wrap .leistungen-grid::-webkit-scrollbar { display: none; }
+  .leistungen-carousel-wrap .leistung-card {
+    flex: 0 0 100%;
+    width: 100%;
+    scroll-snap-align: center;
+    box-sizing: border-box;
+  }
+  .leistungen-carousel-wrap .carousel-dot {
+    background: rgba(15,23,42,0.18);
+  }
+  .leistungen-carousel-wrap .carousel-dot.active {
+    background: var(--text);
+  }
+}
+@media (min-width: 769px) {
+  .leistungen-carousel-wrap .carousel-dots { display: none; }
+}
+
 .leistung-card {
   background: var(--white);
   border: 1px solid var(--border);

@@ -225,6 +225,64 @@ document.addEventListener('DOMContentLoaded', () => {
     calcROI();
   }
 
+  // ── Leistungen Carousel (mobile) ─────────
+  const leistungenGrid = document.querySelector('.leistungen-grid');
+  if (leistungenGrid) {
+    const lWrap = document.createElement('div');
+    lWrap.className = 'leistungen-carousel-wrap';
+    leistungenGrid.parentNode.insertBefore(lWrap, leistungenGrid);
+    lWrap.appendChild(leistungenGrid);
+
+    const lCards = Array.from(leistungenGrid.querySelectorAll('.leistung-card'));
+    const lTotal = lCards.length;
+    let lCurrent = 0;
+    let lActive = false;
+
+    const lDotsWrap = document.createElement('div');
+    lDotsWrap.className = 'carousel-dots';
+    lCards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Leistung ' + (i + 1));
+      dot.addEventListener('click', () => lGoTo(i));
+      lDotsWrap.appendChild(dot);
+    });
+    lWrap.appendChild(lDotsWrap);
+    const lDots = Array.from(lDotsWrap.querySelectorAll('.carousel-dot'));
+
+    function lGoTo(idx) {
+      lCurrent = ((idx % lTotal) + lTotal) % lTotal;
+      leistungenGrid.scrollTo({ left: lCurrent * leistungenGrid.offsetWidth, behavior: 'smooth' });
+      lDots.forEach((d, i) => d.classList.toggle('active', i === lCurrent));
+    }
+
+    let lRaf;
+    leistungenGrid.addEventListener('scroll', () => {
+      cancelAnimationFrame(lRaf);
+      lRaf = requestAnimationFrame(() => {
+        const idx = Math.round(leistungenGrid.scrollLeft / leistungenGrid.offsetWidth);
+        if (idx !== lCurrent) {
+          lCurrent = idx;
+          lDots.forEach((d, i) => d.classList.toggle('active', i === lCurrent));
+        }
+      });
+    }, { passive: true });
+
+    function initLeistungen() {
+      const mobile = window.innerWidth <= 768;
+      if (mobile && !lActive) {
+        lActive = true;
+        leistungenGrid.scrollLeft = 0;
+        lCurrent = 0;
+        lDots.forEach((d, i) => d.classList.toggle('active', i === 0));
+      } else if (!mobile && lActive) {
+        lActive = false;
+      }
+    }
+    window.addEventListener('resize', initLeistungen);
+    initLeistungen();
+  }
+
   // ── Benefits Carousel (mobile) ───────────
   const benefitsGrid = document.querySelector('.benefits-grid');
   if (benefitsGrid) {
