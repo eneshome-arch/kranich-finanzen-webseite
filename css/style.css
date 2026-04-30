@@ -284,9 +284,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   inset: 0;
   z-index: 0;
   background-image: url('../images/hero-fassade.jpg');
-  background-size: 70%;
-  background-position: right center;
-  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 .hero::before {
   content: '';
