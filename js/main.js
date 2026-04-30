@@ -225,6 +225,69 @@ document.addEventListener('DOMContentLoaded', () => {
     calcROI();
   }
 
+  // ── Benefits Carousel (mobile) ───────────
+  const benefitsGrid = document.querySelector('.benefits-grid');
+  if (benefitsGrid) {
+    const wrap = document.createElement('div');
+    wrap.className = 'benefits-carousel-wrap';
+    benefitsGrid.parentNode.insertBefore(wrap, benefitsGrid);
+    wrap.appendChild(benefitsGrid);
+
+    const cards = Array.from(benefitsGrid.querySelectorAll('.benefit-card'));
+    const total = cards.length;
+    let current = 0;
+    let autoTimer = null;
+    let active = false;
+
+    const dotsWrap = document.createElement('div');
+    dotsWrap.className = 'carousel-dots';
+    cards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Vorteil ' + (i + 1));
+      dot.addEventListener('click', () => { goTo(i); resetAuto(); });
+      dotsWrap.appendChild(dot);
+    });
+    wrap.appendChild(dotsWrap);
+    const dots = Array.from(dotsWrap.querySelectorAll('.carousel-dot'));
+
+    function goTo(idx) {
+      current = ((idx % total) + total) % total;
+      benefitsGrid.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+    function resetAuto() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1), 3500);
+    }
+
+    let touchX = 0;
+    benefitsGrid.addEventListener('touchstart', e => {
+      touchX = e.touches[0].clientX;
+      clearInterval(autoTimer);
+    }, { passive: true });
+    benefitsGrid.addEventListener('touchend', e => {
+      const diff = touchX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+      resetAuto();
+    }, { passive: true });
+
+    function initCarousel() {
+      const mobile = window.innerWidth <= 768;
+      if (mobile && !active) {
+        active = true;
+        goTo(0);
+        resetAuto();
+      } else if (!mobile && active) {
+        active = false;
+        clearInterval(autoTimer);
+        benefitsGrid.style.transform = '';
+      }
+    }
+    window.addEventListener('resize', initCarousel);
+    initCarousel();
+  }
+
   // ── Counter animation ─────────────────────
   const counters = document.querySelectorAll('[data-count]');
   const cObserver = new IntersectionObserver((entries) => {
