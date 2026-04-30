@@ -253,54 +253,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function goTo(idx) {
       current = ((idx % total) + total) % total;
-      benefitsGrid.style.transform = 'translateX(-' + (current * 100) + '%)';
+      benefitsGrid.scrollTo({ left: current * benefitsGrid.offsetWidth, behavior: 'smooth' });
       dots.forEach((d, i) => d.classList.toggle('active', i === current));
     }
+
     function resetAuto() {
       clearInterval(autoTimer);
       autoTimer = setInterval(() => goTo(current + 1), 3500);
     }
 
-    let touchX = 0;
-    let dragging = false;
-    let baseOffset = 0;
-
-    benefitsGrid.addEventListener('touchstart', e => {
-      touchX = e.touches[0].clientX;
-      dragging = true;
-      baseOffset = current * 100;
-      clearInterval(autoTimer);
-      benefitsGrid.style.transition = 'none';
+    // Dots per nativem Scroll synchron halten
+    let raf;
+    benefitsGrid.addEventListener('scroll', () => {
+      cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        const idx = Math.round(benefitsGrid.scrollLeft / benefitsGrid.offsetWidth);
+        if (idx !== current) {
+          current = idx;
+          dots.forEach((d, i) => d.classList.toggle('active', i === current));
+        }
+      });
     }, { passive: true });
 
-    benefitsGrid.addEventListener('touchmove', e => {
-      if (!dragging) return;
-      e.preventDefault();
-      const diffPx = e.touches[0].clientX - touchX;
-      const diffPct = (diffPx / benefitsGrid.offsetWidth) * 100;
-      benefitsGrid.style.transform = 'translateX(' + (-(baseOffset - diffPct)) + '%)';
-    }, { passive: false });
-
-    benefitsGrid.addEventListener('touchend', e => {
-      if (!dragging) return;
-      dragging = false;
-      benefitsGrid.style.transition = 'transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)';
-      const diff = touchX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
-      else goTo(current);
-      resetAuto();
-    }, { passive: true });
+    benefitsGrid.addEventListener('touchstart', () => clearInterval(autoTimer), { passive: true });
+    benefitsGrid.addEventListener('touchend', resetAuto, { passive: true });
 
     function initCarousel() {
       const mobile = window.innerWidth <= 768;
       if (mobile && !active) {
         active = true;
-        goTo(0);
+        benefitsGrid.scrollLeft = 0;
+        current = 0;
+        dots.forEach((d, i) => d.classList.toggle('active', i === 0));
         resetAuto();
       } else if (!mobile && active) {
         active = false;
         clearInterval(autoTimer);
-        benefitsGrid.style.transform = '';
       }
     }
     window.addEventListener('resize', initCarousel);
