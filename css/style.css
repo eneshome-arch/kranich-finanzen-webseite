@@ -557,11 +557,11 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .about-badge-float strong { display: block; font-size: 40px; font-weight: 700; line-height: 1; letter-spacing: -0.04em; }
 .about-badge-float span   { font-size: 12px; font-weight: 400; opacity: 0.6; margin-top: 4px; display: block; }
 
-.about-list { display: flex; flex-direction: column; gap: 24px; margin: 32px 0; }
-.about-list-item { display: flex; gap: 16px; }
-.about-list-item .dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; flex-shrink: 0; margin-top: 10px; }
+.about-list { display: flex; flex-direction: column; gap: 12px; margin: 32px 0; }
+.about-list-item { display: flex; gap: 16px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; align-items: flex-start; }
+.about-list-item .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
 .about-list-item h4 { font-size: 15px; color: var(--text); margin-bottom: 4px; font-weight: 600; }
-.about-list-item p  { font-size: 14px; color: var(--gray); line-height: 1.65; }
+.about-list-item p  { font-size: 14px; color: var(--gray); line-height: 1.65; margin: 0; }
 
 .staerken-card { background: var(--primary-dark); background-image: var(--blobs-a-dark); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 24px 28px; margin: 28px 0; }
 .staerken-card-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
