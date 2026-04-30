@@ -284,6 +284,43 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
   }
 
+  // ── Timeline Animation (mobile) ──────────
+  const timeline = document.querySelector('.timeline');
+  if (timeline) {
+    const tlItems = Array.from(timeline.querySelectorAll('.timeline-item'));
+    let tlStep = 0;
+    let tlTimer = null;
+    let tlActive = false;
+
+    function tlShow(idx) {
+      tlItems.forEach((it, i) => it.classList.toggle('tl-show', i === idx));
+      tlTimer = setTimeout(() => {
+        tlItems[idx].classList.remove('tl-show');
+        tlTimer = setTimeout(() => {
+          tlStep = (idx + 1) % tlItems.length;
+          tlShow(tlStep);
+        }, 500);
+      }, 3000);
+    }
+
+    function initTimeline() {
+      const mobile = window.innerWidth <= 768;
+      if (mobile && !tlActive) {
+        tlActive = true;
+        timeline.classList.add('timeline-animated');
+        tlStep = 0;
+        setTimeout(() => tlShow(0), 80);
+      } else if (!mobile && tlActive) {
+        tlActive = false;
+        clearTimeout(tlTimer);
+        timeline.classList.remove('timeline-animated');
+        tlItems.forEach(it => it.classList.remove('tl-show'));
+      }
+    }
+    window.addEventListener('resize', initTimeline);
+    initTimeline();
+  }
+
   // ── Counter animation ─────────────────────
   const counters = document.querySelectorAll('[data-count]');
   const cObserver = new IntersectionObserver((entries) => {
