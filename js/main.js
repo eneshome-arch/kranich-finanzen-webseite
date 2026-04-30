@@ -3,9 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Header scroll effect ──────────────────
   const header = document.getElementById('header');
   if (header) {
+    const heroEl = document.querySelector('.hero, .page-hero');
     window.addEventListener('scroll', () => {
-      header.classList.toggle('scrolled', window.scrollY > 50);
-    });
+      const pastDark = heroEl
+        ? heroEl.getBoundingClientRect().bottom <= header.offsetHeight
+        : window.scrollY > 50;
+      header.classList.toggle('scrolled', pastDark);
+    }, { passive: true });
   }
 
   // ── Mobile menu ───────────────────────────
