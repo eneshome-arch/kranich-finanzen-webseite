@@ -236,7 +236,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards = Array.from(benefitsGrid.querySelectorAll('.benefit-card'));
     const total = cards.length;
     let current = 0;
-    let autoTimer = null;
     let active = false;
 
     const dotsWrap = document.createElement('div');
@@ -245,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const dot = document.createElement('button');
       dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
       dot.setAttribute('aria-label', 'Vorteil ' + (i + 1));
-      dot.addEventListener('click', () => { goTo(i); resetAuto(); });
+      dot.addEventListener('click', () => goTo(i));
       dotsWrap.appendChild(dot);
     });
     wrap.appendChild(dotsWrap);
@@ -255,11 +254,6 @@ document.addEventListener('DOMContentLoaded', () => {
       current = ((idx % total) + total) % total;
       benefitsGrid.scrollTo({ left: current * benefitsGrid.offsetWidth, behavior: 'smooth' });
       dots.forEach((d, i) => d.classList.toggle('active', i === current));
-    }
-
-    function resetAuto() {
-      clearInterval(autoTimer);
-      autoTimer = setInterval(() => goTo(current + 1), 3500);
     }
 
     // Dots per nativem Scroll synchron halten
@@ -275,9 +269,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }, { passive: true });
 
-    benefitsGrid.addEventListener('touchstart', () => clearInterval(autoTimer), { passive: true });
-    benefitsGrid.addEventListener('touchend', resetAuto, { passive: true });
-
     function initCarousel() {
       const mobile = window.innerWidth <= 768;
       if (mobile && !active) {
@@ -285,10 +276,8 @@ document.addEventListener('DOMContentLoaded', () => {
         benefitsGrid.scrollLeft = 0;
         current = 0;
         dots.forEach((d, i) => d.classList.toggle('active', i === 0));
-        resetAuto();
       } else if (!mobile && active) {
         active = false;
-        clearInterval(autoTimer);
       }
     }
     window.addEventListener('resize', initCarousel);
