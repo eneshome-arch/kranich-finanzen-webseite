@@ -563,11 +563,11 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .about-list-item h4 { font-size: 15px; color: var(--text); margin-bottom: 4px; font-weight: 600; }
 .about-list-item p  { font-size: 14px; color: var(--gray); line-height: 1.65; }
 
-.staerken-card { background: var(--light); border: 1px solid var(--border); border-radius: 10px; padding: 24px 28px; margin: 28px 0; }
-.staerken-card-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); margin-bottom: 16px; }
+.staerken-card { background: var(--primary-dark); background-image: var(--blobs-b-dark); border: 1px solid rgba(255,255,255,0.07); border-radius: 10px; padding: 24px 28px; margin: 28px 0; }
+.staerken-card-title { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
 .staerken-items { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 24px; }
-.staerken-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text); font-weight: 400; }
-.check-sm { width: 17px; height: 17px; background: var(--accent-light); border: 1px solid rgba(37,99,235,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--accent); font-weight: 700; font-size: 9px; }
+.staerken-item { display: flex; align-items: center; gap: 8px; font-size: 13px; color: rgba(255,255,255,0.8); font-weight: 400; }
+.check-sm { width: 17px; height: 17px; background: rgba(37,99,235,0.25); border: 1px solid rgba(37,99,235,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #93c5fd; font-weight: 700; font-size: 9px; }
 
 /* ── KONTAKT FORMULAR ──────────────────────── */
 .kontakt-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
