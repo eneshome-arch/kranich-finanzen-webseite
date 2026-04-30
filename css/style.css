@@ -967,9 +967,14 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .footer-top { grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 32px; }
 }
 
-/* ≤ 1100px – Tablet Landscape */
+/* ≤ 1100px – Tablet Landscape / Mobile Nav */
 @media (max-width: 1100px) {
   .nav-phone { display: none; }
+  .nav-calc  { display: none; }
+  .nav-links { display: none; }
+  .nav-cta   { display: none; }
+  .hamburger { display: flex; }
+  #header    { left: 16px; right: 16px; transform: none; white-space: normal; }
   .benefits-grid { grid-template-columns: 1fr 1fr; }
   .about-grid { gap: 56px; }
   .leistung-detail { gap: 48px; }
@@ -995,15 +1000,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .staerken-items   { grid-template-columns: 1fr; }
 }
 
-/* ≤ 900px – Tablet schmal / Mobile Nav */
+/* ≤ 900px – Tablet schmal */
 @media (max-width: 900px) {
-  /* Nav auf Hamburger umschalten */
-  .nav-calc  { display: none; }
-  .nav-links { display: none; }
-  .nav-cta   { display: none; }
-  .hamburger { display: flex; }
-  #header    { left: 16px; right: 16px; transform: none; white-space: normal; }
-
   .team-grid { grid-template-columns: 1fr 1fr; }
   .leistung-detail { grid-template-columns: 1fr; gap: 32px; padding: 56px 0; }
   .leistung-detail.reverse { direction: ltr; }
