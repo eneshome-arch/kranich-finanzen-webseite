@@ -278,6 +278,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   position: relative;
   overflow: hidden;
 }
+.hero .container { width: 100%; }
 .hero-bg-img {
   position: absolute;
   inset: -6%;
