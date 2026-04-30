@@ -160,6 +160,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
+  max-width: calc(100vw - 32px);
   z-index: 1000;
   background: rgba(15,23,42,0.65);
   backdrop-filter: blur(16px);
@@ -858,6 +859,10 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 
 /* ≤ 1024px – Tablet */
 @media (max-width: 1024px) {
+  .container        { padding: 0 24px; }
+  .section          { padding: 88px 0; }
+  .section-sm       { padding: 56px 0; }
+  .page-hero        { padding: 140px 0 80px; min-height: 480px; }
   .hero-visual      { display: none; }
   .about-grid       { grid-template-columns: 1fr; }
   .about-image-wrap { display: none; }
@@ -870,10 +875,15 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .staerken-items   { grid-template-columns: 1fr; }
 }
 
-/* ≤ 900px – Tablet schmal */
+/* ≤ 900px – Tablet schmal / Mobile Nav */
 @media (max-width: 900px) {
-  .nav-calc { display: none; }
-  .nav-links { gap: 20px; }
+  /* Nav auf Hamburger umschalten */
+  .nav-calc  { display: none; }
+  .nav-links { display: none; }
+  .nav-cta   { display: none; }
+  .hamburger { display: flex; }
+  #header    { left: 16px; right: 16px; transform: none; white-space: normal; }
+
   .team-grid { grid-template-columns: 1fr 1fr; }
   .leistung-detail { grid-template-columns: 1fr; gap: 32px; padding: 56px 0; }
   .leistung-detail.reverse { direction: ltr; }
@@ -885,12 +895,6 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .section    { padding: 64px 0; }
   .section-sm { padding: 48px 0; }
   .container  { padding: 0 20px; }
-
-  /* Nav */
-  #header { left: 16px; right: 16px; transform: none; white-space: normal; }
-  .nav-links { display: none; }
-  .nav-cta   { display: none; }
-  .hamburger { display: flex; }
 
   /* Hero */
   .hero       { padding-top: 68px; min-height: 100vh; min-height: 100svh; }
