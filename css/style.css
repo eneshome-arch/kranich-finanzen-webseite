@@ -650,6 +650,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .footer-bottom a { color: rgba(255,255,255,0.25); transition: color var(--transition); }
 .footer-bottom a:hover { color: rgba(255,255,255,0.6); }
 .footer-bottom-links { display: flex; gap: 24px; }
+.footer-credit { font-size: 12px; color: rgba(255,255,255,0.2); letter-spacing: 0.03em; transition: color var(--transition); }
+.footer-credit:hover { color: rgba(255,255,255,0.55); }
 
 /* ── PAGE HERO (inner pages) – redesigned ───── */
 .page-hero {
