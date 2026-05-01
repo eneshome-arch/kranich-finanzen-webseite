@@ -414,9 +414,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
     display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
-    overflow-y: visible;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
     scrollbar-width: none;
     gap: 0;
     background: transparent;
@@ -429,6 +429,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
     flex: 0 0 100%;
     width: 100%;
     scroll-snap-align: center;
+    scroll-snap-stop: always;
     border-radius: 12px;
     border: 1px solid rgba(255,255,255,0.1);
     box-sizing: border-box;
@@ -471,9 +472,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
     display: flex;
     flex-wrap: nowrap;
     overflow-x: scroll;
-    overflow-y: visible;
+    overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
     scrollbar-width: none;
     gap: 0;
   }
@@ -482,6 +483,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
     flex: 0 0 100%;
     width: 100%;
     scroll-snap-align: center;
+    scroll-snap-stop: always;
     box-sizing: border-box;
   }
   .leistungen-carousel-wrap .carousel-dot {
