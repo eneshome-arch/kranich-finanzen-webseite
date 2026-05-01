@@ -358,36 +358,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tlItems = Array.from(track.querySelectorAll('.timeline-item'));
     const n = tlItems.length;
-    const angleStep = 360 / n;
-
-    function getRadius() {
-      return Math.round(Math.min(220, Math.max(130, timeline.offsetWidth / 3.2)));
-    }
-
-    function placeItems() {
-      const r = getRadius();
-      tlItems.forEach((item, i) => {
-        item.style.transform = `rotateY(${i * angleStep}deg) translateZ(${r}px)`;
-      });
-    }
-
     let tlStep = 0;
 
     function tlShow(idx) {
-      tlItems.forEach((it, i) => it.classList.toggle('tl-show', i === idx));
-      track.style.transform = `rotateY(${-idx * angleStep}deg)`;
-      setTimeout(() => {
-        tlItems[idx].classList.remove('tl-show');
-        setTimeout(() => {
-          tlStep = (idx + 1) % n;
-          tlShow(tlStep);
-        }, 500);
-      }, 3000);
+      const r = Math.min(180, Math.max(80, timeline.offsetWidth / 3.8));
+      const P = r * 3.5;
+
+      tlItems.forEach((it, i) => {
+        let off = i - idx;
+        if (off > n / 2) off -= n;
+        if (off < -n / 2) off += n;
+
+        const theta = (2 * Math.PI * off) / n;
+        const z = r * Math.cos(theta);
+        const x3d = r * Math.sin(theta);
+        const scale = P / (P + r - z);
+        const xScreen = Math.round(x3d * scale);
+
+        const isActive = off === 0;
+        const opacity = isActive ? 1 : Math.max(0.18, scale * 0.75);
+
+        it.style.transform = `translateX(calc(-50% + ${xScreen}px)) scale(${scale.toFixed(3)})`;
+        it.style.opacity = opacity.toFixed(2);
+        it.style.zIndex = isActive ? '10' : String(Math.round(z + r + 1));
+        it.classList.toggle('tl-show', isActive);
+      });
     }
 
-    placeItems();
-    window.addEventListener('resize', placeItems);
-    setTimeout(() => tlShow(0), 80);
+    tlShow(0);
+    setInterval(() => { tlStep = (tlStep + 1) % n; tlShow(tlStep); }, 3500);
+    window.addEventListener('resize', () => tlShow(tlStep));
   }
 
   // ── Trust Bar Animation ───────────────────
