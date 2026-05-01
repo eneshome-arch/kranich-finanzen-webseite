@@ -419,13 +419,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const el = e.target;
         const target = parseInt(el.dataset.count);
         const suffix = el.dataset.suffix || '';
-        let current = 0;
-        const step = Math.ceil(target / 50);
-        const timer = setInterval(() => {
-          current += step;
-          if (current >= target) { current = target; clearInterval(timer); }
-          el.textContent = current + suffix;
-        }, 30);
+        const duration = 2200;
+        const startTime = performance.now();
+        const easeOut = t => 1 - Math.pow(1 - t, 3);
+        const tick = now => {
+          const progress = Math.min((now - startTime) / duration, 1);
+          el.textContent = Math.round(easeOut(progress) * target) + suffix;
+          if (progress < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
         cObserver.unobserve(el);
       }
     });
