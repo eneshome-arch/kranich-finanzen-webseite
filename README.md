@@ -55,16 +55,17 @@ ozdemir-fensterbau/
 ## Features
 
 - **Floating Island Navigation** – Pill-förmiger Header, 16px zu den Rändern; bleibt dunkel-transparent bis der Hero-Abschnitt komplett gescrollt wurde, dann weiß mit `backdrop-filter: blur(20px)`. Logo links, Hamburger rechts auf kleinen Geräten.
-- **3D Timeline-Karussell** – „So arbeiten wir": 6 Schritte auf einem 3D-Kreis. Der aktive Schritt dreht immer nach vorne in die Mitte, wird blau hervorgehoben und zeigt seine Beschriftung. Alle anderen sind gedimmt sichtbar im Hintergrund.
+- **3D Timeline-Karussell** – „So arbeiten wir": 6 Schritte auf einem virtuellen 3D-Zylinder. Perspektivprojektion wird vollständig in JS berechnet (kein CSS `perspective`/`preserve-3d`) – das aktive Item ist dadurch garantiert pixelgenau mittig. Radius skaliert responsiv mit der Containerbreite. Der aktive Schritt ist blau hervorgehoben und zeigt seine Beschriftung; alle anderen sind gedimmt sichtbar im Hintergrund.
 - **Trust-Bar Animation** – 5 Vertrauenssignale zirkulieren mit Pop-in-Effekt einzeln durch (3 s sichtbar, 0,5 s Übergang).
 - **Benefits-Karussell (mobil)** – „Warum Kunden auf uns setzen": Scroll-Snap-Karussell auf kleinen Geräten mit Dot-Indikatoren, kein Auto-Advance.
 - **Leistungen-Karussell (mobil)** – „Alles aus einer Hand": gleiches Karussell-System.
 - **Hero** – Linksbündig, CSS-Gradient-Spotlight (blauer Radial-Glow oben rechts + unten links), kein Foto, kein Flackern. Overlay mit Bottom-Fade für sauberen Übergang.
 - **ROI-Rechner** – Interaktiver Energieeinsparungs-Rechner (Fenstertyp, Heizkosten, Fläche → jährliche Ersparnis, CO₂, Amortisation).
 - **Fade-in on Scroll** – Karten und Items via `IntersectionObserver`.
-- **Counter-Animation** – Zahlen zählen beim Einblenden hoch.
+- **Counter-Animation** – Zahlen zählen beim Einblenden hoch (2,2 s, `easeOut` via `requestAnimationFrame`). Auf Mobile nebeneinander statt untereinander.
 - **Filterbarer Katalog** – Kunststoff, Holz, Alu, Hebe-Schiebe.
 - **Web3Forms Kontaktformular** – Mit Honeypot, `aria-invalid`-Validierung, Erfolgs-/Fehlermeldung.
+- **Footer-Signatur** – „Designed by VYOMedia" mit Unterstrich-Indikator, verlinkt auf [vyomedia.de](https://vyomedia.de).
 - **SEO** – Meta-Tags, OG-Tags, Canonical-Links, Schema.org JSON-LD (LocalBusiness).
 - **Barrierefreiheit** – Skip-Link, `sr-only`, `:focus-visible`, `prefers-reduced-motion`.
 - **Google Maps** eingebettet auf der Kontaktseite.
@@ -180,7 +181,7 @@ Dann im Browser öffnen: [http://localhost:5050](http://localhost:5050)
 ## Technologien
 
 - HTML5
-- CSS3 (Custom Properties, Grid, Flexbox, `clamp()`, `backdrop-filter`, 3D Transforms, CSS Animations)
-- Vanilla JavaScript (ES6+, IntersectionObserver, `requestAnimationFrame`)
+- CSS3 (Custom Properties, Grid, Flexbox, `clamp()`, `backdrop-filter`, CSS Animations)
+- Vanilla JavaScript (ES6+, IntersectionObserver, `requestAnimationFrame`, JS-basierte 3D-Perspektivprojektion)
 - Google Fonts – Inter
 - Web3Forms (Kontaktformular, kein Backend)
