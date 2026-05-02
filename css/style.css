@@ -798,6 +798,45 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .team-card h3   { font-size: 17px; color: var(--text); margin-bottom: 4px; }
 .team-card span { font-size: 13px; color: var(--gray); font-weight: 400; }
 
+/* ── TEAM 3D CAROUSEL ────────────────────── */
+.team-grid.team-3d {
+  display: block;
+  position: relative;
+  min-height: 360px;
+  padding-bottom: 140px;
+  margin-top: 56px;
+  overflow: hidden;
+}
+.team-3d-track { position: absolute; inset: 0; }
+.team-3d .team-card {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  width: 260px;
+  cursor: pointer;
+  transition: transform 0.65s cubic-bezier(0.4,0,0.2,1), opacity 0.5s ease;
+  will-change: transform, opacity;
+  background: var(--white);
+}
+.team-3d .team-card p {
+  transition: opacity 0.45s ease;
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.6;
+}
+.team-3d .team-card:not(.tc-show) p { opacity: 0; }
+.team-3d .team-card .team-avatar {
+  transition: background 0.45s ease, border-color 0.45s ease, color 0.45s ease, box-shadow 0.45s ease, transform 0.45s ease;
+}
+.team-3d .team-card.tc-show .team-avatar {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--white);
+  box-shadow: 0 0 0 8px rgba(37,99,235,0.15);
+  transform: scale(1.1);
+}
+
 /* ── VALUES ────────────────────────────────── */
 .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
 .value-card { padding: 32px 24px; background: var(--white); border-radius: 10px; border: 1px solid var(--border); transition: border-color 0.2s ease, box-shadow 0.2s ease; }

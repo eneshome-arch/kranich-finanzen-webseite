@@ -448,6 +448,54 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => tlShow(tlStep));
   }
 
+  // ── Team 3D Carousel ─────────────────────
+  const teamGrid = document.querySelector('.team-grid');
+  if (teamGrid) {
+    teamGrid.classList.add('team-3d');
+
+    const tcTrack = document.createElement('div');
+    tcTrack.className = 'team-3d-track';
+    Array.from(teamGrid.children).forEach(child => tcTrack.appendChild(child));
+    teamGrid.appendChild(tcTrack);
+
+    const tcItems = Array.from(tcTrack.querySelectorAll('.team-card'));
+    const tcN = tcItems.length;
+    let tcStep = 0;
+
+    function tcShow(idx) {
+      const r = Math.min(220, Math.max(100, teamGrid.offsetWidth / 3.2));
+      const P = r * 3.5;
+
+      tcItems.forEach((it, i) => {
+        let off = i - idx;
+        if (off > tcN / 2) off -= tcN;
+        if (off < -tcN / 2) off += tcN;
+
+        const theta = (2 * Math.PI * off) / tcN;
+        const z = r * Math.cos(theta);
+        const x3d = r * Math.sin(theta);
+        const scale = P / (P + r - z);
+        const xScreen = Math.round(x3d * scale);
+
+        const isActive = off === 0;
+        const opacity = isActive ? 1 : Math.max(0.2, scale * 0.7);
+
+        it.style.transform = `translateX(calc(-50% + ${xScreen}px)) scale(${scale.toFixed(3)})`;
+        it.style.opacity = opacity.toFixed(2);
+        it.style.zIndex = isActive ? '10' : String(Math.round(z + r + 1));
+        it.classList.toggle('tc-show', isActive);
+      });
+    }
+
+    tcItems.forEach((it, i) => {
+      it.addEventListener('click', () => { tcStep = i; tcShow(i); });
+    });
+
+    tcShow(0);
+    setInterval(() => { tcStep = (tcStep + 1) % tcN; tcShow(tcStep); }, 3500);
+    window.addEventListener('resize', () => tcShow(tcStep));
+  }
+
   // ── Trust Bar Animation ───────────────────
   const trustInner = document.querySelector('.trust-bar-inner');
   if (trustInner) {
