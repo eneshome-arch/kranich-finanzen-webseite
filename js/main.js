@@ -346,6 +346,64 @@ document.addEventListener('DOMContentLoaded', () => {
     initCarousel();
   }
 
+  // ── Values Carousel (mobile) ─────────────
+  const valuesGrid = document.querySelector('.values-grid');
+  if (valuesGrid) {
+    const vWrap = document.createElement('div');
+    vWrap.className = 'values-carousel-wrap';
+    valuesGrid.parentNode.insertBefore(vWrap, valuesGrid);
+    vWrap.appendChild(valuesGrid);
+
+    const vCards = Array.from(valuesGrid.querySelectorAll('.value-card'));
+    const vTotal = vCards.length;
+    let vCurrent = 0;
+    let vActive = false;
+
+    const vDotsWrap = document.createElement('div');
+    vDotsWrap.className = 'carousel-dots';
+    vCards.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+      dot.setAttribute('aria-label', 'Wert ' + (i + 1));
+      dot.addEventListener('click', () => vGoTo(i));
+      vDotsWrap.appendChild(dot);
+    });
+    vWrap.appendChild(vDotsWrap);
+    const vDots = Array.from(vDotsWrap.querySelectorAll('.carousel-dot'));
+
+    function vGoTo(idx) {
+      vCurrent = ((idx % vTotal) + vTotal) % vTotal;
+      valuesGrid.scrollTo({ left: vCurrent * valuesGrid.offsetWidth, behavior: 'smooth' });
+      vDots.forEach((d, i) => d.classList.toggle('active', i === vCurrent));
+    }
+
+    let vRaf;
+    valuesGrid.addEventListener('scroll', () => {
+      cancelAnimationFrame(vRaf);
+      vRaf = requestAnimationFrame(() => {
+        const idx = Math.round(valuesGrid.scrollLeft / valuesGrid.offsetWidth);
+        if (idx !== vCurrent) {
+          vCurrent = idx;
+          vDots.forEach((d, i) => d.classList.toggle('active', i === vCurrent));
+        }
+      });
+    }, { passive: true });
+
+    function initValues() {
+      const mobile = window.innerWidth <= 768;
+      if (mobile && !vActive) {
+        vActive = true;
+        valuesGrid.scrollLeft = 0;
+        vCurrent = 0;
+        vDots.forEach((d, i) => d.classList.toggle('active', i === 0));
+      } else if (!mobile && vActive) {
+        vActive = false;
+      }
+    }
+    window.addEventListener('resize', initValues);
+    initValues();
+  }
+
   // ── Timeline 3D Carousel ─────────────────
   const timeline = document.querySelector('.timeline');
   if (timeline) {
