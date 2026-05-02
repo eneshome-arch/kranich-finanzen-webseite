@@ -491,8 +491,10 @@ document.addEventListener('DOMContentLoaded', () => {
       it.addEventListener('click', () => { tcStep = i; tcShow(i); });
     });
 
-    tcShow(0);
-    setInterval(() => { tcStep = (tcStep + 1) % tcN; tcShow(tcStep); }, 3500);
+    requestAnimationFrame(() => {
+      tcShow(0);
+      setInterval(() => { tcStep = (tcStep + 1) % tcN; tcShow(tcStep); }, 3500);
+    });
     window.addEventListener('resize', () => tcShow(tcStep));
   }
 

@@ -813,6 +813,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   top: 24px;
   left: 50%;
   width: 260px;
+  transform: translateX(-50%);
+  opacity: 0;
   cursor: pointer;
   transition: transform 0.65s cubic-bezier(0.4,0,0.2,1), opacity 0.5s ease;
   will-change: transform, opacity;
