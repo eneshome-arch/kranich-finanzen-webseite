@@ -191,7 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.12 });
 
-  document.querySelectorAll('.leistung-card, .katalog-item, .value-card, .team-card, .galerie-item').forEach(el => {
+  document.querySelectorAll('.leistung-card, .katalog-item, .value-card, .galerie-item').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(24px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
