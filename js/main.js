@@ -482,7 +482,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         it.style.transform = `translateX(calc(-50% + ${xScreen}px)) scale(${scale.toFixed(3)})`;
         it.style.opacity = opacity.toFixed(2);
-        it.style.zIndex = isActive ? '10' : String(Math.round(z + r + 1));
+        it.style.zIndex = isActive ? '10' : String(Math.max(1, Math.round(scale * 9)));
         it.classList.toggle('tc-show', isActive);
       });
     }
