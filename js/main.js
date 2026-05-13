@@ -542,15 +542,4 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
   counters.forEach(c => cObserver.observe(c));
 
-  // ── About list toggle ─────────────────────
-  const aboutBtn  = document.getElementById('aboutToggleBtn');
-  const aboutList = document.getElementById('aboutList');
-  if (aboutBtn && aboutList) {
-    aboutBtn.addEventListener('click', () => {
-      const isOpen = aboutBtn.getAttribute('aria-expanded') === 'true';
-      aboutBtn.setAttribute('aria-expanded', !isOpen);
-      aboutList.classList.toggle('about-list--expanded', !isOpen);
-    });
-  }
-
 });

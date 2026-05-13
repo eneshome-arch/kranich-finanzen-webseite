@@ -810,31 +810,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .about-badge-float strong { display: block; font-size: 40px; font-weight: 700; line-height: 1; letter-spacing: -0.04em; }
 .about-badge-float span   { font-size: 12px; font-weight: 400; opacity: 0.6; margin-top: 4px; display: block; }
 
-.about-toggle-btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--white); border: 1px solid var(--border);
-  border-radius: 8px; padding: 10px 18px;
-  font-size: 14px; font-weight: 600; color: var(--text);
-  cursor: pointer; margin-bottom: 0;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.about-toggle-btn:hover { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(37,99,235,0.08); }
-.about-toggle-icon { transition: transform 0.3s ease; flex-shrink: 0; }
-.about-toggle-btn[aria-expanded="true"] .about-toggle-icon { transform: rotate(180deg); }
-
-.about-list { display: flex; flex-direction: column; gap: 12px; margin: 16px 0 32px; }
-.about-list--collapsed {
-  display: grid;
-  grid-template-rows: 0fr;
-  overflow: hidden;
-  margin: 0;
-  transition: grid-template-rows 0.35s ease, margin 0.35s ease;
-}
-.about-list--collapsed > * { min-height: 0; }
-.about-list--expanded {
-  grid-template-rows: 1fr;
-  margin: 16px 0 32px;
-}
+.about-list { display: flex; flex-direction: column; gap: 12px; margin: 32px 0; }
 .about-list-item { display: flex; gap: 16px; background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 16px 20px; align-items: flex-start; }
 .about-list-item .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
 .about-list-item h4 { font-size: 15px; color: var(--text); margin-bottom: 4px; font-weight: 600; }
