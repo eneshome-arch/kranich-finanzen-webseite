@@ -919,18 +919,31 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   max-width: 460px;
 }
 @media (max-width: 768px) {
-  .hannover-section { min-height: 600px; align-items: flex-end; }
-  .hannover-inner   { padding: 56px 0 64px; }
-  .hannover-title   { font-size: clamp(36px, 10vw, 56px); }
-  .hannover-desc    { font-size: 15px; margin-bottom: 32px; }
-  .hannover-fade    {
-    background: linear-gradient(
-      to top,
-      rgba(2,6,23,0.98) 0%,
-      rgba(2,6,23,0.85) 50%,
-      rgba(2,6,23,0.40) 100%
-    );
+  .hannover-section {
+    flex-direction: column;
+    min-height: auto;
+    align-items: stretch;
   }
+  /* Bild oben als echtes Bild */
+  .hannover-bg {
+    position: relative;
+    height: 240px;
+    flex-shrink: 0;
+  }
+  .hannover-bg img {
+    filter: grayscale(25%) brightness(0.75);
+  }
+  .hannover-fade { display: none; }
+  /* Text darunter auf sauberem dunklen Hintergrund */
+  .hannover-inner {
+    background: var(--primary);
+    background-image: var(--blobs-b-dark);
+    padding: 48px 0 56px;
+    position: relative;
+    z-index: 1;
+  }
+  .hannover-title { font-size: clamp(34px, 9vw, 52px); }
+  .hannover-desc  { font-size: 15px; margin-bottom: 32px; }
 }
 
 /* old unused */
