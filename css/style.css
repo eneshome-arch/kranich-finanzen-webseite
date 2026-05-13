@@ -1383,6 +1383,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 
   /* Hero */
   .hero        { padding-top: 68px; min-height: 100vh; min-height: 100svh; }
+  .hero::before { display: none; }
   .hero-inner  { grid-template-columns: 1fr; gap: 48px; padding: 48px 0; min-height: auto; }
   .hero-visual { display: none; }
   .ht-outline  { font-size: clamp(52px, 14vw, 80px); }
