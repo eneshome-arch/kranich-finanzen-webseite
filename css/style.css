@@ -919,12 +919,16 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   max-width: 460px;
 }
 @media (max-width: 768px) {
-  .hannover-inner { padding: 72px 0; }
-  .hannover-fade  {
+  .hannover-section { min-height: 600px; align-items: flex-end; }
+  .hannover-inner   { padding: 56px 0 64px; }
+  .hannover-title   { font-size: clamp(36px, 10vw, 56px); }
+  .hannover-desc    { font-size: 15px; margin-bottom: 32px; }
+  .hannover-fade    {
     background: linear-gradient(
-      to bottom,
-      rgba(2,6,23,0.88) 0%,
-      rgba(2,6,23,0.75) 100%
+      to top,
+      rgba(2,6,23,0.98) 0%,
+      rgba(2,6,23,0.85) 50%,
+      rgba(2,6,23,0.40) 100%
     );
   }
 }
