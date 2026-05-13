@@ -273,7 +273,11 @@
         <span class="badge">Wer wir sind</span>
         <h2 class="section-title">HANDWERK MIT <span>HALTUNG.</span></h2>
         <p style="color:var(--gray);font-size:16px;line-height:1.8;margin-bottom:24px;">Özdemirbau UG steht seit über 10 Jahren für das, was im Bauprojekt wirklich zählt: Fenster, die passen. Liefertermine, die halten. Und ein Ansprechpartner, der abnimmt. Wir arbeiten für alle, die auf Qualität setzen – vom Eigenheim bis zum Gewerbebau, vom privaten Bauherrn bis zum Generalunternehmer.</p>
-        <div class="about-list">
+        <button class="about-toggle-btn" id="aboutToggleBtn" aria-expanded="false" aria-controls="aboutList">
+          <span>Unsere Grundsätze</span>
+          <svg class="about-toggle-icon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="about-list about-list--collapsed" id="aboutList">
           <div class="about-list-item">
             <div class="dot"></div>
             <div><h4>Keine Überraschungen</h4><p>Transparente Angebote, feste Preise, klare Timelines – vor Auftragsstart, nicht danach.</p></div>
