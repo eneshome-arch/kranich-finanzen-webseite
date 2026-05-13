@@ -1185,14 +1185,17 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 
 /* ── VALUES ────────────────────────────────── */
 .values-section {
-  background: var(--accent) !important;
+  background: #1e40af !important;
   background-image: none !important;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 .values-section .container {
   background: var(--light);
-  border: 2px solid rgba(255,255,255,0.35);
-  border-radius: 20px;
-  padding: 56px 64px;
+  border: 5px solid rgba(255,255,255,0.55);
+  border-radius: 24px;
+  padding: 64px 72px;
+  max-width: 1020px;
 }
 .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
 .value-card { padding: 32px 24px; background: var(--white); border-radius: 10px; border: 1px solid var(--border); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
