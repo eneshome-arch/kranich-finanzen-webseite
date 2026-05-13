@@ -26,7 +26,7 @@ ozdemir-fensterbau/
 ├── index.html          # Startseite
 ├── ueber-uns.html      # Über uns
 ├── leistungen.html     # Leistungen
-├── sortiment.html      # Unser Sortiment (Produktübersicht)
+├── sortiment.html      # Unser Sortiment (MIROX-Produktübersicht)
 ├── kontakt.html        # Kontakt mit Formular & Google Maps
 ├── katalog.html        # Filterbarer Produktkatalog
 ├── datenschutz.html    # Datenschutzerklärung (DSGVO)
@@ -39,15 +39,28 @@ ozdemir-fensterbau/
 ├── js/
 │   └── main.js         # Interaktivität & Animationen (v20)
 └── images/
-    ├── logo.png                # Firmenlogo
-    ├── og-image.jpg            # 1200×630 Social-Sharing-Bild
-    ├── fenster-fertigung.jpg   # Leistungskarte: Fenster-Fertigung
-    ├── montage-einbau.jpg      # Leistungskarte: Montage & Einbau
-    ├── lieferung-logistik.jpg  # Leistungskarte: Lieferung & Logistik
-    ├── fassade-bg.jpg          # Leistungskarte: Fassadensysteme
-    ├── beratung-planung.jpg    # Leistungskarte: Beratung & Planung
-    ├── service-wartung.jpg     # Leistungskarte: Service & Wartung
-    └── team-handshake.jpg      # Über-uns-Section (Startseite)
+    ├── logo.png                    # Firmenlogo
+    ├── og-image.jpg                # 1200×630 Social-Sharing-Bild
+    ├── fenster-fertigung.jpg       # Leistungskarte: Fenster-Fertigung
+    ├── montage-einbau.jpg          # Leistungskarte: Montage & Einbau
+    ├── lieferung-logistik.jpg      # Leistungskarte: Lieferung & Logistik
+    ├── fassade-bg.jpg              # Leistungskarte: Fassadensysteme
+    ├── beratung-planung.jpg        # Leistungskarte: Beratung & Planung
+    ├── service-wartung.jpg         # Leistungskarte: Service & Wartung
+    ├── team-handshake.jpg          # Über-uns-Section (Startseite)
+    ├── mirox-ideal8000.jpg         # Sortiment: MIROX IDEAL 8000
+    ├── mirox-ideal7000.jpg         # Sortiment: MIROX IDEAL 7000
+    ├── mirox-neo.jpg               # Sortiment: MIROX NEO
+    ├── mirox-ideal5000.jpg         # Sortiment: MIROX IDEAL 5000
+    ├── mirox-ideal4000.jpg         # Sortiment: MIROX IDEAL 4000
+    ├── mirox-hst.jpg               # Sortiment: HST Hebeschiebetür
+    ├── mirox-psk.jpg               # Sortiment: PSK Smart Slide Neo
+    ├── mirox-alu-thermo.jpg        # Sortiment: THERMO Alu
+    ├── mirox-alu-design.jpg        # Sortiment: NEW DESIGN Alu
+    ├── mirox-alu-schiebe.jpg       # Sortiment: Alu Schiebetür
+    ├── mirox-alu-falt.jpg          # Sortiment: Alu Falttür
+    ├── mirox-pvc-haustuer.jpg      # Sortiment: PVC Haustür Modern
+    └── mirox-alu-haustuer.jpg      # Sortiment: Alu Haustür Genesis 75
 ```
 
 ---
@@ -80,7 +93,8 @@ ozdemir-fensterbau/
 - **ROI-Rechner** – Interaktiver Energieeinsparungs-Rechner (Fenstertyp, Heizkosten, Fläche → jährliche Ersparnis, CO₂, Amortisation).
 - **Fade-in on Scroll** – Karten und Items via `IntersectionObserver`.
 - **Counter-Animation** – Zahlen zählen beim Einblenden hoch (2,2 s, `easeOut` via `requestAnimationFrame`). Auf Mobile nebeneinander.
-- **Filterbarer Katalog** – Kunststoff, Holz, Alu, Hebe-Schiebe.
+- **MIROX Sortiment** – 12 Produkte in 4 Kategorien (Kunststoff, Aluminium, Hebe-Schiebe, Haustüren) mit echten Produktfotos direkt aus dem MIROX-Katalog.
+- **Filterbarer Katalog** – Kunststoff, Aluminium, Hebe-Schiebe, Haustüren.
 - **Web3Forms Kontaktformular** – Mit Honeypot, `aria-invalid`-Validierung, Erfolgs-/Fehlermeldung.
 - **Footer-Signatur** – „Designed by VYOMedia" auf allen Seiten, verlinkt auf [vyomedia.de](https://vyomedia.de).
 - **SEO** – Meta-Tags, OG-Tags, Canonical-Links, Schema.org JSON-LD (LocalBusiness).
@@ -130,11 +144,30 @@ ozdemir-fensterbau/
 ### Seitenstruktur (Über uns)
 1. Page Hero (dark)
 2. Unternehmen + Stats-Grid (white)
-3. Werte / Karussell mobil (light `#f8fafc`)
+3. Werte / Karussell mobil (dark, Mesh-Gradient + Blob-Muster, gerahmter Container)
 4. Team 3D-Karussell (white)
 5. Zertifizierungen (light `#f8fafc`)
 6. CTA (dark)
 7. Footer (dark `#020617`)
+
+---
+
+## MIROX Sortiment
+
+| Produkt | Kategorie | Uw-Wert | Besonderheit |
+|---------|-----------|---------|--------------|
+| IDEAL 8000 | Kunststoff | 0,76 W/m²K | Passivhaus, RC2, 85 mm |
+| IDEAL 7000 | Kunststoff | 0,79 W/m²K | Energie A+, RC2, 85 mm |
+| NEO – New Look | Kunststoff | 0,78 W/m²K | Design, ift Rosenheim, 76 mm |
+| IDEAL 4000 | Kunststoff | 1,28 W/m²K | ECO, 70 mm, 2-/3-fach |
+| HST Hebeschiebetür | Hebe-Schiebe | 0,71 W/m²K | Passivhaus, bis 6,50 m, PVC |
+| PSK Smart Slide Neo | Hebe-Schiebe | – | 78 mm, max. 6.000 mm |
+| Alu Schiebetür MB-59HS | Hebe-Schiebe | – | Aluminium, niedrige Schwelle |
+| THERMO Alu MB 104 Passive | Aluminium | – | Passivhaus, 3-fach |
+| NEW DESIGN Ferroline | Aluminium | – | Loft-Design, Slim-Profil |
+| Alu Falttür Harmonika | Aluminium | – | CE, RAL-lackierbar |
+| Haustür Modern PVC | Haustüren | – | IDEAL 7000-Basis, 85 mm |
+| Alu Haustür Genesis 75 | Haustüren | – | RC2, Aluminium |
 
 ---
 
@@ -182,7 +215,6 @@ Dann im Browser öffnen: [http://localhost:5050](http://localhost:5050)
 
 - [ ] Web3Forms Access-Key in `kontakt.html` einsetzen
 - [ ] Google Maps Embed-URL (echte Adresse eintragen)
-- [ ] Produktbilder im Katalog (echte Fotos)
 - [ ] Galerie-Bilder (echte Projektfotos)
 - [ ] Team-Fotos (echte Bilder statt Initialen-Avatare)
 
