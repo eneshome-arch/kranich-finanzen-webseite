@@ -1184,6 +1184,16 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 }
 
 /* ── VALUES ────────────────────────────────── */
+.values-section {
+  background: var(--accent) !important;
+  background-image: none !important;
+}
+.values-section .container {
+  background: var(--light);
+  border: 2px solid rgba(255,255,255,0.35);
+  border-radius: 20px;
+  padding: 56px 64px;
+}
 .values-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 56px; }
 .value-card { padding: 32px 24px; background: var(--white); border-radius: 10px; border: 1px solid var(--border); transition: border-color 0.2s ease, box-shadow 0.2s ease; }
 .value-card:hover { border-color: #cbd5e1; box-shadow: var(--shadow); }
@@ -1474,6 +1484,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .leistungen-grid  { grid-template-columns: 1fr 1fr; }
   .katalog-grid     { grid-template-columns: 1fr 1fr; }
   .values-grid      { grid-template-columns: 1fr 1fr; }
+  .values-section .container { padding: 40px 32px; }
   .galerie-grid     { grid-template-columns: repeat(2, 1fr); }
   .kontakt-grid     { grid-template-columns: 1fr; gap: 40px; }
   .staerken-items   { grid-template-columns: 1fr; }
@@ -1510,6 +1521,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .katalog-grid      { grid-template-columns: 1fr 1fr; }
   .team-grid         { grid-template-columns: 1fr; }
   .values-grid       { grid-template-columns: 1fr 1fr; }
+  .values-section .container { padding: 32px 20px; border-radius: 14px; }
   .benefits-grid     { grid-template-columns: 1fr; }
   .galerie-grid      { grid-template-columns: 1fr 1fr; grid-auto-rows: 140px; }
   .galerie-item.wide { grid-column: span 1; }
