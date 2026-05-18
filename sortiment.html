@@ -19,7 +19,7 @@
   <link rel="canonical" href="https://www.ozdemir-fensterbau.de/sortiment.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=81">
+  <link rel="stylesheet" href="css/style.css?v=82">
   <link rel="icon" type="image/png" href="images/logo.png">
 </head>
 <body>
@@ -86,238 +86,320 @@
   </div>
 </section>
 
-<!-- SORTIMENT -->
-<section class="section katalog-section">
+<!-- PRODUKT GRID -->
+<section class="section shop-section">
   <div class="container">
-    <div class="katalog-filter">
-      <button class="filter-btn active" data-filter="all">Alle</button>
-      <button class="filter-btn" data-filter="kunststoff">Kunststoff</button>
-      <button class="filter-btn" data-filter="aluminium">Aluminium</button>
-      <button class="filter-btn" data-filter="hebe-schiebe">Hebe-Schiebe</button>
-      <button class="filter-btn" data-filter="haustuer">Haustüren</button>
+    <div class="shop-meta">
+      <span class="shop-count" id="shopCount">12 Produkte</span>
     </div>
+    <div class="shop-grid" id="shopGrid">
 
-    <div class="katalog-grid">
-
-      <!-- ── KUNSTSTOFF ── -->
-
-      <div class="katalog-item" data-cat="kunststoff">
-        <div class="katalog-img">
-          <img src="images/mirox-ideal8000.jpg" alt="MIROX IDEAL 8000" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <span class="katalog-badge">Bestseller</span>
-        </div>
-        <div class="katalog-body">
-          <h3>IDEAL 8000</h3>
-          <p>Das Passivhaus-Fenster von MIROX – höchste Energieeffizienz für Neubauten und anspruchsvolle Sanierungen. 3 Dichtungen, 6 Kammern, bis zu 38 Dekorfolien.</p>
-          <div class="katalog-specs">
-            <span class="spec-tag">Uw 0,76 W/m²K</span>
-            <span class="spec-tag">Passivhaus</span>
-            <span class="spec-tag">RC2</span>
-            <span class="spec-tag">85 mm</span>
+      <!-- #1 IDEAL 8000 -->
+      <article class="shop-card">
+        <a href="produkt?id=ideal-8000" class="shop-card-img-wrap">
+          <img src="images/produkt-1-ideal8000.png" alt="IDEAL 8000" loading="lazy">
+          <span class="shop-card-badge">Bestseller</span>
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Kunststoff</span>
+          <h2 class="shop-card-name"><a href="produkt?id=ideal-8000">IDEAL 8000</a></h2>
+          <p class="shop-card-tagline">Das Passivhaus-Fenster</p>
+          <div class="shop-card-specs">
+            <span>Uw 0,76 W/m²K</span>
+            <span>Passivhaus</span>
+            <span>RC2</span>
           </div>
-          <a href="kontakt.html">Angebot anfragen →</a>
-        </div>
-      </div>
-
-      <div class="katalog-item" data-cat="kunststoff">
-        <div class="katalog-img">
-          <img src="images/mirox-ideal7000.jpg" alt="MIROX IDEAL 7000" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <span class="katalog-badge">Energie A+</span>
-        </div>
-        <div class="katalog-body">
-          <h3>IDEAL 7000</h3>
-          <p>Premium ENERGO-Fenster mit niedrigstem Wärmedurchgangskoeffizienten. Ideal für moderne Einfamilienhäuser – 6 Kammern, 38 Folien, CE-zertifiziert.</p>
-          <div class="katalog-specs">
-            <span class="spec-tag">Uw 0,79 W/m²K</span>
-            <span class="spec-tag">RC2</span>
-            <span class="spec-tag">85 mm</span>
-            <span class="spec-tag">CE</span>
+          <div class="shop-card-actions">
+            <a href="produkt?id=ideal-8000" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="ideal-8000">Anfragen</button>
           </div>
-          <a href="kontakt.html">Angebot anfragen →</a>
         </div>
-      </div>
+      </article>
 
-      <div class="katalog-item" data-cat="kunststoff">
-        <div class="katalog-img">
-          <img src="images/mirox-neo.jpg" alt="MIROX NEO" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <span class="katalog-badge">Design</span>
-        </div>
-        <div class="katalog-body">
-          <h3>NEO – New Look</h3>
-          <p>Zeitlos kubisches Design für alle, die auf Stil setzen. Symmetrische Form, harmonisches Zusammenspiel von Innen und Außen – ift Rosenheim zertifiziert.</p>
-          <div class="katalog-specs">
-            <span class="spec-tag">Uw 0,78 W/m²K</span>
-            <span class="spec-tag">ift Rosenheim</span>
-            <span class="spec-tag">76 mm</span>
-            <span class="spec-tag">38 Folien</span>
+      <!-- #2 IDEAL 7000 -->
+      <article class="shop-card">
+        <a href="produkt?id=ideal-7000" class="shop-card-img-wrap">
+          <img src="images/produkt-2-ideal7000.png" alt="IDEAL 7000" loading="lazy">
+          <span class="shop-card-badge">Energie A+</span>
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Kunststoff</span>
+          <h2 class="shop-card-name"><a href="produkt?id=ideal-7000">IDEAL 7000</a></h2>
+          <p class="shop-card-tagline">Premium ENERGO-Fenster</p>
+          <div class="shop-card-specs">
+            <span>Uw 0,79 W/m²K</span>
+            <span>RC2</span>
+            <span>85 mm</span>
           </div>
-          <a href="kontakt.html">Angebot anfragen →</a>
-        </div>
-      </div>
-
-      <div class="katalog-item" data-cat="kunststoff">
-        <div class="katalog-img">
-          <img src="images/mirox-ideal4000.jpg" alt="MIROX IDEAL 4000" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="katalog-body">
-          <h3>IDEAL 4000</h3>
-          <p>Universal ECO-Fenster in klassischer und runder Profillinie. Verfügbar in Zwei- und Dreifachverglasung – die perfekte Balance aus Ökonomie und Ökologie.</p>
-          <div class="katalog-specs">
-            <span class="spec-tag">Uw 1,28 W/m²K</span>
-            <span class="spec-tag">2- / 3-fach</span>
-            <span class="spec-tag">70 mm</span>
-            <span class="spec-tag">38 Folien</span>
+          <div class="shop-card-actions">
+            <a href="produkt?id=ideal-7000" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="ideal-7000">Anfragen</button>
           </div>
-          <a href="kontakt.html">Angebot anfragen →</a>
         </div>
-      </div>
+      </article>
 
-      <!-- ── HEBE-SCHIEBE ── -->
-
-      <div class="katalog-item" data-cat="hebe-schiebe">
-        <div class="katalog-img">
-          <img src="images/mirox-hst.jpg" alt="MIROX HST Hebeschiebetür" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <span class="katalog-badge">Passivhaus</span>
-        </div>
-        <div class="katalog-body">
-          <h3>HST Hebeschiebetür</h3>
-          <p>Panoramablick ohne Kompromisse. Breiten bis 6,50 m, flache Schwelle, mühelos zu schieben – Passivhaus-geeignet und in 38 Dekoren erhältlich.</p>
-          <div class="katalog-specs">
-            <span class="spec-tag">Uw 0,71 W/m²K</span>
-            <span class="spec-tag">Bis 6,50 m</span>
-            <span class="spec-tag">Passivhaus</span>
-            <span class="spec-tag">PVC</span>
+      <!-- #3 NEO -->
+      <article class="shop-card">
+        <a href="produkt?id=neo" class="shop-card-img-wrap">
+          <img src="images/produkt-3-neo.png" alt="NEO – New Look" loading="lazy">
+          <span class="shop-card-badge">Design</span>
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Kunststoff</span>
+          <h2 class="shop-card-name"><a href="produkt?id=neo">NEO – New Look</a></h2>
+          <p class="shop-card-tagline">Zeitlos kubisches Design</p>
+          <div class="shop-card-specs">
+            <span>Uw 0,78 W/m²K</span>
+            <span>ift Rosenheim</span>
+            <span>76 mm</span>
           </div>
-          <a href="kontakt.html">Angebot anfragen →</a>
-        </div>
-      </div>
-
-      <div class="katalog-item" data-cat="hebe-schiebe">
-        <div class="katalog-img">
-          <img src="images/mirox-psk.jpg" alt="PSK Smart Slide Neo" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <span class="katalog-badge">Neuheit</span>
-        </div>
-        <div class="katalog-body">
-          <h3>PSK Smart Slide Neo</h3>
-          <p>Parallel-Schiebe-Kipp auf neuem Level. Breite Durchgangsöffnung, moderne Schwelle, ideal auch für die Renovierung. Max. Höhe 6.000 mm.</p>
-          <div class="katalog-specs">
-            <span class="spec-tag">78 mm Bautiefe</span>
-            <span class="spec-tag">Max. 6.000 mm</span>
-            <span class="spec-tag">Schiebe-Kipp</span>
+          <div class="shop-card-actions">
+            <a href="produkt?id=neo" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="neo">Anfragen</button>
           </div>
-          <a href="kontakt.html">Angebot anfragen →</a>
         </div>
-      </div>
+      </article>
 
-      <div class="katalog-item" data-cat="hebe-schiebe">
-        <div class="katalog-img">
-          <img src="images/mirox-alu-schiebe.jpg" alt="Aluminium Schiebetür MB-59HS" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <span class="katalog-badge">Gewerbe</span>
-        </div>
-        <div class="katalog-body">
-          <h3>Alu Schiebetür MB-59HS</h3>
-          <p>Aluminium-Hebe-Schiebetür mit niedrigster Schwelle – für Wintergärten, großflächige Verglasungen und architektonisch anspruchsvolle Projekte.</p>
-          <div class="katalog-specs">
-            <span class="spec-tag">Aluminium</span>
-            <span class="spec-tag">Niedrige Schwelle</span>
-            <span class="spec-tag">3-fach möglich</span>
+      <!-- #4 IDEAL 4000 -->
+      <article class="shop-card">
+        <a href="produkt?id=ideal-4000" class="shop-card-img-wrap">
+          <img src="images/produkt-4-ideal4000.png" alt="IDEAL 4000" loading="lazy">
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Kunststoff</span>
+          <h2 class="shop-card-name"><a href="produkt?id=ideal-4000">IDEAL 4000</a></h2>
+          <p class="shop-card-tagline">Universal ECO-Fenster</p>
+          <div class="shop-card-specs">
+            <span>Uw 1,28 W/m²K</span>
+            <span>2- / 3-fach</span>
+            <span>70 mm</span>
           </div>
-          <a href="kontakt.html">Angebot anfragen →</a>
-        </div>
-      </div>
-
-      <!-- ── ALUMINIUM ── -->
-
-      <div class="katalog-item" data-cat="aluminium">
-        <div class="katalog-img">
-          <img src="images/mirox-alu-thermo.jpg" alt="MIROX THERMO Aluminiumfenster" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <span class="katalog-badge">Premium</span>
-        </div>
-        <div class="katalog-body">
-          <h3>THERMO Alu – MB 104 Passive</h3>
-          <p>Aluminiumfenster mit höchster Wärmedämmung. Dreifach-Isolierglas, Passivhaus-geeignet – für Projekte mit maximalen Anforderungen an Energieeffizienz und Einbruchschutz.</p>
-          <div class="katalog-specs">
-            <span class="spec-tag">Passivhaus</span>
-            <span class="spec-tag">3-fach</span>
-            <span class="spec-tag">RAL nach Wahl</span>
+          <div class="shop-card-actions">
+            <a href="produkt?id=ideal-4000" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="ideal-4000">Anfragen</button>
           </div>
-          <a href="kontakt.html">Angebot anfragen →</a>
         </div>
-      </div>
+      </article>
 
-      <div class="katalog-item" data-cat="aluminium">
-        <div class="katalog-img">
-          <img src="images/mirox-alu-design.jpg" alt="MIROX NEW DESIGN Alu Ferroline" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-        </div>
-        <div class="katalog-body">
-          <h3>NEW DESIGN – Ferroline</h3>
-          <p>Loft-Fenster aus Aluminium, das Stahlkonstruktionen imitiert. Maximale Glasfläche bei minimaler Profilbreite – für Industrie-Design und moderne Architektur.</p>
-          <div class="katalog-specs">
-            <span class="spec-tag">Loft-Design</span>
-            <span class="spec-tag">Slim-Profil</span>
-            <span class="spec-tag">RAL nach Wahl</span>
+      <!-- #5 IDEAL 5000 -->
+      <article class="shop-card">
+        <a href="produkt?id=ideal-5000" class="shop-card-img-wrap">
+          <img src="images/produkt-5-ideal5000.png" alt="IDEAL 5000" loading="lazy">
+          <span class="shop-card-badge">Beliebt</span>
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Kunststoff</span>
+          <h2 class="shop-card-name"><a href="produkt?id=ideal-5000">IDEAL 5000</a></h2>
+          <p class="shop-card-tagline">Das vielseitige Mittelklasse-Fenster</p>
+          <div class="shop-card-specs">
+            <span>Uw 1,23 W/m²K</span>
+            <span>5 Kammern</span>
+            <span>70 mm</span>
           </div>
-          <a href="kontakt.html">Angebot anfragen →</a>
-        </div>
-      </div>
-
-      <div class="katalog-item" data-cat="aluminium">
-        <div class="katalog-img">
-          <img src="images/mirox-alu-falt.jpg" alt="MIROX Alu Falttür Harmonika" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <span class="katalog-badge">Terrasse</span>
-        </div>
-        <div class="katalog-body">
-          <h3>Alu Falttür – Harmonika</h3>
-          <p>Terrassenübergang ohne Grenzen. Falttüren aus wärmegedämmten Aluminiumprofilen – nach innen oder außen öffnend, CE-zertifiziert, vollständig in RAL-Farben lackierbar.</p>
-          <div class="katalog-specs">
-            <span class="spec-tag">Aluminium</span>
-            <span class="spec-tag">CE</span>
-            <span class="spec-tag">RAL Lackiert</span>
+          <div class="shop-card-actions">
+            <a href="produkt?id=ideal-5000" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="ideal-5000">Anfragen</button>
           </div>
-          <a href="kontakt.html">Angebot anfragen →</a>
         </div>
-      </div>
+      </article>
 
-      <!-- ── HAUSTÜREN ── -->
-
-      <div class="katalog-item" data-cat="haustuer">
-        <div class="katalog-img">
-          <img src="images/mirox-pvc-haustuer.jpg" alt="MIROX PVC Haustür Modern" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <span class="katalog-badge">Modern</span>
-        </div>
-        <div class="katalog-body">
-          <h3>Haustür Modern – PVC</h3>
-          <p>Moderne Kunststoff-Haustüren auf Basis des IDEAL 7000-Profils. Verstärkte Beschläge, breite Auswahl an modernen Paneelen – klassisch oder zeitlos modern.</p>
-          <div class="katalog-specs">
-            <span class="spec-tag">IDEAL 7000</span>
-            <span class="spec-tag">85 mm</span>
-            <span class="spec-tag">Viele Designs</span>
+      <!-- #6 HST -->
+      <article class="shop-card">
+        <a href="produkt?id=hst" class="shop-card-img-wrap">
+          <img src="images/produkt-6-hst.png" alt="HST Hebeschiebetür" loading="lazy">
+          <span class="shop-card-badge">Passivhaus</span>
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Hebe-Schiebe</span>
+          <h2 class="shop-card-name"><a href="produkt?id=hst">HST Hebeschiebetür</a></h2>
+          <p class="shop-card-tagline">Panoramablick ohne Kompromisse</p>
+          <div class="shop-card-specs">
+            <span>Uw 0,71 W/m²K</span>
+            <span>Bis 6,50 m</span>
+            <span>Passivhaus</span>
           </div>
-          <a href="kontakt.html">Angebot anfragen →</a>
-        </div>
-      </div>
-
-      <div class="katalog-item" data-cat="haustuer">
-        <div class="katalog-img">
-          <img src="images/mirox-alu-haustuer.jpg" alt="MIROX Alu Haustür Genesis 75" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
-          <span class="katalog-badge">RC2</span>
-        </div>
-        <div class="katalog-body">
-          <h3>Alu Haustür – Genesis 75</h3>
-          <p>Repräsentative Aluminium-Eingangstür mit hoher Festigkeit und Langlebigkeit. Sicherheitsparameter für RC2-Einbruchschutz, individuell in RAL-Farben konfigurierbar.</p>
-          <div class="katalog-specs">
-            <span class="spec-tag">RC2</span>
-            <span class="spec-tag">Aluminium</span>
-            <span class="spec-tag">RAL nach Wahl</span>
+          <div class="shop-card-actions">
+            <a href="produkt?id=hst" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="hst">Anfragen</button>
           </div>
-          <a href="kontakt.html">Angebot anfragen →</a>
         </div>
-      </div>
+      </article>
 
-    </div>
+      <!-- #7 PSK -->
+      <article class="shop-card">
+        <a href="produkt?id=psk" class="shop-card-img-wrap">
+          <img src="images/produkt-7-psk.png" alt="PSK Smart Slide Neo" loading="lazy">
+          <span class="shop-card-badge">Neuheit</span>
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Hebe-Schiebe</span>
+          <h2 class="shop-card-name"><a href="produkt?id=psk">PSK Smart Slide Neo</a></h2>
+          <p class="shop-card-tagline">Parallel-Schiebe-Kipp auf neuem Level</p>
+          <div class="shop-card-specs">
+            <span>78 mm</span>
+            <span>Max. 6.000 mm</span>
+            <span>Neuheit</span>
+          </div>
+          <div class="shop-card-actions">
+            <a href="produkt?id=psk" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="psk">Anfragen</button>
+          </div>
+        </div>
+      </article>
 
-    <div class="text-center" style="margin-top:48px;">
-      <a href="katalog.html" class="btn btn-primary">Vollständigen Katalog anzeigen</a>
+      <!-- #8 EINGANGSTÜR PVC -->
+      <article class="shop-card">
+        <a href="produkt?id=eingangstuer-pvc" class="shop-card-img-wrap">
+          <img src="images/produkt-8-eingangstuer-pvc.png" alt="Eingangstür PVC" loading="lazy" class="img-contain">
+          <span class="shop-card-badge">Beliebt</span>
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Haustür</span>
+          <h2 class="shop-card-name"><a href="produkt?id=eingangstuer-pvc">Eingangstür PVC</a></h2>
+          <p class="shop-card-tagline">Sicherheit, Langlebigkeit und Eleganz</p>
+          <div class="shop-card-specs">
+            <span>Premium 85 mm</span>
+            <span>Basic 70 mm</span>
+            <span>PVC</span>
+          </div>
+          <div class="shop-card-actions">
+            <a href="produkt?id=eingangstuer-pvc" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="eingangstuer-pvc">Anfragen</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- #9 ALU SCHIEBE -->
+      <article class="shop-card">
+        <a href="produkt?id=alu-schiebe" class="shop-card-img-wrap">
+          
+          <span class="shop-card-badge">Gewerbe</span>
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Hebe-Schiebe</span>
+          <h2 class="shop-card-name"><a href="produkt?id=alu-schiebe">Alu Schiebetür MB-59HS</a></h2>
+          <p class="shop-card-tagline">Aluminium-Hebe-Schiebe für Profis</p>
+          <div class="shop-card-specs">
+            <span>Aluminium</span>
+            <span>Niedrige Schwelle</span>
+            <span>3-fach möglich</span>
+          </div>
+          <div class="shop-card-actions">
+            <a href="produkt?id=alu-schiebe" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="alu-schiebe">Anfragen</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- #10 ALU THERMO -->
+      <article class="shop-card">
+        <a href="produkt?id=alu-thermo" class="shop-card-img-wrap">
+          
+          <span class="shop-card-badge">Premium</span>
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Aluminium</span>
+          <h2 class="shop-card-name"><a href="produkt?id=alu-thermo">THERMO Alu – MB 104 Passive</a></h2>
+          <p class="shop-card-tagline">Aluminium mit Passivhaus-Standard</p>
+          <div class="shop-card-specs">
+            <span>Passivhaus</span>
+            <span>3-fach</span>
+            <span>RC2</span>
+          </div>
+          <div class="shop-card-actions">
+            <a href="produkt?id=alu-thermo" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="alu-thermo">Anfragen</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- #11 FERROLINE -->
+      <article class="shop-card">
+        <a href="produkt?id=alu-ferroline" class="shop-card-img-wrap">
+          
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Aluminium</span>
+          <h2 class="shop-card-name"><a href="produkt?id=alu-ferroline">NEW DESIGN – Ferroline</a></h2>
+          <p class="shop-card-tagline">Loft-Ästhetik aus Aluminium</p>
+          <div class="shop-card-specs">
+            <span>Slim-Profil</span>
+            <span>Loft-Design</span>
+            <span>RAL nach Wahl</span>
+          </div>
+          <div class="shop-card-actions">
+            <a href="produkt?id=alu-ferroline" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="alu-ferroline">Anfragen</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- #12 HARMONIKA -->
+      <article class="shop-card">
+        <a href="produkt?id=alu-harmonika" class="shop-card-img-wrap">
+          
+          <span class="shop-card-badge">Terrasse</span>
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Aluminium</span>
+          <h2 class="shop-card-name"><a href="produkt?id=alu-harmonika">Alu Falttür – Harmonika</a></h2>
+          <p class="shop-card-tagline">Terrassenübergang ohne Grenzen</p>
+          <div class="shop-card-specs">
+            <span>Aluminium</span>
+            <span>CE</span>
+            <span>RAL Lackiert</span>
+          </div>
+          <div class="shop-card-actions">
+            <a href="produkt?id=alu-harmonika" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="alu-harmonika">Anfragen</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- #13 HAUSTÜR PVC -->
+      <article class="shop-card">
+        <a href="produkt?id=haustuer-pvc" class="shop-card-img-wrap">
+          
+          <span class="shop-card-badge">Modern</span>
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Haustür</span>
+          <h2 class="shop-card-name"><a href="produkt?id=haustuer-pvc">Haustür Modern – PVC</a></h2>
+          <p class="shop-card-tagline">Moderner Eingang aus Kunststoff</p>
+          <div class="shop-card-specs">
+            <span>IDEAL 7000</span>
+            <span>85 mm</span>
+            <span>RC2</span>
+          </div>
+          <div class="shop-card-actions">
+            <a href="produkt?id=haustuer-pvc" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="haustuer-pvc">Anfragen</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- #14 HAUSTÜR GENESIS -->
+      <article class="shop-card">
+        <a href="produkt?id=haustuer-genesis" class="shop-card-img-wrap">
+          
+          <span class="shop-card-badge">RC2</span>
+        </a>
+        <div class="shop-card-body">
+          <span class="shop-card-cat">Haustür</span>
+          <h2 class="shop-card-name"><a href="produkt?id=haustuer-genesis">Alu Haustür – Genesis 75</a></h2>
+          <p class="shop-card-tagline">Repräsentativer Aluminium-Eingang</p>
+          <div class="shop-card-specs">
+            <span>RC2</span>
+            <span>Aluminium</span>
+            <span>RAL nach Wahl</span>
+          </div>
+          <div class="shop-card-actions">
+            <a href="produkt?id=haustuer-genesis" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+            <button class="btn btn-blue shop-btn-anfrage" data-product-id="haustuer-genesis">Anfragen</button>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -388,6 +470,65 @@
 <button id="scrollTop" aria-label="Nach oben">
   <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
 </button>
-<script src="js/main.js?v=15"></script>
+
+<!-- ANFRAGE MODAL -->
+<div class="anfrage-modal" id="anfrageModal" role="dialog" aria-modal="true" aria-labelledby="anfrageModalTitle">
+  <div class="anfrage-modal-backdrop" id="anfrageModalBackdrop"></div>
+  <div class="anfrage-modal-panel">
+    <button class="anfrage-modal-close" id="anfrageModalClose" aria-label="Schließen">
+      <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <div class="anfrage-modal-header">
+      <span class="anfrage-modal-label" id="anfrageModalCat"></span>
+      <h3 id="anfrageModalTitle">Anfrage</h3>
+      <p>Schildern Sie uns kurz Ihr Vorhaben – wir melden uns innerhalb von 24 Stunden.</p>
+    </div>
+    <form class="anfrage-form" id="anfrageForm" novalidate>
+      <input type="hidden" name="produkt" id="anfrageProdukt">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="anfrageName">Name <span aria-hidden="true">*</span></label>
+          <input type="text" id="anfrageName" name="name" placeholder="Ihr Name" required>
+        </div>
+        <div class="form-group">
+          <label for="anfrageTel">Telefon oder E-Mail <span aria-hidden="true">*</span></label>
+          <input type="text" id="anfrageTel" name="kontakt" placeholder="+49 … oder name@mail.de" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="anfrageBreite">Breite (mm)</label>
+          <input type="number" id="anfrageBreite" name="breite" placeholder="z. B. 1200" min="100" max="10000">
+        </div>
+        <div class="form-group">
+          <label for="anfrageHoehe">Höhe (mm)</label>
+          <input type="number" id="anfrageHoehe" name="hoehe" placeholder="z. B. 1400" min="100" max="10000">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="anfrageAnzahl">Anzahl</label>
+        <input type="number" id="anfrageAnzahl" name="anzahl" placeholder="z. B. 4" min="1" max="999">
+      </div>
+      <div class="form-group">
+        <label for="anfrageNachricht">Ihre Nachricht</label>
+        <textarea id="anfrageNachricht" name="nachricht" rows="4" placeholder="Weitere Wünsche, Fragen oder Details zu Ihrem Projekt …"></textarea>
+      </div>
+      <div class="anfrage-form-error" id="anfrageError" style="display:none;"></div>
+      <button type="submit" class="btn btn-blue anfrage-submit">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        Anfrage absenden
+      </button>
+    </form>
+    <div class="anfrage-success" id="anfrageSuccess" style="display:none;">
+      <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="9 12 11 14 15 10"/></svg>
+      <h4>Anfrage erhalten!</h4>
+      <p>Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+      <button class="btn btn-ghost" id="anfrageSuccessClose">Schließen</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/products.js?v=2"></script>
+<script src="js/main.js?v=17"></script>
 </body>
 </html>

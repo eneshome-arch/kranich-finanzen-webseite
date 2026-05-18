@@ -543,3 +543,322 @@ document.addEventListener('DOMContentLoaded', () => {
   counters.forEach(c => cObserver.observe(c));
 
 });
+
+
+// ── Anfrage Modal ──────────────────────────
+(function () {
+  const modal    = document.getElementById('anfrageModal');
+  const backdrop = document.getElementById('anfrageModalBackdrop');
+  const closeBtn = document.getElementById('anfrageModalClose');
+  const form     = document.getElementById('anfrageForm');
+  const prodInput= document.getElementById('anfrageProdukt');
+  const catEl    = document.getElementById('anfrageModalCat');
+  const titleEl  = document.getElementById('anfrageModalTitle');
+  const errorEl  = document.getElementById('anfrageError');
+  const successEl= document.getElementById('anfrageSuccess');
+  const successClose = document.getElementById('anfrageSuccessClose');
+
+  if (!modal) return;
+
+  function openModal(productId) {
+    const product = (typeof PRODUCTS !== 'undefined')
+      ? PRODUCTS.find(p => p.id === productId)
+      : null;
+
+    if (product) {
+      prodInput.value  = product.name;
+      catEl.textContent = product.category;
+      titleEl.textContent = 'Anfrage: ' + product.name;
+    } else {
+      prodInput.value  = productId || '';
+      catEl.textContent = '';
+      titleEl.textContent = 'Anfrage stellen';
+    }
+
+    // Reset
+    form.style.display = '';
+    successEl.style.display = 'none';
+    if (errorEl) errorEl.style.display = 'none';
+    form.reset();
+    form.querySelectorAll('[aria-invalid]').forEach(el => el.removeAttribute('aria-invalid'));
+
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+
+    // Focus first input
+    setTimeout(() => {
+      const first = modal.querySelector('input:not([type=hidden])');
+      if (first) first.focus();
+    }, 50);
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Trigger buttons on the page
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('[data-product-id], .shop-btn-anfrage, #pdpAnfrageBtn');
+    if (!btn) return;
+
+    let id = btn.dataset.productId;
+    if (!id && btn.id === 'pdpAnfrageBtn') {
+      // On product page: get id from URL
+      id = new URLSearchParams(location.search).get('id') || '';
+    }
+    openModal(id);
+  });
+
+  // Close
+  if (closeBtn)   closeBtn.addEventListener('click', closeModal);
+  if (backdrop)   backdrop.addEventListener('click', closeModal);
+  if (successClose) successClose.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  // Submit
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      let valid = true;
+      form.querySelectorAll('[required]').forEach(el => {
+        if (!el.value.trim()) {
+          el.setAttribute('aria-invalid', 'true');
+          valid = false;
+        } else {
+          el.removeAttribute('aria-invalid');
+        }
+      });
+
+      if (!valid) {
+        if (errorEl) {
+          errorEl.textContent = 'Bitte füllen Sie die Pflichtfelder aus.';
+          errorEl.style.display = 'block';
+        }
+        form.querySelector('[aria-invalid]')?.focus();
+        return;
+      }
+
+      if (errorEl) errorEl.style.display = 'none';
+
+      // Demo: direkt Erfolg anzeigen (ohne echten Submit)
+      // Hier später Web3Forms-Key einsetzen
+      form.style.display = 'none';
+      successEl.style.display = 'block';
+    });
+
+    form.querySelectorAll('input, textarea').forEach(el => {
+      el.addEventListener('input', () => el.removeAttribute('aria-invalid'));
+    });
+  }
+})();
+
+
+// ── Produkt Detail Page (produkt.html) ────
+(function () {
+  if (!document.getElementById('pdpName')) return;
+  if (typeof PRODUCTS === 'undefined') return;
+
+  const id = new URLSearchParams(location.search).get('id');
+  const product = PRODUCTS.find(p => p.id === id);
+
+  if (!product) {
+    document.getElementById('pdpName').textContent = 'Produkt nicht gefunden';
+    return;
+  }
+
+  // <title> & meta
+  document.title = product.name + ' – Özdemir Fensterbau';
+  const metaDesc = document.getElementById('pdpDesc');
+  if (metaDesc) metaDesc.content = product.tagline + ' – ' + product.shortDesc;
+
+  // Breadcrumb
+  document.getElementById('pdpBreadcrumbName').textContent = product.name;
+
+  // Main image
+  const mainImg = document.getElementById('pdpMainImg');
+  mainImg.src = product.image;
+  mainImg.alt = product.name;
+  mainImg.style.display = '';
+  if (product.imageContain) mainImg.classList.add('img-contain');
+
+  // Badge
+  const badgeEl = document.getElementById('pdpBadge');
+  if (product.badge) {
+    badgeEl.textContent = product.badge;
+    badgeEl.style.display = '';
+  }
+
+  // Thumbnails (just repeat the main image for now)
+  const thumbsEl = document.getElementById('pdpThumbs');
+  const thumbImages = product.gallery || [product.image];
+  thumbImages.forEach((src, i) => {
+    const div = document.createElement('div');
+    div.className = 'pdp-thumb' + (i === 0 ? ' active' : '');
+    const img = document.createElement('img');
+    img.src = src;
+    img.alt = product.name + ' – Ansicht ' + (i + 1);
+    img.loading = 'lazy';
+    div.appendChild(img);
+    div.addEventListener('click', () => {
+      mainImg.style.opacity = '0';
+      setTimeout(() => {
+        mainImg.src = src;
+        mainImg.style.opacity = '1';
+      }, 150);
+      thumbsEl.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
+      div.classList.add('active');
+    });
+    thumbsEl.appendChild(div);
+  });
+
+  // Category & name
+  document.getElementById('pdpCategory').textContent = product.category;
+  document.getElementById('pdpName').textContent = product.name;
+  document.getElementById('pdpTagline').textContent = product.tagline;
+
+  // Spec pills (first 5 specs)
+  const pillsEl = document.getElementById('pdpSpecPills');
+  (product.specs || []).slice(0, 5).forEach(s => {
+    const span = document.createElement('span');
+    span.className = 'pdp-spec-pill';
+    span.textContent = s.label + ': ' + s.value;
+    pillsEl.appendChild(span);
+  });
+
+  // Badges / Zertifikate
+  const badgesEl = document.getElementById('pdpBadges');
+  if (badgesEl && product.badges && product.badges.length) {
+    product.badges.forEach(b => {
+      const div = document.createElement('div');
+      div.className = 'pdp-emblem pdp-emblem--' + b.type;
+      if (b.type === 'german-market') {
+        div.innerHTML =
+          '<div class="pdp-emblem-flag">' +
+            '<span class="pdp-flag-black"></span>' +
+            '<span class="pdp-flag-red"></span>' +
+            '<span class="pdp-flag-gold"></span>' +
+          '</div>' +
+          '<span class="pdp-emblem-label">' + b.label + '</span>';
+      } else if (b.type === 'passivhaus') {
+        div.innerHTML =
+          '<div class="pdp-emblem-icon pdp-emblem-icon--passivhaus">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>' +
+          '</div>' +
+          '<span class="pdp-emblem-label">' + b.label + '</span>';
+      } else if (b.type === 'rc2') {
+        div.innerHTML =
+          '<div class="pdp-emblem-icon pdp-emblem-icon--rc2">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>' +
+            '<span class="pdp-emblem-icon-text">RC2</span>' +
+          '</div>' +
+          '<span class="pdp-emblem-label">' + b.label + '</span>';
+      } else if (b.type === 'ce') {
+        div.innerHTML =
+          '<div class="pdp-emblem-icon pdp-emblem-icon--ce">' +
+            '<span class="pdp-emblem-icon-text pdp-emblem-icon-text--ce">CE</span>' +
+          '</div>' +
+          '<span class="pdp-emblem-label">' + b.label + '</span>';
+      } else if (b.type === 'ift') {
+        div.innerHTML =
+          '<div class="pdp-emblem-icon pdp-emblem-icon--ift">' +
+            '<span class="pdp-emblem-icon-text pdp-emblem-icon-text--ift">ift</span>' +
+          '</div>' +
+          '<span class="pdp-emblem-label">' + b.label + '</span>';
+      }
+      badgesEl.appendChild(div);
+    });
+  }
+
+  // Variants
+  const variantsWrap = document.getElementById('pdpVariantsWrap');
+  const variantsEl = document.getElementById('pdpVariants');
+  if (variantsWrap && variantsEl && product.variants && product.variants.length) {
+    product.variants.forEach((v, i) => {
+      const btn = document.createElement('button');
+      btn.className = 'pdp-variant-btn' + (i === 0 ? ' active' : '');
+      btn.title = v.name;
+      btn.type = 'button';
+      btn.innerHTML =
+        '<span class="pdp-variant-swatch" style="background:' + v.color + ';border-color:' + v.border + ';"></span>' +
+        '<span class="pdp-variant-name">' + v.name + '</span>';
+      btn.addEventListener('click', () => {
+        variantsEl.querySelectorAll('.pdp-variant-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (v.image) {
+          mainImg.style.opacity = '0';
+          setTimeout(() => {
+            mainImg.src = v.image;
+            mainImg.style.opacity = '1';
+          }, 150);
+          thumbsEl.querySelectorAll('.pdp-thumb').forEach(t => t.classList.remove('active'));
+        }
+      });
+      variantsEl.appendChild(btn);
+    });
+    variantsWrap.style.display = '';
+  }
+
+  // Description
+  const descEl = document.getElementById('pdpDescription');
+  descEl.textContent = product.description;
+
+  // Features list
+  const featEl = document.getElementById('pdpFeatures');
+  (product.features || []).forEach(f => {
+    const li = document.createElement('li');
+    li.textContent = f;
+    featEl.appendChild(li);
+  });
+
+  // Specs table
+  const tbody = document.querySelector('#pdpSpecsTable tbody');
+  (product.specs || []).forEach(s => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td>' + s.label + '</td><td>' + s.value + '</td>';
+    tbody.appendChild(tr);
+  });
+
+  // Specs footnote
+  const specsNoteEl = document.getElementById('pdpSpecsNote');
+  if (specsNoteEl && product.specsNote) {
+    specsNoteEl.textContent = product.specsNote;
+    specsNoteEl.style.display = '';
+  }
+
+  // Related products (same category, max 3)
+  const relatedEl = document.getElementById('pdpRelated');
+  const related = PRODUCTS
+    .filter(p => p.id !== product.id && p.category === product.category)
+    .slice(0, 3);
+
+  if (related.length < 3) {
+    // Fill up from other categories
+    const others = PRODUCTS
+      .filter(p => p.id !== product.id && p.category !== product.category)
+      .slice(0, 3 - related.length);
+    related.push(...others);
+  }
+
+  related.forEach(p => {
+    const art = document.createElement('article');
+    art.className = 'shop-card';
+    art.innerHTML = `
+      <a href="produkt?id=${p.id}" class="shop-card-img-wrap">
+        ${p.badge ? `<span class="shop-card-badge">${p.badge}</span>` : ''}
+      </a>
+      <div class="shop-card-body">
+        <span class="shop-card-cat">${p.category}</span>
+        <h2 class="shop-card-name"><a href="produkt?id=${p.id}">${p.name}</a></h2>
+        <p class="shop-card-tagline">${p.tagline}</p>
+        <div class="shop-card-actions">
+          <a href="produkt?id=${p.id}" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+          <button class="btn btn-blue shop-btn-anfrage" data-product-id="${p.id}">Anfragen</button>
+        </div>
+      </div>`;
+    relatedEl.appendChild(art);
+  });
+})();

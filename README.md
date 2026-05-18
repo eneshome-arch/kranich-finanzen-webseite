@@ -26,7 +26,8 @@ ozdemir-fensterbau/
 ├── index.html          # Startseite
 ├── ueber-uns.html      # Über uns
 ├── leistungen.html     # Leistungen
-├── sortiment.html      # Unser Sortiment (MIROX-Produktübersicht)
+├── sortiment.html      # Produkt-Shop (Shopify-Style, 14 Produkte)
+├── produkt.html        # Produktdetailseite (JS-driven, URL-param ?id=)
 ├── kontakt.html        # Kontakt mit Formular & Google Maps
 ├── katalog.html        # Filterbarer Produktkatalog
 ├── datenschutz.html    # Datenschutzerklärung (DSGVO)
@@ -35,32 +36,30 @@ ozdemir-fensterbau/
 ├── sitemap.xml         # Alle indexierbaren Seiten
 ├── .nojekyll           # GitHub Pages: Jekyll-Build überspringen
 ├── css/
-│   └── style.css       # Gesamtes Styling (v84)
+│   └── style.css       # Gesamtes Styling
 ├── js/
-│   └── main.js         # Interaktivität & Animationen (v20)
+│   ├── main.js         # Interaktivität, Anfrage-Modal, PDP-Logik
+│   └── products.js     # Zentrale Produktdaten (PRODUCTS-Array)
 └── images/
-    ├── logo.png                    # Firmenlogo
-    ├── og-image.jpg                # 1200×630 Social-Sharing-Bild
-    ├── fenster-fertigung.jpg       # Leistungskarte: Fenster-Fertigung
-    ├── montage-einbau.jpg          # Leistungskarte: Montage & Einbau
-    ├── lieferung-logistik.jpg      # Leistungskarte: Lieferung & Logistik
-    ├── fassade-bg.jpg              # Leistungskarte: Fassadensysteme
-    ├── beratung-planung.jpg        # Leistungskarte: Beratung & Planung
-    ├── service-wartung.jpg         # Leistungskarte: Service & Wartung
-    ├── team-handshake.jpg          # Über-uns-Section (Startseite)
-    ├── mirox-ideal8000.jpg         # Sortiment: MIROX IDEAL 8000
-    ├── mirox-ideal7000.jpg         # Sortiment: MIROX IDEAL 7000
-    ├── mirox-neo.jpg               # Sortiment: MIROX NEO
-    ├── mirox-ideal5000.jpg         # Sortiment: MIROX IDEAL 5000
-    ├── mirox-ideal4000.jpg         # Sortiment: MIROX IDEAL 4000
-    ├── mirox-hst.jpg               # Sortiment: HST Hebeschiebetür
-    ├── mirox-psk.jpg               # Sortiment: PSK Smart Slide Neo
-    ├── mirox-alu-thermo.jpg        # Sortiment: THERMO Alu
-    ├── mirox-alu-design.jpg        # Sortiment: NEW DESIGN Alu
-    ├── mirox-alu-schiebe.jpg       # Sortiment: Alu Schiebetür
-    ├── mirox-alu-falt.jpg          # Sortiment: Alu Falttür
-    ├── mirox-pvc-haustuer.jpg      # Sortiment: PVC Haustür Modern
-    └── mirox-alu-haustuer.jpg      # Sortiment: Alu Haustür Genesis 75
+    ├── logo.png
+    ├── og-image.jpg
+    ├── produkt-1-ideal8000.png
+    ├── produkt-1-ideal8000-2.png
+    ├── produkt-2-ideal7000.png
+    ├── produkt-2-ideal7000-2.png
+    ├── produkt-3-neo.png
+    ├── produkt-3-neo-2.png
+    ├── produkt-4-ideal4000.png
+    ├── produkt-4-ideal4000-2.png
+    ├── produkt-5-ideal5000.png
+    ├── produkt-5-ideal5000-2.png
+    ├── produkt-6-hst.png
+    ├── produkt-6-hst-2.png
+    ├── produkt-7-psk.png
+    ├── produkt-7-psk-2.png
+    ├── produkt-7-psk-3.png
+    ├── produkt-7-psk-4.png
+    └── produkt-8-eingangstuer-pvc.png
 ```
 
 ---
@@ -73,6 +72,7 @@ ozdemir-fensterbau/
 | Über uns | `ueber-uns.html` | KEIN MITTELSMANN. DIREKT VOM PROFI. |
 | Leistungen | `leistungen.html` | SECHS LEISTUNGEN. EIN ANSPRECHPARTNER. |
 | Sortiment | `sortiment.html` | ALLE SYSTEME. EIN PARTNER. |
+| Produktdetail | `produkt.html` | Dynamisch via `?id=` URL-Parameter |
 | Kontakt | `kontakt.html` | SPRECHEN WIR ÜBER IHR PROJEKT. |
 | Katalog | `katalog.html` | Erweiterter Produktkatalog |
 | Datenschutz | `datenschutz.html` | DSGVO-Datenschutzerklärung |
@@ -80,26 +80,54 @@ ozdemir-fensterbau/
 
 ---
 
+## Produkt-Shop (sortiment.html + produkt.html)
+
+Der Shop ist nach dem Shopify-Prinzip aufgebaut: zentrale Produktdaten in `js/products.js`, JS-getriebene Detailseite via URL-Parameter `?id=`.
+
+### Produktübersicht
+
+| # | Produkt | Kategorie | Uw-Wert | Bilder |
+|---|---------|-----------|---------|--------|
+| 1 | IDEAL 8000 | Kunststoff | 0,76 W/m²K | ✅ |
+| 2 | IDEAL 7000 | Kunststoff | 0,79 W/m²K | ✅ |
+| 3 | NEO – New Look | Kunststoff | 0,78 W/m²K | ✅ |
+| 4 | IDEAL 4000 | Kunststoff | 1,28 W/m²K | ✅ |
+| 5 | IDEAL 5000 | Kunststoff | 1,23 W/m²K | ✅ |
+| 6 | HST Hebeschiebetür | Hebe-Schiebe | 0,71 W/m²K | ✅ |
+| 7 | PSK Smart Slide Neo | Hebe-Schiebe | – | ✅ |
+| 8 | Eingangstür PVC | Haustür | – | ✅ |
+| 9 | Alu Schiebetür MB-59HS | Hebe-Schiebe | – | ⬜ |
+| 10 | THERMO Alu MB 104 Passive | Aluminium | – | ⬜ |
+| 11 | NEW DESIGN Ferroline | Aluminium | – | ⬜ |
+| 12 | Alu Falttür Harmonika | Aluminium | – | ⬜ |
+| 13 | Haustür Modern PVC | Haustür | – | ⬜ |
+| 14 | Alu Haustür Genesis 75 | Haustür | – | ⬜ |
+
+### Produktdetailseite – Features
+- URL-Parameter: `produkt?id=ideal-8000`
+- Bildgalerie mit Thumbnail-Navigation und Fade-Effekt
+- Variantenauswahl (Farbswatches) mit optionalem Bildwechsel
+- Zertifikats-Badges (Passivhaus, RC2, ift Rosenheim, CE, Deutscher Markt)
+- Technische Spec-Tabelle mit Fußnote
+- Ähnliche Produkte (gleiche Kategorie zuerst)
+- Anfrage-Modal produktspezifisch
+
+---
+
 ## Features
 
-- **Floating Island Navigation** – Pill-förmiger Header, 16px zu den Rändern; bleibt dunkel-transparent bis der Hero-Abschnitt komplett gescrollt wurde, dann weiß mit `backdrop-filter: blur(20px)`. Logo links, Hamburger rechts auf kleinen Geräten.
-- **3D Timeline-Karussell** – „So arbeiten wir": 6 Schritte auf einem virtuellen 3D-Zylinder. Perspektivprojektion vollständig in JS berechnet (kein CSS `perspective`/`preserve-3d`) – aktives Item garantiert pixelgenau mittig. Radius skaliert responsiv.
-- **3D Team-Karussell** – „Unser Team": 3 Team-Karten auf demselben JS-Perspektivprojektions-System. Aktive Karte mittig mit blauem Avatar-Highlight; Seitenkarten gedimmt. Klick auf Seitenkarte navigiert. Auto-Advance alle 3,5 s.
-- **Werte-Karussell (mobil)** – „Was uns auszeichnet": Scroll-Snap-Karussell auf kleinen Geräten mit Dot-Indikatoren.
-- **Trust-Bar Animation** – 5 Vertrauenssignale zirkulieren mit Pop-in-Effekt einzeln durch (3 s sichtbar, 0,5 s Übergang).
-- **Benefits-Karussell (mobil)** – „Warum Kunden auf uns setzen": Scroll-Snap-Karussell auf kleinen Geräten mit Dot-Indikatoren.
-- **Leistungen-Karussell (mobil)** – „Alles aus einer Hand": gleiches Karussell-System.
-- **Hero** – Linksbündig, CSS-Gradient-Spotlight (blauer Radial-Glow), kein Foto, kein Flackern.
-- **ROI-Rechner** – Interaktiver Energieeinsparungs-Rechner (Fenstertyp, Heizkosten, Fläche → jährliche Ersparnis, CO₂, Amortisation).
-- **Fade-in on Scroll** – Karten und Items via `IntersectionObserver`.
-- **Counter-Animation** – Zahlen zählen beim Einblenden hoch (2,2 s, `easeOut` via `requestAnimationFrame`). Auf Mobile nebeneinander.
-- **MIROX Sortiment** – 12 Produkte in 4 Kategorien (Kunststoff, Aluminium, Hebe-Schiebe, Haustüren) mit echten Produktfotos direkt aus dem MIROX-Katalog.
-- **Filterbarer Katalog** – Kunststoff, Aluminium, Hebe-Schiebe, Haustüren.
-- **Web3Forms Kontaktformular** – Mit Honeypot, `aria-invalid`-Validierung, Erfolgs-/Fehlermeldung.
-- **Footer-Signatur** – „Designed by VYOMedia" auf allen Seiten, verlinkt auf [vyomedia.de](https://vyomedia.de).
-- **SEO** – Meta-Tags, OG-Tags, Canonical-Links, Schema.org JSON-LD (LocalBusiness).
+- **Floating Island Navigation** – Pill-förmiger Header; bleibt dunkel-transparent bis Hero gescrollt, dann weiß mit `backdrop-filter: blur(20px)`. Auf `produkt.html` immer weiß via `data-theme="white"`.
+- **3D Timeline-Karussell** – „So arbeiten wir": 6 Schritte auf virtualem 3D-Zylinder, vollständig in JS berechnet.
+- **3D Team-Karussell** – „Unser Team": 3 Karten, JS-Perspektivprojektion, Auto-Advance alle 3,5 s.
+- **Werte-/Benefits-/Leistungen-Karussell (mobil)** – Scroll-Snap mit Dot-Indikatoren.
+- **Trust-Bar Animation** – 5 Vertrauenssignale zirkulieren mit Pop-in-Effekt (3 s / 0,5 s).
+- **ROI-Rechner** – Fenstertyp, Heizkosten, Fläche → Ersparnis, CO₂, Amortisation.
+- **Anfrage-Modal** – Produktspezifisches Formular, öffnet auf allen Produkt-Buttons.
+- **Fade-in on Scroll** – `IntersectionObserver`.
+- **Counter-Animation** – `requestAnimationFrame`, easeOut.
+- **Web3Forms Kontaktformular** – Honeypot, `aria-invalid`-Validierung.
+- **SEO** – Meta-Tags, OG-Tags, Canonical, Schema.org JSON-LD (LocalBusiness).
 - **Barrierefreiheit** – Skip-Link, `sr-only`, `:focus-visible`, `prefers-reduced-motion`.
-- **Google Maps** eingebettet auf der Kontaktseite.
 
 ---
 
@@ -112,8 +140,6 @@ ozdemir-fensterbau/
 | Footer-Farbe | `#020617` (Deep Black) |
 | Akzentfarbe | `#2563eb` (Clean Blue) |
 | Body-Hintergrund | `#f6f6f8` (sanftes Grau) |
-| Helle Sections | `#f8fafc` |
-| Timeline-Section | `#eef0f3` |
 | Stil | Minimalistisch, Apple/Linear-inspiriert |
 
 ### Navigation – Breakpoints
@@ -121,111 +147,54 @@ ozdemir-fensterbau/
 | Breakpoint | Verhalten |
 |-----------|-----------|
 | > 1300px | Vollständige Nav inkl. Telefonnummer |
-| ≤ 1300px | Telefonnummer ausgeblendet |
-| ≤ 1200px | Rechner-Button ausgeblendet, Nav-Links enger |
-| ≤ 1100px | Hamburger-Menü (Logo links, Hamburger rechts) |
-| ≤ 1024px | Tablet-Layout, 2-spaltige Grids |
-| ≤ 900px | Schmaleres Tablet-Layout |
-| ≤ 768px | Vollständig mobil, 1-spaltige Layouts |
-| ≤ 480px | Kleines Mobil |
-| ≤ 380px | Sehr kleines Mobil |
-
-### Seitenstruktur (Startseite)
-1. Hero (dark, CSS-Gradient, linksbündig)
-2. Trust Bar (light, animiert)
-3. Leistungen / Karussell mobil (white)
-4. Über uns + Stärken-Card (light)
-5. Vorteile-Grid / Karussell mobil (dark)
-6. ROI-Rechner (white)
-7. Projekt-Timeline 3D-Karussell (grau `#eef0f3`)
-8. CTA (dark)
-9. Footer (dark `#020617`)
-
-### Seitenstruktur (Über uns)
-1. Page Hero (dark)
-2. Unternehmen + Stats-Grid (white)
-3. Werte / Karussell mobil (dark, Mesh-Gradient + Blob-Muster, gerahmter Container)
-4. Team 3D-Karussell (white)
-5. Zertifizierungen (light `#f8fafc`)
-6. CTA (dark)
-7. Footer (dark `#020617`)
-
----
-
-## MIROX Sortiment
-
-| Produkt | Kategorie | Uw-Wert | Besonderheit |
-|---------|-----------|---------|--------------|
-| IDEAL 8000 | Kunststoff | 0,76 W/m²K | Passivhaus, RC2, 85 mm |
-| IDEAL 7000 | Kunststoff | 0,79 W/m²K | Energie A+, RC2, 85 mm |
-| NEO – New Look | Kunststoff | 0,78 W/m²K | Design, ift Rosenheim, 76 mm |
-| IDEAL 4000 | Kunststoff | 1,28 W/m²K | ECO, 70 mm, 2-/3-fach |
-| HST Hebeschiebetür | Hebe-Schiebe | 0,71 W/m²K | Passivhaus, bis 6,50 m, PVC |
-| PSK Smart Slide Neo | Hebe-Schiebe | – | 78 mm, max. 6.000 mm |
-| Alu Schiebetür MB-59HS | Hebe-Schiebe | – | Aluminium, niedrige Schwelle |
-| THERMO Alu MB 104 Passive | Aluminium | – | Passivhaus, 3-fach |
-| NEW DESIGN Ferroline | Aluminium | – | Loft-Design, Slim-Profil |
-| Alu Falttür Harmonika | Aluminium | – | CE, RAL-lackierbar |
-| Haustür Modern PVC | Haustüren | – | IDEAL 7000-Basis, 85 mm |
-| Alu Haustür Genesis 75 | Haustüren | – | RC2, Aluminium |
-
----
-
-## ROI-Rechner – Berechnungsgrundlage
-
-| Fenstertyp | Einsparfaktor |
-|---|---|
-| Einfachverglasung (vor 1990) | 17 % der Heizkosten |
-| Doppelverglasung (1990–2010) | 12 % |
-| Doppelverglasung (nach 2010) | 5 % |
-| Investition pro Fenster | 600 € (inkl. Montage) |
-| CO₂-Faktor | 0,201 kg/kWh (Erdgas, UBA) |
+| ≤ 1100px | Hamburger-Menü |
+| ≤ 768px | Vollständig mobil |
 
 ---
 
 ## Lokal starten
 
 ```bash
-cd ozdemir-fensterbau
-python3 -m http.server 5050
+npx serve . -p 3000
 ```
 
-Dann im Browser öffnen: [http://localhost:5050](http://localhost:5050)
+Dann im Browser: [http://localhost:3000](http://localhost:3000)
+
+> Produktdetailseite aufrufen: `http://localhost:3000/produkt?id=ideal-8000`
 
 ---
 
 ## Deployment
 
-### Coolify / Hetzner (aktiv)
-
-- Server-IP: `46.224.59.145`
-- Domain: `özdemir-fensterbau.de` → Punycode in Traefik: `xn--zdemir-fensterbau-yzb.de`
-- DNS bei IONOS: A-Record auf `46.224.59.145`
-- Nixpacks staticfile (Caddy, Port 80, kein Start-Command)
-
-### GitHub Pages (alternativ)
+### GitHub Pages
 
 1. GitHub → Repo → **Settings → Pages**
 2. Source: `Deploy from a branch`, Branch: `main`, Folder: `/ (root)`
-3. Eigene Domain in **Settings → Pages → Custom domain** eintragen.
+
+### Coolify / Hetzner
+
+- Server-IP: `46.224.59.145`
+- Nixpacks staticfile (Caddy, Port 80)
 
 ---
 
 ## Noch ausstehend
 
+- [ ] Produktbilder für #9–#14 einfügen
+- [ ] PDF-Daten für #9–#14 einpflegen
 - [ ] Web3Forms Access-Key in `kontakt.html` einsetzen
-- [ ] Google Maps Embed-URL (echte Adresse eintragen)
+- [ ] Google Maps Embed-URL (echte Adresse)
 - [ ] Galerie-Bilder (echte Projektfotos)
-- [ ] Team-Fotos (echte Bilder statt Initialen-Avatare)
+- [ ] Team-Fotos
 
 ---
 
 ## Kontaktformular einrichten (Web3Forms)
 
-1. Auf [web3forms.com](https://web3forms.com) mit der Empfänger-E-Mail anmelden.
-2. In `kontakt.html` den Platzhalter ersetzen:
+1. Auf [web3forms.com](https://web3forms.com) anmelden.
+2. In `kontakt.html` ersetzen:
    ```html
-   <input type="hidden" name="access_key" value="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
+   <input type="hidden" name="access_key" value="DEIN-KEY-HIER">
    ```
 
 ---
@@ -233,7 +202,7 @@ Dann im Browser öffnen: [http://localhost:5050](http://localhost:5050)
 ## Technologien
 
 - HTML5
-- CSS3 (Custom Properties, Grid, Flexbox, `clamp()`, `backdrop-filter`, CSS Animations)
-- Vanilla JavaScript (ES6+, IntersectionObserver, `requestAnimationFrame`, JS-basierte 3D-Perspektivprojektion)
+- CSS3 (Custom Properties, Grid, Flexbox, `clamp()`, `backdrop-filter`)
+- Vanilla JavaScript (ES6+, IntersectionObserver, `requestAnimationFrame`)
 - Google Fonts – Inter
 - Web3Forms (Kontaktformular, kein Backend)
