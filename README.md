@@ -107,7 +107,7 @@ Der Shop ist nach dem Shopify-Prinzip aufgebaut: zentrale Produktdaten in `js/pr
 - Variantenauswahl (Farbswatches) mit optionalem Bildwechsel
 - Zertifikats-Badges (Passivhaus, RC2, ift Rosenheim, CE, Deutscher Markt)
 - Technische Spec-Tabelle mit Fußnote
-- Ähnliche Produkte (gleiche Kategorie zuerst)
+- Ähnliche Produkte (gleiche Kategorie zuerst, mit Produktbild und korrekten Links)
 - Anfrage-Modal produktspezifisch
 
 ---
@@ -123,6 +123,7 @@ Der Shop ist nach dem Shopify-Prinzip aufgebaut: zentrale Produktdaten in `js/pr
 - **ROI-Rechner** – Fenstertyp, Heizkosten, Fläche → Ersparnis, CO₂, Amortisation. Blauer Rahmen + weiße Karte.
 - **Leistungsportfolio** – 6 Leistungskarten im Blue-Frame-Stil.
 - **Anfrage-Modal** – Produktspezifisches Formular, öffnet auf allen Produkt-Buttons.
+- **Hero-Buttons z-index** – `hero-content` hat `z-index: 2` damit 3D-Fenster-Animation die Buttons nicht überlagert.
 - **Fade-in on Scroll** – `IntersectionObserver`.
 - **Counter-Animation** – `requestAnimationFrame`, easeOut.
 - **Web3Forms Kontaktformular** – Honeypot, `aria-invalid`-Validierung.
