@@ -454,8 +454,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   transform-style: preserve-3d;
   border: 5px solid rgba(255,255,255,0.18);
   border-radius: 4px;
-  box-shadow: 0 0 0 1px rgba(37,99,235,0.12), 0 60px 120px rgba(0,0,0,0.3);
-  background: rgba(219,234,254,0.5);
+  box-shadow: 0 0 0 1px rgba(37,99,235,0.12), 0 60px 120px rgba(0,0,0,0.7);
+  background: rgba(10,15,30,0.6);
   z-index: 1;
 }
 .hw-frame::before {
@@ -484,7 +484,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   position: absolute;
   top: 0; bottom: 0; left: 50%;
   width: 8px; margin-left: -4px;
-  background: linear-gradient(to right, rgba(37,99,235,0.4), rgba(37,99,235,0.2));
+  background: linear-gradient(to right, rgba(255,255,255,0.18), rgba(255,255,255,0.08));
   transform: translateZ(6px);
   z-index: 3;
 }
@@ -492,7 +492,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   position: absolute;
   left: 0; right: 0; top: 44%;
   height: 8px; margin-top: -4px;
-  background: linear-gradient(to bottom, rgba(37,99,235,0.4), rgba(37,99,235,0.2));
+  background: linear-gradient(to bottom, rgba(255,255,255,0.18), rgba(255,255,255,0.08));
   transform: translateZ(6px);
   z-index: 3;
 }
@@ -505,7 +505,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   position: absolute;
   top: -150%; left: -80%;
   width: 60%; height: 350%;
-  background: linear-gradient(108deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+  background: linear-gradient(108deg, transparent 0%, rgba(255,255,255,0.10) 50%, transparent 100%);
   transform: skewX(-12deg);
   animation: hw-shimmer-anim 6s ease-in-out infinite;
 }
@@ -520,10 +520,10 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   transform: translate(-50%, -14px) translateZ(18px);
   z-index: 5;
   width: 11px; height: 36px;
-  background: linear-gradient(135deg, rgba(37,99,235,0.8), rgba(29,78,216,0.5));
+  background: linear-gradient(135deg, rgba(226,232,240,0.8), rgba(100,116,139,0.4));
   border-radius: 6px;
-  border: 1px solid rgba(255,255,255,0.3);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
 /* Floating badges */
