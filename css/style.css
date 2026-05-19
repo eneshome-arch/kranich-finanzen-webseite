@@ -269,13 +269,19 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 
 /* ── HERO ──────────────────────────────────── */
 .hero {
-  min-height: 82vh;
-  background: #eef7f0;
+  background: #c8e6c9;
   display: flex;
   align-items: center;
-  padding-top: 90px;
+  padding: 100px 0 48px;
   position: relative;
   overflow: hidden;
+}
+
+.hero-card {
+  background: #fff;
+  border-radius: 28px;
+  padding: 56px 52px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.06);
 }
 
 /* Layout grid */
