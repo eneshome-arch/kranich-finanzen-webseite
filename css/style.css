@@ -1418,13 +1418,16 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .galerie-grid     { grid-template-columns: repeat(2, 1fr); }
   .kontakt-grid     { grid-template-columns: 1fr; gap: 40px; }
   .staerken-items   { grid-template-columns: 1fr; }
-  .hannover-card    { grid-template-columns: 1fr; }
-  .hannover-text    { padding: 36px 28px; }
+  .hannover-card    { grid-template-columns: 1fr; height: auto; }
+  .hannover-img-wrap { height: 260px; }
+  .hannover-text    { padding: 32px 28px; }
   .hannover-section { padding: 16px; }
   .leistungen-portfolio-section { padding: 16px; }
   .leistungen-portfolio-card    { padding: 36px 20px; }
   .rechner-frame                { padding: 16px; }
   .rechner-card                 { padding: 36px 20px; }
+  .hero-frame       { padding: 12px; }
+  .hero             { border-radius: 14px; }
 }
 
 /* ≤ 900px – Tablet schmal */
@@ -1442,16 +1445,31 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .container  { padding: 0 20px; }
 
   /* Hero */
-  .hero        { padding-top: 68px; min-height: 100vh; min-height: 100svh; }
+  .hero-frame  { padding: 12px; }
+  .hero        { padding: 88px 0 48px; min-height: auto; border-radius: 14px; }
   .hero::before { display: none; }
-  .hero-inner  { grid-template-columns: 1fr; gap: 48px; padding: 48px 0; min-height: auto; }
+  .hero-inner  { grid-template-columns: 1fr; gap: 0; padding: 32px 0 0; min-height: auto; }
   .hero-visual { display: none; }
-  .ht-outline  { font-size: clamp(52px, 14vw, 80px); }
-  .ht-solid    { font-size: clamp(42px, 11vw, 64px); }
-  .hero-desc   { font-size: 15px; max-width: 100%; }
-  .hero-stats  { gap: 24px; flex-wrap: wrap; padding-top: 32px; }
-  .hero-stat strong { font-size: 28px; }
-  .hero-actions { gap: 12px; margin-bottom: 40px; }
+  .hero-eyebrow { margin-bottom: 20px; }
+  .hero-title  { font-size: clamp(38px, 9vw, 56px); margin-bottom: 20px; }
+  .hero-desc   { font-size: 15px; max-width: 100%; margin-bottom: 32px; }
+  .hero-actions { gap: 12px; margin-bottom: 32px; flex-direction: column; align-items: stretch; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+  .hero-stats  { gap: 0; flex-wrap: nowrap; padding-top: 24px; margin-top: 8px; }
+  .hero-stat   { padding: 0 16px; }
+  .hero-stat strong { font-size: 26px; }
+  .hero-stat span   { font-size: 10px; }
+  .hero-trust  { margin-top: 32px; padding-top: 24px; gap: 0; flex-wrap: wrap; justify-content: flex-start; row-gap: 8px; }
+  .hero-trust-item { font-size: 11px; padding: 4px 12px; }
+  .hero-trust-divider { display: none; }
+
+  /* Hannover mobile */
+  .hannover-section { padding: 12px; }
+  .hannover-card    { grid-template-columns: 1fr; height: auto; border-radius: 14px; }
+  .hannover-img-wrap { height: 220px; }
+  .hannover-text    { padding: 28px 24px; gap: 12px; max-width: 100%; }
+  .hannover-text h2 { font-size: 26px; }
+  .hannover-text p  { font-size: 14px; }
 
   /* Grids */
   .leistungen-grid   { grid-template-columns: 1fr; }
@@ -1535,13 +1553,10 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .about-stats-grid > div { padding: 16px !important; }
   .about-stats-grid strong { font-size: 34px !important; }
 
-  .hero-title   { font-size: clamp(28px, 8.5vw, 44px); }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .hero-actions .btn { width: 100%; justify-content: center; }
+  .hero-title   { font-size: clamp(32px, 9vw, 44px); }
   .hero-badge   { font-size: 11px; padding: 5px 12px; }
-  .hero-stats   { flex-direction: row; justify-content: space-between; gap: 8px; border-top: none; padding-top: 0; margin-top: 32px; }
-  .hero-stat strong { font-size: 24px; }
-  .hero-stat span   { font-size: 11px; }
+  .hero-stat    { padding: 0 12px; }
+  .hero-stat strong { font-size: 22px; }
   .hero-inner   { padding: 36px 0; }
 
   .trust-bar-inner { flex-direction: column; gap: 10px; align-items: flex-start; }
