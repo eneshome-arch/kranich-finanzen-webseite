@@ -8,10 +8,10 @@ const PRODUCTS = [
     tagline: 'Das Passivhaus-Fenster',
     category: 'Kunststoff',
     badge: 'Bestseller',
-    image: 'images/produkt-1-ideal8000.png',
+    image: 'images/ideal-8000.png',
+    imageContain: true,
     gallery: [
-      'images/produkt-1-ideal8000.png',
-      'images/produkt-1-ideal8000-2.png',
+      'images/ideal-8000.png',
     ],
     shortDesc: 'Höchste Energieeffizienz für Neubauten und anspruchsvolle Sanierungen. Passivhaus-geeignet, RC2 Einbruchschutz, 6 Kammern, 3 Dichtungen.',
     description: 'Die ENERGIESPARENDEN Fenster im Fenstersystem IDEAL 8000 sind eine Kombination modernster technischer Lösungen, die Wärme, Ruhe und Sicherheit garantieren. Diese Fenster sind für Investoren konzipiert, die an sicherem, energieeffizientem und passivem Bauen interessiert sind.\n\nMit einem Uw-Wert von nur 0,76 W/m²K erfüllt das IDEAL 8000 alle Anforderungen des Passivhausstandards und bietet gleichzeitig zertifizierten Einbruchschutz der Klasse RC2. Durch die 6-Kammer-Konstruktion und 3 umlaufende Dichtungen erreicht das Profil eine Bautiefe von 85 mm – für optimale Wärmedämmung auch bei extremen Klimabedingungen.\n\nMit über 38 verfügbaren Dekorfolien lässt es sich individuell an jede Architektursprache anpassen. Ideal für Neubauten, Passivhäuser und hochwertige Sanierungen – wenn keine Kompromisse beim Energiestandard gemacht werden dürfen.',

@@ -268,14 +268,19 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 #header .mobile-menu a.btn-primary:hover { background: #1e293b; color: var(--white); }
 
 /* ── HERO ──────────────────────────────────── */
+.hero-frame {
+  background: #dbeafe;
+  padding: 28px;
+}
 .hero {
   background: #0a0f1e;
-  min-height: 100vh;
+  min-height: calc(100vh - 56px);
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
   padding: 120px 0 80px;
+  border-radius: 20px;
 }
 
 /* Subtle grain texture */
@@ -499,10 +504,28 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 }
 
 /* ── TRUST BAR ─────────────────────────────── */
-.trust-bar { background: var(--light); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 10px 0; }
-.trust-bar-inner { display: flex; align-items: center; justify-content: center; gap: 48px; flex-wrap: wrap; }
-.trust-item { display: flex; align-items: center; gap: 8px; color: var(--gray); font-size: 13px; font-weight: 500; }
-.trust-item svg { color: var(--accent); }
+.trust-bar { display: none; }
+.hero-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0;
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(255,255,255,0.35);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 0 24px;
+}
+.hero-trust-item svg { color: rgba(255,255,255,0.25); flex-shrink: 0; }
+.hero-trust-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.1); }
 
 .trust-bar-inner.trust-animated {
   position: relative;
@@ -655,6 +678,84 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .leistung-card-overlay { position: relative; z-index: 1; padding: 32px; background: linear-gradient(to top, rgba(0,0,0,0.8) 50%, rgba(0,0,0,0.2) 100%); border-radius: 10px; height: 100%; box-sizing: border-box; display: flex; flex-direction: column; justify-content: flex-end; min-height: 260px; }
 .leistung-icon--light { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.15); color: var(--white); }
 
+/* ── HANNOVER SEKTION ──────────────────────── */
+.hannover-section {
+  background: #dbeafe;
+  padding: 28px;
+}
+.hannover-card {
+  background: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  height: 420px;
+  box-shadow: 0 8px 40px rgba(59,130,246,0.10);
+}
+.hannover-img-wrap {
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+}
+.hannover-img-wrap iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.78%;
+  height: 177.78%;
+  transform: translate(-50%, -50%);
+  border: 0;
+  pointer-events: none;
+}
+.hannover-text {
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+  max-width: 420px;
+}
+.hannover-text h2 {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--primary-dark);
+  line-height: 1.15;
+  margin: 0;
+}
+.hannover-text p {
+  font-size: 15px;
+  color: var(--gray);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── LEISTUNGSPORTFOLIO RAHMEN ─────────────── */
+.leistungen-portfolio-section {
+  background: #dbeafe;
+  padding: 28px;
+}
+.leistungen-portfolio-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 56px 64px;
+  box-shadow: 0 8px 40px rgba(59,130,246,0.10);
+}
+.leistungen-portfolio-card .text-center,
+.leistungen-portfolio-card .leistungen-grid,
+.leistungen-portfolio-card > div:last-child {
+  max-width: 1160px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.leistungen-portfolio-card .leistung-card--img-bg {
+  height: 260px;
+}
+.leistungen-portfolio-card .leistung-card-overlay {
+  min-height: unset;
+  height: 100%;
+}
+
 /* ── KATALOG / FENSTER ─────────────────────── */
 .katalog-section { background: var(--light); background-image: var(--blobs-b); }
 
@@ -763,116 +864,6 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .form-group select[aria-invalid="true"] { border-color: #dc2626; background: #fef2f2; }
 
 /* ── CTA SECTION ───────────────────────────── */
-/* ── HANNOVER SECTION ──────────────────────── */
-.hannover-section {
-  position: relative;
-  min-height: 500px;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-}
-.hannover-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.hannover-bg img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center 35%;
-  filter: grayscale(25%) brightness(0.55);
-}
-.hannover-fade {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    rgba(2,6,23,0.97) 0%,
-    rgba(2,6,23,0.80) 40%,
-    rgba(2,6,23,0.30) 75%,
-    transparent 100%
-  );
-}
-.hannover-inner {
-  position: relative;
-  z-index: 1;
-  padding: 96px 0;
-}
-.hannover-location {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #93c5fd;
-  margin-bottom: 24px;
-}
-.hannover-title {
-  font-size: clamp(40px, 5vw, 72px);
-  font-weight: 800;
-  line-height: 1.0;
-  letter-spacing: -0.03em;
-  color: var(--white);
-  margin-bottom: 24px;
-}
-.hannover-title span {
-  -webkit-text-stroke: 1.5px rgba(255,255,255,0.3);
-  color: transparent;
-}
-.hannover-desc {
-  font-size: 16px;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.85;
-  margin-bottom: 40px;
-  max-width: 460px;
-}
-@media (max-width: 768px) {
-  .hannover-section {
-    flex-direction: column;
-    min-height: auto;
-    align-items: stretch;
-  }
-  /* Bild oben als echtes Bild */
-  .hannover-bg {
-    position: relative;
-    height: 240px;
-    flex-shrink: 0;
-  }
-  .hannover-bg img {
-    filter: grayscale(25%) brightness(0.75);
-  }
-  .hannover-fade { display: none; }
-  /* Text darunter auf sauberem dunklen Hintergrund */
-  .hannover-inner {
-    background: var(--primary);
-    background-image: var(--blobs-b-dark);
-    padding: 48px 0 56px;
-    position: relative;
-    z-index: 1;
-  }
-  .hannover-title { font-size: clamp(34px, 9vw, 52px); }
-  .hannover-desc  { font-size: 15px; margin-bottom: 32px; }
-}
-
-/* old unused */
-.hannover-area {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255,255,255,0.75);
-}
-@media (max-width: 768px) {
-  .hannover-section { min-height: auto; }
-  .hannover-inner   { padding: 72px 0; }
-  .hannover-areas   { grid-template-columns: 1fr; }
-  .hannover-image-overlay {
-    background: linear-gradient(to bottom, rgba(2,6,23,0.85) 0%, rgba(2,6,23,0.75) 100%);
-  }
-}
 
 /* ── CTA ───────────────────────────────────── */
 .cta-section { background: var(--primary-dark); padding: 112px 0; text-align: center; position: relative; overflow: hidden; }
@@ -1184,6 +1175,18 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .legal-content ul li { font-size: 15px; color: var(--gray); line-height: 1.8; margin-bottom: 6px; }
 .legal-content a  { color: var(--accent); text-decoration: underline; }
 
+/* ── ROI RECHNER RAHMEN ────────────────────── */
+.rechner-frame {
+  background: #dbeafe;
+  padding: 28px;
+}
+.rechner-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 56px 64px;
+  box-shadow: 0 8px 40px rgba(59,130,246,0.10);
+}
+
 /* ── ROI RECHNER ───────────────────────────── */
 .roi-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 64px; align-items: start; }
 
@@ -1415,6 +1418,13 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .galerie-grid     { grid-template-columns: repeat(2, 1fr); }
   .kontakt-grid     { grid-template-columns: 1fr; gap: 40px; }
   .staerken-items   { grid-template-columns: 1fr; }
+  .hannover-card    { grid-template-columns: 1fr; }
+  .hannover-text    { padding: 36px 28px; }
+  .hannover-section { padding: 16px; }
+  .leistungen-portfolio-section { padding: 16px; }
+  .leistungen-portfolio-card    { padding: 36px 20px; }
+  .rechner-frame                { padding: 16px; }
+  .rechner-card                 { padding: 36px 20px; }
 }
 
 /* ≤ 900px – Tablet schmal */
@@ -1475,6 +1485,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .page-hero::after  { width: 320px; height: 320px; }
 
   /* Trust bar */
+  .trust-bar .container { padding: 16px 24px; }
   .trust-bar-inner { gap: 12px 20px; justify-content: flex-start; flex-wrap: wrap; }
   .trust-item      { font-size: 12px; }
 
