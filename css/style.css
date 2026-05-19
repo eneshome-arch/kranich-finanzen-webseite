@@ -739,6 +739,25 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   line-height: 1.65;
   margin: 0;
 }
+.hannover-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 13px 24px;
+  background: #1e40af;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 980px;
+  text-decoration: none;
+  transition: background 0.2s ease, gap 0.2s ease;
+  align-self: flex-start;
+}
+.hannover-btn:hover {
+  background: #1d3a9e;
+  gap: 12px;
+}
 
 /* ── LEISTUNGSPORTFOLIO RAHMEN ─────────────── */
 .leistungen-portfolio-section {
