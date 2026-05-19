@@ -39,27 +39,25 @@ ozdemir-fensterbau/
 │   └── style.css       # Gesamtes Styling
 ├── js/
 │   ├── main.js         # Interaktivität, Anfrage-Modal, PDP-Logik
-│   └── products.js     # Zentrale Produktdaten (PRODUCTS-Array)
+│   └── products.js     # Zentrale Produktdaten (PRODUCTS-Array, 14 Produkte)
 └── images/
     ├── logo.png
     ├── og-image.jpg
-    ├── produkt-1-ideal8000.png
-    ├── produkt-1-ideal8000-2.png
-    ├── produkt-2-ideal7000.png
-    ├── produkt-2-ideal7000-2.png
-    ├── produkt-3-neo.png
-    ├── produkt-3-neo-2.png
-    ├── produkt-4-ideal4000.png
-    ├── produkt-4-ideal4000-2.png
-    ├── produkt-5-ideal5000.png
-    ├── produkt-5-ideal5000-2.png
-    ├── produkt-6-hst.png
-    ├── produkt-6-hst-2.png
-    ├── produkt-7-psk.png
-    ├── produkt-7-psk-2.png
-    ├── produkt-7-psk-3.png
-    ├── produkt-7-psk-4.png
-    └── produkt-8-eingangstuer-pvc.png
+    ├── ideal-8000.png
+    ├── produkt-1-ideal8000.png / -2.png
+    ├── produkt-2-ideal7000.png / -2.png
+    ├── produkt-3-neo.png / -2.png
+    ├── produkt-4-ideal4000.png / -2.png
+    ├── produkt-5-ideal5000.png / -2.png
+    ├── produkt-6-hst.png / -2.png
+    ├── produkt-7-psk.png / -2.png / -3.png / -4.png
+    ├── produkt-8-eingangstuer-pvc.png
+    ├── ziehgriffe.png
+    ├── tuergriffe-zubehoer.png
+    ├── klassische-kunststofftueren.png
+    ├── moderne-kunststofftueren.png
+    ├── thermo-aluminiumfenster.png
+    └── new-design-aluminiumfenster.png
 ```
 
 ---
@@ -84,24 +82,24 @@ ozdemir-fensterbau/
 
 Der Shop ist nach dem Shopify-Prinzip aufgebaut: zentrale Produktdaten in `js/products.js`, JS-getriebene Detailseite via URL-Parameter `?id=`.
 
-### Produktübersicht
+### Produktübersicht (alle 14 vollständig)
 
-| # | Produkt | Kategorie | Uw-Wert | Bilder |
-|---|---------|-----------|---------|--------|
-| 1 | IDEAL 8000 | Kunststoff | 0,76 W/m²K | ✅ |
-| 2 | IDEAL 7000 | Kunststoff | 0,79 W/m²K | ✅ |
-| 3 | NEO – New Look | Kunststoff | 0,78 W/m²K | ✅ |
-| 4 | IDEAL 4000 | Kunststoff | 1,28 W/m²K | ✅ |
-| 5 | IDEAL 5000 | Kunststoff | 1,23 W/m²K | ✅ |
-| 6 | HST Hebeschiebetür | Hebe-Schiebe | 0,71 W/m²K | ✅ |
-| 7 | PSK Smart Slide Neo | Hebe-Schiebe | – | ✅ |
-| 8 | Eingangstür PVC | Haustür | – | ✅ |
-| 9 | Alu Schiebetür MB-59HS | Hebe-Schiebe | – | ⬜ |
-| 10 | THERMO Alu MB 104 Passive | Aluminium | – | ⬜ |
-| 11 | NEW DESIGN Ferroline | Aluminium | – | ⬜ |
-| 12 | Alu Falttür Harmonika | Aluminium | – | ⬜ |
-| 13 | Haustür Modern PVC | Haustür | – | ⬜ |
-| 14 | Alu Haustür Genesis 75 | Haustür | – | ⬜ |
+| # | ID | Produkt | Kategorie | Bild |
+|---|----|---------|-----------|------|
+| 1 | `ideal-8000` | IDEAL 8000 | Kunststoff | ✅ |
+| 2 | `ideal-7000` | IDEAL 7000 | Kunststoff | ✅ |
+| 3 | `neo-8000` | NEO – New Look | Kunststoff | ✅ |
+| 4 | `ideal-4000` | IDEAL 4000 | Kunststoff | ✅ |
+| 5 | `ideal-5000` | IDEAL 5000 | Kunststoff | ✅ |
+| 6 | `alu-hst` | HST Hebeschiebetür | Hebe-Schiebe | ✅ |
+| 7 | `alu-psk` | PSK Smart Slide Neo | Hebe-Schiebe | ✅ |
+| 8 | `alu-comfort` | Eingangstür PVC | Haustür | ✅ |
+| 9 | `alu-schiebe` | Ziehgriffe | Zubehör | ✅ |
+| 10 | `alu-thermo` | Türgriffe & Türzubehör | Zubehör | ✅ |
+| 11 | `alu-ferroline` | Klassische Kunststofftüren | Kunststoff | ✅ |
+| 12 | `alu-harmonika` | Moderne Kunststofftüren | Kunststoff | ✅ |
+| 13 | `haustuer-pvc` | Thermo Aluminiumfenster | Aluminium | ✅ |
+| 14 | `haustuer-genesis` | New Design Aluminiumfenster | Aluminium | ✅ |
 
 ### Produktdetailseite – Features
 - URL-Parameter: `produkt?id=ideal-8000`
@@ -117,15 +115,18 @@ Der Shop ist nach dem Shopify-Prinzip aufgebaut: zentrale Produktdaten in `js/pr
 ## Features
 
 - **Floating Island Navigation** – Pill-förmiger Header; bleibt dunkel-transparent bis Hero gescrollt, dann weiß mit `backdrop-filter: blur(20px)`. Auf `produkt.html` immer weiß via `data-theme="white"`.
+- **Hero Section** – Blauer Rahmen (`#dbeafe`) + weiße Karte (`border-radius: 20px`). Auf Mobilgeräten deaktiviert.
+- **Hannover-Section** – YouTube-Video (autoplay, loop via IFrame API, keine Controls) mit Text-Overlay und CTA-Button.
 - **3D Timeline-Karussell** – „So arbeiten wir": 6 Schritte auf virtualem 3D-Zylinder, vollständig in JS berechnet.
 - **3D Team-Karussell** – „Unser Team": 3 Karten, JS-Perspektivprojektion, Auto-Advance alle 3,5 s.
-- **Werte-/Benefits-/Leistungen-Karussell (mobil)** – Scroll-Snap mit Dot-Indikatoren.
-- **Trust-Bar Animation** – 5 Vertrauenssignale zirkulieren mit Pop-in-Effekt (3 s / 0,5 s).
-- **ROI-Rechner** – Fenstertyp, Heizkosten, Fläche → Ersparnis, CO₂, Amortisation.
+- **Trust-Bar Animation** – 5 Vertrauenssignale zirkulieren mit Pop-in-Effekt alle 2,5 s (in Hero integriert).
+- **ROI-Rechner** – Fenstertyp, Heizkosten, Fläche → Ersparnis, CO₂, Amortisation. Blauer Rahmen + weiße Karte.
+- **Leistungsportfolio** – 6 Leistungskarten im Blue-Frame-Stil.
 - **Anfrage-Modal** – Produktspezifisches Formular, öffnet auf allen Produkt-Buttons.
 - **Fade-in on Scroll** – `IntersectionObserver`.
 - **Counter-Animation** – `requestAnimationFrame`, easeOut.
 - **Web3Forms Kontaktformular** – Honeypot, `aria-invalid`-Validierung.
+- **Google Maps** – Adress-spezifischer Embed (Bremer Straße 31, Garbsen).
 - **SEO** – Meta-Tags, OG-Tags, Canonical, Schema.org JSON-LD (LocalBusiness).
 - **Barrierefreiheit** – Skip-Link, `sr-only`, `:focus-visible`, `prefers-reduced-motion`.
 
@@ -139,8 +140,23 @@ Der Shop ist nach dem Shopify-Prinzip aufgebaut: zentrale Produktdaten in `js/pr
 | Primärfarbe | `#0f172a` (Near-Black) |
 | Footer-Farbe | `#020617` (Deep Black) |
 | Akzentfarbe | `#2563eb` (Clean Blue) |
+| Frame-Farbe | `#dbeafe` (Hellblau) |
 | Body-Hintergrund | `#f6f6f8` (sanftes Grau) |
 | Stil | Minimalistisch, Apple/Linear-inspiriert |
+
+### Blue-Frame-Stil
+
+Konsistentes Design-Muster für alle Hauptsektionen:
+```css
+/* Äußerer Rahmen */
+background: #dbeafe;
+padding: 28px;
+
+/* Innere Karte */
+background: #fff;
+border-radius: 20px;
+```
+Angewendet auf: Hero, Hannover-Section, Leistungsportfolio, ROI-Rechner.
 
 ### Navigation – Breakpoints
 
@@ -180,10 +196,7 @@ Dann im Browser: [http://localhost:3000](http://localhost:3000)
 
 ## Noch ausstehend
 
-- [ ] Produktbilder für #9–#14 einfügen
-- [ ] PDF-Daten für #9–#14 einpflegen
 - [ ] Web3Forms Access-Key in `kontakt.html` einsetzen
-- [ ] Google Maps Embed-URL (echte Adresse)
 - [ ] Galerie-Bilder (echte Projektfotos)
 - [ ] Team-Fotos
 
@@ -206,3 +219,4 @@ Dann im Browser: [http://localhost:3000](http://localhost:3000)
 - Vanilla JavaScript (ES6+, IntersectionObserver, `requestAnimationFrame`)
 - Google Fonts – Inter
 - Web3Forms (Kontaktformular, kein Backend)
+- YouTube IFrame API (Video-Loop in Hannover-Section)
