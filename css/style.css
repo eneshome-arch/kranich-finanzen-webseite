@@ -506,26 +506,36 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 /* ── TRUST BAR ─────────────────────────────── */
 .trust-bar { display: none; }
 .hero-trust {
+  position: relative;
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  gap: 0;
-  margin-top: 48px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255,255,255,0.08);
 }
 .hero-trust-item {
+  position: absolute;
   display: flex;
   align-items: center;
   gap: 7px;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.4);
   font-size: 12px;
   font-weight: 500;
-  padding: 0 24px;
+  opacity: 0;
+  transform: translateY(6px) scale(0.97);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.hero-trust-item.ht-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
 }
 .hero-trust-item svg { color: rgba(255,255,255,0.25); flex-shrink: 0; }
-.hero-trust-divider { width: 1px; height: 16px; background: rgba(255,255,255,0.1); }
+.hero-trust-divider { display: none; }
 
 .trust-bar-inner.trust-animated {
   position: relative;
@@ -1459,9 +1469,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .hero-stat   { padding: 0 16px; }
   .hero-stat strong { font-size: 26px; }
   .hero-stat span   { font-size: 10px; }
-  .hero-trust  { margin-top: 32px; padding-top: 24px; gap: 0; flex-wrap: wrap; justify-content: flex-start; row-gap: 8px; }
-  .hero-trust-item { font-size: 11px; padding: 4px 12px; }
-  .hero-trust-divider { display: none; }
+  .hero-trust      { margin-top: 28px; padding-top: 20px; height: 24px; }
+  .hero-trust-item { font-size: 11px; }
 
   /* Hannover mobile */
   .hannover-section { padding: 12px; }

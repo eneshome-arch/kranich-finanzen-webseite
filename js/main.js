@@ -862,3 +862,17 @@ document.addEventListener('DOMContentLoaded', () => {
     relatedEl.appendChild(art);
   });
 })();
+
+
+// ── Hero Trust Animation ──────────────────────
+(function () {
+  const items = document.querySelectorAll('.hero-trust-item');
+  if (!items.length) return;
+  let current = 0;
+  items[0].classList.add('ht-active');
+  setInterval(function () {
+    items[current].classList.remove('ht-active');
+    current = (current + 1) % items.length;
+    items[current].classList.add('ht-active');
+  }, 2500);
+})();
