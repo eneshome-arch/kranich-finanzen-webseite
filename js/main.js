@@ -848,6 +848,7 @@ document.addEventListener('DOMContentLoaded', () => {
     art.className = 'shop-card';
     art.innerHTML = `
       <a href="produkt?id=${p.id}" class="shop-card-img-wrap">
+        ${p.image ? `<img src="${p.image}" alt="${p.name}" class="shop-card-img${p.imageContain ? ' img-contain' : ''}">` : ''}
         ${p.badge ? `<span class="shop-card-badge">${p.badge}</span>` : ''}
       </a>
       <div class="shop-card-body">
