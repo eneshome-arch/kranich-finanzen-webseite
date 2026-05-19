@@ -413,7 +413,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   transition: color 0.2s;
   letter-spacing: 0.01em;
 }
-.btn-ghost:hover { color: #fff; }
+.btn-ghost:hover { color: #fff; background: rgba(255,255,255,0.12); }
 
 .hero-stats {
   display: flex;
