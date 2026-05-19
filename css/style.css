@@ -302,7 +302,10 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 }
 
 /* LEFT — text */
-.hero-content {}
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
 
 .hero-eyebrow {
   display: inline-flex;
