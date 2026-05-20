@@ -837,4 +837,35 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'sonnenbestaendiges-glas',
+    name: 'Sonnenbeständiges Glas',
+    tagline: 'Solar Control für optimales Raumklima',
+    category: 'Zubehör',
+    badge: 'Solar Control',
+    image: 'images/sonnenbestaendiges-glas.png',
+    imageContain: true,
+    shortDesc: 'SOLAR CONTROL Glas reduziert Wärmestrahlung, blockiert UV-Strahlen und hält Räume kühler – in 8 Varianten: Anistol & Stopsol in Blau, Grün, Grau, Klar und Braun.',
+    description: 'SOLAR CONTROL Glas sorgt für eine optimale Raumtemperatur, reduziert die Lüftungskosten und blockiert UV-Strahlen weitgehend. Sonnenbeständiges Glas ermöglicht die gleichzeitige Aufrechterhaltung einer hohen Lichttransluzenz und eine deutliche Reduzierung der Durchlässigkeit wärmeformischer Energie.\n\nDas Sortiment umfasst zwei Produktlinien: ANISTOL und STOPSOL – jeweils in verschiedenen Farbtönen erhältlich:\n\nANISTOL: Blau 4mm, Grün 4mm, Grau 4mm, Braun 4mm\nSTOPSOL: SS Blau 6mm, Grün 6mm, Klar 4mm, Grau 4mm\n\nAlle Varianten sind als Isolierverglasung verfügbar und mit den gängigen Profilsystemen kombinierbar.',
+    specs: [
+      { label: 'Linie 1', value: 'ANISTOL (Blau, Grün, Grau, Braun)' },
+      { label: 'Linie 2', value: 'STOPSOL (Blau, Grün, Klar, Grau)' },
+      { label: 'Technologie', value: 'SOLAR CONTROL' },
+      { label: 'Funktion', value: 'UV-Schutz, Wärmereduzierung' },
+      { label: 'Verglasung', value: 'Isolierverglasung' },
+      { label: 'Stärken', value: '4 mm / 6 mm' },
+    ],
+    features: [
+      'ANISTOL Blau, Grün, Grau, Braun – je 4 mm',
+      'STOPSOL SS Blau 6mm, Grün, Klar, Grau',
+      'Blockiert UV-Strahlen weitgehend',
+      'Reduziert Wärmedurchlässigkeit bei hoher Lichttransluzenz',
+      'Senkt Lüftungs- und Kühlkosten',
+      'Als Isolierverglasung erhältlich',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
