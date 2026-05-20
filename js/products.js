@@ -712,4 +712,37 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'raffstoren',
+    name: 'Raffstoren',
+    tagline: 'Moderner Sonnenschutz für architektonische Gebäude',
+    category: 'Zubehör',
+    badge: 'Sonnenschutz',
+    image: 'images/raffstoren.png',
+    imageContain: true,
+    shortDesc: 'Raffstoren – modernes und elegantes Produkt für die Außenfassade. Lamellensysteme 290 & C80 sowie Befestigungssysteme für Unterputz- und Fassadeneinbau.',
+    description: 'Raffstoren sind ein modernes und elegantes Produkt, das an der Außenseite der Hausfassade angebracht werden kann. Ihre leichte und elegante Bauweise eignet sich ideal für architektonische Gebäude mit großflächigen Verglasungen. In bis zu 11 Farben nach Vorlage erhältlich.\n\nDas Lamellensystem 290 bietet Z-förmige Lamellen mit einer Breite von 90 mm. Das System C80 arbeitet mit C-förmigen Lamellen mit einer Breite von 65 bzw. 80 mm.\n\nFür die Befestigung stehen verschiedene Systeme zur Verfügung: Solidbox Kasten 2.90 für die Unterputzmontage, die Bodenrinne des Solidbox Systems C-80, die Kasten BeCleVer 265 C-80 Installation in einer Fensterbox sowie die Unterputz- oder Fassadeneinbau Solid Box.',
+    specs: [
+      { label: 'System 1', value: 'Lamelle 290 (Z-förmig, 90 mm)' },
+      { label: 'System 2', value: 'Lamelle C80 (C-förmig, 65/80 mm)' },
+      { label: 'Befestigung 1', value: 'Solidbox Kasten 2.90' },
+      { label: 'Befestigung 2', value: 'Bodenrinne Solidbox C-80' },
+      { label: 'Befestigung 3', value: 'BeCleVer 265 C-80 Fensterbox' },
+      { label: 'Farben', value: '11 Farben nach Vorlage' },
+      { label: 'Montage', value: 'Unterputz oder Fassade' },
+    ],
+    features: [
+      'Lamellensystem 290 – Z-förmige Lamellen, 90 mm Breite',
+      'Lamellensystem C80 – C-förmige Lamellen, 65/80 mm Breite',
+      'Solidbox Kasten 2.90 – Unterputzmontage',
+      'Bodenrinne Solidbox C-80',
+      'BeCleVer 265 C-80 – Installation in Fensterbox',
+      'Unterputz- oder Fassadeneinbau möglich',
+      '11 Farben nach Vorlage',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
