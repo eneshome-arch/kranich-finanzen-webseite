@@ -1024,4 +1024,35 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'sicherheitssysteme',
+    name: 'Sicherheitssysteme',
+    tagline: 'RC2-Einbruchschutz für Fenster und Türen',
+    category: 'Zubehör',
+    badge: 'RC2',
+    image: 'images/sicherheitssysteme.png',
+    imageContain: true,
+    shortDesc: 'Einbruchschutz nach RC1–RC2: Sicherheitsbeschlag, RC2-Fenstergriff mit Schlüssel und Sicherheitsglas EN 356 – für maximalen Schutz vor Einbruch.',
+    description: 'Die Sicherheit von Fenstern ist eine der wichtigsten Eigenschaften für Benutzer. Daher ist es wichtig, dass die Fensterverriegelung den entsprechenden Sicherheitsstandards entspricht. Das Konzept des einbruchsicheren Fensters definiert maximale Hindernisse für den Zugang zum Haus, auch für potenzielle Einbrecher.\n\nDie Sicherheitsbeschläge schützen Fenster vor Einbruch durch physische Gewalt, bieten jedoch begrenzten Schutz gegen Einbruch durch Werkzeuge, mit denen der Flügel gehebelt werden kann. RC2-Beschläge schützen Fenster vor Einbruch durch einfache Werkzeuge wie Schraubendreher, Zange und Kelle, die dazu verwendet werden können, den geschlossenen und verriegelten Flügel zu öffnen.\n\nFensterelemente mit RC2-Einbruchsbeständigkeit umfassen: Sicherheitsbeschlag (wird rund um das Fenster mit achteckigen Verriegelungspfeilern und Diebstahlsicherungen ausgestattet), Fenstergriff mit Schlüssel (verhindert unbefugtes Öffnen von Rahmenscheiben) sowie Sicherheitsglas nach EN 356, Klasse P4A.',
+    specs: [
+      { label: 'Klasse', value: 'RC1 – RC2' },
+      { label: 'Beschlag', value: 'Achteckige Verriegelungspfeiler' },
+      { label: 'Griff', value: 'Fenstergriff mit Schlüssel' },
+      { label: 'Glas', value: 'Sicherheitsglas EN 356, P4A' },
+      { label: 'Schutz', value: 'Gegen Werkzeug & Hebeln' },
+    ],
+    features: [
+      'RC2-zertifizierter Sicherheitsbeschlag',
+      'Achteckige Verriegelungspfeiler rund ums Fenster',
+      'Fenstergriff mit Schlüssel gegen unbefugtes Öffnen',
+      'Sicherheitsglas EN 356, Klasse P4A',
+      'Schutz gegen Schraubendreher, Zange und Hebelwerkzeug',
+      'Für Erdgeschoss- und gefährdete Fenster empfohlen',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+      { type: 'rc2', label: 'RC2 Einbruchschutz' },
+    ],
+  },
+
 ];
