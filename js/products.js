@@ -929,4 +929,35 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'kopplungsarten',
+    name: 'Kopplungsarten',
+    tagline: 'Großflächige Fensterkonstruktionen flexibel verbinden',
+    category: 'Zubehör',
+    badge: 'Zubehör',
+    image: 'images/kopplungsarten.png',
+    imageContain: true,
+    shortDesc: 'Drei Kopplungsarten für großflächige Fensteranlagen: Federkopplung, Statische Kopplung und Rohrkopplung – für sichere und optisch saubere Verbindungen.',
+    description: 'Fenstern werden durch die moderne Architektur oft immer höheren Anforderungen gestellt. Sehr große Fensterlösungen werden immer beliebter. Es werden sowohl sinnvolle, beweisliche als auch stilistisch Verglaserglücke eingesetzt. Firma Mirox bietet eine breite Palette von Fensterkopplungsprofilen, die ungehinderte Montagen von mehreren Elementen ermöglichen.\n\nDie Federkopplung basiert auf Profil Ideal 4000 Tür Inne (140x20) mit Stahlverstärkung und Federkopplug (22016). Die Statische Kopplung verwendet Profil Ideal 4000 Stille (140x20) mit Stahlverstärkung und Brücke Kopplung 21 Inn (140318). Die Rohrkopplung nutzt Profil Ideal 4000 Grill Inne (140x20) mit Stahlverstärkung und einer Rohr-Kopplung (140342 + 140344) mit Stahlverstärkung.\n\nAlle Kopplungsarten ermöglichen die ungehinderte Montage von mehreren Fensterelementen zu großflächigen Konstruktionen.',
+    specs: [
+      { label: 'Kopplung 1', value: 'Federkopplung' },
+      { label: 'Kopplung 2', value: 'Statische Kopplung' },
+      { label: 'Kopplung 3', value: 'Rohrkopplung' },
+      { label: 'Basis', value: 'Profil Ideal 4000' },
+      { label: 'Verstärkung', value: 'Stahlverstärkung' },
+      { label: 'Anwendung', value: 'Großflächige Fensterkonstruktionen' },
+    ],
+    features: [
+      'Federkopplung – flexibel, mit Federkopplungsprofil (22016)',
+      'Statische Kopplung – fest, mit Brücke Kopplung 21 Inn (140318)',
+      'Rohrkopplung – Rohr-Kopplung (140342 + 140344)',
+      'Alle auf Basis Profil Ideal 4000',
+      'Stahlverstärkung für maximale Stabilität',
+      'Für großflächige Mehrelement-Fensterkonstruktionen',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
