@@ -991,4 +991,37 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'beschlaege',
+    name: 'Beschläge',
+    tagline: 'Sicherheit, Komfort und Funktion für jedes Fenster',
+    category: 'Zubehör',
+    badge: 'Sicherheit',
+    image: 'images/beschlaege.png',
+    imageContain: true,
+    shortDesc: 'Komplettes Beschlagsortiment: Fehlbedienungssperre, Öffnungsbegrenzer, Schließblech, Kontaktron, Balkonschnäpper, Activpilot und mehr.',
+    description: 'Eine der wesentlichen Komponenten, aus denen ein Fenster besteht, ist der Beschlag. Er setzt sich aus einer Reihe von beweglichen Teilen zusammen, die im Flügel versteckt sind. Der Beschlag erfüllt mehrere Funktionen: Er regelt die Lüftungsgrade, hält den Flügel in der gewünschten Position und schützt vor versehentlichen Zuziehen beim Durchzug.\n\nFehlbedienungssperre verhindert das Schieben des Flügels aus dem Rahmen. Öffnungsbegrenzer begrenzt das Öffnungsmaß und kontrolliert den Öffnungsgrad des Fensters. Schließblech verhindert das Aufbrechen des Fensterfügels. Verdeckte Beschläge sorgen für bessere Ästhetik des Fensters. Kontaktron meldet den Einbruchsversuch. Balkonschnäpper ermöglicht das Zuschließen der Balkontüre von außen.\n\nActivpilot Comfort Pack und Activpilot Giant ermöglichen den Zugang zum Fenster (260mm, 365mm, 490mm, 570mm) mit versenktem Griff. Easypilot Soleil ist ein Zentraler Griff für große und schwere Fenster.',
+    specs: [
+      { label: 'Sicherheit', value: 'Fehlbedienungssperre, Schließblech' },
+      { label: 'Komfort', value: 'Öffnungsbegrenzer, Balkonschnäpper' },
+      { label: 'Smart', value: 'Kontaktron (Einbruchmeldung)' },
+      { label: 'Design', value: 'Verdeckte Beschläge' },
+      { label: 'Großfenster', value: 'Activpilot Giant, Easypilot Soleil' },
+      { label: 'Komfort Pack', value: 'Activpilot Comfort Pack' },
+    ],
+    features: [
+      'Fehlbedienungssperre – verhindert Herausschieben des Flügels',
+      'Öffnungsbegrenzer – kontrollierter Lüftungsspalt',
+      'Schließblech – Einbruchschutz',
+      'Kontaktron – elektronische Einbruchmeldung',
+      'Balkonschnäpper – Balkontür von außen schließbar',
+      'Activpilot Comfort Pack & Giant – für große und schwere Fenster',
+      'Easypilot Soleil – zentraler Griff für Großformate',
+      'Verdeckte Beschläge für cleanes Design',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
