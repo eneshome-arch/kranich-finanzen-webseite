@@ -868,4 +868,35 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'sprossen',
+    name: 'Sprossen',
+    tagline: 'Klassisches Erscheinungsbild für Neubau und Sanierung',
+    category: 'Zubehör',
+    badge: 'Dekor',
+    image: 'images/sprossen.png',
+    imageContain: true,
+    shortDesc: 'Sprossen unterteilen die Glasfläche optisch in kleinere Teile – in 4 Varianten: Innenliegende, Aufgeklebte, Glasteilende und Wiener Sprossen.',
+    description: 'Sprossen sind eine elegante Verzierung, die die Glasfläche optisch in kleinere Teile unterteilt. Fenster mit Sprossen wirken am besten in Gebäuden im Landhausstil aus. Solche Fenster verleihen dem Gebäude ein klassisches, interessantes und elegantes Aussehen.\n\nInnenliegende Sprossen befinden sich zwischen den Glasscheiben der Isolierverglasung und sind wartungsfrei. Aufgeklebte Sprossen werden auf der Glasoberfläche befestigt und imitieren echte Sprossenteilung. Glasteilende Sprossen unterteilen die Verglasung tatsächlich in separate Scheiben für ein authentisches Erscheinungsbild. Wiener Sprossen sind eine besonders elegante Variante mit feinem Profil im Wiener Stil.\n\nAlle Sprossenvarianten sind mit den gängigen Kunststoff- und Aluminiumprofilsystemen kombinierbar.',
+    specs: [
+      { label: 'Variante 1', value: 'Innenliegende Sprossen' },
+      { label: 'Variante 2', value: 'Aufgeklebte Sprossen' },
+      { label: 'Variante 3', value: 'Glasteilende Sprossen' },
+      { label: 'Variante 4', value: 'Wiener Sprossen' },
+      { label: 'Stil', value: 'Landhaus, klassisch, elegant' },
+      { label: 'Kompatibel', value: 'Kunststoff & Aluminium' },
+    ],
+    features: [
+      'Innenliegende Sprossen – wartungsfrei zwischen den Scheiben',
+      'Aufgeklebte Sprossen – optische Sprossenteilung',
+      'Glasteilende Sprossen – echte Scheibenteilung',
+      'Wiener Sprossen – elegantes Feinprofil',
+      'Klassisches Landhausdesign',
+      'Kombinierbar mit Kunststoff- und Aluminiumfenstern',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
