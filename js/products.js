@@ -745,4 +745,36 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'garagentore',
+    name: 'Garagentore',
+    tagline: 'Sicherheit, Bedienfreundlichkeit und Ästhetik',
+    category: 'Zubehör',
+    badge: 'Smart Home',
+    image: 'images/garagentore.png',
+    imageContain: true,
+    shortDesc: 'Sektionaltore mit schmalen und breiten Lamellen oder Fertigung ohne Prägung – 12 RAL-Farben, Smart-Home-fähig. Thermische Isolierung für maximalen Komfort.',
+    description: 'Das Garagentor gehört zu den wesentlichen Bestandteilen jedes modernen Hauses. Seine Hauptfunktionen sind Sicherheit, Bedienungsfreundlichkeit und Ästhetik. Bei wärmegedämmten Garagen ist auch die thermische Isolierung von Bedeutung. Jedes angebotene Tor lässt sich in ein Smart-Home-System integrieren.\n\nDie Paneltypen sind in drei Strukturvarianten erhältlich: schmale Lamellen, breite Lamellen und Fertigung ohne Prägung. Sektionaltore bieten die bequemste Lösung für Ihre Garage – mit einem Wärmedurchgangskoeffizienten von Uk = 1,07 [W/m²K], besonders gut geeignet für beheizte Garagen.\n\nIn bis zu 12 RAL-Farben erhältlich, darunter Anthrazit, Schwarz, JET BLACK, Turkischen Akazie, Dunkle Eiche, Türkei-Eschenmaui, Winchester, Goldene Eiche, Weihaus, Navu, Braun und Hofhout.',
+    specs: [
+      { label: 'Typ', value: 'Sektionaltor' },
+      { label: 'Uk-Wert', value: '1,07 W/m²K' },
+      { label: 'Panel 1', value: 'Schmale Lamellen' },
+      { label: 'Panel 2', value: 'Breite Lamellen' },
+      { label: 'Panel 3', value: 'Fertigung ohne Prägung' },
+      { label: 'Farben', value: '12 RAL-Farben' },
+      { label: 'Smart Home', value: 'Integrierbar' },
+    ],
+    features: [
+      'Sektionaltor mit Uk-Wert 1,07 W/m²K',
+      'Schmale Lamellen, breite Lamellen oder ohne Prägung',
+      '12 RAL-Farben verfügbar',
+      'Smart-Home-Integration möglich',
+      'Thermische Isolierung für beheizte Garagen',
+      'Hohe Sicherheit und Bedienfreundlichkeit',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
