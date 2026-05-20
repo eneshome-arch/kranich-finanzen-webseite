@@ -1083,8 +1083,43 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 }
 
 /* ── TEAM ──────────────────────────────────── */
+.team-section {
+  background-color: #dbeafe;
+  padding: 28px;
+  background-image:
+    radial-gradient(circle at 95% 10%, rgba(255,255,255,0.55) 0%, transparent 42%),
+    radial-gradient(circle at 5% 90%, rgba(96,165,250,0.18) 0%, transparent 40%);
+}
+.team-section-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 56px 64px;
+  box-shadow: 0 8px 40px rgba(59,130,246,0.10);
+  position: relative;
+  overflow: hidden;
+}
+/* Kreismuster über background-image Ringe */
+.team-section-card {
+  background-image:
+    radial-gradient(circle at 92% 18%, transparent 55px, rgba(59,130,246,0.09) 55px, rgba(59,130,246,0.09) 80px, transparent 80px),
+    radial-gradient(circle at 75% 70%, transparent 30px, rgba(96,165,250,0.08) 30px, rgba(96,165,250,0.08) 48px, transparent 48px),
+    radial-gradient(circle at 8% 20%, transparent 40px, rgba(59,130,246,0.07) 40px, rgba(59,130,246,0.07) 62px, transparent 62px),
+    radial-gradient(circle at 20% 80%, transparent 65px, rgba(96,165,250,0.08) 65px, rgba(96,165,250,0.08) 95px, transparent 95px),
+    radial-gradient(circle at 50% 10%, transparent 20px, rgba(59,130,246,0.06) 20px, rgba(59,130,246,0.06) 33px, transparent 33px),
+    radial-gradient(circle at 60% 90%, transparent 25px, rgba(96,165,250,0.07) 25px, rgba(96,165,250,0.07) 40px, transparent 40px);
+}
+
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
-.team-card { text-align: center; padding: 32px; border: 1px solid var(--border); border-radius: 10px; }
+.team-card {
+  text-align: center;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--light);
+  background-image:
+    radial-gradient(circle at 85% 15%, rgba(59,130,246,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 15% 85%, rgba(96,165,250,0.10) 0%, transparent 45%);
+}
 .team-avatar { width: 100px; height: 100px; border-radius: 50%; background: var(--light); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 28px; font-weight: 600; color: var(--text); }
 .team-card h3   { font-size: 17px; color: var(--text); margin-bottom: 4px; }
 .team-card span { font-size: 13px; color: var(--gray); font-weight: 400; }
@@ -1475,6 +1510,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .leistungen-portfolio-card    { padding: 36px 20px; }
   .rechner-frame                { padding: 16px; }
   .rechner-card                 { padding: 36px 20px; }
+  .team-section                 { padding: 16px; }
+  .team-section-card            { padding: 36px 20px; }
   .hero-frame       { padding: 12px; }
   .hero             { border-radius: 14px; }
 }
@@ -1508,6 +1545,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .hero-stats  { display: none; }
   .hero-trust      { margin-top: 28px; padding-top: 20px; height: 24px; }
   .hero-trust-item { font-size: 11px; }
+
+  .team-section     { padding: 12px; }
+  .team-section-card { padding: 28px 16px; }
 
   /* Hannover mobile */
   .hannover-section { padding: 12px; }

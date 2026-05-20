@@ -23,41 +23,29 @@ Statische Website für **Özdemirbau UG**, Garbsen. Gebaut mit reinem HTML, CSS 
 
 ```
 ozdemir-fensterbau/
-├── index.html          # Startseite
-├── ueber-uns.html      # Über uns
-├── leistungen.html     # Leistungen
-├── sortiment.html      # Produkt-Shop (Shopify-Style, 14 Produkte)
-├── produkt.html        # Produktdetailseite (JS-driven, URL-param ?id=)
-├── kontakt.html        # Kontakt mit Formular & Google Maps
-├── katalog.html        # Filterbarer Produktkatalog
-├── datenschutz.html    # Datenschutzerklärung (DSGVO)
-├── impressum.html      # Impressum (§5 TMG)
-├── robots.txt          # Crawler-Direktiven
-├── sitemap.xml         # Alle indexierbaren Seiten
-├── .nojekyll           # GitHub Pages: Jekyll-Build überspringen
+├── index.html              # Startseite
+├── ueber-uns.html          # Über uns
+├── leistungen.html         # Leistungen
+├── sortiment.html          # Produkt-Shop (32 Produkte)
+├── produkt/
+│   └── index.html          # Produktdetailseite (JS-driven, URL-param ?id=)
+├── kontakt.html            # Kontakt mit Formular & Google Maps
+├── datenschutz.html        # Datenschutzerklärung (DSGVO)
+├── impressum.html          # Impressum (§5 TMG)
+├── robots.txt              # Crawler-Direktiven
+├── sitemap.xml             # Alle indexierbaren Seiten
+├── .nojekyll               # GitHub Pages: Jekyll-Build überspringen
 ├── css/
-│   └── style.css       # Gesamtes Styling
+│   └── style.css           # Gesamtes Styling (v=113)
 ├── js/
-│   ├── main.js         # Interaktivität, Anfrage-Modal, PDP-Logik
-│   └── products.js     # Zentrale Produktdaten (PRODUCTS-Array, 14 Produkte)
+│   ├── main.js             # Interaktivität, Anfrage-Modal, PDP-Logik (v=22)
+│   └── products.js         # Zentrale Produktdaten (PRODUCTS-Array, 32 Produkte)
 └── images/
     ├── logo.png
     ├── og-image.jpg
     ├── ideal-8000.png
-    ├── produkt-1-ideal8000.png / -2.png
-    ├── produkt-2-ideal7000.png / -2.png
-    ├── produkt-3-neo.png / -2.png
-    ├── produkt-4-ideal4000.png / -2.png
-    ├── produkt-5-ideal5000.png / -2.png
-    ├── produkt-6-hst.png / -2.png
-    ├── produkt-7-psk.png / -2.png / -3.png / -4.png
-    ├── produkt-8-eingangstuer-pvc.png
-    ├── ziehgriffe.png
-    ├── tuergriffe-zubehoer.png
-    ├── klassische-kunststofftueren.png
-    ├── moderne-kunststofftueren.png
-    ├── thermo-aluminiumfenster.png
-    └── new-design-aluminiumfenster.png
+    ├── [alle Produktbilder …]
+    └── dekoren.png
 ```
 
 ---
@@ -70,63 +58,81 @@ ozdemir-fensterbau/
 | Über uns | `ueber-uns.html` | KEIN MITTELSMANN. DIREKT VOM PROFI. |
 | Leistungen | `leistungen.html` | SECHS LEISTUNGEN. EIN ANSPRECHPARTNER. |
 | Sortiment | `sortiment.html` | ALLE SYSTEME. EIN PARTNER. |
-| Produktdetail | `produkt.html` | Dynamisch via `?id=` URL-Parameter |
+| Produktdetail | `produkt/index.html` | Dynamisch via `?id=` URL-Parameter |
 | Kontakt | `kontakt.html` | SPRECHEN WIR ÜBER IHR PROJEKT. |
-| Katalog | `katalog.html` | Erweiterter Produktkatalog |
 | Datenschutz | `datenschutz.html` | DSGVO-Datenschutzerklärung |
 | Impressum | `impressum.html` | Impressum gemäß §5 TMG |
 
 ---
 
-## Produkt-Shop (sortiment.html + produkt.html)
+## Produkt-Shop (sortiment.html + produkt/)
 
-Der Shop ist nach dem Shopify-Prinzip aufgebaut: zentrale Produktdaten in `js/products.js`, JS-getriebene Detailseite via URL-Parameter `?id=`.
+Der Shop ist nach dem Shopify-Prinzip aufgebaut: zentrale Produktdaten in `js/products.js`, JS-getriebene Detailseite via URL-Parameter `?id=`. Links immer als `produkt/?id=X` (Directory-Routing für Serverkompatibilität).
 
-### Produktübersicht (alle 14 vollständig)
+### Produktübersicht (alle 32)
 
-| # | ID | Produkt | Kategorie | Bild |
-|---|----|---------|-----------|------|
-| 1 | `ideal-8000` | IDEAL 8000 | Kunststoff | ✅ |
-| 2 | `ideal-7000` | IDEAL 7000 | Kunststoff | ✅ |
-| 3 | `neo-8000` | NEO – New Look | Kunststoff | ✅ |
-| 4 | `ideal-4000` | IDEAL 4000 | Kunststoff | ✅ |
-| 5 | `ideal-5000` | IDEAL 5000 | Kunststoff | ✅ |
-| 6 | `alu-hst` | HST Hebeschiebetür | Hebe-Schiebe | ✅ |
-| 7 | `alu-psk` | PSK Smart Slide Neo | Hebe-Schiebe | ✅ |
-| 8 | `alu-comfort` | Eingangstür PVC | Haustür | ✅ |
-| 9 | `alu-schiebe` | Ziehgriffe | Zubehör | ✅ |
-| 10 | `alu-thermo` | Türgriffe & Türzubehör | Zubehör | ✅ |
-| 11 | `alu-ferroline` | Klassische Kunststofftüren | Kunststoff | ✅ |
-| 12 | `alu-harmonika` | Moderne Kunststofftüren | Kunststoff | ✅ |
-| 13 | `haustuer-pvc` | Thermo Aluminiumfenster | Aluminium | ✅ |
-| 14 | `haustuer-genesis` | New Design Aluminiumfenster | Aluminium | ✅ |
+| # | ID | Produkt | Kategorie |
+|---|----|---------|-----------|
+| 1 | `ideal-8000` | IDEAL 8000 | Kunststoff |
+| 2 | `ideal-7000` | IDEAL 7000 | Kunststoff |
+| 3 | `neo` | NEO – New Look | Kunststoff |
+| 4 | `ideal-4000` | IDEAL 4000 | Kunststoff |
+| 5 | `ideal-5000` | IDEAL 5000 | Kunststoff |
+| 6 | `hst` | HST Hebeschiebetür | Hebe-Schiebe |
+| 7 | `psk` | PSK Smart Slide Neo | Hebe-Schiebe |
+| 8 | `eingangstuer-pvc` | Eingangstür PVC | Haustür |
+| 9 | `alu-schiebe` | Ziehgriffe | Zubehör |
+| 10 | `alu-thermo` | Türgriffe & Türzubehör | Zubehör |
+| 11 | `alu-ferroline` | Klassische Kunststofftüren | Haustür |
+| 12 | `alu-harmonika` | Moderne Kunststofftüren | Haustür |
+| 13 | `haustuer-pvc` | Thermo Aluminiumfenster | Aluminium |
+| 14 | `haustuer-genesis` | New Design Aluminiumfenster | Aluminium |
+| 15 | `untypische-alu` | Untypische Aluminiumfenster | Aluminium |
+| 16 | `alu-schiebetueren` | Aluminium Schiebetüren | Aluminium |
+| 17 | `alu-falttuer` | Aluminium Falttüren | Aluminium |
+| 18 | `alu-eingangstuer` | Aluminium Eingangstüren | Aluminium |
+| 19 | `aussenrolladen` | Außenrolläden | Sonnenschutz |
+| 20 | `steuerungssysteme` | Steuerungssysteme | Sonnenschutz |
+| 21 | `raffstoren` | Raffstoren | Sonnenschutz |
+| 22 | `garagentore` | Garagentore | Zubehör |
+| 23 | `glasscheibenpakete` | Glasscheibenpakete | Verglasung |
+| 24 | `ornamentglas` | Ornamentglas | Verglasung |
+| 25 | `sonnenschutzglas` | Sonnenbeständiges Glas | Verglasung |
+| 26 | `sprossen` | Sprossen | Zubehör |
+| 27 | `sprossenarten` | Sprossenarten | Zubehör |
+| 28 | `kopplungsarten` | Kopplungsarten | Zubehör |
+| 29 | `fenstergriffe` | Fenstergriffe | Zubehör |
+| 30 | `beschlaege` | Beschläge | Zubehör |
+| 31 | `sicherheitssysteme` | Sicherheitssysteme | Zubehör |
+| 32 | `dekoren` | Dekoren | Zubehör |
 
 ### Produktdetailseite – Features
-- URL-Parameter: `produkt?id=ideal-8000`
+- URL-Routing: `produkt/?id=ideal-8000` (Directory + `<base href="../">`)
 - Bildgalerie mit Thumbnail-Navigation und Fade-Effekt
 - Variantenauswahl (Farbswatches) mit optionalem Bildwechsel
 - Zertifikats-Badges (Passivhaus, RC2, ift Rosenheim, CE, Deutscher Markt)
 - Technische Spec-Tabelle mit Fußnote
 - Ähnliche Produkte (gleiche Kategorie zuerst, mit Produktbild und korrekten Links)
-- Anfrage-Modal produktspezifisch
+- Produktspezifisches Anfrage-Modal mit Produktbild, Name und Tagline
 
 ---
 
 ## Features
 
-- **Floating Island Navigation** – Pill-förmiger Header; bleibt dunkel-transparent bis Hero gescrollt, dann weiß mit `backdrop-filter: blur(20px)`. Auf `produkt.html` immer weiß via `data-theme="white"`.
-- **Hero Section** – Blauer Rahmen (`#dbeafe`) + weiße Karte (`border-radius: 20px`). Auf Mobilgeräten deaktiviert.
+- **Floating Island Navigation** – Pill-förmiger Header; bleibt dunkel-transparent bis Hero gescrollt, dann weiß mit `backdrop-filter: blur(20px)`.
+- **Hero Section** – Blauer Rahmen (`#dbeafe`) + weiße Karte (`border-radius: 20px`).
 - **Hannover-Section** – YouTube-Video (autoplay, loop via IFrame API, keine Controls) mit Text-Overlay und CTA-Button.
-- **3D Timeline-Karussell** – „So arbeiten wir": 6 Schritte auf virtualem 3D-Zylinder, vollständig in JS berechnet.
+- **3D Timeline-Karussell** – „So arbeiten wir": 6 Schritte auf virtualem 3D-Zylinder.
 - **3D Team-Karussell** – „Unser Team": 3 Karten, JS-Perspektivprojektion, Auto-Advance alle 3,5 s.
-- **Trust-Bar Animation** – 5 Vertrauenssignale zirkulieren mit Pop-in-Effekt alle 2,5 s (in Hero integriert).
-- **ROI-Rechner** – Fenstertyp, Heizkosten, Fläche → Ersparnis, CO₂, Amortisation. Blauer Rahmen + weiße Karte.
+- **Trust-Bar Animation** – 5 Vertrauenssignale zirkulieren mit Pop-in-Effekt alle 2,5 s.
+- **ROI-Rechner** – Fenstertyp, Heizkosten, Fläche → Ersparnis, CO₂, Amortisation.
 - **Leistungsportfolio** – 6 Leistungskarten im Blue-Frame-Stil.
-- **Anfrage-Modal** – Produktspezifisches Formular, öffnet auf allen Produkt-Buttons.
-- **Hero-Buttons z-index** – `hero-content` hat `z-index: 2` damit 3D-Fenster-Animation die Buttons nicht überlagert.
+- **Anfrage-Modal** – Produktspezifisch mit Vorschau (Bild, Kategorie, Name, Tagline). Web3Forms-Integration für E-Mail-Versand.
+- **Bloom-Dekorationen** – Radiale Gradienten auf allen Blue-Frame-Sections und Team-Section.
+- **Kreismuster** – Ring-Dekorationen in der Team-Card via `background-image`.
 - **Fade-in on Scroll** – `IntersectionObserver`.
 - **Counter-Animation** – `requestAnimationFrame`, easeOut.
-- **Web3Forms Kontaktformular** – Honeypot, `aria-invalid`-Validierung.
+- **Web3Forms** – Anfrage-Modal + Kontaktformular (Key noch einzutragen).
 - **Google Maps** – Adress-spezifischer Embed (Bremer Straße 31, Garbsen).
 - **SEO** – Meta-Tags, OG-Tags, Canonical, Schema.org JSON-LD (LocalBusiness).
 - **Barrierefreiheit** – Skip-Link, `sr-only`, `:focus-visible`, `prefers-reduced-motion`.
@@ -152,12 +158,14 @@ Konsistentes Design-Muster für alle Hauptsektionen:
 /* Äußerer Rahmen */
 background: #dbeafe;
 padding: 28px;
+background-image: radial-gradient(…); /* Bloom */
 
 /* Innere Karte */
 background: #fff;
 border-radius: 20px;
+box-shadow: 0 8px 40px rgba(59,130,246,0.10);
 ```
-Angewendet auf: Hero, Hannover-Section, Leistungsportfolio, ROI-Rechner.
+Angewendet auf: Hero, Hannover-Section, Leistungsportfolio, ROI-Rechner, Team-Section.
 
 ### Navigation – Breakpoints
 
@@ -177,7 +185,7 @@ npx serve . -p 3000
 
 Dann im Browser: [http://localhost:3000](http://localhost:3000)
 
-> Produktdetailseite aufrufen: `http://localhost:3000/produkt?id=ideal-8000`
+> Produktdetailseite: `http://localhost:3000/produkt/?id=ideal-8000`
 
 ---
 
@@ -197,18 +205,18 @@ Dann im Browser: [http://localhost:3000](http://localhost:3000)
 
 ## Noch ausstehend
 
-- [ ] Web3Forms Access-Key in `kontakt.html` einsetzen
+- [ ] Web3Forms Access-Key in `js/main.js` eintragen (`DEIN_WEB3FORMS_KEY`)
 - [ ] Galerie-Bilder (echte Projektfotos)
 - [ ] Team-Fotos
 
 ---
 
-## Kontaktformular einrichten (Web3Forms)
+## Kontaktformular & Anfrage-Modal einrichten (Web3Forms)
 
-1. Auf [web3forms.com](https://web3forms.com) anmelden.
-2. In `kontakt.html` ersetzen:
-   ```html
-   <input type="hidden" name="access_key" value="DEIN-KEY-HIER">
+1. Auf [web3forms.com](https://web3forms.com) anmelden und E-Mail eingeben.
+2. In `js/main.js` ersetzen:
+   ```js
+   access_key: 'DEIN_WEB3FORMS_KEY',
    ```
 
 ---
@@ -219,5 +227,5 @@ Dann im Browser: [http://localhost:3000](http://localhost:3000)
 - CSS3 (Custom Properties, Grid, Flexbox, `clamp()`, `backdrop-filter`)
 - Vanilla JavaScript (ES6+, IntersectionObserver, `requestAnimationFrame`)
 - Google Fonts – Inter
-- Web3Forms (Kontaktformular, kein Backend)
+- Web3Forms (Anfrage-Modal + Kontaktformular, kein Backend)
 - YouTube IFrame API (Video-Loop in Hannover-Section)
