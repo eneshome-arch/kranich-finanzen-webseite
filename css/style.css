@@ -277,9 +277,6 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 }
 .hero {
   background: #0a0f1e;
-  background-image:
-    radial-gradient(circle at 72% 20%, rgba(167,139,250,0.12) 0%, transparent 50%),
-    radial-gradient(circle at 20% 80%, rgba(96,165,250,0.10) 0%, transparent 45%);
   min-height: calc(100vh - 56px);
   display: flex;
   align-items: center;
