@@ -616,4 +616,37 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'alu-eingangstueren',
+    name: 'Aluminium Eingangstüren',
+    tagline: 'Hohe Steifigkeit und Festigkeit bei geringem Gewicht',
+    category: 'Haustür',
+    badge: 'RC2',
+    image: 'images/aluminium-eingangstueren.png',
+    imageContain: true,
+    shortDesc: 'Aluminium-Eingangstüren in 4 Systemen – Genesis 75, Imperial 800, MB 104 Passive und MB-86. Hohe Steifigkeit, geringe Dichte, sicherheitsrelevant.',
+    description: 'Der Hauptvorteil von Aluminium-Türen ist die hohe Steifigkeit und Festigkeit bei gleichzeitig geringem Gewicht. Sie verhalten sich während des Gebrauchs nicht. Festigkeitsparameter sind auch für die Einbruchsicherung von Bedeutung und werden daher häufig von sicherheitsbewussten Anlegern gewählt.\n\nALUPLAST GENESIS 75 kombiniert elegantes Design mit robuster Konstruktion. Das ALUPLAST IMPERIAL 800 bietet maximale Repräsentanz für anspruchsvolle Eingangsbereiche. Der ALUPROF MB 104 PASSIVE erreicht Passivhausstandard auch bei Türen. Der ALUPROF MB-86 rundet das Sortiment als solide Standardlösung ab.\n\nAlle Systeme sind CE-zertifiziert und in beliebigen RAL-Farben verfügbar.',
+    specs: [
+      { label: 'System 1', value: 'ALUPLAST GENESIS 75' },
+      { label: 'System 2', value: 'ALUPLAST IMPERIAL 800' },
+      { label: 'System 3', value: 'ALUPROF MB 104 PASSIVE' },
+      { label: 'System 4', value: 'ALUPROF MB-86' },
+      { label: 'Material', value: 'Aluminium' },
+      { label: 'Farben', value: 'Alle RAL-Farben' },
+      { label: 'Zulassung', value: 'CE-zertifiziert' },
+    ],
+    features: [
+      'ALUPLAST GENESIS 75 – elegante Aluminium-Eingangstür',
+      'ALUPLAST IMPERIAL 800 – repräsentativer Eingang',
+      'ALUPROF MB 104 PASSIVE – Passivhausstandard auch für Türen',
+      'ALUPROF MB-86 – solide Standardlösung mit hoher Steifigkeit',
+      'Alle RAL-Farben verfügbar',
+      'CE-zertifiziert, für deutschen Markt zugelassen',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+      { type: 'passivhaus', label: 'Passivhaus (MB 104)' },
+    ],
+  },
+
 ];
