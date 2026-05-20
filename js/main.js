@@ -557,6 +557,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const errorEl  = document.getElementById('anfrageError');
   const successEl= document.getElementById('anfrageSuccess');
   const successClose = document.getElementById('anfrageSuccessClose');
+  const preview  = document.getElementById('anfragePreview');
+  const previewImg    = document.getElementById('anfragePreviewImg');
+  const previewCat    = document.getElementById('anfragePreviewCat');
+  const previewName   = document.getElementById('anfragePreviewName');
+  const previewTagline= document.getElementById('anfragePreviewTagline');
 
   if (!modal) return;
 
@@ -566,13 +571,27 @@ document.addEventListener('DOMContentLoaded', () => {
       : null;
 
     if (product) {
-      prodInput.value  = product.name;
-      catEl.textContent = product.category;
-      titleEl.textContent = 'Anfrage: ' + product.name;
+      prodInput.value = product.name;
+      if (catEl) catEl.textContent = product.category;
+      if (titleEl) titleEl.textContent = 'Anfrage stellen';
+
+      // Produkt-Preview befüllen
+      if (preview) {
+        if (product.image && previewImg) {
+          previewImg.src = product.image;
+          previewImg.alt = product.name;
+          previewImg.className = 'anfrage-produkt-img' + (product.imageContain ? ' img-contain' : '');
+        }
+        if (previewCat)    previewCat.textContent    = product.category;
+        if (previewName)   previewName.textContent   = product.name;
+        if (previewTagline) previewTagline.textContent = product.tagline || '';
+        preview.style.display = '';
+      }
     } else {
-      prodInput.value  = productId || '';
-      catEl.textContent = '';
-      titleEl.textContent = 'Anfrage stellen';
+      prodInput.value = productId || '';
+      if (catEl) catEl.textContent = '';
+      if (titleEl) titleEl.textContent = 'Anfrage stellen';
+      if (preview) preview.style.display = 'none';
     }
 
     // Reset
@@ -644,10 +663,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (errorEl) errorEl.style.display = 'none';
 
-      // Demo: direkt Erfolg anzeigen (ohne echten Submit)
-      // Hier später Web3Forms-Key einsetzen
-      form.style.display = 'none';
-      successEl.style.display = 'block';
+      // Sende-Button deaktivieren während des Versands
+      const submitBtn = form.querySelector('[type=submit]');
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Wird gesendet …'; }
+
+      const data = {
+        access_key: 'DEIN_WEB3FORMS_KEY', // ← hier deinen Key eintragen
+        subject: 'Neue Anfrage: ' + (prodInput.value || 'Allgemein'),
+        from_name: 'Özdemir Fensterbau – Anfrage',
+        produkt: prodInput.value || '–',
+        name:     form.querySelector('[name=name]')?.value || '–',
+        kontakt:  form.querySelector('[name=kontakt]')?.value || '–',
+        breite:   form.querySelector('[name=breite]')?.value || '–',
+        hoehe:    form.querySelector('[name=hoehe]')?.value || '–',
+        anzahl:   form.querySelector('[name=anzahl]')?.value || '–',
+        nachricht:form.querySelector('[name=nachricht]')?.value || '–',
+      };
+
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data),
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (res.success) {
+            form.style.display = 'none';
+            successEl.style.display = 'block';
+          } else {
+            if (errorEl) {
+              errorEl.textContent = 'Fehler beim Senden. Bitte versuchen Sie es erneut.';
+              errorEl.style.display = 'block';
+            }
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Anfrage absenden'; }
+          }
+        })
+        .catch(() => {
+          if (errorEl) {
+            errorEl.textContent = 'Keine Verbindung. Bitte prüfen Sie Ihre Internetverbindung.';
+            errorEl.style.display = 'block';
+          }
+          if (submitBtn) { submitBtn.disabled = false; submitBtn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> Anfrage absenden'; }
+        });
     });
 
     form.querySelectorAll('input, textarea').forEach(el => {

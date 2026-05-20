@@ -245,9 +245,17 @@
       <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
     </button>
     <div class="anfrage-modal-header">
-      <span class="anfrage-modal-label" id="anfrageModalCat"></span>
-      <h3 id="anfrageModalTitle">Anfrage</h3>
       <p>Schildern Sie uns kurz Ihr Vorhaben – wir melden uns innerhalb von 24 Stunden.</p>
+    </div>
+    <div class="anfrage-produkt-preview" id="anfragePreview" style="display:none;">
+      <div class="anfrage-produkt-img-wrap">
+        <img id="anfragePreviewImg" src="" alt="" class="anfrage-produkt-img">
+      </div>
+      <div class="anfrage-produkt-info">
+        <span class="anfrage-produkt-cat" id="anfragePreviewCat"></span>
+        <strong class="anfrage-produkt-name" id="anfragePreviewName"></strong>
+        <span class="anfrage-produkt-tagline" id="anfragePreviewTagline"></span>
+      </div>
     </div>
     <form class="anfrage-form" id="anfrageForm" novalidate>
       <input type="hidden" name="produkt" id="anfrageProdukt">
@@ -294,7 +302,7 @@
   </div>
 </div>
 
-<script src="js/products.js"></script>
-<script src="js/main.js?v=21"></script>
+<script src="js/products.js?v=22"></script>
+<script src="js/main.js?v=22"></script>
 </body>
 </html>

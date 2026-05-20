@@ -1055,4 +1055,41 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'dekoren',
+    name: 'Dekoren',
+    tagline: 'Individuelle Farb- und Foliengestaltung für Fensterprofile',
+    category: 'Zubehör',
+    badge: 'Dekore',
+    image: 'images/dekoren.png',
+    imageContain: true,
+    shortDesc: 'Fensterprofile in einer Vielzahl von Farben und Dekoren – von Weiß über Holzoptiken bis hin zu Anthrazit und Pastelltönen für individuelle Gestaltung.',
+    description: 'Dank der Vielförmung von Fensterprofilen in einer Vielzahl von Farben ist es möglich, die Fensterverkleidung an die individuellen Wünsche der Kunden anzupassen.\n\nOb klassisches Weiß, edle Holzoptik oder moderne Anthrazittöne – das umfangreiche Dekorsortiment bietet für jeden Geschmack und jede Architektur die passende Lösung. Die hochwertigen Dekorfolien sind UV-beständig, pflegeleicht und dauerhaft farbtreu.\n\nVon hellen Pastelltönen über natürliche Holzmuster bis hin zu kräftigen Farben wie Dunkelgrün oder Rotbraun: Die Dekorvielfalt erlaubt es, Fenster harmonisch in die Fassadengestaltung zu integrieren oder gezielt Akzente zu setzen.',
+    specs: [
+      { label: 'Farbtöne', value: 'Weiß, Holzoptik, Anthrazit, Pastell u.v.m.' },
+      { label: 'Oberfläche', value: 'UV-beständige Dekorfolie' },
+      { label: 'Pflege', value: 'Pflegeleicht, dauerhaft farbtreu' },
+      { label: 'Anwendung', value: 'Alle MIROX Fenster- und Türprofile' },
+    ],
+    features: [
+      'AP02 – Cremeweiß',
+      'AP60 – Anthrazit Satinglanz',
+      'AP65 – Gransgrau (Steinstruktur)',
+      'AP41 – Blau Matt',
+      'AP42 – Brillantblau / Stahlgrau',
+      'AP66 – Peters Grün',
+      'AP67 – Nussgrau',
+      'AP79 – Olive DB',
+      'AP96 – Haselnussbraun',
+      'AP25 – Sheffield Eiche Braun / Grau',
+      'AP75 – Helle Sheffield Eiche',
+      'AP91 – Lichte Eiken',
+      'Eiche, Nußbraun, Sandgrau, Schwarz – Naturoptiken',
+      'Aluminium Silberbedect – Metalliceffekt',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
