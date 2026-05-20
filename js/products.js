@@ -960,4 +960,35 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'fenstergriffe',
+    name: 'Fenstergriffe',
+    tagline: 'Stil und Funktion für jeden Fenstertyp',
+    category: 'Zubehör',
+    badge: 'Zubehör',
+    image: 'images/fenstergriffe.png',
+    imageContain: true,
+    shortDesc: '4 Griffserien in je 5 Farben: HOPPE Atlanta, Toulon, Hamburg und ROTOSWING – in Weiß, Silber, Inox, Schwarz matt, Dunkelbraun und Gold.',
+    description: 'Fenstergriffe vereinen Stil und Funktion und sind in vier hochwertigen Serien erhältlich, die sich jeweils in bis zu fünf Farben anbieten.\n\nHOPPE ATLANTA: F9016 Weiß, F1 Silber, F9 Inox, F870 Dunkelbraun, F4 Gold-Braun\nHOPPE TOULON: F9016 Weiß, F1 Silber, F9 Inox, F9Fn Schwarz Matte, F4 Gold-Braun\nHOPPE HAMBURG: F9016 Weiß, F1 Silber, F9 Inox, F9Fn Schwarz Matte, F4 Gold-Braun\nROTOSWING: R072 Weiß, R077 Silber, R040 Inox, R046 Braun, R063-N2 Gold\n\nAlle Griffe sind passend für die gängigen Kunststoff- und Aluminiumfensterprofile erhältlich.',
+    specs: [
+      { label: 'Serie 1', value: 'HOPPE ATLANTA' },
+      { label: 'Serie 2', value: 'HOPPE TOULON' },
+      { label: 'Serie 3', value: 'HOPPE HAMBURG' },
+      { label: 'Serie 4', value: 'ROTOSWING' },
+      { label: 'Farben', value: 'Weiß, Silber, Inox, Schwarz, Gold' },
+      { label: 'Kompatibel', value: 'Kunststoff & Aluminium' },
+    ],
+    features: [
+      'HOPPE ATLANTA – klassisch, in 5 Farben',
+      'HOPPE TOULON – modern, in 5 Farben inkl. Schwarz matt',
+      'HOPPE HAMBURG – ergonomisch, in 5 Farben',
+      'ROTOSWING – geschwungen, in 5 Farben inkl. Gold',
+      'Passend für alle gängigen Fensterprofile',
+      'Hochwertige Oberflächenveredelung',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
