@@ -551,4 +551,36 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'alu-schiebetueren',
+    name: 'Aluminium Schiebetüren',
+    tagline: 'Große Flächen, fließende Übergänge',
+    category: 'Aluminium',
+    badge: 'Großformat',
+    image: 'images/aluminium-schiebetueren.png',
+    imageContain: true,
+    shortDesc: 'Aluminium-Schiebetürsysteme in 4 Varianten – HST, SlideGalandage, Slide System und Multi Slide. Für großflächige Verglasungen und architektonisch anspruchsvolle Lösungen.',
+    description: 'Aluminium-Schiebetürsysteme erlauben das Öffnen der Tür in ihrer vollen Höhe ohne einschränkende Systeme. Diese raumeinnehmenden Systeme ermöglichen die Gestaltung von Wintergärten und großflächigen Verglasungen. Je nach architektonischem Design können mehrere Flügel eingebaut werden, die sogar in der Wand versteckt werden können.\n\nDer ALUPROF MB-59HS ist ein HST-System mit niedriger Schwelle für barrierefreies Wohnen. Die ALUPROF MB-59 SlideGalandage verschwindet komplett in der Wand. Der ALUPROF MB-77HS HI bietet als Slide System höchste Wärmedämmung. Das ALUPROF MB-SLIDE als Multi Slide System ermöglicht mehrteilige Panoramaverglasung.\n\nAlle Systeme sind CE-zertifiziert und in beliebigen RAL-Farben verfügbar.',
+    specs: [
+      { label: 'System 1', value: 'ALUPROF MB-59HS' },
+      { label: 'System 2', value: 'ALUPROF MB-59 SlideGalandage' },
+      { label: 'System 3', value: 'ALUPROF MB-77HS HI' },
+      { label: 'System 4', value: 'ALUPROF MB-SLIDE' },
+      { label: 'Material', value: 'Aluminium' },
+      { label: 'Farben', value: 'Alle RAL-Farben' },
+      { label: 'Zulassung', value: 'CE-zertifiziert' },
+    ],
+    features: [
+      'ALUPROF MB-59HS – HST-System mit niedriger Schwelle',
+      'ALUPROF MB-59 SlideGalandage – in der Wand versteckbar',
+      'ALUPROF MB-77HS HI – Slide System mit hoher Wärmedämmung',
+      'ALUPROF MB-SLIDE – Multi Slide System für Panoramaverglasung',
+      'Alle RAL-Farben verfügbar',
+      'CE-zertifiziert, für deutschen Markt zugelassen',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
