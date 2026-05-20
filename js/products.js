@@ -808,4 +808,33 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'ornamentglas',
+    name: 'Ornamentglas',
+    tagline: 'Sichtschutz mit dekorativem Charakter',
+    category: 'Zubehör',
+    badge: 'Dekor',
+    image: 'images/ornamentglas.png',
+    imageContain: true,
+    shortDesc: '18 Ornamentglas-Muster für Fenster und Türen – von Kathedral über Chinchilla bis Diamante. Ideal für Flure und Badezimmer.',
+    description: 'Das Angebot an Isolierverglasungen in den Fenstern von MIROX wird durch eine breite Auswahl an Ornamentgläsern ergänzt. Mit diesen Ornamenten können verschiedene Muster wie Regen, Raureif oder Nebel in den Fenstern gestaltet werden. Ornamentglas wird vor allem in Fluren und Badezimmern verwendet.\n\nZur Auswahl stehen 18 verschiedene Muster: Delta Piask, Delta, FL Mat, Atlantic, Diamante 9, Altdeutsch K, Flutes 88, Flutes Piask, Kathedral, Cremi, Kura, Master-Ligne, Master-Point, Master-Carré, Niagara, Screen, Silvit und Chinchilla.\n\nAlle Ornamentgläser sind als Isolierverglasung erhältlich und mit den gängigen Profilsystemen kombinierbar.',
+    specs: [
+      { label: 'Muster', value: '18 verschiedene Designs' },
+      { label: 'Anwendung', value: 'Flure, Badezimmer, Trennwände' },
+      { label: 'Verglasung', value: 'Isolierverglasung' },
+      { label: 'Effekte', value: 'Regen, Raureif, Nebel u.v.m.' },
+    ],
+    features: [
+      'Delta Piask, Delta, FL Mat, Atlantic',
+      'Diamante 9, Altdeutsch K',
+      'Flutes 88, Flutes Piask, Kathedral, Cremi',
+      'Kura, Master-Ligne, Master-Point, Master-Carré',
+      'Niagara, Screen, Silvit, Chinchilla',
+      'Als Isolierverglasung erhältlich',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
