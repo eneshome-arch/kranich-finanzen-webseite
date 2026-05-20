@@ -649,4 +649,36 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'aussenrollaeden',
+    name: 'Außenrolläden',
+    tagline: 'Sonnenschutz, Sichtschutz & Wärmedämmung',
+    category: 'Zubehör',
+    badge: 'Sonnenschutz',
+    image: 'images/aussenrollaeden.png',
+    imageContain: true,
+    shortDesc: 'Außenrolläden als wichtige architektonische Elemente – in zwei Varianten: Aufsatzrolläden (RNS, RNK/E, RNK/XT) und Vorsatzrolläden (RAK/E, RAS, RAR/E).',
+    description: 'Rolläden an der Außenseite sind wichtige architektonische Elemente der Gebäudeausstattung. Sie dienen in erster Linie dem Schutz des Innenraums vor Einbruch. Darüber hinaus tragen sie zur zusätzlichen Isolierung von Fenstern und Balkontüren bei. Die richtige Auswahl gewährleistet dabei jahrelang höheren thermischen Komfort und Sicherheit.\n\nAufsatzrolläden (RNS, RNK/E, RNK/XT) werden während des Einbaus oder Austauschs von Fenstern installiert und sitzen direkt auf dem Blendrahmen. Vorsatzrolläden (RAK/E, RAS, RAR/E) können im Nachhinein montiert werden und lassen sich in die Gebäudefassade integrieren.\n\nAlle Varianten sind in zahlreichen Farben erhältlich und auf Maß gefertigt.',
+    specs: [
+      { label: 'Aufsatz 1', value: 'RNS' },
+      { label: 'Aufsatz 2', value: 'RNK/E' },
+      { label: 'Aufsatz 3', value: 'RNK/XT' },
+      { label: 'Vorsatz 1', value: 'RAK/E' },
+      { label: 'Vorsatz 2', value: 'RAS' },
+      { label: 'Vorsatz 3', value: 'RAR/E' },
+      { label: 'Fertigung', value: 'Maßanfertigung' },
+    ],
+    features: [
+      'Aufsatzrolläden RNS, RNK/E, RNK/XT – Montage beim Fenstereinbau',
+      'Vorsatzrolläden RAK/E, RAS, RAR/E – nachträgliche Montage möglich',
+      'In Gebäudefassade integrierbar',
+      'Einbruchschutz, Sonnenschutz und Wärmedämmung',
+      'Maßanfertigung nach Kundenwunsch',
+      'Zahlreiche Farben verfügbar',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
