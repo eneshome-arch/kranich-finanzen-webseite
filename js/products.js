@@ -583,4 +583,37 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'alu-falltueren',
+    name: 'Aluminium Falttüren',
+    tagline: 'Harmonika-Lösung für Terrasse & Wintergarten',
+    category: 'Aluminium',
+    badge: 'Harmonika',
+    image: 'images/aluminium-falltueren.png',
+    imageContain: true,
+    shortDesc: 'Falttüren aus Aluminium (Harmonika-Form) für Terrassen und Wintergärten. Großflächige Verglasung bei minimalem Platzbedarf im geöffneten Zustand.',
+    description: 'Falttüren aus Aluminium, auch als Harmonika-Form bezeichnet, finden hauptsächlich Verwendung als Eingänge zu Terrassen oder Wintergärten. Diese technische Lösung ermöglicht die Schaffung großflächiger Verglasungen bei gleichzeitig minimalem Platzbedarf im geöffneten Zustand.\n\nHarmonikalösungen eignen sich perfekt, um den Wohnraum auch im Winter nahtlos mit einer Terrasse oder einem Garten zu verbinden. Die Falttüren bestehen aus wärmegedämmten Profilen. Je nach Bedarf können sie nach innen oder nach außen öffnende Strukturen aufweisen.\n\nCE-zertifiziert, RAL-Gütezeichen, in allen RAL-Farben verfügbar.',
+    specs: [
+      { label: 'Typ', value: 'Harmonika / Falttür' },
+      { label: 'Material', value: 'Aluminium' },
+      { label: 'Profil', value: 'Wärmegedämmt' },
+      { label: 'Öffnung', value: 'Nach innen oder außen' },
+      { label: 'Verglasung', value: 'Großflächig' },
+      { label: 'Farben', value: 'Alle RAL-Farben' },
+      { label: 'Zulassung', value: 'CE-zertifiziert' },
+    ],
+    features: [
+      'Harmonika-Falttür für Terrassen und Wintergärten',
+      'Wärmegedämmte Aluminiumprofile',
+      'Öffnung nach innen oder außen möglich',
+      'Minimaler Platzbedarf im geöffneten Zustand',
+      'Großflächige Verglasung',
+      'Alle RAL-Farben verfügbar',
+      'CE-zertifiziert, RAL-Gütezeichen',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
