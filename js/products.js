@@ -899,4 +899,34 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'sprossenarten',
+    name: 'Sprossenarten',
+    tagline: 'Vielfalt in Farbe, Breite und Material',
+    category: 'Zubehör',
+    badge: 'Zubehör',
+    image: 'images/sprossenarten.png',
+    imageContain: true,
+    shortDesc: 'Sprossprofile in RAL-Farben und Holzdekoren – Breiten von 6 bis 45 mm. Weiß, Golden, Nussbaum, Mahagoni, Eiche und mehr. Biegbar für Bögen und Winkel.',
+    description: 'Die Sprossen unserer Fenster sind in einer großen Auswahl an RAL-Farben erhältlich – auch zweifarbig. Unser Angebot umfasst Profile mit einer Breite von 6, 16, 24 und 45 mm. Diese Elemente lassen sich wahlweise zu Bögen oder Kreisen biegen und auch in unterschiedlichen Winkeln verbinden.\n\nZur Auswahl stehen folgende Varianten: Weiß 6mm, Golden 6mm, 1808 Weiß 9010, 1808 Golden, 1808 Dunkle Eiche, 1808 Goldene Eiche, 1808 Nussbaum, 1808 Mooreiche, 1808 Mahagoni, 2408 Weiß 9010, 4508 Weiß 9010 sowie 2408 Duplex.\n\nAlle Sprossenprofile sind mit den gängigen Kunststoff- und Aluminiumfenstersystemen kombinierbar.',
+    specs: [
+      { label: 'Breiten', value: '6, 16, 24, 45 mm' },
+      { label: 'Farben', value: 'RAL, auch zweifarbig' },
+      { label: 'Dekore', value: 'Weiß, Golden, Eiche, Nussbaum, Mahagoni' },
+      { label: 'Formen', value: 'Gerade, Bogen, Winkel' },
+      { label: 'Kompatibel', value: 'Kunststoff & Aluminium' },
+    ],
+    features: [
+      'Weiß 6mm, Golden 6mm',
+      '1808: Weiß 9010, Golden, Dunkle Eiche, Goldene Eiche',
+      '1808: Nussbaum, Mooreiche, Mahagoni',
+      '2408 Weiß 9010, 4508 Weiß 9010, 2408 Duplex',
+      'Biegbar für Bögen und Kreise',
+      'Auch zweifarbig in RAL-Farben erhältlich',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
