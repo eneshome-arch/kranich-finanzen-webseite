@@ -271,9 +271,15 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .hero-frame {
   background: #dbeafe;
   padding: 28px;
+  background-image:
+    radial-gradient(circle at 8% 60%, rgba(255,255,255,0.55) 0%, transparent 45%),
+    radial-gradient(circle at 94% 20%, rgba(96,165,250,0.22) 0%, transparent 40%);
 }
 .hero {
   background: #0a0f1e;
+  background-image:
+    radial-gradient(circle at 72% 20%, rgba(167,139,250,0.12) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(96,165,250,0.10) 0%, transparent 45%);
   min-height: calc(100vh - 56px);
   display: flex;
   align-items: center;
@@ -695,6 +701,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .hannover-section {
   background: #dbeafe;
   padding: 28px;
+  background-image:
+    radial-gradient(circle at 5% 50%, rgba(255,255,255,0.6) 0%, transparent 45%),
+    radial-gradient(circle at 96% 80%, rgba(96,165,250,0.20) 0%, transparent 40%);
 }
 .hannover-card {
   background: #fff;
@@ -766,6 +775,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .leistungen-portfolio-section {
   background: #dbeafe;
   padding: 28px;
+  background-image:
+    radial-gradient(circle at 96% 15%, rgba(255,255,255,0.55) 0%, transparent 42%),
+    radial-gradient(circle at 4% 85%, rgba(96,165,250,0.18) 0%, transparent 40%);
 }
 .leistungen-portfolio-card {
   background: #fff;
@@ -900,6 +912,11 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 /* ── CTA ───────────────────────────────────── */
 .cta-section { background: var(--primary-dark); padding: 112px 0; text-align: center; position: relative; overflow: hidden; }
 .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(37,99,235,0.1) 0%, transparent 70%); }
+.cta-section::after  { content: ''; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(circle at 6%  30%, rgba(167,139,250,0.10) 0%, transparent 40%),
+    radial-gradient(circle at 94% 70%, rgba(96,165,250,0.10)  0%, transparent 40%);
+}
 .cta-section h2 { font-size: clamp(32px, 4vw, 52px); color: var(--white); margin-bottom: 16px; letter-spacing: -0.03em; position: relative; z-index: 1; }
 .cta-section h2 span { color: #93c5fd; }
 .cta-section p { color: rgba(255,255,255,0.5); font-size: 17px; max-width: 480px; margin: 0 auto 40px; line-height: 1.75; font-weight: 400; position: relative; z-index: 1; }
@@ -1211,6 +1228,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .rechner-frame {
   background: #dbeafe;
   padding: 28px;
+  background-image:
+    radial-gradient(circle at 93% 55%, rgba(255,255,255,0.55) 0%, transparent 42%),
+    radial-gradient(circle at 7% 25%, rgba(96,165,250,0.18) 0%, transparent 38%);
 }
 .rechner-card {
   background: #fff;
