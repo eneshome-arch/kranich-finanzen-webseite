@@ -777,4 +777,35 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'glasscheibenpakete',
+    name: 'Glasscheibenpakete',
+    tagline: 'Das richtige Glas für jeden Anspruch',
+    category: 'Zubehör',
+    badge: 'Verglasung',
+    image: 'images/glasscheibenpakete.png',
+    imageContain: true,
+    shortDesc: 'Glasscheibenpakete in 6 Varianten: Hoher Standard, Energiesparend, Schalldämmend, Einbruchschutz, Sicherheitsglas und Sonnenschutz.',
+    description: 'Scheiben, die in Fenstern eingebaut werden, zeichnen sich durch vielfältige Aspekte aus. Bei der Auswahl von Fenstern lohnt es sich, alle Möglichkeiten genau zu analysieren.\n\nDas Glas mit hohem Standard bietet solide Grunddämmung für Standardanwendungen. Energiesparendes Glas minimiert den Wärmeverlust und senkt die Heizkosten dauerhaft. Schalldämmendes Glas sorgt für spürbare Ruhe im Innenraum. Einbruchschutzglas erhöht die Sicherheit und erschwert das Eindringen erheblich. Sicherheitsglas bricht bei Beschädigung in ungefährliche Bruchstücke. Sonnenschutzglas reduziert die Wärmeentwicklung im Innenraum bei maximaler Lichttransmission.\n\nAlle Glasscheibenpakete sind auf die Profilsysteme im Sortiment abgestimmt.',
+    specs: [
+      { label: 'Variante 1', value: 'Hoher Standard' },
+      { label: 'Variante 2', value: 'Energiesparend' },
+      { label: 'Variante 3', value: 'Schalldämmend' },
+      { label: 'Variante 4', value: 'Einbruchschutz' },
+      { label: 'Variante 5', value: 'Sicherheitsglas' },
+      { label: 'Variante 6', value: 'Sonnenschutz' },
+    ],
+    features: [
+      'Hoher Standard – solide Grunddämmung',
+      'Energiesparend – minimierter Wärmeverlust, niedrigere Heizkosten',
+      'Schalldämmend – spürbare Lärmreduzierung im Innenraum',
+      'Einbruchschutz – erschwertes Eindringen',
+      'Sicherheitsglas – sicheres Bruchverhalten',
+      'Sonnenschutz – reduzierte Wärmeentwicklung bei maximaler Lichttransmission',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
