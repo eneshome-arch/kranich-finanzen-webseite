@@ -847,16 +847,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const art = document.createElement('article');
     art.className = 'shop-card';
     art.innerHTML = `
-      <a href="produkt?id=${p.id}" class="shop-card-img-wrap">
+      <a href="produkt/?id=${p.id}" class="shop-card-img-wrap">
         ${p.image ? `<img src="${p.image}" alt="${p.name}" class="shop-card-img${p.imageContain ? ' img-contain' : ''}">` : ''}
         ${p.badge ? `<span class="shop-card-badge">${p.badge}</span>` : ''}
       </a>
       <div class="shop-card-body">
         <span class="shop-card-cat">${p.category}</span>
-        <h2 class="shop-card-name"><a href="produkt?id=${p.id}">${p.name}</a></h2>
+        <h2 class="shop-card-name"><a href="produkt/?id=${p.id}">${p.name}</a></h2>
         <p class="shop-card-tagline">${p.tagline}</p>
         <div class="shop-card-actions">
-          <a href="produkt?id=${p.id}" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
+          <a href="produkt/?id=${p.id}" class="btn btn-ghost shop-btn-detail">Details ansehen</a>
           <button class="btn btn-blue shop-btn-anfrage" data-product-id="${p.id}">Anfragen</button>
         </div>
       </div>`;
