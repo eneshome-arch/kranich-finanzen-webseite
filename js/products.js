@@ -681,4 +681,35 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'steuerungssysteme',
+    name: 'Steuerungssysteme',
+    tagline: 'Smarte Steuerung für Fenster, Rolläden & Garagentore',
+    category: 'Zubehör',
+    badge: 'Smart Home',
+    image: 'images/steuerungssysteme.png',
+    imageContain: true,
+    shortDesc: 'SOMFY Steuerungssysteme für Fenster, Rolläden, Terrassenmarkisen und Garagentore – per Wandschalter, Kabel, Fernbedienung oder Smartphone-App.',
+    description: 'SOMFY sorgt dafür, dass das Leben zu Hause einfach und komfortabel ist, sodass Sie mehr Zeit für Ihre persönlichen Aktivitäten haben. Die Hochfahren von Außenrolläden und Terrassentüren von Markisen oder das Öffnen des Garagentors – all diese Geräte können mithilfe der intelligenten Systeme von SOMFY gesteuert werden.\n\nSOMFY SITUO bietet 1-Kanal-Fernbedienung in RTS-Technologie. SOMFY SMOOVE ist ein eleganter Origin 2 RTS Sender im Pure Frame Design. Die SMARTPHONE-Steuerung via IO Homecontrol ermöglicht komfortable und automatische Verwaltung mehrerer Geräte über Produktgruppen per Touchscreen. Mit TAHOMA Premium können alle Geräte und Sensoren in einem integrierten System kombiniert, gesteuert und Befehle zeitbasiert oder per Trigger ausgeführt werden.\n\nKompatibel mit Fenstern, Rolläden, Terrassenmarkisen und Garagentoren.',
+    specs: [
+      { label: 'System 1', value: 'SOMFY SITUO' },
+      { label: 'System 2', value: 'SOMFY SMOOVE' },
+      { label: 'System 3', value: 'Smartphone-App' },
+      { label: 'System 4', value: 'TAHOMA Premium' },
+      { label: 'Technologie', value: 'RTS / IO Homecontrol' },
+      { label: 'Kompatibel', value: 'Fenster, Rolläden, Garagentor' },
+    ],
+    features: [
+      'SOMFY SITUO – 1-Kanal-Fernbedienung (RTS)',
+      'SOMFY SMOOVE – Wandsender im Pure Frame Design',
+      'Smartphone-App – IO Homecontrol, Produktgruppen steuerbar',
+      'TAHOMA Premium – zentrales Smart-Home-System',
+      'Kompatibel mit Fenstern, Rolläden, Markisen und Garagentoren',
+      'Zeitbasierte Automatisierung möglich',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
