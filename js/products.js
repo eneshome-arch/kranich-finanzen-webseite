@@ -519,4 +519,36 @@ const PRODUCTS = [
     ],
   },
 
+  {
+    id: 'alu-untypisch',
+    name: 'Untypische Aluminiumfenster',
+    tagline: 'Spezialanwendungen für Innen und Außen',
+    category: 'Aluminium',
+    badge: 'Speziallösung',
+    image: 'images/untypische-aluminiumfenster.png',
+    imageContain: true,
+    shortDesc: 'Basierend auf ALUPROF-Systemen: 4 Speziallösungen für Lüftung, Drehfenster, Schieben und Rauchabzug – horizontal und vertikal verschiebbar.',
+    description: 'Basierend auf ALUPROF-Systemen bieten wir eine breite Palette von Fenstern für spezielle Anwendungen im Innen- und Außenbereich von Gebäuden. Sie können horizontal und vertikal verschoben werden und verfügen über eine vertikale oder horizontale Drehachse. Diese Fenster zeichnen sich durch Ästhetik, Langlebigkeit und Funktionalität aus.\n\nDas ALUPROF SLIDER WINDOW ist als Lüfterfenster ideal für kontrollierte Belüftung. Der ALUPROF PIVOT überzeugt als elegantes Drehfenster mit zentraler Drehachse. Das ALUPROF MB SLIDE ST bietet als Schiebefenster maximale Raumnutzung. Das ALUPROF Rauchabzugsfenster sorgt für zuverlässigen Rauchabzug mit integriertem Dämpfer – ideal für gewerbliche und öffentliche Gebäude.\n\nAlle Systeme sind CE-zertifiziert und in beliebigen RAL-Farben verfügbar.',
+    specs: [
+      { label: 'System 1', value: 'ALUPROF SLIDER WINDOW' },
+      { label: 'System 2', value: 'ALUPROF PIVOT' },
+      { label: 'System 3', value: 'ALUPROF MB SLIDE ST' },
+      { label: 'System 4', value: 'ALUPROF Rauchabzug' },
+      { label: 'Material', value: 'Aluminium' },
+      { label: 'Farben', value: 'Alle RAL-Farben' },
+      { label: 'Zulassung', value: 'CE-zertifiziert' },
+    ],
+    features: [
+      'ALUPROF SLIDER WINDOW – Lüfterfenster, horizontal verschiebbar',
+      'ALUPROF PIVOT – Drehfenster mit zentraler Achse',
+      'ALUPROF MB SLIDE ST – Schiebefenster für maximale Raumnutzung',
+      'ALUPROF Rauchabzugsfenster mit Dämpfer',
+      'Alle RAL-Farben verfügbar',
+      'CE-zertifiziert, für deutschen Markt zugelassen',
+    ],
+    badges: [
+      { type: 'german-market', label: 'Geeignet für den deutschen Markt' },
+    ],
+  },
+
 ];
