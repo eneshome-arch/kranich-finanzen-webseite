@@ -506,6 +506,92 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* ── DEKORATIVE STILELEMENTE ─────────────────── */
+
+/* Wellenunterstrich unter Hero-Titel */
+.ht-grad-outer {
+  position: relative;
+  display: inline-block;
+}
+.hero-wave-svg {
+  position: absolute;
+  left: 0;
+  bottom: -14px;
+  width: 100%;
+  height: 14px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Floating Pill Badge im Hero */
+.hero-float-pill {
+  position: absolute;
+  top: 22px;
+  right: -8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 980px;
+  padding: 8px 16px 8px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+  z-index: 3;
+  animation: hero-fade 0.9s 0.5s ease both;
+}
+.hero-float-pill-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 3px rgba(74,222,128,0.2);
+}
+
+/* Gestricheltes Standort-Badge in Hannover-Section */
+.hannover-dashed-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px dashed rgba(30,64,175,0.28);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 12.5px;
+  font-weight: 500;
+  color: #1e40af;
+  background: rgba(219,234,254,0.55);
+  align-self: flex-start;
+}
+.hannover-dashed-badge svg { color: #3b82f6; flex-shrink: 0; }
+
+/* Gestrichelte Benefit-Card */
+.benefit-card--dashed {
+  border: 1.5px dashed rgba(147,197,253,0.22) !important;
+}
+
+/* Dekorative gestrichelte Boxen in CTA */
+.deco-dashed-box {
+  position: absolute;
+  border: 1.5px dashed rgba(147,197,253,0.11);
+  pointer-events: none;
+  z-index: 0;
+}
+.deco-dashed-box-1 {
+  width: 200px; height: 130px;
+  top: 28px; left: 7%;
+  border-radius: 16px;
+  transform: rotate(-4deg);
+}
+.deco-dashed-box-2 {
+  width: 140px; height: 140px;
+  bottom: 36px; right: 8%;
+  border-radius: 50%;
+}
+
 /* ── TRUST BAR ─────────────────────────────── */
 .trust-bar { display: none; }
 .hero-trust {
@@ -1491,6 +1577,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .hero-stats  { display: none; }
   .hero-trust      { margin-top: 28px; padding-top: 20px; height: 24px; }
   .hero-trust-item { font-size: 11px; }
+  .hero-float-pill { display: none; }
+  .deco-dashed-box { display: none; }
+  .hannover-dashed-badge { font-size: 11.5px; padding: 8px 12px; }
 
   /* Hannover mobile */
   .hannover-section { padding: 12px; }
