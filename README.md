@@ -1,6 +1,6 @@
 # Özdemir Fensterbau – Website
 
-Statische Website für **Özdemirbau UG**, Garbsen. Gebaut mit reinem HTML, CSS und Vanilla JavaScript – kein Framework, kein Build-Prozess. Zielgruppe: Privatkunden, Bauunternehmen, Architekten und Projektentwickler.
+Statische Website für **Özdemir Bau UG**, Garbsen. Gebaut mit reinem HTML, CSS und Vanilla JavaScript – kein Framework, kein Build-Prozess. Zielgruppe: Privatkunden, Bauunternehmen, Architekten und Projektentwickler.
 
 ---
 
@@ -8,8 +8,9 @@ Statische Website für **Özdemirbau UG**, Garbsen. Gebaut mit reinem HTML, CSS 
 
 | Feld | Wert |
 |------|------|
-| Firma | Özdemirbau UG (haftungsbeschränkt) |
-| Geschäftsführer | Cevat Özdemir |
+| Firma | Özdemir Bau UG (haftungsbeschränkt) |
+| Geschäftsinhaber | Cevat Özdemir |
+| Geschäftsführer | Mehmet Özdemir |
 | Adresse | Bremer Straße 31, 30827 Garbsen |
 | Telefon | +49 172 276 1541 |
 | E-Mail | info@özdemir-fensterbau.de |
@@ -36,12 +37,13 @@ ozdemir-fensterbau/
 ├── sitemap.xml             # Alle indexierbaren Seiten
 ├── .nojekyll               # GitHub Pages: Jekyll-Build überspringen
 ├── css/
-│   └── style.css           # Gesamtes Styling (v=113)
+│   └── style.css           # Gesamtes Styling (v=114)
 ├── js/
-│   ├── main.js             # Interaktivität, Anfrage-Modal, PDP-Logik (v=22)
+│   ├── main.js             # Interaktivität, Anfrage-Modal, PDP-Logik
 │   └── products.js         # Zentrale Produktdaten (PRODUCTS-Array, 32 Produkte)
 └── images/
     ├── logo.png
+    ├── hero-bg.png
     ├── og-image.jpg
     ├── ideal-8000.png
     ├── [alle Produktbilder …]
@@ -54,8 +56,8 @@ ozdemir-fensterbau/
 
 | Seite | Datei | Headline |
 |-------|-------|----------|
-| Startseite | `index.html` | FENSTER MIT SYSTEM. |
-| Über uns | `ueber-uns.html` | KEIN MITTELSMANN. DIREKT VOM PROFI. |
+| Startseite | `index.html` | Fenster die überzeugen. |
+| Über uns | `ueber-uns.html` | IHR FACHBETRIEB. AUS GARBSEN. |
 | Leistungen | `leistungen.html` | SECHS LEISTUNGEN. EIN ANSPRECHPARTNER. |
 | Sortiment | `sortiment.html` | ALLE SYSTEME. EIN PARTNER. |
 | Produktdetail | `produkt/index.html` | Dynamisch via `?id=` URL-Parameter |
@@ -119,20 +121,18 @@ Der Shop ist nach dem Shopify-Prinzip aufgebaut: zentrale Produktdaten in `js/pr
 
 ## Features
 
+- **Hero Section** – Hintergrundfoto (`hero-bg.png`) mit dunklem Gradient-Overlay; Browser-Mockup mit Sortiment-Vorschau (iframe) rechts.
 - **Floating Island Navigation** – Pill-förmiger Header; bleibt dunkel-transparent bis Hero gescrollt, dann weiß mit `backdrop-filter: blur(20px)`.
-- **Hero Section** – Blauer Rahmen (`#dbeafe`) + weiße Karte (`border-radius: 20px`).
-- **Hannover-Section** – YouTube-Video (autoplay, loop via IFrame API, keine Controls) mit Text-Overlay und CTA-Button.
+- **Hannover-Section** – YouTube-Video (autoplay, loop via IFrame API, keine Controls) mit Text-Overlay und CTA-Button. Text: „Hannover & Umgebung".
 - **3D Timeline-Karussell** – „So arbeiten wir": 6 Schritte auf virtualem 3D-Zylinder.
-- **3D Team-Karussell** – „Unser Team": 3 Karten, JS-Perspektivprojektion, Auto-Advance alle 3,5 s.
+- **Team-Section** – 2 Karten nebeneinander (Mehmet Özdemir & Cevat Özdemir) mit Float-Animation und Avatar-Glow.
 - **Trust-Bar Animation** – 5 Vertrauenssignale zirkulieren mit Pop-in-Effekt alle 2,5 s.
 - **ROI-Rechner** – Fenstertyp, Heizkosten, Fläche → Ersparnis, CO₂, Amortisation.
 - **Leistungsportfolio** – 6 Leistungskarten im Blue-Frame-Stil.
 - **Anfrage-Modal** – Produktspezifisch mit Vorschau (Bild, Kategorie, Name, Tagline). Web3Forms-Integration für E-Mail-Versand.
-- **Bloom-Dekorationen** – Radiale Gradienten auf allen Blue-Frame-Sections und Team-Section.
-- **Kreismuster** – Ring-Dekorationen in der Team-Card via `background-image`.
 - **Fade-in on Scroll** – `IntersectionObserver`.
 - **Counter-Animation** – `requestAnimationFrame`, easeOut.
-- **Web3Forms** – Anfrage-Modal + Kontaktformular (Key noch einzutragen).
+- **Web3Forms** – Anfrage-Modal + Kontaktformular.
 - **Google Maps** – Adress-spezifischer Embed (Bremer Straße 31, Garbsen).
 - **SEO** – Meta-Tags, OG-Tags, Canonical, Schema.org JSON-LD (LocalBusiness).
 - **Barrierefreiheit** – Skip-Link, `sr-only`, `:focus-visible`, `prefers-reduced-motion`.
@@ -180,7 +180,7 @@ Angewendet auf: Hero, Hannover-Section, Leistungsportfolio, ROI-Rechner, Team-Se
 ## Lokal starten
 
 ```bash
-npx serve . -p 3000
+npx serve .
 ```
 
 Dann im Browser: [http://localhost:3000](http://localhost:3000)
@@ -193,20 +193,17 @@ Dann im Browser: [http://localhost:3000](http://localhost:3000)
 
 ### GitHub Pages
 
-1. GitHub → Repo → **Settings → Pages**
-2. Source: `Deploy from a branch`, Branch: `main`, Folder: `/ (root)`
-
-### Coolify / Hetzner
-
-- Server-IP: `46.224.59.145`
-- Nixpacks staticfile (Caddy, Port 80)
+1. Repository muss **öffentlich** sein
+2. GitHub → Repo → **Settings → Pages**
+3. Source: `Deploy from a branch`, Branch: `main`, Folder: `/ (root)`
+4. Custom Domain: `özdemir-fensterbau.de`
 
 ---
 
 ## Noch ausstehend
 
 - [ ] Web3Forms Access-Key in `js/main.js` eintragen (`DEIN_WEB3FORMS_KEY`)
-- [ ] Galerie-Bilder (echte Projektfotos)
+- [ ] Echte Projektfotos (Galerie)
 - [ ] Team-Fotos
 
 ---
