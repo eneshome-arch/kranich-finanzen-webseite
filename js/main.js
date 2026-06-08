@@ -450,7 +450,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Team 3D Carousel ─────────────────────
   const teamGrid = document.querySelector('.team-grid');
-  if (teamGrid) {
+  if (teamGrid && !teamGrid.classList.contains('team-grid--duo')) {
     teamGrid.classList.add('team-3d');
 
     const tcTrack = document.createElement('div');
@@ -921,6 +921,22 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
+
+// ── Hero Browser Preview: scroll to products ──
+(function () {
+  const iframe = document.querySelector('.hb-screen iframe');
+  if (!iframe) return;
+  iframe.addEventListener('load', function () {
+    try {
+      const doc = this.contentDocument || this.contentWindow.document;
+      const grid = doc.getElementById('shopGrid');
+      if (grid) {
+        doc.documentElement.scrollTop = grid.offsetTop - 24;
+        doc.body.scrollTop = grid.offsetTop - 24;
+      }
+    } catch (e) {}
+  });
+})();
 
 // ── Hero Trust Animation ──────────────────────
 (function () {

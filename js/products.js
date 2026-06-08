@@ -409,7 +409,7 @@ const PRODUCTS = [
     imageContain: true,
     gallery: ['images/klassische-kunststofftueren.png'],
     shortDesc: 'Klassische PVC-Haustüren mit und ohne Seitenteil – in zahlreichen Designs wie Sage, Model, Bekopa, Bartonia und mehr.',
-    description: 'Unsere klassischen Kunststofftüren verbinden traditionelle Eleganz mit moderner PVC-Technologie. Das umfangreiche Sortiment umfasst Modelle mit und ohne Seitenteil – für jeden Geschmack und jede Fassade.\n\nModelle ohne Seitenteil: Sage 1, Model, Bekopa, Bartonia HB, Estragon, Iris, Boronia, Calendula.\n\nModelle mit Seitenteil: Safran, Sage, Bekopa, Nandina.\n\nAlle Modelle sind in verschiedenen Dekoren erhältlich – von klassischem Holzdekor bis zu modernem Weiß. Ein komplettes Angebot an Türfüllungen finden Sie unter www.mirox.pl.',
+    description: 'Unsere klassischen Kunststofftüren verbinden traditionelle Eleganz mit moderner PVC-Technologie. Das umfangreiche Sortiment umfasst Modelle mit und ohne Seitenteil – für jeden Geschmack und jede Fassade.\n\nModelle ohne Seitenteil: Sage 1, Model, Bekopa, Bartonia HB, Estragon, Iris, Boronia, Calendula.\n\nModelle mit Seitenteil: Safran, Sage, Bekopa, Nandina.\n\nAlle Modelle sind in verschiedenen Dekoren erhältlich – von klassischem Holzdekor bis zu modernem Weiß. ',
     specs: [
       { label: 'Material', value: 'PVC / Kunststoff' },
       { label: 'Varianten', value: 'Mit / ohne Seitenteil' },
@@ -817,7 +817,7 @@ const PRODUCTS = [
     image: 'images/ornamentglas.png',
     imageContain: true,
     shortDesc: '18 Ornamentglas-Muster für Fenster und Türen – von Kathedral über Chinchilla bis Diamante. Ideal für Flure und Badezimmer.',
-    description: 'Das Angebot an Isolierverglasungen in den Fenstern von MIROX wird durch eine breite Auswahl an Ornamentgläsern ergänzt. Mit diesen Ornamenten können verschiedene Muster wie Regen, Raureif oder Nebel in den Fenstern gestaltet werden. Ornamentglas wird vor allem in Fluren und Badezimmern verwendet.\n\nZur Auswahl stehen 18 verschiedene Muster: Delta Piask, Delta, FL Mat, Atlantic, Diamante 9, Altdeutsch K, Flutes 88, Flutes Piask, Kathedral, Cremi, Kura, Master-Ligne, Master-Point, Master-Carré, Niagara, Screen, Silvit und Chinchilla.\n\nAlle Ornamentgläser sind als Isolierverglasung erhältlich und mit den gängigen Profilsystemen kombinierbar.',
+    description: 'Das Angebot an Isolierverglasungen wird durch eine breite Auswahl an Ornamentgläsern ergänzt. Mit diesen Ornamenten können verschiedene Muster wie Regen, Raureif oder Nebel in den Fenstern gestaltet werden. Ornamentglas wird vor allem in Fluren und Badezimmern verwendet.\n\nZur Auswahl stehen 18 verschiedene Muster: Delta Piask, Delta, FL Mat, Atlantic, Diamante 9, Altdeutsch K, Flutes 88, Flutes Piask, Kathedral, Cremi, Kura, Master-Ligne, Master-Point, Master-Carré, Niagara, Screen, Silvit und Chinchilla.\n\nAlle Ornamentgläser sind als Isolierverglasung erhältlich und mit den gängigen Profilsystemen kombinierbar.',
     specs: [
       { label: 'Muster', value: '18 verschiedene Designs' },
       { label: 'Anwendung', value: 'Flure, Badezimmer, Trennwände' },
@@ -938,7 +938,7 @@ const PRODUCTS = [
     image: 'images/kopplungsarten.png',
     imageContain: true,
     shortDesc: 'Drei Kopplungsarten für großflächige Fensteranlagen: Federkopplung, Statische Kopplung und Rohrkopplung – für sichere und optisch saubere Verbindungen.',
-    description: 'Fenstern werden durch die moderne Architektur oft immer höheren Anforderungen gestellt. Sehr große Fensterlösungen werden immer beliebter. Es werden sowohl sinnvolle, beweisliche als auch stilistisch Verglaserglücke eingesetzt. Firma Mirox bietet eine breite Palette von Fensterkopplungsprofilen, die ungehinderte Montagen von mehreren Elementen ermöglichen.\n\nDie Federkopplung basiert auf Profil Ideal 4000 Tür Inne (140x20) mit Stahlverstärkung und Federkopplug (22016). Die Statische Kopplung verwendet Profil Ideal 4000 Stille (140x20) mit Stahlverstärkung und Brücke Kopplung 21 Inn (140318). Die Rohrkopplung nutzt Profil Ideal 4000 Grill Inne (140x20) mit Stahlverstärkung und einer Rohr-Kopplung (140342 + 140344) mit Stahlverstärkung.\n\nAlle Kopplungsarten ermöglichen die ungehinderte Montage von mehreren Fensterelementen zu großflächigen Konstruktionen.',
+    description: 'Fenstern werden durch die moderne Architektur oft immer höheren Anforderungen gestellt. Sehr große Fensterlösungen werden immer beliebter. Es werden sowohl sinnvolle, beweisliche als auch stilistisch Verglaserglücke eingesetzt. Wir bieten eine breite Palette von Fensterkopplungsprofilen, die ungehinderte Montagen von mehreren Elementen ermöglichen.\n\nDie Federkopplung basiert auf Profil Ideal 4000 Tür Inne (140x20) mit Stahlverstärkung und Federkopplug (22016). Die Statische Kopplung verwendet Profil Ideal 4000 Stille (140x20) mit Stahlverstärkung und Brücke Kopplung 21 Inn (140318). Die Rohrkopplung nutzt Profil Ideal 4000 Grill Inne (140x20) mit Stahlverstärkung und einer Rohr-Kopplung (140342 + 140344) mit Stahlverstärkung.\n\nAlle Kopplungsarten ermöglichen die ungehinderte Montage von mehreren Fensterelementen zu großflächigen Konstruktionen.',
     specs: [
       { label: 'Kopplung 1', value: 'Federkopplung' },
       { label: 'Kopplung 2', value: 'Statische Kopplung' },
@@ -1069,7 +1069,7 @@ const PRODUCTS = [
       { label: 'Farbtöne', value: 'Weiß, Holzoptik, Anthrazit, Pastell u.v.m.' },
       { label: 'Oberfläche', value: 'UV-beständige Dekorfolie' },
       { label: 'Pflege', value: 'Pflegeleicht, dauerhaft farbtreu' },
-      { label: 'Anwendung', value: 'Alle MIROX Fenster- und Türprofile' },
+      { label: 'Anwendung', value: 'Alle Fenster- und Türprofile' },
     ],
     features: [
       'AP02 – Cremeweiß',
