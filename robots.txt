@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /katalog/
 
-Sitemap: https://ozdemir-fensterbau.de/sitemap.xml
+Sitemap: https://xn--zdemir-fensterbau-yzb.de/sitemap.xml
