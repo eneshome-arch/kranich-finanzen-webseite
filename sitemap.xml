@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://xn--zdemir-fensterbau-yzb.de/</loc>
+    <loc>https://[DOMAIN]/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://xn--zdemir-fensterbau-yzb.de/ueber-uns.html</loc>
+    <loc>https://[DOMAIN]/ueber-uns.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://xn--zdemir-fensterbau-yzb.de/leistungen.html</loc>
+    <loc>https://[DOMAIN]/leistungen.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://xn--zdemir-fensterbau-yzb.de/sortiment.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://xn--zdemir-fensterbau-yzb.de/kontakt.html</loc>
+    <loc>https://[DOMAIN]/kontakt.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
