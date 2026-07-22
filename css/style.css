@@ -1357,8 +1357,33 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 }
 .lp-hero-wave svg {
   width: 100%;
-  height: 240px;
+  height: 260px;
   display: block;
+}
+.wave-p1 {
+  animation: wave-drift-1 9s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+.wave-p2 {
+  animation: wave-drift-2 6.5s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+.wave-p3 {
+  animation: wave-drift-3 4.5s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+@keyframes wave-drift-1 {
+  0%, 100% { transform: translateX(0) scaleY(1); }
+  50%       { transform: translateX(-36px) scaleY(1.06); }
+}
+@keyframes wave-drift-2 {
+  0%, 100% { transform: translateX(0) scaleY(1); }
+  50%       { transform: translateX(48px) scaleY(0.93); }
+}
+@keyframes wave-drift-3 {
+  0%, 100% { transform: translateX(0); }
+  33%       { transform: translateX(-22px); }
+  66%       { transform: translateX(18px); }
 }
 /* Zentrierter Text-Bereich */
 .lp-hero-top {
