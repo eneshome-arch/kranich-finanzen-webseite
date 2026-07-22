@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Förderrechner – Kranich Finanzen</title>
+  <meta name="description" content="Berechne in 5 Schritten welche staatlichen Förderungen dir zustehen – kostenlos und unverbindlich.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="canonical" href="https://kranichfinanzen.de/foerderrechner.html">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="images/logo-icon.png">
+</head>
+<body>
+
+<a href="#main" class="skip-link">Zum Hauptinhalt springen</a>
+
+<header id="header">
+  <div class="container">
+    <nav class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/logo-icon.png" alt="Kranich Icon" class="nav-logo-icon">
+        <div class="nav-logo-wordmark"><div class="nav-logo-wordmark-top"><span class="nav-logo-kranich">KRANICH</span><span class="nav-logo-finanzen">&nbsp;FINANZEN</span></div><span class="nav-logo-sub">BERATUNG MIT WEITBLICK</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="leistungen.html">Leistungen</a></li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="tel:+491788960163" class="nav-phone">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.14 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          0178 8960163
+        </a>
+        <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
+      </div>
+      <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Startseite</a>
+    <a href="leistungen.html">Leistungen</a>
+    <a href="ueber-uns.html">Über uns</a>
+    <a href="kontakt.html">Kontakt</a>
+    <hr>
+    <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="lp-hero">
+  <div class="lp-hero-pattern" aria-hidden="true"></div>
+  <div class="container lp-hero-top">
+    <nav class="breadcrumb" aria-label="Brotkrumen-Navigation">
+      <a href="index.html">Startseite</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      <span>Förderrechner</span>
+    </nav>
+    <h1>Deine <span>Förderungen.</span></h1>
+    <p>5 Fragen. 60 Sekunden. Sofort sehen welche staatlichen Zuschüsse dir zustehen – kostenlos & unverbindlich.</p>
+  </div>
+  <div class="lp-hero-wave" aria-hidden="true">
+    <svg viewBox="0 0 1440 260" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path class="wave-p1" d="M0,210 C180,240 360,188 540,218 C720,248 900,192 1080,222 C1260,252 1380,205 1440,228 L1440,260 L0,260 Z" fill="#f4f6f9"/>
+      <path class="wave-p2" d="M0,228 C200,205 420,248 660,222 C900,196 1100,238 1280,218 C1370,208 1420,225 1440,220 L1440,260 L0,260 Z" fill="#f4f6f9" opacity="0.55"/>
+      <path class="wave-p3" d="M0,240 C240,228 480,250 720,238 C960,226 1200,246 1440,235 L1440,260 L0,260 Z" fill="#f4f6f9" opacity="0.3"/>
+    </svg>
+  </div>
+</section>
+
+<!-- RECHNER -->
+<section class="fr-section">
+  <div class="container">
+    <div class="fr-card" id="frCard">
+
+      <!-- Fortschrittsbalken -->
+      <div class="fr-progress-wrap">
+        <div class="fr-progress-bar" id="frProgressBar" style="width:20%"></div>
+      </div>
+      <p class="fr-step-label" id="frStepLabel">Schritt 1 von 5</p>
+
+      <!-- ═══ SCHRITT 1: Beschäftigung ═══ -->
+      <div class="fr-step" id="frStep1">
+        <h2 class="fr-question">Was beschreibt deine aktuelle Situation?</h2>
+        <div class="fr-options fr-options--2col">
+          <button class="fr-option" data-step="1" data-value="angestellt">
+            <span class="fr-option-icon">👔</span>
+            <strong>Angestellt</strong>
+            <span>Arbeitnehmer im Betrieb</span>
+          </button>
+          <button class="fr-option" data-step="1" data-value="selbststaendig">
+            <span class="fr-option-icon">💼</span>
+            <strong>Selbstständig</strong>
+            <span>Freiberufler / Unternehmer</span>
+          </button>
+          <button class="fr-option" data-step="1" data-value="beamter">
+            <span class="fr-option-icon">🏛️</span>
+            <strong>Beamter</strong>
+            <span>Im öffentlichen Dienst</span>
+          </button>
+          <button class="fr-option" data-step="1" data-value="azubi">
+            <span class="fr-option-icon">🎓</span>
+            <strong>Azubi / Student</strong>
+            <span>In Ausbildung oder Studium</span>
+          </button>
+        </div>
+        <div class="fr-nav">
+          <span></span>
+          <button class="fr-btn-next btn btn-primary" id="frNext1" disabled>Weiter →</button>
+        </div>
+      </div>
+
+      <!-- ═══ SCHRITT 2: Einkommen ═══ -->
+      <div class="fr-step fr-step--hidden" id="frStep2">
+        <h2 class="fr-question">Wie hoch ist dein Jahreseinkommen (brutto)?</h2>
+        <div class="fr-options fr-options--2col">
+          <button class="fr-option" data-step="2" data-value="unter20">
+            <span class="fr-option-icon">💶</span>
+            <strong>Unter 20.000€</strong>
+            <span>Bis ~1.667€ / Monat</span>
+          </button>
+          <button class="fr-option" data-step="2" data-value="20-40">
+            <span class="fr-option-icon">💶</span>
+            <strong>20.000 – 40.000€</strong>
+            <span>~1.667 – 3.333€ / Monat</span>
+          </button>
+          <button class="fr-option" data-step="2" data-value="40-60">
+            <span class="fr-option-icon">💶</span>
+            <strong>40.000 – 60.000€</strong>
+            <span>~3.333 – 5.000€ / Monat</span>
+          </button>
+          <button class="fr-option" data-step="2" data-value="ueber60">
+            <span class="fr-option-icon">💶</span>
+            <strong>Über 60.000€</strong>
+            <span>Mehr als 5.000€ / Monat</span>
+          </button>
+        </div>
+        <div class="fr-nav">
+          <button class="fr-btn-back" onclick="goToStep(1)">← Zurück</button>
+          <button class="fr-btn-next btn btn-primary" id="frNext2" disabled>Weiter →</button>
+        </div>
+      </div>
+
+      <!-- ═══ SCHRITT 3: Familienstand ═══ -->
+      <div class="fr-step fr-step--hidden" id="frStep3">
+        <h2 class="fr-question">Wie ist dein Familienstand?</h2>
+        <div class="fr-options fr-options--2col">
+          <button class="fr-option" data-step="3" data-value="single">
+            <span class="fr-option-icon">👤</span>
+            <strong>Ledig / Single</strong>
+            <span>Keine eingetragene Partnerschaft</span>
+          </button>
+          <button class="fr-option" data-step="3" data-value="verheiratet">
+            <span class="fr-option-icon">💑</span>
+            <strong>Verheiratet</strong>
+            <span>Ehe oder eingetragene Partnerschaft</span>
+          </button>
+        </div>
+        <div class="fr-nav">
+          <button class="fr-btn-back" onclick="goToStep(2)">← Zurück</button>
+          <button class="fr-btn-next btn btn-primary" id="frNext3" disabled>Weiter →</button>
+        </div>
+      </div>
+
+      <!-- ═══ SCHRITT 4: Kinder ═══ -->
+      <div class="fr-step fr-step--hidden" id="frStep4">
+        <h2 class="fr-question">Hast du Kinder?</h2>
+        <div class="fr-options fr-options--2col">
+          <button class="fr-option" data-step="4" data-value="0">
+            <span class="fr-option-icon">🚫</span>
+            <strong>Keine Kinder</strong>
+            <span></span>
+          </button>
+          <button class="fr-option" data-step="4" data-value="1">
+            <span class="fr-option-icon">👶</span>
+            <strong>1 Kind</strong>
+            <span></span>
+          </button>
+          <button class="fr-option" data-step="4" data-value="2">
+            <span class="fr-option-icon">👶👶</span>
+            <strong>2 Kinder</strong>
+            <span></span>
+          </button>
+          <button class="fr-option" data-step="4" data-value="3">
+            <span class="fr-option-icon">👨‍👩‍👧‍👦</span>
+            <strong>3 oder mehr</strong>
+            <span></span>
+          </button>
+        </div>
+        <div class="fr-nav">
+          <button class="fr-btn-back" onclick="goToStep(3)">← Zurück</button>
+          <button class="fr-btn-next btn btn-primary" id="frNext4" disabled>Weiter →</button>
+        </div>
+      </div>
+
+      <!-- ═══ SCHRITT 5: Alter ═══ -->
+      <div class="fr-step fr-step--hidden" id="frStep5">
+        <h2 class="fr-question">In welcher Altersgruppe bist du?</h2>
+        <div class="fr-options fr-options--2col">
+          <button class="fr-option" data-step="5" data-value="unter25">
+            <span class="fr-option-icon">🌱</span>
+            <strong>18 – 25 Jahre</strong>
+            <span>Berufsstart / Ausbildung</span>
+          </button>
+          <button class="fr-option" data-step="5" data-value="25-35">
+            <span class="fr-option-icon">🚀</span>
+            <strong>26 – 35 Jahre</strong>
+            <span>Karriereaufbau</span>
+          </button>
+          <button class="fr-option" data-step="5" data-value="36-50">
+            <span class="fr-option-icon">📈</span>
+            <strong>36 – 50 Jahre</strong>
+            <span>Mitten im Leben</span>
+          </button>
+          <button class="fr-option" data-step="5" data-value="ueber50">
+            <span class="fr-option-icon">🎯</span>
+            <strong>Über 50 Jahre</strong>
+            <span>Ruhestandsplanung</span>
+          </button>
+        </div>
+        <div class="fr-nav">
+          <button class="fr-btn-back" onclick="goToStep(4)">← Zurück</button>
+          <button class="fr-btn-next btn btn-primary" id="frNext5" disabled>Ergebnis anzeigen →</button>
+        </div>
+      </div>
+
+      <!-- ═══ ERGEBNIS ═══ -->
+      <div class="fr-step fr-step--hidden" id="frResult">
+        <div class="fr-result-header">
+          <div class="fr-result-icon">✓</div>
+          <h2>Deine Förderungen</h2>
+          <p id="frResultSub"></p>
+        </div>
+        <div class="fr-result-total" id="frResultTotal"></div>
+        <div class="fr-result-grid" id="frResultGrid"></div>
+        <div class="fr-result-disclaimer">
+          * Beträge sind Richtwerte basierend auf deinen Angaben. Genaue Berechnungen im persönlichen Beratungsgespräch.
+        </div>
+        <div class="fr-result-cta">
+          <p>Lass uns gemeinsam alle Förderungen für dich beantragen und umsetzen.</p>
+          <a href="kontakt.html" class="btn btn-primary">Kostenloses Beratungsgespräch vereinbaren</a>
+          <button class="fr-btn-back fr-restart" onclick="restartCalc()">↺ Neu berechnen</button>
+        </div>
+      </div>
+
+    </div><!-- /fr-card -->
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container" style="position:relative;z-index:1;">
+    <span class="badge" style="color:rgba(255,255,255,0.6);">Nächster Schritt</span>
+    <h2>BEREIT FÜR<br><span>KLARHEIT?</span></h2>
+    <p>Erstgespräch kostenlos & unverbindlich. Kein Risiko, keine Verpflichtungen.</p>
+    <div class="cta-buttons">
+      <a href="kontakt.html" class="btn btn-primary">Kostenlos beraten lassen</a>
+      <a href="tel:+491788960163" class="btn btn-outline">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.14 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        Direkt anrufen
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="images/logo.png" alt="Kranich Finanzen" loading="lazy" decoding="async" width="160" height="40">
+        <p>Beratung mit Weitblick – für Menschen, die ihre Finanzen endlich in den Griff bekommen wollen.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <ul><li><a href="index.html">Startseite</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul><li><a href="foerderrechner.html">Förderrechner</a></li></ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul class="footer-contact">
+          <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>Hannover</li>
+          <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.14 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>0178 8960163</li>
+          <li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@kranichfinanzen.de</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Kranich Finanzen. Alle Rechte vorbehalten.</span>
+      <div class="footer-bottom-links"><a href="datenschutz.html">Datenschutz</a><a href="impressum.html">Impressum</a></div>
+      <a href="https://vyomedia.de" target="_blank" rel="noopener" class="footer-credit">Designed by <span class="footer-credit-brand">VYOMedia</span></a>
+    </div>
+  </div>
+</footer>
+
+<button id="scrollTop" aria-label="Nach oben">
+  <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+<script>
+// ═══ FÖRDERRECHNER LOGIK ═══════════════════════════════════════════════════
+const answers = {};
+let currentStep = 1;
+
+// Optionen auswählen
+document.querySelectorAll('.fr-option').forEach(btn => {
+  btn.addEventListener('click', function () {
+    const step = this.dataset.step;
+    document.querySelectorAll(`.fr-option[data-step="${step}"]`).forEach(b => b.classList.remove('fr-option--selected'));
+    this.classList.add('fr-option--selected');
+    answers['step' + step] = this.dataset.value;
+    const nextBtn = document.getElementById('frNext' + step);
+    if (nextBtn) nextBtn.disabled = false;
+  });
+});
+
+// Weiter-Buttons
+for (let i = 1; i <= 4; i++) {
+  const btn = document.getElementById('frNext' + i);
+  if (btn) btn.addEventListener('click', () => goToStep(i + 1));
+}
+document.getElementById('frNext5').addEventListener('click', showResults);
+
+function goToStep(n) {
+  document.querySelectorAll('.fr-step').forEach(s => s.classList.add('fr-step--hidden'));
+  const target = document.getElementById('frStep' + n);
+  if (target) {
+    target.classList.remove('fr-step--hidden');
+    currentStep = n;
+    document.getElementById('frProgressBar').style.width = (n * 20) + '%';
+    document.getElementById('frStepLabel').textContent = 'Schritt ' + n + ' von 5';
+    document.getElementById('frCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function showResults() {
+  const beruf     = answers.step1;
+  const einkommen = answers.step2;
+  const familie   = answers.step3;
+  const kinder    = parseInt(answers.step4 || 0);
+  const alter     = answers.step5;
+
+  const isAngestellt = beruf === 'angestellt';
+  const isBeamter    = beruf === 'beamter';
+  const isAzubi      = beruf === 'azubi';
+  const lowIncome    = einkommen === 'unter20' || einkommen === '20-40';
+  const verheiratet  = familie === 'verheiratet';
+
+  const results = [];
+
+  // VWL
+  if (isAngestellt || isAzubi) {
+    results.push({
+      titel: 'Vermögenswirksame Leistungen',
+      kurz: 'VWL',
+      betrag: 'bis zu 480€',
+      periode: 'pro Jahr',
+      beschreibung: 'Dein Arbeitgeber zahlt monatlich bis zu 40€ extra in einen Sparvertrag – on top zu deinem Gehalt.',
+      farbe: '#22c55e'
+    });
+  }
+
+  // Riester
+  if (isAngestellt || isBeamter) {
+    const basis = 175;
+    const kindZulage = kinder * 185;
+    const gesamt = basis + kindZulage;
+    results.push({
+      titel: 'Riester-Rente Zulage',
+      kurz: 'RIESTER',
+      betrag: gesamt + '€',
+      periode: 'pro Jahr',
+      beschreibung: `${basis}€ Grundzulage vom Staat${kinder > 0 ? ` + ${kindZulage}€ Kinderzulage (${kinder} Kind${kinder > 1 ? 'er' : ''})` : ''} – direkt auf dein Rentenkonto.`,
+      farbe: '#c9962a'
+    });
+  }
+
+  // Arbeitnehmer-Sparzulage
+  if (isAngestellt && lowIncome) {
+    results.push({
+      titel: 'Arbeitnehmer-Sparzulage',
+      kurz: 'SPARZULAGE',
+      betrag: 'bis zu 43€',
+      periode: 'pro Jahr',
+      beschreibung: 'Der Staat zahlt 9% auf deine VWL-Einzahlungen zusätzlich – automatisch bei der Steuererklärung.',
+      farbe: '#3b82f6'
+    });
+  }
+
+  // bAV
+  if (isAngestellt) {
+    results.push({
+      titel: 'Betriebliche Altersvorsorge',
+      kurz: 'BAV',
+      betrag: 'bis zu 1.800€',
+      periode: 'Steuerersparnis / Jahr',
+      beschreibung: 'Beiträge zur bAV sind bis zu 7.728€ jährlich steuer- und sozialabgabenfrei – effektiv zahlt der Staat die Hälfte.',
+      farbe: '#1e2b5e'
+    });
+  }
+
+  // Wohnungsbauprämie
+  if (lowIncome) {
+    const max = verheiratet ? '140€' : '70€';
+    results.push({
+      titel: 'Wohnungsbauprämie',
+      kurz: 'BAUSPAR',
+      betrag: `bis zu ${max}`,
+      periode: 'pro Jahr',
+      beschreibung: 'Wer in einen Bausparvertrag einzahlt, erhält 10% der Einzahlungen als staatliche Prämie zurück.',
+      farbe: '#8b5cf6'
+    });
+  }
+
+  // Kinderzuschlag
+  if (kinder > 0 && lowIncome) {
+    results.push({
+      titel: 'Kinderzuschlag',
+      kurz: 'KINDER',
+      betrag: 'bis zu 250€',
+      periode: 'pro Kind / Monat',
+      beschreibung: 'Wenn das Einkommen nicht für die ganze Familie reicht, zahlt der Staat bis zu 250€ zusätzlich pro Kind.',
+      farbe: '#f59e0b'
+    });
+  }
+
+  // Rürup für Selbstständige
+  if (beruf === 'selbststaendig') {
+    results.push({
+      titel: 'Rürup-Rente (Basis-Rente)',
+      kurz: 'RÜRUP',
+      betrag: 'bis zu 5.390€',
+      periode: 'Steuerersparnis / Jahr',
+      beschreibung: 'Als Selbstständiger kannst du bis zu 27.566€ jährlich in die Rürup-Rente einzahlen und steuerlich absetzen.',
+      farbe: '#c9962a'
+    });
+    results.push({
+      titel: 'Krankenversicherung optimieren',
+      kurz: 'KV',
+      betrag: 'bis zu 1.200€',
+      periode: 'Ersparnis / Jahr',
+      beschreibung: 'Durch den richtigen Tarif und Selbstbehalte kannst du als Selbstständiger erheblich bei der Krankenversicherung sparen.',
+      farbe: '#22c55e'
+    });
+  }
+
+  // Berufsanfänger-Bonus
+  if (alter === 'unter25' && isAngestellt) {
+    results.push({
+      titel: 'Berufseinsteiger-Vorteile',
+      kurz: 'START',
+      betrag: 'Jetzt maximieren',
+      periode: 'Zinseszins-Effekt',
+      beschreibung: 'Wer früh mit dem Sparen anfängt, profitiert am meisten vom Zinseszins. 100€/Monat mit 25 = 3x mehr als mit 35.',
+      farbe: '#1e2b5e'
+    });
+  }
+
+  // Ergebnis anzeigen
+  document.querySelectorAll('.fr-step').forEach(s => s.classList.add('fr-step--hidden'));
+  const resultDiv = document.getElementById('frResult');
+  resultDiv.classList.remove('fr-step--hidden');
+  document.getElementById('frProgressBar').style.width = '100%';
+  document.getElementById('frStepLabel').textContent = 'Dein Ergebnis';
+
+  const sub = results.length > 0
+    ? `Wir haben ${results.length} Förderung${results.length > 1 ? 'en' : ''} für dich gefunden.`
+    : 'Auch ohne klassische Förderungen gibt es Optimierungspotenzial für dich.';
+  document.getElementById('frResultSub').textContent = sub;
+
+  // Gesamtsumme (nur wenn quantifizierbar)
+  if (results.length > 0) {
+    document.getElementById('frResultTotal').innerHTML = `
+      <div class="fr-total-inner">
+        <span>Mögliche Förderungen gefunden</span>
+        <strong>${results.length} Programm${results.length > 1 ? 'e' : ''}</strong>
+      </div>
+    `;
+  }
+
+  const grid = document.getElementById('frResultGrid');
+  grid.innerHTML = results.map(r => `
+    <div class="fr-result-card">
+      <div class="fr-result-card-top">
+        <span class="fr-result-tag" style="background:${r.farbe}18;color:${r.farbe};border-color:${r.farbe}30">${r.kurz}</span>
+        <div class="fr-result-amount">
+          <strong>${r.betrag}</strong>
+          <span>${r.periode}</span>
+        </div>
+      </div>
+      <h3>${r.titel}</h3>
+      <p>${r.beschreibung}</p>
+    </div>
+  `).join('');
+
+  document.getElementById('frCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function restartCalc() {
+  Object.keys(answers).forEach(k => delete answers[k]);
+  document.querySelectorAll('.fr-option').forEach(b => b.classList.remove('fr-option--selected'));
+  document.querySelectorAll('.fr-btn-next').forEach(b => b.disabled = true);
+  goToStep(1);
+  document.querySelectorAll('.fr-step').forEach(s => s.classList.add('fr-step--hidden'));
+  document.getElementById('frStep1').classList.remove('fr-step--hidden');
+  document.getElementById('frProgressBar').style.width = '20%';
+  document.getElementById('frStepLabel').textContent = 'Schritt 1 von 5';
+}
+</script>
+
+</body>
+</html>
