@@ -2330,12 +2330,13 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   /* Leistungen-Seite: content-section padding anpassen */
   .lp-content-section { padding-top: 40px !important; }
 
-  /* Bridge-Karten auf Leistungsseite: 2 statt 3 Spalten */
-  .lp-service-bridge { grid-template-columns: repeat(2, 1fr); }
+  /* Bridge-Karten auf Leistungsseite: 2 statt 3 Spalten, kein Versatz */
+  .lp-service-bridge { grid-template-columns: repeat(2, 1fr); transform: translateY(0); margin-bottom: 0; }
 
   /* Welle auf Mobile ausblenden — rein dekorativ, verdeckt sonst Stats-Text */
   .lp-hero-wave { display: none; }
   .lp-hero { padding-bottom: 40px; }
+  .lp-content-section { padding-top: 40px !important; }
 }
 
 /* ≤ 420px – Sehr kleines Phone: Stats nebeneinander zu eng */
