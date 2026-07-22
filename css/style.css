@@ -1029,7 +1029,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .partner-fade {
   position: absolute;
   top: 0; bottom: 0;
-  width: 120px;
+  width: clamp(40px, 8vw, 120px);
   pointer-events: none;
   z-index: 2;
 }
@@ -1050,7 +1050,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
     radial-gradient(circle at 5% 50%, rgba(255,255,255,0.6) 0%, transparent 45%),
     radial-gradient(circle at 96% 80%, rgba(201,150,42,0.20) 0%, transparent 40%);
 }
-.hannover-card {\n  background: #fff;\n  border-radius: 28px;
+.hannover-card {
+  background: #fff;
+  border-radius: 28px;
   overflow: hidden;
   display: grid;
   grid-template-columns: 55% 45%;
@@ -1078,7 +1080,6 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   flex-direction: column;
   justify-content: center;
   gap: 14px;
-  max-width: 420px;
 }
 .hannover-text h2 {
   font-size: 32px;
@@ -1087,7 +1088,6 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   color: var(--primary-dark);
   line-height: 1.15;
   margin: 0;
-  white-space: nowrap;
 }
 .hannover-text p {
   font-size: 15px;
@@ -1794,8 +1794,10 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
     radial-gradient(ellipse 65% 70% at -5% 30%, rgba(201,150,42,0.18) 0%, transparent 60%),
     radial-gradient(ellipse 55% 60% at 105% 70%, rgba(201,150,42,0.14) 0%, transparent 58%),
     radial-gradient(ellipse 50% 50% at 50% 50%, rgba(30,60,120,0.40) 0%, transparent 70%);
-  padding-top: 80px;
-  padding-bottom: 80px;
+  position: relative;
+  overflow: visible;
+  padding-top: 120px;
+  padding-bottom: 120px;
 }
 .values-section .container {
   background: transparent;
@@ -2105,7 +2107,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .hero-float-top   { right: -20px; }
   .hero-float-bottom{ left: -20px; }
   .hero-visual      { display: none; }
-  .hero-inner       { grid-template-columns: 1fr; }
+  .hero-inner       { grid-template-columns: 1fr; min-height: auto; }
   .hero             { min-height: auto; }
   .about-grid       { grid-template-columns: 1fr; }
   .about-image-wrap { display: none; }
@@ -2113,6 +2115,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .leistungen-grid  { grid-template-columns: 1fr 1fr; }
   .katalog-grid     { grid-template-columns: 1fr 1fr; }
   .values-grid      { grid-template-columns: 1fr 1fr; }
+  .values-section { padding-top: 80px; padding-bottom: 80px; }
   .values-section .container { padding: 40px 32px; }
   .galerie-grid     { grid-template-columns: repeat(2, 1fr); }
   .kontakt-grid     { grid-template-columns: 1fr; gap: 40px; }
@@ -2180,6 +2183,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .katalog-grid      { grid-template-columns: 1fr 1fr; }
   .team-grid         { grid-template-columns: 1fr; }
   .values-grid       { grid-template-columns: 1fr 1fr; }
+  .values-section { padding-top: 64px; padding-bottom: 64px; }
   .values-section .container { padding: 32px 20px; border-radius: 14px; }
   .benefits-grid     { grid-template-columns: 1fr; }
   .galerie-grid      { grid-template-columns: 1fr 1fr; grid-auto-rows: 140px; }
@@ -2306,6 +2310,45 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .cert-grid    { grid-template-columns: 1fr 1fr; gap: 10px; }
   .cert-grid > div { padding: 16px 10px; }
   .about-stats-grid { grid-template-columns: 1fr 1fr; }
+}
+
+/* ≤ 600px – Sub-page hero stats + footer + team duo */
+@media (max-width: 600px) {
+  /* lp-hero-stats: Statistiken in Sub-page Heroes */
+  .lp-hero-stats { gap: 16px; }
+  .lp-hero-stat strong { font-size: 20px; }
+  .lp-hero-stat-divider { height: 24px; }
+
+  /* Footer bottom: verhindert Overflow bei 3 Items in einer Zeile */
+  .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+  .footer-bottom-links { justify-content: center; }
+
+  /* Team duo grid: 2 Karten nebeneinander bei kleinen Screens zu eng */
+  .team-grid--duo { grid-template-columns: 1fr; max-width: 100%; }
+
+  /* Leistungen-Seite: content-section padding anpassen */
+  .lp-content-section { padding-top: 160px !important; }
+
+  /* Bridge-Karten auf Leistungsseite: 2 statt 3 Spalten */
+  .lp-service-bridge { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ≤ 420px – Sehr kleines Phone: Stats nebeneinander zu eng */
+@media (max-width: 420px) {
+  .lp-hero-stats { flex-wrap: wrap; justify-content: center; gap: 12px 24px; }
+  .lp-hero-stat-divider { display: none; }
+  .lp-hero-top h1 { font-size: clamp(26px, 8vw, 38px); }
+
+  /* Values grid: 1-Spalte auf sehr kleinen Screens */
+  .values-grid { grid-template-columns: 1fr; }
+
+  /* Hero Wave: Höhe auf Unter-Seiten reduzieren */
+  .lp-hero-wave svg { height: 120px; }
+  .lp-content-section { padding-top: 80px !important; }
+  .lp-service-bridge { grid-template-columns: repeat(2, 1fr); transform: translateY(0); margin-bottom: 24px; }
+
+  /* FAQ Summary: Pfeil oben ausrichten wenn Text umbricht */
+  .faq-summary { align-items: flex-start !important; }
 }
 
 
