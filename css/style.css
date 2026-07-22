@@ -1527,7 +1527,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .lp-content-section {
   position: relative;
   overflow: visible;
-  padding-top: calc(240px + 20px) !important;
+  padding-top: 80px !important;
 }
 .lp-content-section::before {
   content: '';
