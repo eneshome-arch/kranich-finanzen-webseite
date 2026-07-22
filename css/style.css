@@ -3943,10 +3943,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   max-width: 360px;
   line-height: 1.5;
 }
-/* Desktop: visuell featured in der Mitte */
-.moeg-card--featured { order: 2; }
-.moeg-card--left    { order: 1; }
-.moeg-card--right   { order: 3; }
+/* Kartenreihenfolge: DOM-Reihenfolge links → mitte → rechts stimmt auf Desktop */
 
 /* Dot-Indikatoren — auf Desktop versteckt */
 .moeg-dots {

@@ -927,22 +927,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const dots = document.querySelectorAll('.moeg-dot');
   if (!grid || !dots.length) return;
 
+  function cardWidth() {
+    const c = grid.querySelector('.moeg-card');
+    return c ? c.offsetWidth + 16 : 0;
+  }
+
   function updateDots() {
-    const cards = grid.querySelectorAll('.moeg-card');
-    if (!cards.length) return;
-    const cardW = cards[0].offsetWidth + 16; // width + gap
-    const idx = Math.min(Math.round(grid.scrollLeft / cardW), dots.length - 1);
+    const w = cardWidth();
+    if (!w) return;
+    const idx = Math.min(Math.round(grid.scrollLeft / w), dots.length - 1);
     dots.forEach((d, i) => d.classList.toggle('moeg-dot--active', i === idx));
+  }
+
+  // Auf Mobile zur mittleren Karte (Index 1) springen beim Laden
+  function initScroll() {
+    if (window.innerWidth <= 900) {
+      const w = cardWidth();
+      if (w) grid.scrollLeft = w; // direkt, kein smooth (before paint)
+    }
   }
 
   grid.addEventListener('scroll', updateDots, { passive: true });
 
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
-      const cards = grid.querySelectorAll('.moeg-card');
-      if (!cards.length) return;
-      const cardW = cards[0].offsetWidth + 16;
-      grid.scrollTo({ left: i * cardW, behavior: 'smooth' });
+      const w = cardWidth();
+      if (w) grid.scrollTo({ left: i * w, behavior: 'smooth' });
     });
   });
+
+  // Nach Layout-Berechnung scrollen
+  requestAnimationFrame(() => requestAnimationFrame(initScroll));
 })();
