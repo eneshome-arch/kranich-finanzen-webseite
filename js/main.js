@@ -920,3 +920,29 @@ document.addEventListener('DOMContentLoaded', () => {
     items[current].classList.add('ht-active');
   }, 2500);
 })();
+
+// ── Möglichkeiten Karussell Dots ─────────────
+(function () {
+  const grid = document.getElementById('moegGrid');
+  const dots = document.querySelectorAll('.moeg-dot');
+  if (!grid || !dots.length) return;
+
+  function updateDots() {
+    const cards = grid.querySelectorAll('.moeg-card');
+    if (!cards.length) return;
+    const cardW = cards[0].offsetWidth + 16; // width + gap
+    const idx = Math.min(Math.round(grid.scrollLeft / cardW), dots.length - 1);
+    dots.forEach((d, i) => d.classList.toggle('moeg-dot--active', i === idx));
+  }
+
+  grid.addEventListener('scroll', updateDots, { passive: true });
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      const cards = grid.querySelectorAll('.moeg-card');
+      if (!cards.length) return;
+      const cardW = cards[0].offsetWidth + 16;
+      grid.scrollTo({ left: i * cardW, behavior: 'smooth' });
+    });
+  });
+})();

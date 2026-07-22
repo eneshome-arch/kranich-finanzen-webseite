@@ -284,10 +284,25 @@
       <h2 class="moeg-title">Deine <em>finanziellen</em> Möglichkeiten.</h2>
       <p class="moeg-sub">Wir zeigen dir, was wirklich in deinen Finanzen steckt – und wie du es optimal nutzt.</p>
     </div>
-    <div class="moeg-grid">
+    <div class="moeg-grid" id="moegGrid">
 
-      <!-- Karte 1 -->
-      <div class="moeg-card">
+      <!-- Featured ZUERST im DOM → erscheint als erstes im Mobile-Karussell -->
+      <div class="moeg-card moeg-card--featured">
+        <span class="moeg-badge moeg-badge--light">CASH IN DEINE TASCHE</span>
+        <h3>Förderungen<br>vom Staat <span class="moeg-emoji">💰</span></h3>
+        <p>Wusstest du? Der Staat unterstützt junge Menschen und Haushalte mit Zuschüssen – die meisten schöpfen sie nie aus.</p>
+        <ul class="moeg-checklist">
+          <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> VWL – Vermögenswirksame Leistungen</li>
+          <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Rentenpause & Nachzahlung</li>
+          <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Riester-Förderung</li>
+          <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Berufsunfähigkeit</li>
+          <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Krankenversicherung optimieren</li>
+        </ul>
+        <a href="leistungen.html" class="moeg-cta-btn">Berechne deine Förderung →</a>
+      </div>
+
+      <!-- Karte Links (Desktop: order 1) -->
+      <div class="moeg-card moeg-card--left">
         <span class="moeg-badge">ALTERSVORSORGE</span>
         <h3>Wealth<br>Konzept</h3>
         <p>Wir entwickeln gemeinsam eine Strategie, die dein Vermögen langfristig wachsen lässt – passend zu deinem Leben.</p>
@@ -311,23 +326,8 @@
         </ul>
       </div>
 
-      <!-- Karte 2 – Featured -->
-      <div class="moeg-card moeg-card--featured">
-        <span class="moeg-badge moeg-badge--light">CASH IN DEINE TASCHE</span>
-        <h3>Förderungen<br>vom Staat <span class="moeg-emoji">💰</span></h3>
-        <p>Wusstest du? Der Staat unterstützt junge Menschen und Haushalte mit Zuschüssen – die meisten schöpfen sie nie aus.</p>
-        <ul class="moeg-checklist">
-          <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> VWL – Vermögenswirksame Leistungen</li>
-          <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Rentenpause & Nachzahlung</li>
-          <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Riester-Förderung</li>
-          <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Berufsunfähigkeit</li>
-          <li><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Krankenversicherung optimieren</li>
-        </ul>
-        <a href="leistungen.html" class="moeg-cta-btn">Berechne deine Förderung →</a>
-      </div>
-
-      <!-- Karte 3 -->
-      <div class="moeg-card">
+      <!-- Karte Rechts (Desktop: order 3) -->
+      <div class="moeg-card moeg-card--right">
         <span class="moeg-badge">ABSICHERUNG</span>
         <h3>Elegante<br>Versicherungen</h3>
         <p>Wir räumen auf: raus was du nicht brauchst, rein was wirklich schützt – alle Absicherungen auf einen Blick.</p>
@@ -347,6 +347,13 @@
         </ul>
       </div>
 
+    </div>
+
+    <!-- Dot-Indikatoren (nur Mobile) -->
+    <div class="moeg-dots" id="moegDots">
+      <button class="moeg-dot moeg-dot--active" aria-label="Karte 1"></button>
+      <button class="moeg-dot" aria-label="Karte 2"></button>
+      <button class="moeg-dot" aria-label="Karte 3"></button>
     </div>
   </div>
 

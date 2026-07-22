@@ -3943,13 +3943,63 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   max-width: 360px;
   line-height: 1.5;
 }
-/* Mobile */
+/* Desktop: visuell featured in der Mitte */
+.moeg-card--featured { order: 2; }
+.moeg-card--left    { order: 1; }
+.moeg-card--right   { order: 3; }
+
+/* Dot-Indikatoren — auf Desktop versteckt */
+.moeg-dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px 0 4px;
+}
+.moeg-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+.moeg-dot--active {
+  background: var(--accent);
+  transform: scale(1.3);
+}
+
+/* Mobile: Karussell */
 @media (max-width: 900px) {
-  .moeg-grid { grid-template-columns: 1fr; gap: 16px; }
+  .moeg-grid {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 16px;
+    /* Stretch past container for edge-to-edge feel */
+    margin: 0 -24px;
+    padding: 8px 24px 24px;
+  }
+  .moeg-grid::-webkit-scrollbar { display: none; }
+  .moeg-card {
+    min-width: calc(85vw);
+    max-width: 360px;
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+  /* Reset desktop order — DOM order gilt */
+  .moeg-card--featured,
+  .moeg-card--left,
+  .moeg-card--right { order: unset; }
   .moeg-card--featured { transform: none; }
+  .moeg-dots { display: flex; }
   .moeg-cta-inner { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 600px) {
   .moeg-section { padding: 64px 0 0; }
+  .moeg-card { min-width: calc(90vw); }
   .moeg-cta-inner strong { font-size: 18px; }
 }
