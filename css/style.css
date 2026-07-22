@@ -2106,6 +2106,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .hero-float-bottom{ left: -20px; }
   .hero-visual      { display: none; }
   .hero-inner       { grid-template-columns: 1fr; }
+  .hero             { min-height: auto; }
   .about-grid       { grid-template-columns: 1fr; }
   .about-image-wrap { display: none; }
   .footer-top       { grid-template-columns: 1fr 1fr; gap: 32px; }
@@ -2158,8 +2159,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .hero-actions .btn { width: 100%; justify-content: center; }
   .hero-stats  { gap: 0; flex-wrap: nowrap; padding-top: 24px; margin-top: 8px; }
   .hero-stats  { display: none; }
-  .hero-trust      { margin-top: 28px; padding-top: 20px; height: 24px; }
+  .hero-trust      { margin-top: 28px; padding-top: 20px; height: auto; overflow: hidden; }
   .hero-trust-item { font-size: 11px; }
+  .hero-partner-ticker { margin-top: 24px; padding-top: 16px; }
 
   .team-section     { padding: 12px; }
   .team-section-card { padding: 28px 16px; }
