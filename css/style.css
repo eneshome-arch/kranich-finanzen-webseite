@@ -2328,10 +2328,14 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .team-grid--duo { grid-template-columns: 1fr; max-width: 100%; }
 
   /* Leistungen-Seite: content-section padding anpassen */
-  .lp-content-section { padding-top: 160px !important; }
+  .lp-content-section { padding-top: 40px !important; }
 
   /* Bridge-Karten auf Leistungsseite: 2 statt 3 Spalten */
   .lp-service-bridge { grid-template-columns: repeat(2, 1fr); }
+
+  /* Welle auf Mobile ausblenden — rein dekorativ, verdeckt sonst Stats-Text */
+  .lp-hero-wave { display: none; }
+  .lp-hero { padding-bottom: 40px; }
 }
 
 /* ≤ 420px – Sehr kleines Phone: Stats nebeneinander zu eng */
@@ -2344,9 +2348,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   /* Values grid: 1-Spalte auf sehr kleinen Screens */
   .values-grid { grid-template-columns: 1fr; }
 
-  /* Hero Wave: Höhe auf Unter-Seiten reduzieren */
-  .lp-hero-wave svg { height: 120px; }
-  .lp-content-section { padding-top: 80px !important; }
+  .lp-content-section { padding-top: 40px !important; }
   .lp-service-bridge { grid-template-columns: repeat(2, 1fr); transform: translateY(0); margin-bottom: 24px; }
 
   /* FAQ Summary: Pfeil oben ausrichten wenn Text umbricht */
