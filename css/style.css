@@ -1339,6 +1339,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .lp-hero-pattern {
   position: absolute;
   inset: 0;
+  z-index: 0;
   background-image:
     radial-gradient(ellipse 40% 50% at 100% 50%, rgba(255,255,255,0.04) 0%, transparent 70%),
     radial-gradient(ellipse 30% 40% at 0% 70%, rgba(255,255,255,0.03) 0%, transparent 70%);
@@ -1363,7 +1364,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .lp-hero-top {
   text-align: center;
   position: relative;
-  z-index: 1;
+  z-index: 10;
   padding-bottom: 60px;
 }
 .lp-hero-top .breadcrumb { justify-content: center; }
