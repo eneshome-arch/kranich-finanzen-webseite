@@ -3976,27 +3976,24 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
     gap: 16px;
-    /* Stretch past container for edge-to-edge feel */
     margin: 0 -24px;
-    padding: 8px 24px 24px;
+    /* Seitliches Padding = halbe verbleibende Breite → Karten werden immer mittig zentriert */
+    padding: 8px calc((100vw - (100vw - 64px)) / 2) 24px;
+    scroll-padding-inline: calc((100vw - (100vw - 64px)) / 2);
   }
   .moeg-grid::-webkit-scrollbar { display: none; }
   .moeg-card {
-    min-width: calc(85vw);
-    max-width: 360px;
+    /* Exakt: Viewport minus die padding auf beiden Seiten */
+    width: calc(100vw - 64px);
+    min-width: calc(100vw - 64px);
     flex-shrink: 0;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
   }
-  /* Reset desktop order — DOM order gilt */
-  .moeg-card--featured,
-  .moeg-card--left,
-  .moeg-card--right { order: unset; }
   .moeg-card--featured { transform: none; }
   .moeg-dots { display: flex; }
   .moeg-cta-inner { flex-direction: column; align-items: flex-start; }
 }
 @media (max-width: 600px) {
   .moeg-section { padding: 64px 0 0; }
-  .moeg-card { min-width: calc(90vw); }
   .moeg-cta-inner strong { font-size: 18px; }
 }

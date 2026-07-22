@@ -939,23 +939,26 @@ document.addEventListener('DOMContentLoaded', () => {
     dots.forEach((d, i) => d.classList.toggle('moeg-dot--active', i === idx));
   }
 
-  // Auf Mobile zur mittleren Karte (Index 1) springen beim Laden
+  // Auf Mobile zur Featured-Karte (Mitte) springen — browser berechnet Position selbst
   function initScroll() {
-    if (window.innerWidth <= 900) {
-      const w = cardWidth();
-      if (w) grid.scrollLeft = w; // direkt, kein smooth (before paint)
-    }
+    if (window.innerWidth > 900) return;
+    const featured = grid.querySelector('.moeg-card--featured');
+    if (featured) featured.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'center' });
   }
 
   grid.addEventListener('scroll', updateDots, { passive: true });
 
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
-      const w = cardWidth();
-      if (w) grid.scrollTo({ left: i * w, behavior: 'smooth' });
+      const cards = Array.from(grid.querySelectorAll('.moeg-card'));
+      if (cards[i]) cards[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     });
   });
 
-  // Nach Layout-Berechnung scrollen
-  requestAnimationFrame(() => requestAnimationFrame(initScroll));
+  // Nach vollständigem Rendering scrollen
+  if (document.readyState === 'complete') {
+    initScroll();
+  } else {
+    window.addEventListener('load', initScroll);
+  }
 })();
