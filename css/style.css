@@ -3768,13 +3768,15 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  align-items: start;
+  align-items: stretch;
 }
 .moeg-card {
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 20px;
   padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
   transition: box-shadow 0.3s;
 }
 .moeg-card:hover {
@@ -3784,10 +3786,15 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   background: var(--primary);
   border-color: var(--primary);
   box-shadow: 0 20px 56px rgba(30,43,94,0.28);
-  transform: translateY(-16px);
 }
 .moeg-card--featured:hover {
   box-shadow: 0 28px 64px rgba(30,43,94,0.36);
+}
+.moeg-list {
+  flex: 1;
+}
+.moeg-checklist {
+  flex: 1;
 }
 .moeg-badge {
   display: inline-block;
