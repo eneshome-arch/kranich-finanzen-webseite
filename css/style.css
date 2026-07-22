@@ -1298,7 +1298,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   background-image:
     radial-gradient(ellipse 70% 60% at 80% 0%, rgba(201,150,42,0.16) 0%, transparent 55%),
     radial-gradient(ellipse 50% 40% at 10% 90%, rgba(201,150,42,0.10) 0%, transparent 50%);
-  padding: 140px 0 0;
+  padding: 140px 0 100px;
   position: relative;
   overflow: visible;
 }
