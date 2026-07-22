@@ -3,13 +3,696 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Förderrechner – Kranich Finanzen</title>
-  <meta name="description" content="Berechne in 5 Schritten welche staatlichen Förderungen dir zustehen – kostenlos und unverbindlich.">
+  <title>Förder-Check – Kranich Finanzen</title>
+  <meta name="description" content="Berechne in 60 Sekunden welche staatlichen Förderungen dir zustehen – kostenlos und unverbindlich.">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#1e2b5e">
   <link rel="canonical" href="https://kranichfinanzen.de/foerderrechner.html">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="images/logo-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <style>
+    /* ═══ FÖRDER-CHECK PAGE ═══════════════════════════════════════ */
+
+    /* ── HERO ── */
+    .frc-hero {
+      background: #fdf6e8;
+      padding: 130px 0 80px;
+      overflow: hidden;
+      position: relative;
+    }
+    .frc-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 60px;
+      background: #fff;
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .frc-hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 64px;
+    }
+    .frc-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(201,150,42,0.14);
+      color: #b07d1a;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 99px;
+      margin-bottom: 24px;
+      letter-spacing: 0.02em;
+    }
+    .frc-hero-text h1 {
+      font-size: clamp(40px, 5.5vw, 66px);
+      font-weight: 800;
+      line-height: 1.1;
+      color: #1e2b5e;
+      margin-bottom: 20px;
+    }
+    .frc-hero-em {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      color: #c9962a;
+      font-weight: 400;
+      display: block;
+    }
+    .frc-hero-text p {
+      font-size: 17px;
+      color: #64748b;
+      line-height: 1.75;
+      margin-bottom: 36px;
+      max-width: 460px;
+    }
+    .frc-hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .frc-btn-gold {
+      background: #c9962a;
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 32px;
+      border-radius: 99px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px rgba(201,150,42,0.38);
+    }
+    .frc-btn-gold:hover {
+      background: #b8851e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(201,150,42,0.44);
+    }
+    .frc-hero-link {
+      font-size: 14px;
+      color: #94a3b8;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .frc-hero-link:hover { color: #1e2b5e; }
+
+    /* Hero Deko rechts */
+    .frc-hero-deco {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .frc-hero-circle {
+      width: 360px;
+      height: 360px;
+      background: linear-gradient(135deg, rgba(201,150,42,0.13) 0%, rgba(201,150,42,0.04) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .frc-hero-big {
+      font-size: 160px;
+      font-weight: 900;
+      color: rgba(201,150,42,0.18);
+      line-height: 1;
+      user-select: none;
+      letter-spacing: -8px;
+    }
+    .frc-stat {
+      position: absolute;
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px 20px;
+      box-shadow: 0 6px 28px rgba(30,43,94,0.13);
+      text-align: center;
+      min-width: 130px;
+    }
+    .frc-stat--a { bottom: 30px; left: -10px; }
+    .frc-stat--b { top: 40px; right: -10px; }
+    .frc-stat strong {
+      display: block;
+      font-size: 22px;
+      font-weight: 800;
+      color: #c9962a;
+      line-height: 1.2;
+    }
+    .frc-stat span { font-size: 11px; color: #94a3b8; font-weight: 500; }
+
+    /* ── TRUST BAR ── */
+    .frc-trust {
+      background: #fff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 22px 0;
+    }
+    .frc-trust-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .frc-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e2b5e;
+    }
+    .frc-trust-item svg { color: #c9962a; flex-shrink: 0; }
+    .frc-trust-sep { width: 1px; height: 20px; background: #e2e8f0; }
+
+    /* ── FÖRDERUNGEN KARTEN ── */
+    .frc-foerderungen {
+      background: #fff;
+      padding: 96px 0 80px;
+    }
+    .frc-section-head {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+    .frc-section-badge {
+      display: inline-block;
+      background: #f4f6f9;
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 99px;
+      margin-bottom: 20px;
+    }
+    .frc-section-head h2 {
+      font-size: clamp(28px, 4.5vw, 48px);
+      font-weight: 800;
+      color: #1e2b5e;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .frc-italic {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-weight: 400;
+      color: #c9962a;
+      text-decoration: underline;
+      text-decoration-color: #c9962a;
+      text-underline-offset: 5px;
+      text-decoration-thickness: 2px;
+    }
+    .frc-section-head p {
+      font-size: 16px;
+      color: #64748b;
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .frc-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 48px;
+    }
+    .frc-card {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 28px;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+    .frc-card:hover {
+      border-color: #c9962a;
+      box-shadow: 0 6px 28px rgba(201,150,42,0.10);
+      transform: translateY(-3px);
+    }
+    .frc-card-cat {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: #c9962a;
+      background: rgba(201,150,42,0.10);
+      padding: 4px 10px;
+      border-radius: 99px;
+      display: inline-block;
+      margin-bottom: 14px;
+    }
+    .frc-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e2b5e;
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+    .frc-card p { font-size: 14px; color: #64748b; line-height: 1.65; }
+    .frc-foerderungen-cta { text-align: center; }
+    .frc-sub-link {
+      display: block;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #94a3b8;
+      text-decoration: none;
+    }
+
+    /* ── SCHRITTE ── */
+    .frc-steps {
+      background: #fdf6e8;
+      padding: 96px 0;
+    }
+    .frc-steps-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .frc-steps-left h2 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: #1e2b5e;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .frc-steps-left > p {
+      font-size: 15px;
+      color: #64748b;
+      margin-bottom: 40px;
+      line-height: 1.75;
+    }
+    .frc-step-list { list-style: none; display: flex; flex-direction: column; gap: 24px; }
+    .frc-step-item { display: flex; gap: 18px; align-items: flex-start; }
+    .frc-step-num {
+      font-size: 12px;
+      font-weight: 800;
+      color: #c9962a;
+      background: rgba(201,150,42,0.13);
+      min-width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .frc-step-content h4 { font-size: 15px; font-weight: 700; color: #1e2b5e; margin-bottom: 3px; }
+    .frc-step-content p { font-size: 13px; color: #64748b; line-height: 1.6; }
+
+    /* Steps rechte Seite – dekorativ */
+    .frc-steps-deko {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .frc-deko-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px 28px;
+      box-shadow: 0 4px 24px rgba(30,43,94,0.08);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .frc-deko-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, #c9962a, #e8b84b);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .frc-deko-card h4 { font-size: 15px; font-weight: 700; color: #1e2b5e; margin-bottom: 2px; }
+    .frc-deko-card p { font-size: 13px; color: #64748b; }
+    .frc-deko-card--dark {
+      background: #1e2b5e;
+    }
+    .frc-deko-card--dark h4 { color: #fff; }
+    .frc-deko-card--dark p { color: rgba(255,255,255,0.6); }
+    .frc-deko-card--dark .frc-deko-icon {
+      background: rgba(201,150,42,0.2);
+      color: #c9962a;
+    }
+
+    /* ── CASH CHECK RECHNER ── */
+    .frc-check {
+      background: #fff;
+      padding: 96px 0;
+    }
+    .frc-check-head {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .frc-check-label-text {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: clamp(22px, 3vw, 34px);
+      color: #1e2b5e;
+      text-decoration: underline;
+      text-decoration-color: #c9962a;
+      text-underline-offset: 7px;
+      text-decoration-thickness: 2px;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .frc-check-head h2 {
+      font-size: clamp(28px, 4.5vw, 48px);
+      font-weight: 800;
+      color: #1e2b5e;
+      margin-bottom: 14px;
+    }
+    .frc-check-head p { font-size: 16px; color: #64748b; max-width: 500px; margin: 0 auto; line-height: 1.7; }
+
+    .frc-check-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 960px;
+      margin: 0 auto;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 56px rgba(30,43,94,0.13);
+    }
+    .frc-check-left {
+      background: linear-gradient(160deg, #1e2b5e 0%, #0f1a3a 100%);
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .frc-check-left::before {
+      content: '€';
+      position: absolute;
+      right: -20px;
+      bottom: -20px;
+      font-size: 200px;
+      font-weight: 900;
+      color: rgba(201,150,42,0.08);
+      line-height: 1;
+      pointer-events: none;
+    }
+    .frc-check-left-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 32px;
+      color: #fff;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .frc-check-left-sub { font-size: 14px; color: rgba(255,255,255,0.55); margin-bottom: 40px; }
+    .frc-check-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .frc-check-stat {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .frc-check-stat-icon {
+      width: 42px; height: 42px;
+      background: rgba(201,150,42,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #c9962a;
+      flex-shrink: 0;
+    }
+    .frc-check-stat strong { display: block; font-size: 18px; font-weight: 800; color: #e8b84b; }
+    .frc-check-stat span { font-size: 12px; color: rgba(255,255,255,0.55); }
+    .frc-check-quote {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      position: relative;
+      z-index: 1;
+    }
+    .frc-check-quote p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.65;
+      font-style: italic;
+    }
+    .frc-check-quote cite {
+      display: block;
+      font-size: 12px;
+      color: #c9962a;
+      font-style: normal;
+      font-weight: 600;
+      margin-top: 8px;
+    }
+
+    /* Rechner Formular */
+    .frc-check-right {
+      background: #fff;
+      padding: 48px 40px;
+      display: flex;
+      flex-direction: column;
+    }
+    .frc-form-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-style: italic;
+      font-size: 28px;
+      color: #1e2b5e;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+    .frc-form-sub { font-size: 13px; color: #94a3b8; margin-bottom: 28px; }
+    .frc-form { display: flex; flex-direction: column; gap: 18px; }
+    .frc-field { display: flex; flex-direction: column; gap: 6px; }
+    .frc-field label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e2b5e;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .frc-field select {
+      appearance: none;
+      -webkit-appearance: none;
+      background: #f8fafc url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 14px center;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 12px 40px 12px 14px;
+      font-size: 15px;
+      font-family: inherit;
+      color: #1e2b5e;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    }
+    .frc-field select:focus {
+      outline: none;
+      border-color: #c9962a;
+      box-shadow: 0 0 0 3px rgba(201,150,42,0.12);
+    }
+    .frc-field select.frc-filled { border-color: #c9962a; background-color: #fdf9f0; }
+    .frc-calc-btn {
+      background: #c9962a;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 700;
+      font-family: inherit;
+      border: none;
+      border-radius: 99px;
+      padding: 15px 28px;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 20px rgba(201,150,42,0.30);
+    }
+    .frc-calc-btn:hover {
+      background: #b8851e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(201,150,42,0.38);
+    }
+    /* Ergebnis */
+    .frc-result { display: none; flex-direction: column; gap: 12px; }
+    .frc-result.visible { display: flex; }
+    .frc-result-hero {
+      background: #1e2b5e;
+      border-radius: 14px;
+      padding: 24px;
+      text-align: center;
+    }
+    .frc-result-hero p { font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 4px; }
+    .frc-result-hero strong {
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 900;
+      color: #e8b84b;
+      display: block;
+      line-height: 1.1;
+    }
+    .frc-result-hero span { font-size: 12px; color: rgba(255,255,255,0.4); }
+    .frc-result-rows { display: flex; flex-direction: column; gap: 8px; }
+    .frc-result-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f8fafc;
+      border-radius: 10px;
+      padding: 11px 14px;
+      gap: 10px;
+    }
+    .frc-result-row-left { display: flex; align-items: center; gap: 9px; }
+    .frc-result-dot { width: 8px; height: 8px; border-radius: 50%; background: #c9962a; flex-shrink: 0; }
+    .frc-result-name { font-size: 13px; font-weight: 600; color: #1e2b5e; }
+    .frc-result-amt { font-size: 13px; font-weight: 800; color: #c9962a; white-space: nowrap; }
+    .frc-disclaimer { font-size: 11px; color: #94a3b8; text-align: center; line-height: 1.5; }
+    .frc-result-cta {
+      background: #1e2b5e;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: inherit;
+      border: none;
+      border-radius: 99px;
+      padding: 14px 24px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: block;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .frc-result-cta:hover { background: #111c3e; transform: translateY(-1px); }
+    .frc-restart {
+      background: none; border: none;
+      font-size: 12px; color: #94a3b8;
+      cursor: pointer; font-family: inherit;
+      text-align: center; transition: color 0.2s;
+    }
+    .frc-restart:hover { color: #1e2b5e; }
+
+    /* ── BANNER ── */
+    .frc-banner {
+      background: linear-gradient(135deg, #fdf6e8 0%, #fcefd4 100%);
+      border-top: 1px solid rgba(201,150,42,0.18);
+      border-bottom: 1px solid rgba(201,150,42,0.18);
+      padding: 44px 0;
+    }
+    .frc-banner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .frc-banner-text h3 {
+      font-size: clamp(22px, 3.5vw, 30px);
+      font-weight: 800;
+      color: #1e2b5e;
+      line-height: 1.2;
+    }
+    .frc-banner-text p { font-size: 15px; color: #64748b; margin-top: 6px; max-width: 480px; }
+
+    /* ── VERGLEICH ── */
+    .frc-vergleich {
+      background: #fff;
+      padding: 96px 0;
+    }
+    .frc-vergleich-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1.1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .frc-vergleich-title {
+      padding-top: 8px;
+    }
+    .frc-vergleich-title h2 {
+      font-size: clamp(26px, 3.8vw, 40px);
+      font-weight: 800;
+      color: #1e2b5e;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .frc-badge-small {
+      display: inline-block;
+      background: #f4f6f9;
+      color: #64748b;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+    .frc-ver-col-head {
+      font-size: 15px;
+      font-weight: 700;
+      padding-bottom: 14px;
+      border-bottom: 2px solid #e2e8f0;
+      margin-bottom: 20px;
+      color: #94a3b8;
+    }
+    .frc-ver-col-head--mit {
+      color: #1e2b5e;
+      border-color: #c9962a;
+    }
+    .frc-col-mit {
+      background: #fdf6e8;
+      border-radius: 18px;
+      padding: 24px 26px;
+    }
+    .frc-ver-list { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+    .frc-ver-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      line-height: 1.55;
+      color: #94a3b8;
+    }
+    .frc-col-mit .frc-ver-item { color: #374151; }
+    .frc-ver-icon {
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 10px;
+      font-weight: 800;
+      margin-top: 1px;
+    }
+    .frc-ver-icon--x { background: #fee2e2; color: #ef4444; }
+    .frc-ver-icon--ok { background: #dcfce7; color: #16a34a; }
+    .frc-ver-cta { margin-top: 20px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .frc-hero-inner { grid-template-columns: 1fr; }
+      .frc-hero-deco { display: none; }
+      .frc-cards { grid-template-columns: 1fr; }
+      .frc-steps-inner { grid-template-columns: 1fr; }
+      .frc-steps-deko { display: none; }
+      .frc-check-body { grid-template-columns: 1fr; }
+      .frc-check-left { display: none; }
+      .frc-vergleich-inner { grid-template-columns: 1fr; }
+      .frc-banner-inner { flex-direction: column; }
+    }
+    @media (max-width: 600px) {
+      .frc-hero { padding: 90px 0 60px; }
+      .frc-foerderungen, .frc-steps, .frc-check, .frc-vergleich { padding: 64px 0; }
+      .frc-check-right { padding: 32px 24px; }
+      .frc-trust-inner { gap: 16px; }
+      .frc-trust-sep { display: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -50,212 +733,362 @@
 
 <main id="main">
 
-<!-- HERO -->
-<section class="lp-hero">
-  <div class="lp-hero-pattern" aria-hidden="true"></div>
-  <div class="container lp-hero-top">
-    <nav class="breadcrumb" aria-label="Brotkrumen-Navigation">
-      <a href="index.html">Startseite</a>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      <span>Förderrechner</span>
-    </nav>
-    <h1>Deine <span>Förderungen.</span></h1>
-    <p>5 Fragen. 60 Sekunden. Sofort sehen welche staatlichen Zuschüsse dir zustehen – kostenlos & unverbindlich.</p>
-  </div>
-  <div class="lp-hero-wave" aria-hidden="true">
-    <svg viewBox="0 0 1440 260" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-      <path class="wave-p1" d="M0,210 C180,240 360,188 540,218 C720,248 900,192 1080,222 C1260,252 1380,205 1440,228 L1440,260 L0,260 Z" fill="#f4f6f9"/>
-      <path class="wave-p2" d="M0,228 C200,205 420,248 660,222 C900,196 1100,238 1280,218 C1370,208 1420,225 1440,220 L1440,260 L0,260 Z" fill="#f4f6f9" opacity="0.55"/>
-      <path class="wave-p3" d="M0,240 C240,228 480,250 720,238 C960,226 1200,246 1440,235 L1440,260 L0,260 Z" fill="#f4f6f9" opacity="0.3"/>
-    </svg>
-  </div>
-</section>
-
-<!-- RECHNER -->
-<section class="fr-section">
+<!-- ═══ HERO ═══════════════════════════════════════════════════════ -->
+<section class="frc-hero">
   <div class="container">
-    <div class="fr-card" id="frCard">
-
-      <!-- Fortschrittsbalken -->
-      <div class="fr-progress-wrap">
-        <div class="fr-progress-bar" id="frProgressBar" style="width:20%"></div>
-      </div>
-      <p class="fr-step-label" id="frStepLabel">Schritt 1 von 5</p>
-
-      <!-- ═══ SCHRITT 1: Beschäftigung ═══ -->
-      <div class="fr-step" id="frStep1">
-        <h2 class="fr-question">Was beschreibt deine aktuelle Situation?</h2>
-        <div class="fr-options fr-options--2col">
-          <button class="fr-option" data-step="1" data-value="angestellt">
-            <span class="fr-option-icon">👔</span>
-            <strong>Angestellt</strong>
-            <span>Arbeitnehmer im Betrieb</span>
-          </button>
-          <button class="fr-option" data-step="1" data-value="selbststaendig">
-            <span class="fr-option-icon">💼</span>
-            <strong>Selbstständig</strong>
-            <span>Freiberufler / Unternehmer</span>
-          </button>
-          <button class="fr-option" data-step="1" data-value="beamter">
-            <span class="fr-option-icon">🏛️</span>
-            <strong>Beamter</strong>
-            <span>Im öffentlichen Dienst</span>
-          </button>
-          <button class="fr-option" data-step="1" data-value="azubi">
-            <span class="fr-option-icon">🎓</span>
-            <strong>Azubi / Student</strong>
-            <span>In Ausbildung oder Studium</span>
-          </button>
-        </div>
-        <div class="fr-nav">
-          <span></span>
-          <button class="fr-btn-next btn btn-primary" id="frNext1" disabled>Weiter →</button>
+    <div class="frc-hero-inner">
+      <div class="frc-hero-text">
+        <span class="frc-hero-badge">✓ Kostenlos &nbsp;·&nbsp; Unverbindlich &nbsp;·&nbsp; 60 Sekunden</span>
+        <h1>Geld vom Staat?<br><em class="frc-hero-em">Ja, gerne.</em></h1>
+        <p>Förderungen sind kein Hexenwerk – sie sind dein gutes Recht. Hol dir, was dir zusteht. Mehr Geld. Mehr Sicherheit. Mit Kranich Finanzen.</p>
+        <div class="frc-hero-actions">
+          <a href="#check" class="frc-btn-gold">Jetzt Förder-Check starten →</a>
+          <a href="#foerderungen" class="frc-hero-link">Was dir zusteht ↓</a>
         </div>
       </div>
-
-      <!-- ═══ SCHRITT 2: Einkommen ═══ -->
-      <div class="fr-step fr-step--hidden" id="frStep2">
-        <h2 class="fr-question">Wie hoch ist dein Jahreseinkommen (brutto)?</h2>
-        <div class="fr-options fr-options--2col">
-          <button class="fr-option" data-step="2" data-value="unter20">
-            <span class="fr-option-icon">💶</span>
-            <strong>Unter 20.000€</strong>
-            <span>Bis ~1.667€ / Monat</span>
-          </button>
-          <button class="fr-option" data-step="2" data-value="20-40">
-            <span class="fr-option-icon">💶</span>
-            <strong>20.000 – 40.000€</strong>
-            <span>~1.667 – 3.333€ / Monat</span>
-          </button>
-          <button class="fr-option" data-step="2" data-value="40-60">
-            <span class="fr-option-icon">💶</span>
-            <strong>40.000 – 60.000€</strong>
-            <span>~3.333 – 5.000€ / Monat</span>
-          </button>
-          <button class="fr-option" data-step="2" data-value="ueber60">
-            <span class="fr-option-icon">💶</span>
-            <strong>Über 60.000€</strong>
-            <span>Mehr als 5.000€ / Monat</span>
-          </button>
-        </div>
-        <div class="fr-nav">
-          <button class="fr-btn-back" onclick="goToStep(1)">← Zurück</button>
-          <button class="fr-btn-next btn btn-primary" id="frNext2" disabled>Weiter →</button>
+      <div class="frc-hero-deco" aria-hidden="true">
+        <div class="frc-hero-circle">
+          <span class="frc-hero-big">€</span>
+          <div class="frc-stat frc-stat--a">
+            <strong>3.500€</strong>
+            <span>Ø Förderung / Jahr</span>
+          </div>
+          <div class="frc-stat frc-stat--b">
+            <strong>100%</strong>
+            <span>kostenlos & gratis</span>
+          </div>
         </div>
       </div>
-
-      <!-- ═══ SCHRITT 3: Familienstand ═══ -->
-      <div class="fr-step fr-step--hidden" id="frStep3">
-        <h2 class="fr-question">Wie ist dein Familienstand?</h2>
-        <div class="fr-options fr-options--2col">
-          <button class="fr-option" data-step="3" data-value="single">
-            <span class="fr-option-icon">👤</span>
-            <strong>Ledig / Single</strong>
-            <span>Keine eingetragene Partnerschaft</span>
-          </button>
-          <button class="fr-option" data-step="3" data-value="verheiratet">
-            <span class="fr-option-icon">💑</span>
-            <strong>Verheiratet</strong>
-            <span>Ehe oder eingetragene Partnerschaft</span>
-          </button>
-        </div>
-        <div class="fr-nav">
-          <button class="fr-btn-back" onclick="goToStep(2)">← Zurück</button>
-          <button class="fr-btn-next btn btn-primary" id="frNext3" disabled>Weiter →</button>
-        </div>
-      </div>
-
-      <!-- ═══ SCHRITT 4: Kinder ═══ -->
-      <div class="fr-step fr-step--hidden" id="frStep4">
-        <h2 class="fr-question">Hast du Kinder?</h2>
-        <div class="fr-options fr-options--2col">
-          <button class="fr-option" data-step="4" data-value="0">
-            <span class="fr-option-icon">🚫</span>
-            <strong>Keine Kinder</strong>
-            <span></span>
-          </button>
-          <button class="fr-option" data-step="4" data-value="1">
-            <span class="fr-option-icon">👶</span>
-            <strong>1 Kind</strong>
-            <span></span>
-          </button>
-          <button class="fr-option" data-step="4" data-value="2">
-            <span class="fr-option-icon">👶👶</span>
-            <strong>2 Kinder</strong>
-            <span></span>
-          </button>
-          <button class="fr-option" data-step="4" data-value="3">
-            <span class="fr-option-icon">👨‍👩‍👧‍👦</span>
-            <strong>3 oder mehr</strong>
-            <span></span>
-          </button>
-        </div>
-        <div class="fr-nav">
-          <button class="fr-btn-back" onclick="goToStep(3)">← Zurück</button>
-          <button class="fr-btn-next btn btn-primary" id="frNext4" disabled>Weiter →</button>
-        </div>
-      </div>
-
-      <!-- ═══ SCHRITT 5: Alter ═══ -->
-      <div class="fr-step fr-step--hidden" id="frStep5">
-        <h2 class="fr-question">In welcher Altersgruppe bist du?</h2>
-        <div class="fr-options fr-options--2col">
-          <button class="fr-option" data-step="5" data-value="unter25">
-            <span class="fr-option-icon">🌱</span>
-            <strong>18 – 25 Jahre</strong>
-            <span>Berufsstart / Ausbildung</span>
-          </button>
-          <button class="fr-option" data-step="5" data-value="25-35">
-            <span class="fr-option-icon">🚀</span>
-            <strong>26 – 35 Jahre</strong>
-            <span>Karriereaufbau</span>
-          </button>
-          <button class="fr-option" data-step="5" data-value="36-50">
-            <span class="fr-option-icon">📈</span>
-            <strong>36 – 50 Jahre</strong>
-            <span>Mitten im Leben</span>
-          </button>
-          <button class="fr-option" data-step="5" data-value="ueber50">
-            <span class="fr-option-icon">🎯</span>
-            <strong>Über 50 Jahre</strong>
-            <span>Ruhestandsplanung</span>
-          </button>
-        </div>
-        <div class="fr-nav">
-          <button class="fr-btn-back" onclick="goToStep(4)">← Zurück</button>
-          <button class="fr-btn-next btn btn-primary" id="frNext5" disabled>Ergebnis anzeigen →</button>
-        </div>
-      </div>
-
-      <!-- ═══ ERGEBNIS ═══ -->
-      <div class="fr-step fr-step--hidden" id="frResult">
-        <div class="fr-result-header">
-          <div class="fr-result-icon">✓</div>
-          <h2>Deine Förderungen</h2>
-          <p id="frResultSub"></p>
-        </div>
-        <div class="fr-result-total" id="frResultTotal"></div>
-        <div class="fr-result-grid" id="frResultGrid"></div>
-        <div class="fr-result-disclaimer">
-          * Beträge sind Richtwerte basierend auf deinen Angaben. Genaue Berechnungen im persönlichen Beratungsgespräch.
-        </div>
-        <div class="fr-result-cta">
-          <p>Lass uns gemeinsam alle Förderungen für dich beantragen und umsetzen.</p>
-          <a href="kontakt.html" class="btn btn-primary">Kostenloses Beratungsgespräch vereinbaren</a>
-          <button class="fr-btn-back fr-restart" onclick="restartCalc()">↺ Neu berechnen</button>
-        </div>
-      </div>
-
-    </div><!-- /fr-card -->
+    </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- ═══ TRUST BAR ═══════════════════════════════════════════════════ -->
+<section class="frc-trust" aria-label="Vertrauenspunkte">
+  <div class="container">
+    <div class="frc-trust-inner">
+      <div class="frc-trust-item">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        Kostenlose Erstberatung
+      </div>
+      <div class="frc-trust-sep"></div>
+      <div class="frc-trust-item">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Ergebnis in 60 Sekunden
+      </div>
+      <div class="frc-trust-sep"></div>
+      <div class="frc-trust-item">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Kein Risiko, keine Pflicht
+      </div>
+      <div class="frc-trust-sep"></div>
+      <div class="frc-trust-item">
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Hannover &amp; Umgebung
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FÖRDERUNGEN ═════════════════════════════════════════════════ -->
+<section class="frc-foerderungen" id="foerderungen">
+  <div class="container">
+    <div class="frc-section-head">
+      <span class="frc-section-badge">🎓 Für Angestellte, Azubis &amp; Familien</span>
+      <h2>Förderungen, die dein Konto<br><span class="frc-italic">feiern wird:</span></h2>
+      <p>Arbeitest du und zahlst Steuern? Dann hast du fast sicher Anspruch auf staatliche Förderungen – die meisten wissen es nur nicht.</p>
+    </div>
+    <div class="frc-cards">
+      <div class="frc-card">
+        <span class="frc-card-cat">Vermögenswirksame Leistungen (VWL)</span>
+        <h3>Hol dir Geld von deinem Chef – jeden Monat.</h3>
+        <p>Mit VWL unterstützt dich dein Arbeitgeber beim Vermögensaufbau. Du sparst – und dein Chef zahlt monatlich bis zu 40&nbsp;€ extra dazu.</p>
+      </div>
+      <div class="frc-card">
+        <span class="frc-card-cat">Riester-Rente</span>
+        <h3>Spare fürs Alter – mit Zuschuss vom Staat.</h3>
+        <p>Der Staat zahlt dir bis zu 175&nbsp;€ Grundzulage im Jahr direkt aufs Rentenkonto – plus 185&nbsp;€ für jedes Kind.</p>
+      </div>
+      <div class="frc-card">
+        <span class="frc-card-cat">Betriebliche Altersvorsorge (bAV)</span>
+        <h3>Altersvorsorge, steuerlich richtig gemacht.</h3>
+        <p>Durch die bAV sparst du dir bis zu 1.800&nbsp;€ im Jahr an Steuern und Sozialabgaben. Dein Netto bleibt dabei fast gleich.</p>
+      </div>
+      <div class="frc-card">
+        <span class="frc-card-cat">Wohnungsbauprämie</span>
+        <h3>Bausparen mit staatlichem Bonus.</h3>
+        <p>Wer bauspart, bekommt vom Staat eine Prämie obendrauf – bis zu 140&nbsp;€ pro Jahr für dein Eigenheimziel.</p>
+      </div>
+    </div>
+    <div class="frc-foerderungen-cta">
+      <a href="kontakt.html" class="btn btn-primary">Kostenlos beraten lassen</a>
+      <a href="#check" class="frc-sub-link">Oder: Erst Förder-Check machen ↓</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5 SCHRITTE ══════════════════════════════════════════════════ -->
+<section class="frc-steps">
+  <div class="container">
+    <div class="frc-steps-inner">
+      <div class="frc-steps-left">
+        <h2>In 5 Schritten zu<br><em class="frc-italic">mehr auf dem Konto.</em></h2>
+        <p>Komplizierte Anträge, lange Wartezeiten? Nicht bei uns. Bei Kranich Finanzen ist der Weg zur Förderung einfach, schnell und persönlich.</p>
+        <ol class="frc-step-list">
+          <li class="frc-step-item">
+            <span class="frc-step-num">01</span>
+            <div class="frc-step-content">
+              <h4>Mach den ersten Schritt</h4>
+              <p>Starte deinen Förder-Check – anonym, kostenlos und in unter 60 Sekunden. Wir zeigen dir sofort, was dir zusteht.</p>
+            </div>
+          </li>
+          <li class="frc-step-item">
+            <span class="frc-step-num">02</span>
+            <div class="frc-step-content">
+              <h4>Dein Plan kommt zu dir</h4>
+              <p>Dein persönlicher Berater meldet sich – ohne Stress, ohne Verpflichtungen. Nur dein maßgeschneiderter Förderplan.</p>
+            </div>
+          </li>
+          <li class="frc-step-item">
+            <span class="frc-step-num">03</span>
+            <div class="frc-step-content">
+              <h4>Förderung gesichert, fertig</h4>
+              <p>Wir kümmern uns um alle Anträge und Unterlagen. Du lehnst dich zurück – und das Geld kommt aufs Konto.</p>
+            </div>
+          </li>
+          <li class="frc-step-item">
+            <span class="frc-step-num">04</span>
+            <div class="frc-step-content">
+              <h4>Alles im Blick behalten</h4>
+              <p>Im jährlichen Check-up prüfen wir, ob sich was geändert hat – und optimieren deinen Plan weiter.</p>
+            </div>
+          </li>
+          <li class="frc-step-item">
+            <span class="frc-step-num">05</span>
+            <div class="frc-step-content">
+              <h4>Auf Erfolgskurs bleiben</h4>
+              <p>Dein Berater bleibt dran – du bist nie allein. Immer erreichbar, immer kostenlos, immer auf deiner Seite.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+      <div class="frc-steps-deko" aria-hidden="true">
+        <div class="frc-deko-card">
+          <div class="frc-deko-icon">💰</div>
+          <div>
+            <h4>bis zu 480&nbsp;€/Jahr</h4>
+            <p>Vermögenswirksame Leistungen</p>
+          </div>
+        </div>
+        <div class="frc-deko-card">
+          <div class="frc-deko-icon">🏛️</div>
+          <div>
+            <h4>bis zu 360&nbsp;€/Jahr</h4>
+            <p>Riester-Zulage vom Staat</p>
+          </div>
+        </div>
+        <div class="frc-deko-card frc-deko-card--dark">
+          <div class="frc-deko-icon">📈</div>
+          <div>
+            <h4 style="color:#fff;">bis zu 1.800&nbsp;€ gespart</h4>
+            <p>Betriebliche Altersvorsorge</p>
+          </div>
+        </div>
+        <div class="frc-deko-card">
+          <div class="frc-deko-icon">🏠</div>
+          <div>
+            <h4>bis zu 140&nbsp;€/Jahr</h4>
+            <p>Wohnungsbauprämie</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FÖRDER-CHECK (RECHNER) ══════════════════════════════════════ -->
+<section class="frc-check" id="check">
+  <div class="container">
+    <div class="frc-check-head">
+      <span class="frc-check-label-text">Dein Förder-Check:</span>
+      <h2>Was steht dir zu?</h2>
+      <p>Beantworte 5 kurze Fragen – wir zeigen dir deinen persönlichen Förder-Betrag. Schnell &amp; unverbindlich.</p>
+    </div>
+    <div class="frc-check-body">
+
+      <!-- Linke Seite: Info-Panel -->
+      <div class="frc-check-left" aria-hidden="true">
+        <div>
+          <div class="frc-check-left-title">Mehr fürs Konto.</div>
+          <div class="frc-check-left-sub">Deine Förderungen auf einen Blick.</div>
+        </div>
+        <div class="frc-check-stats">
+          <div class="frc-check-stat">
+            <div class="frc-check-stat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+            </div>
+            <div>
+              <strong>3.500&nbsp;€</strong>
+              <span>Ø jährliche Förderung</span>
+            </div>
+          </div>
+          <div class="frc-check-stat">
+            <div class="frc-check-stat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div>
+              <strong>1.200+</strong>
+              <span>zufriedene Kunden</span>
+            </div>
+          </div>
+          <div class="frc-check-stat">
+            <div class="frc-check-stat-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <strong>100%</strong>
+              <span>kostenlos &amp; unverbindlich</span>
+            </div>
+          </div>
+        </div>
+        <div class="frc-check-quote">
+          <p>„Ich wusste gar nicht, dass mir so viel zusteht. Kranich Finanzen hat alles für mich erledigt – ich musste nur unterschreiben."</p>
+          <cite>— Kundenstimme, Hannover</cite>
+        </div>
+      </div>
+
+      <!-- Rechte Seite: Formular -->
+      <div class="frc-check-right">
+        <div class="frc-form-title">Mein Förder-Check.</div>
+        <div class="frc-form-sub">5 Fragen · Sofortiges Ergebnis</div>
+
+        <!-- Formular -->
+        <form class="frc-form" id="frcForm" novalidate>
+          <div class="frc-field">
+            <label for="frcAlter">Wie alt bist du?</label>
+            <select id="frcAlter" name="alter">
+              <option value="" disabled selected>Bitte wählen …</option>
+              <option value="unter25">18 – 25 Jahre</option>
+              <option value="26-35">26 – 35 Jahre</option>
+              <option value="36-50">36 – 50 Jahre</option>
+              <option value="ueber50">Über 50 Jahre</option>
+            </select>
+          </div>
+          <div class="frc-field">
+            <label for="frcBeruf">Bist du angestellt oder Azubi?</label>
+            <select id="frcBeruf" name="beruf">
+              <option value="" disabled selected>Bitte wählen …</option>
+              <option value="angestellt">Fest angestellt</option>
+              <option value="azubi">Azubi / Auszubildende/r</option>
+              <option value="beamter">Beamter / Beamtin</option>
+              <option value="selbststaendig">Selbstständig / Freiberufler</option>
+            </select>
+          </div>
+          <div class="frc-field">
+            <label for="frcVwl">Hast du deine VWL schon bezogen? <span title="Vermögenswirksame Leistungen vom Arbeitgeber" style="cursor:help;color:#94a3b8;">🤔</span></label>
+            <select id="frcVwl" name="vwl">
+              <option value="" disabled selected>Bitte wählen …</option>
+              <option value="nein">Nein, noch nicht</option>
+              <option value="ja">Ja, bereits</option>
+            </select>
+          </div>
+          <div class="frc-field">
+            <label for="frcFamilie">Bist du verheiratet?</label>
+            <select id="frcFamilie" name="familie">
+              <option value="" disabled selected>Bitte wählen …</option>
+              <option value="ledig">Ledig / Single</option>
+              <option value="verheiratet">Verheiratet / eingetragene Partnerschaft</option>
+            </select>
+          </div>
+          <div class="frc-field">
+            <label for="frcKinder">Hast du Kinder?</label>
+            <select id="frcKinder" name="kinder">
+              <option value="" disabled selected>Bitte wählen …</option>
+              <option value="0">Keine Kinder</option>
+              <option value="1">1 Kind</option>
+              <option value="2">2 Kinder</option>
+              <option value="3">3 oder mehr Kinder</option>
+            </select>
+          </div>
+          <button type="submit" class="frc-calc-btn">Förderung berechnen →</button>
+        </form>
+
+        <!-- Ergebnis -->
+        <div class="frc-result" id="frcResult">
+          <div class="frc-result-hero">
+            <p>Deine mögliche jährliche Förderung</p>
+            <strong id="frcTotal"></strong>
+            <span>* Richtwert basierend auf deinen Angaben</span>
+          </div>
+          <div class="frc-result-rows" id="frcRows"></div>
+          <p class="frc-disclaimer">* Beträge sind Schätzwerte. Genaue Berechnung im persönlichen Beratungsgespräch.</p>
+          <a href="kontakt.html" class="frc-result-cta">Kostenloses Beratungsgespräch vereinbaren →</a>
+          <button class="frc-restart" onclick="frcRestart()">↺ Neu berechnen</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ BANNER ══════════════════════════════════════════════════════ -->
+<section class="frc-banner">
+  <div class="container">
+    <div class="frc-banner-inner">
+      <div class="frc-banner-text">
+        <h3>Geld verschenken?<br><em class="frc-italic">Muss nicht sein!</em></h3>
+        <p>Wir zeigen dir kostenlos, welche Zuschüsse, Boni und Steuervorteile du dir holen kannst.</p>
+      </div>
+      <a href="kontakt.html" class="frc-btn-gold">Kostenlos beraten lassen</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VERGLEICH ═══════════════════════════════════════════════════ -->
+<section class="frc-vergleich">
+  <div class="container">
+    <div class="frc-vergleich-inner">
+
+      <div class="frc-vergleich-title">
+        <h2>Der <span class="frc-italic">Shortcut</span><br>zur Förderung.</h2>
+        <span class="frc-badge-small">Wen würde dein Konto wählen?</span>
+        <p style="font-size:14px;color:#64748b;line-height:1.7;">Ohne Plan durchs Förderungs-Labyrinth – oder easy Cash abholen? Bei Kranich Finanzen checkst du, was dir zusteht, und wir holen das Maximum für dich raus.</p>
+      </div>
+
+      <div class="frc-col-ohne">
+        <div class="frc-ver-col-head">Deine Förderung ohne Beratung</div>
+        <ul class="frc-ver-list">
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Du weißt nicht mal, dass dir VWL zusteht.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Dein Chef zahlt extra – du weißt's nur nicht.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Förderungen googeln, nach 3 Minuten aufgeben.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Niemand hilft dir beim Antrag.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Steuervorteile bleiben ungenutzt. Konto bleibt leer.</li>
+        </ul>
+      </div>
+
+      <div class="frc-col-mit">
+        <div class="frc-ver-col-head frc-ver-col-head--mit">Deine Förderung mit Kranich Finanzen 🚀</div>
+        <ul class="frc-ver-list">
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Wir zeigen dir alles – von Staat, Chef &amp; Kasse.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Wir erklären es so, dass es wirklich Sinn macht.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Den Antrag? Machen wir gemeinsam.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Dein Berater ist immer erreichbar – kostenlos.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Mehr Geld aufs Konto – statt liegen lassen.</li>
+        </ul>
+        <div class="frc-ver-cta">
+          <a href="kontakt.html" class="frc-btn-gold" style="display:block;text-align:center;margin-top:20px;">Kostenlos beraten lassen</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ══════════════════════════════════════════════════════════ -->
 <section class="cta-section">
   <div class="container" style="position:relative;z-index:1;">
     <span class="badge" style="color:rgba(255,255,255,0.6);">Nächster Schritt</span>
     <h2>BEREIT FÜR<br><span>KLARHEIT?</span></h2>
-    <p>Erstgespräch kostenlos & unverbindlich. Kein Risiko, keine Verpflichtungen.</p>
+    <p>Erstgespräch kostenlos &amp; unverbindlich. Kein Risiko, keine Verpflichtungen.</p>
     <div class="cta-buttons">
       <a href="kontakt.html" class="btn btn-primary">Kostenlos beraten lassen</a>
       <a href="tel:+491788960163" class="btn btn-outline">
@@ -285,7 +1118,7 @@
       </div>
       <div class="footer-col">
         <h4>Tools</h4>
-        <ul><li><a href="foerderrechner.html">Förderrechner</a></li></ul>
+        <ul><li><a href="foerderrechner.html">Förder-Check</a></li></ul>
       </div>
       <div class="footer-col">
         <h4>Kontakt</h4>
@@ -310,214 +1143,120 @@
 
 <script src="js/main.js"></script>
 <script>
-// ═══ FÖRDERRECHNER LOGIK ═══════════════════════════════════════════════════
-const answers = {};
-let currentStep = 1;
+// ═══ FÖRDER-CHECK RECHNER ════════════════════════════════════════════
+(function () {
+  const form    = document.getElementById('frcForm');
+  const result  = document.getElementById('frcResult');
+  const total   = document.getElementById('frcTotal');
+  const rows    = document.getElementById('frcRows');
+  const selects = form.querySelectorAll('select');
 
-// Optionen auswählen
-document.querySelectorAll('.fr-option').forEach(btn => {
-  btn.addEventListener('click', function () {
-    const step = this.dataset.step;
-    document.querySelectorAll(`.fr-option[data-step="${step}"]`).forEach(b => b.classList.remove('fr-option--selected'));
-    this.classList.add('fr-option--selected');
-    answers['step' + step] = this.dataset.value;
-    const nextBtn = document.getElementById('frNext' + step);
-    if (nextBtn) nextBtn.disabled = false;
+  // Selects: Rahmen gold färben wenn ausgefüllt
+  selects.forEach(sel => {
+    sel.addEventListener('change', function () {
+      this.classList.toggle('frc-filled', this.value !== '');
+    });
   });
-});
 
-// Weiter-Buttons
-for (let i = 1; i <= 4; i++) {
-  const btn = document.getElementById('frNext' + i);
-  if (btn) btn.addEventListener('click', () => goToStep(i + 1));
-}
-document.getElementById('frNext5').addEventListener('click', showResults);
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const alter   = document.getElementById('frcAlter').value;
+    const beruf   = document.getElementById('frcBeruf').value;
+    const vwl     = document.getElementById('frcVwl').value;
+    const familie = document.getElementById('frcFamilie').value;
+    const kinder  = parseInt(document.getElementById('frcKinder').value) || 0;
 
-function goToStep(n) {
-  document.querySelectorAll('.fr-step').forEach(s => s.classList.add('fr-step--hidden'));
-  const target = document.getElementById('frStep' + n);
-  if (target) {
-    target.classList.remove('fr-step--hidden');
-    currentStep = n;
-    document.getElementById('frProgressBar').style.width = (n * 20) + '%';
-    document.getElementById('frStepLabel').textContent = 'Schritt ' + n + ' von 5';
-    document.getElementById('frCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-}
+    if (!alter || !beruf || !vwl || !familie || !kinder && kinder !== 0) {
+      // Prüfe ob alle ausgefüllt (kinder 0 ist valide)
+      const missing = !alter || !beruf || !vwl || !familie || document.getElementById('frcKinder').value === '';
+      if (missing) {
+        selects.forEach(s => { if (!s.value) s.style.borderColor = '#ef4444'; });
+        return;
+      }
+    }
 
-function showResults() {
-  const beruf     = answers.step1;
-  const einkommen = answers.step2;
-  const familie   = answers.step3;
-  const kinder    = parseInt(answers.step4 || 0);
-  const alter     = answers.step5;
+    const foerderungen = berechne(alter, beruf, vwl, familie, kinder);
 
-  const isAngestellt = beruf === 'angestellt';
-  const isBeamter    = beruf === 'beamter';
-  const isAzubi      = beruf === 'azubi';
-  const lowIncome    = einkommen === 'unter20' || einkommen === '20-40';
-  const verheiratet  = familie === 'verheiratet';
-
-  const results = [];
-
-  // VWL
-  if (isAngestellt || isAzubi) {
-    results.push({
-      titel: 'Vermögenswirksame Leistungen',
-      kurz: 'VWL',
-      betrag: 'bis zu 480€',
-      periode: 'pro Jahr',
-      beschreibung: 'Dein Arbeitgeber zahlt monatlich bis zu 40€ extra in einen Sparvertrag – on top zu deinem Gehalt.',
-      farbe: '#22c55e'
-    });
-  }
-
-  // Riester
-  if (isAngestellt || isBeamter) {
-    const basis = 175;
-    const kindZulage = kinder * 185;
-    const gesamt = basis + kindZulage;
-    results.push({
-      titel: 'Riester-Rente Zulage',
-      kurz: 'RIESTER',
-      betrag: gesamt + '€',
-      periode: 'pro Jahr',
-      beschreibung: `${basis}€ Grundzulage vom Staat${kinder > 0 ? ` + ${kindZulage}€ Kinderzulage (${kinder} Kind${kinder > 1 ? 'er' : ''})` : ''} – direkt auf dein Rentenkonto.`,
-      farbe: '#c9962a'
-    });
-  }
-
-  // Arbeitnehmer-Sparzulage
-  if (isAngestellt && lowIncome) {
-    results.push({
-      titel: 'Arbeitnehmer-Sparzulage',
-      kurz: 'SPARZULAGE',
-      betrag: 'bis zu 43€',
-      periode: 'pro Jahr',
-      beschreibung: 'Der Staat zahlt 9% auf deine VWL-Einzahlungen zusätzlich – automatisch bei der Steuererklärung.',
-      farbe: '#3b82f6'
-    });
-  }
-
-  // bAV
-  if (isAngestellt) {
-    results.push({
-      titel: 'Betriebliche Altersvorsorge',
-      kurz: 'BAV',
-      betrag: 'bis zu 1.800€',
-      periode: 'Steuerersparnis / Jahr',
-      beschreibung: 'Beiträge zur bAV sind bis zu 7.728€ jährlich steuer- und sozialabgabenfrei – effektiv zahlt der Staat die Hälfte.',
-      farbe: '#1e2b5e'
-    });
-  }
-
-  // Wohnungsbauprämie
-  if (lowIncome) {
-    const max = verheiratet ? '140€' : '70€';
-    results.push({
-      titel: 'Wohnungsbauprämie',
-      kurz: 'BAUSPAR',
-      betrag: `bis zu ${max}`,
-      periode: 'pro Jahr',
-      beschreibung: 'Wer in einen Bausparvertrag einzahlt, erhält 10% der Einzahlungen als staatliche Prämie zurück.',
-      farbe: '#8b5cf6'
-    });
-  }
-
-  // Kinderzuschlag
-  if (kinder > 0 && lowIncome) {
-    results.push({
-      titel: 'Kinderzuschlag',
-      kurz: 'KINDER',
-      betrag: 'bis zu 250€',
-      periode: 'pro Kind / Monat',
-      beschreibung: 'Wenn das Einkommen nicht für die ganze Familie reicht, zahlt der Staat bis zu 250€ zusätzlich pro Kind.',
-      farbe: '#f59e0b'
-    });
-  }
-
-  // Rürup für Selbstständige
-  if (beruf === 'selbststaendig') {
-    results.push({
-      titel: 'Rürup-Rente (Basis-Rente)',
-      kurz: 'RÜRUP',
-      betrag: 'bis zu 5.390€',
-      periode: 'Steuerersparnis / Jahr',
-      beschreibung: 'Als Selbstständiger kannst du bis zu 27.566€ jährlich in die Rürup-Rente einzahlen und steuerlich absetzen.',
-      farbe: '#c9962a'
-    });
-    results.push({
-      titel: 'Krankenversicherung optimieren',
-      kurz: 'KV',
-      betrag: 'bis zu 1.200€',
-      periode: 'Ersparnis / Jahr',
-      beschreibung: 'Durch den richtigen Tarif und Selbstbehalte kannst du als Selbstständiger erheblich bei der Krankenversicherung sparen.',
-      farbe: '#22c55e'
-    });
-  }
-
-  // Berufsanfänger-Bonus
-  if (alter === 'unter25' && isAngestellt) {
-    results.push({
-      titel: 'Berufseinsteiger-Vorteile',
-      kurz: 'START',
-      betrag: 'Jetzt maximieren',
-      periode: 'Zinseszins-Effekt',
-      beschreibung: 'Wer früh mit dem Sparen anfängt, profitiert am meisten vom Zinseszins. 100€/Monat mit 25 = 3x mehr als mit 35.',
-      farbe: '#1e2b5e'
-    });
-  }
-
-  // Ergebnis anzeigen
-  document.querySelectorAll('.fr-step').forEach(s => s.classList.add('fr-step--hidden'));
-  const resultDiv = document.getElementById('frResult');
-  resultDiv.classList.remove('fr-step--hidden');
-  document.getElementById('frProgressBar').style.width = '100%';
-  document.getElementById('frStepLabel').textContent = 'Dein Ergebnis';
-
-  const sub = results.length > 0
-    ? `Wir haben ${results.length} Förderung${results.length > 1 ? 'en' : ''} für dich gefunden.`
-    : 'Auch ohne klassische Förderungen gibt es Optimierungspotenzial für dich.';
-  document.getElementById('frResultSub').textContent = sub;
-
-  // Gesamtsumme (nur wenn quantifizierbar)
-  if (results.length > 0) {
-    document.getElementById('frResultTotal').innerHTML = `
-      <div class="fr-total-inner">
-        <span>Mögliche Förderungen gefunden</span>
-        <strong>${results.length} Programm${results.length > 1 ? 'e' : ''}</strong>
-      </div>
-    `;
-  }
-
-  const grid = document.getElementById('frResultGrid');
-  grid.innerHTML = results.map(r => `
-    <div class="fr-result-card">
-      <div class="fr-result-card-top">
-        <span class="fr-result-tag" style="background:${r.farbe}18;color:${r.farbe};border-color:${r.farbe}30">${r.kurz}</span>
-        <div class="fr-result-amount">
-          <strong>${r.betrag}</strong>
-          <span>${r.periode}</span>
+    let summe = 0;
+    rows.innerHTML = '';
+    foerderungen.forEach(f => {
+      summe += f.betrag;
+      const row = document.createElement('div');
+      row.className = 'frc-result-row';
+      row.innerHTML = `
+        <div class="frc-result-row-left">
+          <span class="frc-result-dot"></span>
+          <span class="frc-result-name">${f.name}</span>
         </div>
-      </div>
-      <h3>${r.titel}</h3>
-      <p>${r.beschreibung}</p>
-    </div>
-  `).join('');
+        <span class="frc-result-amt">${f.label}</span>
+      `;
+      rows.appendChild(row);
+    });
 
-  document.getElementById('frCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
+    total.textContent = summe.toLocaleString('de-DE') + ' €';
+    form.style.display = 'none';
+    result.classList.add('visible');
+    document.getElementById('frcResult').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
 
-function restartCalc() {
-  Object.keys(answers).forEach(k => delete answers[k]);
-  document.querySelectorAll('.fr-option').forEach(b => b.classList.remove('fr-option--selected'));
-  document.querySelectorAll('.fr-btn-next').forEach(b => b.disabled = true);
-  goToStep(1);
-  document.querySelectorAll('.fr-step').forEach(s => s.classList.add('fr-step--hidden'));
-  document.getElementById('frStep1').classList.remove('fr-step--hidden');
-  document.getElementById('frProgressBar').style.width = '20%';
-  document.getElementById('frStepLabel').textContent = 'Schritt 1 von 5';
-}
+  function berechne(alter, beruf, vwl, familie, kinder) {
+    const result = [];
+    const isAngestellt = beruf === 'angestellt';
+    const isBeamter    = beruf === 'beamter';
+    const isAzubi      = beruf === 'azubi';
+    const isSelbst     = beruf === 'selbststaendig';
+    const noVwl        = vwl === 'nein';
+    const verheiratet  = familie === 'verheiratet';
+
+    // VWL
+    if ((isAngestellt || isAzubi) && noVwl) {
+      result.push({ name: 'Vermögenswirksame Leistungen', betrag: 480, label: 'bis zu 480 €/Jahr' });
+    }
+
+    // Riester
+    if (isAngestellt || isBeamter) {
+      const basis = 175;
+      const kindBonus = kinder * 185;
+      const gesamt = basis + kindBonus;
+      result.push({ name: 'Riester-Rente Zulage', betrag: gesamt, label: gesamt + ' €/Jahr' });
+    }
+
+    // Arbeitnehmer-Sparzulage
+    if ((isAngestellt || isAzubi) && noVwl) {
+      result.push({ name: 'Arbeitnehmer-Sparzulage', betrag: 43, label: 'bis zu 43 €/Jahr' });
+    }
+
+    // bAV
+    if (isAngestellt || isBeamter || isAzubi) {
+      result.push({ name: 'Betriebliche Altersvorsorge', betrag: 1800, label: 'bis zu 1.800 € Steuerersparnis' });
+    }
+
+    // Wohnungsbauprämie
+    if (alter !== 'ueber50') {
+      result.push({ name: 'Wohnungsbauprämie', betrag: 140, label: 'bis zu 140 €/Jahr' });
+    }
+
+    // Kinderzuschlag
+    if (kinder > 0) {
+      const monate = kinder * 250;
+      result.push({ name: 'Kinderzuschlag', betrag: monate * 12, label: 'bis zu ' + monate + ' €/Monat' });
+    }
+
+    // Rürup
+    if (isSelbst) {
+      result.push({ name: 'Rürup-Rente Steuerersparnis', betrag: 5390, label: 'bis zu 5.390 €/Jahr' });
+    }
+
+    return result;
+  }
+
+  window.frcRestart = function () {
+    result.classList.remove('visible');
+    form.style.display = '';
+    form.reset();
+    selects.forEach(s => { s.classList.remove('frc-filled'); s.style.borderColor = ''; });
+  };
+})();
 </script>
 
 </body>
