@@ -198,36 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // ── ROI Rechner ───────────────────────────
-  const inpFenster = document.getElementById('inp-fenster');
-  if (inpFenster) {
-    const inpFlaeche = document.getElementById('inp-flaeche');
-    const inpKosten  = document.getElementById('inp-kosten');
-    const inpTyp     = document.getElementById('inp-typ');
-
-    const calcROI = () => {
-      const fenster = parseInt(inpFenster.value);
-      const kosten  = parseInt(inpKosten.value);
-      const saving  = parseFloat(inpTyp.value);
-
-      document.getElementById('val-fenster').textContent = fenster;
-      document.getElementById('val-flaeche').textContent = parseInt(inpFlaeche.value).toLocaleString('de-DE') + ' m²';
-      document.getElementById('val-kosten').textContent  = kosten.toLocaleString('de-DE') + ' €';
-
-      const jaehrlich   = Math.round(kosten * saving);
-      const co2         = ((kosten / 0.10) * 0.201 * saving / 1000).toFixed(1);
-      const investition = fenster * 600;
-      const amor        = jaehrlich > 0 ? Math.ceil(investition / jaehrlich) : '–';
-
-      document.getElementById('res-jaehrlich').textContent = jaehrlich.toLocaleString('de-DE') + ' €';
-      document.getElementById('res-10jahre').textContent   = (jaehrlich * 10).toLocaleString('de-DE') + ' €';
-      document.getElementById('res-co2').textContent       = co2.replace('.', ',') + ' t';
-      document.getElementById('res-amor').textContent      = 'ca. ' + amor + ' Jahre';
-    };
-
-    [inpFenster, inpFlaeche, inpKosten, inpTyp].forEach(el => el.addEventListener('input', calcROI));
-    calcROI();
-  }
 
   // ── Leistungen Carousel (mobile) ─────────
   const leistungenGrid = document.querySelector('.leistungen-grid');
