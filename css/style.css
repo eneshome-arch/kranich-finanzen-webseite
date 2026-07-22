@@ -2315,9 +2315,9 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 /* ≤ 600px – Sub-page hero stats + footer + team duo */
 @media (max-width: 600px) {
   /* lp-hero-stats: Statistiken in Sub-page Heroes */
-  .lp-hero-stats { gap: 16px; }
-  .lp-hero-stat strong { font-size: 20px; }
-  .lp-hero-stat-divider { height: 24px; }
+  .lp-hero-stats { gap: 12px; }
+  .lp-hero-stat strong { font-size: 22px; }
+  .lp-hero-stat-divider { height: 20px; }
 
   /* Footer bottom: verhindert Overflow bei 3 Items in einer Zeile */
   .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
@@ -2335,7 +2335,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 
 /* ≤ 420px – Sehr kleines Phone: Stats nebeneinander zu eng */
 @media (max-width: 420px) {
-  .lp-hero-stats { flex-wrap: wrap; justify-content: center; gap: 12px 24px; }
+  .lp-hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .lp-hero-stat { text-align: center; }
   .lp-hero-stat-divider { display: none; }
   .lp-hero-top h1 { font-size: clamp(26px, 8vw, 38px); }
 
