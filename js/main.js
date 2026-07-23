@@ -962,3 +962,18 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('load', initScroll);
   }
 })();
+
+// ── Scroll-Reveal für Leistungskarten ──────
+(function () {
+  var cards = document.querySelectorAll('.lp-reveal');
+  if (!cards.length) return;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('lp-visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  cards.forEach(function (c) { observer.observe(c); });
+})();

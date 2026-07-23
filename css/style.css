@@ -1116,33 +1116,126 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   gap: 12px;
 }
 
-/* ── LEISTUNGSPORTFOLIO RAHMEN ─────────────── */
-.leistungen-portfolio-section {
+/* ── LEISTUNGEN SEKTION (NEU) ─────────────── */
+.lp-section {
   background: var(--bg-page);
-  padding: 20px;
+  padding: 96px 0;
   background-image:
     radial-gradient(circle at 96% 15%, rgba(255,255,255,0.55) 0%, transparent 42%),
-    radial-gradient(circle at 4% 85%, rgba(201,150,42,0.18) 0%, transparent 40%);
+    radial-gradient(circle at 4% 85%, rgba(201,150,42,0.12) 0%, transparent 40%);
 }
-.leistungen-portfolio-card {
+.lp-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.lp-card {
+  position: relative;
   background: #fff;
-  border-radius: 28px;
-  padding: 56px 64px;
-  box-shadow: 0 8px 40px rgba(201,150,42,0.10);
+  border: 1.5px solid var(--border);
+  border-radius: 18px;
+  padding: 36px 32px 32px;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2), box-shadow 0.35s ease, border-color 0.3s ease;
 }
-.leistungen-portfolio-card .text-center,
-.leistungen-portfolio-card .leistungen-grid,
-.leistungen-portfolio-card > div:last-child {
-  max-width: 1160px;
-  margin-left: auto;
-  margin-right: auto;
+.lp-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px;
+  height: 0;
+  background: linear-gradient(180deg, var(--accent), #e8b84b);
+  border-radius: 0 0 4px 0;
+  transition: height 0.4s cubic-bezier(.22,.68,0,1.2);
 }
-.leistungen-portfolio-card .leistung-card--img-bg {
-  height: 260px;
+.lp-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201,150,42,0.35);
+  box-shadow: 0 20px 60px rgba(201,150,42,0.13), 0 0 0 1px rgba(201,150,42,0.08);
 }
-.leistungen-portfolio-card .leistung-card-overlay {
-  min-height: unset;
-  height: 100%;
+.lp-card:hover::before { height: 100%; }
+.lp-num {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 52px;
+  font-weight: 900;
+  color: rgba(201,150,42,0.07);
+  line-height: 1;
+  pointer-events: none;
+  letter-spacing: -3px;
+  transition: color 0.3s ease;
+}
+.lp-card:hover .lp-num { color: rgba(201,150,42,0.14); }
+.lp-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(201,150,42,0.10);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  margin-bottom: 18px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.lp-card:hover .lp-icon {
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.08);
+}
+.lp-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.lp-card p {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.7;
+}
+/* Featured card (last one) */
+.lp-card--featured {
+  background: linear-gradient(145deg, #1e2b5e 0%, #12204a 100%);
+  border-color: transparent;
+}
+.lp-card--featured h3 { color: #fff; }
+.lp-card--featured p { color: rgba(255,255,255,0.65); }
+.lp-card--featured .lp-num { color: rgba(201,150,42,0.15); }
+.lp-card--featured:hover .lp-num { color: rgba(201,150,42,0.25); }
+.lp-card--featured .lp-icon {
+  background: rgba(201,150,42,0.18);
+  color: #e8b84b;
+}
+.lp-card--featured:hover .lp-icon {
+  background: var(--accent);
+  color: #fff;
+}
+.lp-card--featured:hover {
+  border-color: rgba(201,150,42,0.5);
+  box-shadow: 0 20px 60px rgba(30,43,94,0.30);
+}
+.lp-card--featured::before { background: linear-gradient(180deg, #e8b84b, #c9962a); }
+/* Scroll reveal */
+.lp-reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.6s cubic-bezier(.22,.68,0,1) var(--delay, 0s),
+              transform 0.6s cubic-bezier(.22,.68,0,1) var(--delay, 0s);
+}
+.lp-reveal.lp-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 900px) {
+  .lp-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .lp-section { padding: 64px 0; }
+  .lp-grid { grid-template-columns: 1fr; gap: 14px; }
+  .lp-card { padding: 28px 24px 24px; }
+  .lp-reveal { --delay: 0s !important; }
 }
 
 /* ── KATALOG / FENSTER ─────────────────────── */
