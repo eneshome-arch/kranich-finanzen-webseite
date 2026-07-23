@@ -744,8 +744,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .hero-trust {
   position: relative;
   margin-top: 48px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(30,43,94,0.12);
+  padding-top: 0;
+  border-top: none;
 }
 .hero-partner-ticker {
   display: block;
