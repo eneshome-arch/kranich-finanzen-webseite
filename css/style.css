@@ -469,15 +469,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   z-index: 2;
   text-align: left;
 }
-.hero-visual { position: relative; z-index: 2; min-height: 500px; }
-#kranichCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100% !important;
-  display: block;
-}
+.hero-visual { position: relative; z-index: 2; }
 
 .hero-eyebrow {
   display: inline-flex;
@@ -575,15 +567,17 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
 .hero-stat span   { font-size: 11px; color: var(--gray); margin-top: 6px; display: block; letter-spacing: 0.06em; text-transform: uppercase; }
 .hero-stat-divider { width: 1px; height: 36px; background: var(--border); flex-shrink: 0; }
 
-/* RIGHT — Browser Mockup */
+/* RIGHT — Partikel-Kranich Canvas */
 .hero-visual {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1000px;
-  perspective-origin: 50% 50%;
+  z-index: 2;
   animation: hero-fade 0.9s 0.2s ease both;
+}
+#kranichCanvas {
+  display: block;
+  width: 100%;
+  height: 500px;
+  background: transparent;
 }
 
 .hero-browser {

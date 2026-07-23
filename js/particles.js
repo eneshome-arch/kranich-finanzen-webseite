@@ -15,6 +15,7 @@
   /* ── THREE SETUP ───────────────────────────────── */
   var renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: !isMobile });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setClearColor(0x000000, 0); // fully transparent background
 
   var scene  = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
@@ -210,16 +211,14 @@
 
   /* ── RESIZE ────────────────────────────────────── */
   function resize() {
-    var parent = canvas.parentElement;
-    var w = parent.clientWidth  || parent.offsetWidth  || 600;
-    var h = parent.clientHeight || parent.offsetHeight || 500;
-    if (w < 1 || h < 1) { w = 600; h = 500; }
+    var rect = canvas.getBoundingClientRect();
+    var w = rect.width  || 600;
+    var h = rect.height || 500;
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
   }
-  // Delay first resize to let layout settle
-  setTimeout(resize, 50);
+  resize();
   window.addEventListener('resize', resize);
 
   /* ── ANIMATE ───────────────────────────────────── */
