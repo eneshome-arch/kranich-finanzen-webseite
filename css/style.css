@@ -470,6 +470,12 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   text-align: left;
 }
 .hero-visual { position: relative; z-index: 2; }
+#kranichCanvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  min-height: 420px;
+}
 
 .hero-eyebrow {
   display: inline-flex;
