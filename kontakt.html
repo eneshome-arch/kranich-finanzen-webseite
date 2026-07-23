@@ -55,7 +55,14 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Startseite</a></li>
-        <li><a href="leistungen.html">Leistungen</a></li>
+        <li class="nav-dropdown-wrap">
+          <a href="#" class="nav-dropdown-trigger" onclick="return false">Leistungen <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="nav-dropdown">
+            <a href="privatkunden.html"><div class="nav-dropdown-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="nav-dropdown-text"><span>Privatkunden</span><small>Haftpflicht, KFZ, Hausrat &amp; mehr</small></div></a>
+            <a href="gewerbekunden.html"><div class="nav-dropdown-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 00-8 0v2"/></svg></div><div class="nav-dropdown-text"><span>Gewerbekunden</span><small>Betriebshaftpflicht, Cyber &amp; mehr</small></div></a>
+            <a href="vorsorge.html"><div class="nav-dropdown-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="nav-dropdown-text"><span>Vorsorge &amp; Finanzen</span><small>Riester, ETF, PKV &amp; mehr</small></div></a>
+          </div>
+        </li>
         <li><a href="ueber-uns.html">Über uns</a></li>
         <li><a href="kontakt.html" class="active" aria-current="page">Kontakt</a></li>
       </ul>
@@ -64,18 +71,20 @@
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.14 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           0178 8960163
         </a>
-        <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
+        <a href="anfrage.html" class="btn btn-primary">Anfrage stellen</a>
       </div>
       <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
     </nav>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Startseite</a>
-    <a href="leistungen.html">Leistungen</a>
+    <a href="privatkunden.html">Privatkunden</a>
+    <a href="gewerbekunden.html">Gewerbekunden</a>
+    <a href="vorsorge.html">Vorsorge & Finanzen</a>
     <a href="ueber-uns.html">Über uns</a>
     <a href="kontakt.html" class="active" aria-current="page">Kontakt</a>
     <hr>
-    <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
+    <a href="anfrage.html" class="btn btn-primary">Anfrage stellen</a>
   </div>
 </header>
 
@@ -90,8 +99,8 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
       <span>Kontakt</span>
     </nav>
-    <h1>Sprechen wir über <span>deine Finanzen.</span></h1>
-    <p>Vereinbare jetzt dein kostenloses Erstgespräch.<br>Wir melden uns innerhalb von 24 Stunden bei dir.</p>
+    <h1>Sprechen wir über <span>Ihre Finanzen.</span></h1>
+    <p>Vereinbaren Sie jetzt Ihr kostenloses Erstgespräch.<br>Wir melden uns innerhalb von 24 Stunden bei Ihnen.</p>
 
   </div>
 
@@ -177,6 +186,15 @@
           <!-- Honeypot gegen Bots (für Menschen unsichtbar) -->
           <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off">
 
+          <div class="form-group">
+            <label for="anrede">Anrede *</label>
+            <select id="anrede" name="anrede" required>
+              <option value="">– Bitte auswählen –</option>
+              <option value="Herr">Herr</option>
+              <option value="Frau">Frau</option>
+              <option value="Divers">Divers</option>
+            </select>
+          </div>
           <div class="form-row">
             <div class="form-group">
               <label for="vorname">Vorname *</label>
@@ -189,34 +207,30 @@
           </div>
           <div class="form-row">
             <div class="form-group">
-              <label for="firma">Unternehmen</label>
-              <input type="text" id="firma" name="firma" placeholder="Musterfirma GmbH" autocomplete="organization">
+              <label for="email">E-Mail *</label>
+              <input type="email" id="email" name="email" placeholder="max@beispiel.de" required autocomplete="email">
             </div>
             <div class="form-group">
-              <label for="telefon">Telefon</label>
-              <input type="tel" id="telefon" name="telefon" placeholder="+49 ..." autocomplete="tel">
+              <label for="telefon">Telefon *</label>
+              <input type="tel" id="telefon" name="telefon" placeholder="+49 ..." required autocomplete="tel">
             </div>
-          </div>
-          <div class="form-group">
-            <label for="email">E-Mail *</label>
-            <input type="email" id="email" name="email" placeholder="max@musterfirma.de" required autocomplete="email">
           </div>
           <div class="form-group">
             <label for="betreff">Betreff / Leistung</label>
             <select id="betreff" name="betreff">
               <option value="">– Bitte auswählen –</option>
-              <option value="leistung1">Altersvorsorge</option>
-              <option value="leistung2">Staatliche Förderungen</option>
-              <option value="leistung3">Versicherungsberatung</option>
-              <option value="leistung4">Einkommensabsicherung</option>
-              <option value="leistung5">Vermögensaufbau</option>
-              <option value="leistung6">Finanzkonzept</option>
+              <option value="privat">Privatversicherungen</option>
+              <option value="gewerbe">Gewerbeversicherungen</option>
+              <option value="vorsorge">Vorsorge & Altersvorsorge</option>
+              <option value="finanzen">Vermögensaufbau & ETF</option>
+              <option value="immobilien">Immobilienfinanzierung</option>
+              <option value="schadenfall">Schadenfall / Schadenmeldung</option>
               <option value="sonstiges">Sonstiges</option>
             </select>
           </div>
           <div class="form-group">
             <label for="nachricht">Nachricht *</label>
-            <textarea id="nachricht" name="nachricht" placeholder="Schildern Sie kurz Ihr Anliegen – z.B. Altersvorsorge, Versicherung, staatliche Förderungen, Investment..." required minlength="10"></textarea>
+            <textarea id="nachricht" name="nachricht" placeholder="Schildern Sie kurz Ihr Anliegen..." required minlength="10"></textarea>
           </div>
           <div class="form-check">
             <input type="checkbox" id="datenschutz" name="datenschutz" required value="ja">
@@ -256,7 +270,7 @@
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <p style="padding:0 24px 20px;color:var(--gray);font-size:15px;line-height:1.7;">
-            Innerhalb von 24 Stunden – werktags. Wir melden uns persönlich per Telefon oder E-Mail und vereinbaren einen Beratungstermin, ganz nach deinen Wünschen auch per Video-Call.
+            Innerhalb von 24 Stunden – werktags. Wir melden uns persönlich per Telefon oder E-Mail und vereinbaren einen Beratungstermin, ganz nach Ihren Wünschen auch per Video-Call.
           </p>
         </details>
         <details style="border-bottom:1px solid var(--border);">
@@ -265,7 +279,7 @@
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <p style="padding:0 24px 20px;color:var(--gray);font-size:15px;line-height:1.7;">
-            Viele Menschen haben Anspruch auf staatliche Förderungen oder Leistungen – z.B. Riester-Förderung, Arbeitgeber-Zuschüsse zur betrieblichen Altersvorsorge oder Berufsunfähigkeitsleistungen – die sie nie abgerufen haben. Wir prüfen gemeinsam, was dir zusteht.
+            Viele Menschen haben Anspruch auf staatliche Förderungen oder Leistungen – z.B. Riester-Förderung, Arbeitgeber-Zuschüsse zur betrieblichen Altersvorsorge oder Berufsunfähigkeitsleistungen – die sie nie abgerufen haben. Wir prüfen gemeinsam, was Ihnen zusteht.
           </p>
         </details>
         <details style="border-bottom:1px solid var(--border);">
@@ -274,7 +288,7 @@
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <p style="padding:0 24px 20px;color:var(--gray);font-size:15px;line-height:1.7;">
-            Ja. Das erste Gespräch ist für dich komplett kostenfrei und unverbindlich. Wir analysieren deine Situation und zeigen dir konkrete Möglichkeiten auf – ohne Druck und ohne versteckte Kosten.
+            Ja. Das erste Gespräch ist für Sie komplett kostenfrei und unverbindlich. Wir analysieren Ihre Situation und zeigen Ihnen konkrete Möglichkeiten auf – ohne Druck und ohne versteckte Kosten.
           </p>
         </details>
         <details>
@@ -283,7 +297,7 @@
             <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
           </summary>
           <p style="padding:0 24px 20px;color:var(--gray);font-size:15px;line-height:1.7;">
-            Wir sind unabhängige Finanzberater und arbeiten mit einer Vielzahl von Gesellschaften zusammen. Wir wählen für dich immer die Lösung, die wirklich zu deiner Situation passt – nicht die mit der höchsten Provision.
+            Wir sind unabhängige Versicherungsmakler und arbeiten mit über 30 Versicherern zusammen. Wir wählen für Sie immer die Lösung, die wirklich zu Ihrer Situation passt – nicht die mit der höchsten Provision.
           </p>
         </details>
       </div>
@@ -298,16 +312,9 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img src="images/logo.png" alt="Kranich Finanzen" loading="lazy" decoding="async" width="160" height="40">
-        <p>Beratung mit Weitblick – für Menschen, die ihre Finanzen endlich in den Griff bekommen wollen.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="LinkedIn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-          <a href="#" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-        </div>
+        <p>Unabhängige Versicherungs- und Finanzberatung. Privat. Gewerblich. Vorsorge.</p>
       </div>
-      <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Startseite</a></li>
-        <li><a href="leistungen.html">Leistungen</a></li>
-        <li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
-      <div class="footer-col"><h4>Leistungen</h4><ul><li><a href="leistungen.html">Altersvorsorge</a></li><li><a href="leistungen.html">Staatliche Förderungen</a></li><li><a href="leistungen.html">Versicherungsberatung</a></li><li><a href="leistungen.html">Einkommensabsicherung</a></li><li><a href="leistungen.html">Vermögensaufbau</a></li></ul></div>
+      <div class="footer-col"><h4>Navigation</h4><ul><li><a href="index.html">Startseite</a></li><li><a href="privatkunden.html">Privatkunden</a></li><li><a href="gewerbekunden.html">Gewerbekunden</a></li><li><a href="vorsorge.html">Vorsorge & Finanzen</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul></div>
       <div class="footer-col"><h4>Kontakt</h4><ul class="footer-contact"><li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>–, – Hannover</li><li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.14 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>0178 8960163</li><li><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>info@kranichfinanzen.de</li></ul></div>
     </div>
     <div class="footer-bottom">

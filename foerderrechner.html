@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Förder-Check – Kranich Finanzen</title>
-  <meta name="description" content="Berechne in 60 Sekunden welche staatlichen Förderungen dir zustehen – kostenlos und unverbindlich.">
+  <meta name="description" content="Berechnen Sie in 60 Sekunden welche staatlichen Förderungen Ihnen zustehen – kostenlos und unverbindlich.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#1e2b5e">
   <link rel="canonical" href="https://kranichfinanzen.de/foerderrechner.html">
@@ -707,7 +707,14 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Startseite</a></li>
-        <li><a href="leistungen.html">Leistungen</a></li>
+        <li class="nav-dropdown-wrap">
+          <a href="#" class="nav-dropdown-trigger" onclick="return false">Leistungen <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="nav-dropdown">
+            <a href="privatkunden.html"><div class="nav-dropdown-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="nav-dropdown-text"><span>Privatkunden</span><small>Haftpflicht, KFZ, Hausrat &amp; mehr</small></div></a>
+            <a href="gewerbekunden.html"><div class="nav-dropdown-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 00-8 0v2"/></svg></div><div class="nav-dropdown-text"><span>Gewerbekunden</span><small>Betriebshaftpflicht, Cyber &amp; mehr</small></div></a>
+            <a href="vorsorge.html"><div class="nav-dropdown-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="nav-dropdown-text"><span>Vorsorge &amp; Finanzen</span><small>Riester, ETF, PKV &amp; mehr</small></div></a>
+          </div>
+        </li>
         <li><a href="ueber-uns.html">Über uns</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
       </ul>
@@ -716,18 +723,20 @@
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.14 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           0178 8960163
         </a>
-        <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
+        <a href="anfrage.html" class="btn btn-primary">Anfrage stellen</a>
       </div>
       <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
     </nav>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="index.html">Startseite</a>
-    <a href="leistungen.html">Leistungen</a>
+    <a href="privatkunden.html">Privatkunden</a>
+    <a href="gewerbekunden.html">Gewerbekunden</a>
+    <a href="vorsorge.html">Vorsorge &amp; Finanzen</a>
     <a href="ueber-uns.html">Über uns</a>
     <a href="kontakt.html">Kontakt</a>
     <hr>
-    <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
+    <a href="anfrage.html" class="btn btn-primary">Anfrage stellen</a>
   </div>
 </header>
 
@@ -740,7 +749,7 @@
       <div class="frc-hero-text">
         <span class="frc-hero-badge">✓ Kostenlos &nbsp;·&nbsp; Unverbindlich &nbsp;·&nbsp; 60 Sekunden</span>
         <h1>Geld vom Staat?<br><em class="frc-hero-em">Ja, gerne.</em></h1>
-        <p>Förderungen sind kein Hexenwerk – sie sind dein gutes Recht. Hol dir, was dir zusteht. Mehr Geld. Mehr Sicherheit. Mit Kranich Finanzen.</p>
+        <p>Förderungen sind kein Hexenwerk – sie sind Ihr gutes Recht. Holen Sie sich, was Ihnen zusteht. Mehr Geld. Mehr Sicherheit. Mit Kranich Finanzen.</p>
         <div class="frc-hero-actions">
           <a href="#check" class="frc-btn-gold">Jetzt Förder-Check starten →</a>
           <a href="#foerderungen" class="frc-hero-link">Was dir zusteht ↓</a>
@@ -796,23 +805,23 @@
     <div class="frc-section-head">
       <span class="frc-section-badge">🎓 Für Angestellte, Azubis &amp; Familien</span>
       <h2>Förderungen, die dein Konto<br><span class="frc-italic">feiern wird:</span></h2>
-      <p>Arbeitest du und zahlst Steuern? Dann hast du fast sicher Anspruch auf staatliche Förderungen – die meisten wissen es nur nicht.</p>
+      <p>Arbeiten Sie und zahlen Steuern? Dann haben Sie fast sicher Anspruch auf staatliche Förderungen – die meisten wissen es nur nicht.</p>
     </div>
     <div class="frc-cards">
       <div class="frc-card">
         <span class="frc-card-cat">Vermögenswirksame Leistungen (VWL)</span>
-        <h3>Hol dir Geld von deinem Chef – jeden Monat.</h3>
-        <p>Mit VWL unterstützt dich dein Arbeitgeber beim Vermögensaufbau. Du sparst – und dein Chef zahlt monatlich bis zu 40&nbsp;€ extra dazu.</p>
+        <h3>Geld von Ihrem Arbeitgeber – jeden Monat.</h3>
+        <p>Mit VWL unterstützt Sie Ihr Arbeitgeber beim Vermögensaufbau. Sie sparen – und Ihr Arbeitgeber zahlt monatlich bis zu 40&nbsp;€ extra dazu.</p>
       </div>
       <div class="frc-card">
         <span class="frc-card-cat">Riester-Rente</span>
         <h3>Spare fürs Alter – mit Zuschuss vom Staat.</h3>
-        <p>Der Staat zahlt dir bis zu 175&nbsp;€ Grundzulage im Jahr direkt aufs Rentenkonto – plus 185&nbsp;€ für jedes Kind.</p>
+        <p>Der Staat zahlt Ihnen bis zu 175&nbsp;€ Grundzulage im Jahr direkt aufs Rentenkonto – plus 185&nbsp;€ für jedes Kind.</p>
       </div>
       <div class="frc-card">
         <span class="frc-card-cat">Betriebliche Altersvorsorge (bAV)</span>
         <h3>Altersvorsorge, steuerlich richtig gemacht.</h3>
-        <p>Durch die bAV sparst du dir bis zu 1.800&nbsp;€ im Jahr an Steuern und Sozialabgaben. Dein Netto bleibt dabei fast gleich.</p>
+        <p>Durch die bAV sparen Sie bis zu 1.800&nbsp;€ im Jahr an Steuern und Sozialabgaben. Ihr Netto bleibt dabei fast gleich.</p>
       </div>
       <div class="frc-card">
         <span class="frc-card-cat">Wohnungsbauprämie</span>
@@ -838,36 +847,36 @@
           <li class="frc-step-item">
             <span class="frc-step-num">01</span>
             <div class="frc-step-content">
-              <h4>Mach den ersten Schritt</h4>
-              <p>Starte deinen Förder-Check – anonym, kostenlos und in unter 60 Sekunden. Wir zeigen dir sofort, was dir zusteht.</p>
+              <h4>Machen Sie den ersten Schritt</h4>
+              <p>Starten Sie Ihren Förder-Check – anonym, kostenlos und in unter 60 Sekunden. Wir zeigen Ihnen sofort, was Ihnen zusteht.</p>
             </div>
           </li>
           <li class="frc-step-item">
             <span class="frc-step-num">02</span>
             <div class="frc-step-content">
-              <h4>Dein Plan kommt zu dir</h4>
-              <p>Dein persönlicher Berater meldet sich – ohne Stress, ohne Verpflichtungen. Nur dein maßgeschneiderter Förderplan.</p>
+              <h4>Ihr Plan kommt zu Ihnen</h4>
+              <p>Ihr persönlicher Berater meldet sich – ohne Stress, ohne Verpflichtungen. Nur Ihr maßgeschneiderter Förderplan.</p>
             </div>
           </li>
           <li class="frc-step-item">
             <span class="frc-step-num">03</span>
             <div class="frc-step-content">
               <h4>Förderung gesichert, fertig</h4>
-              <p>Wir kümmern uns um alle Anträge und Unterlagen. Du lehnst dich zurück – und das Geld kommt aufs Konto.</p>
+              <p>Wir kümmern uns um alle Anträge und Unterlagen. Sie lehnen sich zurück – und das Geld kommt aufs Konto.</p>
             </div>
           </li>
           <li class="frc-step-item">
             <span class="frc-step-num">04</span>
             <div class="frc-step-content">
               <h4>Alles im Blick behalten</h4>
-              <p>Im jährlichen Check-up prüfen wir, ob sich was geändert hat – und optimieren deinen Plan weiter.</p>
+              <p>Im jährlichen Check-up prüfen wir, ob sich etwas geändert hat – und optimieren Ihren Plan weiter.</p>
             </div>
           </li>
           <li class="frc-step-item">
             <span class="frc-step-num">05</span>
             <div class="frc-step-content">
               <h4>Auf Erfolgskurs bleiben</h4>
-              <p>Dein Berater bleibt dran – du bist nie allein. Immer erreichbar, immer kostenlos, immer auf deiner Seite.</p>
+              <p>Ihr Berater bleibt dran – Sie sind nie allein. Immer erreichbar, immer kostenlos, immer auf Ihrer Seite.</p>
             </div>
           </li>
         </ol>
@@ -912,7 +921,7 @@
     <div class="frc-check-head">
       <span class="frc-check-label-text">Dein Förder-Check:</span>
       <h2>Was steht dir zu?</h2>
-      <p>Beantworte 5 kurze Fragen – wir zeigen dir deinen persönlichen Förder-Betrag. Schnell &amp; unverbindlich.</p>
+      <p>Beantworten Sie 5 kurze Fragen – wir zeigen Ihnen Ihren persönlichen Förder-Betrag. Schnell &amp; unverbindlich.</p>
     </div>
     <div class="frc-check-body">
 
@@ -965,7 +974,7 @@
         <!-- Formular -->
         <form class="frc-form" id="frcForm" novalidate>
           <div class="frc-field">
-            <label for="frcAlter">Wie alt bist du?</label>
+            <label for="frcAlter">Wie alt sind Sie?</label>
             <select id="frcAlter" name="alter">
               <option value="" disabled selected>Bitte wählen …</option>
               <option value="unter25">18 – 25 Jahre</option>
@@ -975,7 +984,7 @@
             </select>
           </div>
           <div class="frc-field">
-            <label for="frcBeruf">Bist du angestellt oder Azubi?</label>
+            <label for="frcBeruf">Sind Sie angestellt oder Azubi?</label>
             <select id="frcBeruf" name="beruf">
               <option value="" disabled selected>Bitte wählen …</option>
               <option value="angestellt">Fest angestellt</option>
@@ -985,7 +994,7 @@
             </select>
           </div>
           <div class="frc-field">
-            <label for="frcVwl">Hast du deine VWL schon bezogen? <span title="Vermögenswirksame Leistungen vom Arbeitgeber" style="cursor:help;color:#94a3b8;">🤔</span></label>
+            <label for="frcVwl">Haben Sie Ihre VWL schon bezogen? <span title="Vermögenswirksame Leistungen vom Arbeitgeber" style="cursor:help;color:#94a3b8;">🤔</span></label>
             <select id="frcVwl" name="vwl">
               <option value="" disabled selected>Bitte wählen …</option>
               <option value="nein">Nein, noch nicht</option>
@@ -993,7 +1002,7 @@
             </select>
           </div>
           <div class="frc-field">
-            <label for="frcFamilie">Bist du verheiratet?</label>
+            <label for="frcFamilie">Sind Sie verheiratet?</label>
             <select id="frcFamilie" name="familie">
               <option value="" disabled selected>Bitte wählen …</option>
               <option value="ledig">Ledig / Single</option>
@@ -1001,7 +1010,7 @@
             </select>
           </div>
           <div class="frc-field">
-            <label for="frcKinder">Hast du Kinder?</label>
+            <label for="frcKinder">Haben Sie Kinder?</label>
             <select id="frcKinder" name="kinder">
               <option value="" disabled selected>Bitte wählen …</option>
               <option value="0">Keine Kinder</option>
@@ -1036,7 +1045,7 @@
     <div class="frc-banner-inner">
       <div class="frc-banner-text">
         <h3>Geld verschenken?<br><em class="frc-italic">Muss nicht sein!</em></h3>
-        <p>Wir zeigen dir kostenlos, welche Zuschüsse, Boni und Steuervorteile du dir holen kannst.</p>
+        <p>Wir zeigen Ihnen kostenlos, welche Zuschüsse, Boni und Steuervorteile Sie sich holen können.</p>
       </div>
       <a href="kontakt.html" class="frc-btn-gold">Kostenlos beraten lassen</a>
     </div>
@@ -1051,16 +1060,16 @@
       <div class="frc-vergleich-title">
         <h2>Der <span class="frc-italic">Shortcut</span><br>zur Förderung.</h2>
         <span class="frc-badge-small">Wen würde dein Konto wählen?</span>
-        <p style="font-size:14px;color:#64748b;line-height:1.7;">Ohne Plan durchs Förderungs-Labyrinth – oder easy Cash abholen? Bei Kranich Finanzen checkst du, was dir zusteht, und wir holen das Maximum für dich raus.</p>
+        <p style="font-size:14px;color:#64748b;line-height:1.7;">Ohne Plan durchs Förderungs-Labyrinth – oder gezielt alle Vorteile nutzen? Bei Kranich Finanzen prüfen wir, was Ihnen zusteht, und holen das Maximum für Sie heraus.</p>
       </div>
 
       <div class="frc-col-ohne">
         <div class="frc-ver-col-head">Deine Förderung ohne Beratung</div>
         <ul class="frc-ver-list">
-          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Du weißt nicht mal, dass dir VWL zusteht.</li>
-          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Dein Chef zahlt extra – du weißt's nur nicht.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Sie wissen nicht, dass Ihnen VWL zusteht.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Ihr Arbeitgeber zahlt extra – Sie wissen es nur nicht.</li>
           <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Förderungen googeln, nach 3 Minuten aufgeben.</li>
-          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Niemand hilft dir beim Antrag.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Niemand hilft Ihnen beim Antrag.</li>
           <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--x">✕</span>Steuervorteile bleiben ungenutzt. Konto bleibt leer.</li>
         </ul>
       </div>
@@ -1068,10 +1077,10 @@
       <div class="frc-col-mit">
         <div class="frc-ver-col-head frc-ver-col-head--mit">Deine Förderung mit Kranich Finanzen 🚀</div>
         <ul class="frc-ver-list">
-          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Wir zeigen dir alles – von Staat, Chef &amp; Kasse.</li>
-          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Wir erklären es so, dass es wirklich Sinn macht.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Wir zeigen Ihnen alles – von Staat, Arbeitgeber &amp; Kasse.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Wir erklären es so, dass es wirklich Sinn ergibt.</li>
           <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Den Antrag? Machen wir gemeinsam.</li>
-          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Dein Berater ist immer erreichbar – kostenlos.</li>
+          <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Ihr Berater ist immer erreichbar – kostenlos.</li>
           <li class="frc-ver-item"><span class="frc-ver-icon frc-ver-icon--ok">✓</span>Mehr Geld aufs Konto – statt liegen lassen.</li>
         </ul>
         <div class="frc-ver-cta">
@@ -1106,7 +1115,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img src="images/logo.png" alt="Kranich Finanzen" loading="lazy" decoding="async" width="160" height="40">
-        <p>Beratung mit Weitblick – für Menschen, die ihre Finanzen endlich in den Griff bekommen wollen.</p>
+        <p>Unabhängige Versicherungs- und Finanzberatung. Privat. Gewerblich. Vorsorge.</p>
         <div class="footer-social">
           <a href="#" aria-label="LinkedIn"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
           <a href="#" aria-label="Facebook"><svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
@@ -1114,7 +1123,7 @@
       </div>
       <div class="footer-col">
         <h4>Navigation</h4>
-        <ul><li><a href="index.html">Startseite</a></li><li><a href="leistungen.html">Leistungen</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
+        <ul><li><a href="index.html">Startseite</a></li><li><a href="privatkunden.html">Privatkunden</a></li><li><a href="gewerbekunden.html">Gewerbekunden</a></li><li><a href="vorsorge.html">Vorsorge &amp; Finanzen</a></li><li><a href="ueber-uns.html">Über uns</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
       </div>
       <div class="footer-col">
         <h4>Tools</h4>

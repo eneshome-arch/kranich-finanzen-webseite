@@ -32,7 +32,14 @@
       </a>
       <ul class="nav-links">
         <li><a href="index.html">Startseite</a></li>
-        <li><a href="leistungen.html" class="active" aria-current="page">Leistungen</a></li>
+        <li class="nav-dropdown-wrap">
+          <a href="#" class="nav-dropdown-trigger active" onclick="return false">Leistungen <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+          <div class="nav-dropdown">
+            <a href="privatkunden.html"><div class="nav-dropdown-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="nav-dropdown-text"><span>Privatkunden</span><small>Haftpflicht, KFZ, Hausrat &amp; mehr</small></div></a>
+            <a href="gewerbekunden.html"><div class="nav-dropdown-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a4 4 0 00-8 0v2"/></svg></div><div class="nav-dropdown-text"><span>Gewerbekunden</span><small>Betriebshaftpflicht, Cyber &amp; mehr</small></div></a>
+            <a href="vorsorge.html"><div class="nav-dropdown-icon"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div><div class="nav-dropdown-text"><span>Vorsorge &amp; Finanzen</span><small>Riester, ETF, PKV &amp; mehr</small></div></a>
+          </div>
+        </li>
         <li><a href="ueber-uns.html">Über uns</a></li>
         <li><a href="kontakt.html">Kontakt</a></li>
       </ul>
@@ -41,7 +48,7 @@
           <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.07 1.14 2 2 0 012.06 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
           0178 8960163
         </a>
-        <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
+        <a href="anfrage.html" class="btn btn-primary">Anfrage stellen</a>
       </div>
       <button class="hamburger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
     </nav>
@@ -52,7 +59,7 @@
     <a href="ueber-uns.html">Über uns</a>
     <a href="kontakt.html">Kontakt</a>
     <hr>
-    <a href="kontakt.html" class="btn btn-primary">Anfrage stellen</a>
+    <a href="anfrage.html" class="btn btn-primary">Anfrage stellen</a>
   </div>
 </header>
 

@@ -198,6 +198,32 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
+  // ── About section scroll reveal ───────────
+  var abtObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('abt-visible');
+        abtObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.abt-row--reveal').forEach(function(el) {
+    abtObs.observe(el);
+  });
+
+  // ── Process circles scroll reveal ──────────
+  var procObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('proc-visible');
+        procObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.proc-item--reveal').forEach(function(el, i) {
+    el.style.transitionDelay = (i * 0.12) + 's';
+    procObs.observe(el);
+  });
 
   // ── Leistungen Carousel (mobile) ─────────
   const leistungenGrid = document.querySelector('.leistungen-grid');
@@ -963,17 +989,265 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 })();
 
-// ── Scroll-Reveal für Leistungskarten ──────
+// ── Cinematic Horizontal Scroll ───────────
 (function () {
-  var cards = document.querySelectorAll('.lp-reveal');
-  if (!cards.length) return;
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) {
+  var wrap = document.getElementById('cineWrap');
+  var vp   = document.getElementById('cineViewport');
+  var rail = document.getElementById('cineRail');
+  var bar  = document.getElementById('cineBar');
+  if (!wrap || !vp || !rail) return;
+
+  var slides = Array.from(rail.querySelectorAll('.cine-slide'));
+  var total  = slides.length;
+  var last   = -1;
+
+  // Set accent colors
+  slides.forEach(function (s) {
+    var a = s.dataset.accent;
+    if (a) s.style.setProperty('--sa', a);
+  });
+
+  function tick() {
+    var wrapRect = wrap.getBoundingClientRect();
+    var wrapTop  = wrapRect.top;
+    var wrapH    = wrap.offsetHeight;
+    var vh       = window.innerHeight;
+    var maxScroll = wrapH - vh;
+
+    // Pin logic
+    if (wrapTop > 0) {
+      // Before section — sit at top
+      vp.className = 'cine-viewport';
+      vp.style.position = 'absolute';
+      vp.style.top = '0';
+      vp.style.bottom = '';
+    } else if (wrapTop <= 0 && wrapRect.bottom > vh) {
+      // In section — pin to screen
+      vp.className = 'cine-viewport cine-pin';
+      vp.style.position = '';
+      vp.style.top = '';
+      vp.style.bottom = '';
+    } else {
+      // Past section — sit at bottom
+      vp.className = 'cine-viewport cine-end';
+      vp.style.position = '';
+      vp.style.top = '';
+      vp.style.bottom = '';
+    }
+
+    // Scroll progress
+    var scrolled = -wrapTop;
+    var pct = Math.max(0, Math.min(1, scrolled / maxScroll));
+
+    // Move rail
+    var px = pct * (total - 1) * window.innerWidth;
+    rail.style.transform = 'translate3d(' + (-px).toFixed(0) + 'px, 0, 0)';
+
+    // Progress bar
+    if (bar) bar.style.width = (pct * 100).toFixed(1) + '%';
+
+    // Active slide
+    var idx = Math.min(Math.round(pct * (total - 1)), total - 1);
+    if (idx !== last) {
+      slides.forEach(function (s, i) { s.classList.toggle('cine-active', i === idx); });
+      last = idx;
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  // Start
+  slides[0].classList.add('cine-active');
+  last = 0;
+  requestAnimationFrame(tick);
+})();
+
+/* ── SERVICE PAGES – Particle Canvas ── */
+(function() {
+  var wraps = document.querySelectorAll('.svc-showcase');
+  if (!wraps.length) return;
+
+  wraps.forEach(function(wrap) {
+    var canvas = wrap.querySelector('.svc-showcase-canvas');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var shapes = [];
+    var count = 18;
+
+    function resize() {
+      canvas.width = wrap.offsetWidth;
+      canvas.height = wrap.offsetHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Shape types: ring, diamond, triangle, cross
+    var types = ['ring', 'diamond', 'triangle', 'cross'];
+    for (var i = 0; i < count; i++) {
+      shapes.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.25,
+        vy: -Math.random() * 0.15 - 0.05,
+        size: Math.random() * 18 + 10,
+        rotation: Math.random() * Math.PI * 2,
+        rotSpeed: (Math.random() - 0.5) * 0.008,
+        type: types[Math.floor(Math.random() * types.length)],
+        alpha: Math.random() * 0.12 + 0.04,
+        gold: Math.random() > 0.5
+      });
+    }
+
+    function drawShape(s) {
+      ctx.save();
+      ctx.translate(s.x, s.y);
+      ctx.rotate(s.rotation);
+      ctx.lineWidth = 1.5;
+      var color = s.gold ? 'rgba(201,150,42,' + s.alpha + ')' : 'rgba(30,43,94,' + s.alpha + ')';
+      ctx.strokeStyle = color;
+
+      if (s.type === 'ring') {
+        ctx.beginPath();
+        ctx.arc(0, 0, s.size, 0, Math.PI * 2);
+        ctx.stroke();
+      } else if (s.type === 'diamond') {
+        ctx.beginPath();
+        ctx.moveTo(0, -s.size);
+        ctx.lineTo(s.size * 0.6, 0);
+        ctx.lineTo(0, s.size);
+        ctx.lineTo(-s.size * 0.6, 0);
+        ctx.closePath();
+        ctx.stroke();
+      } else if (s.type === 'triangle') {
+        ctx.beginPath();
+        ctx.moveTo(0, -s.size);
+        ctx.lineTo(s.size * 0.87, s.size * 0.5);
+        ctx.lineTo(-s.size * 0.87, s.size * 0.5);
+        ctx.closePath();
+        ctx.stroke();
+      } else if (s.type === 'cross') {
+        var h = s.size * 0.7;
+        ctx.beginPath();
+        ctx.moveTo(-h, 0); ctx.lineTo(h, 0);
+        ctx.moveTo(0, -h); ctx.lineTo(0, h);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (var i = 0; i < shapes.length; i++) {
+        var s = shapes[i];
+        s.x += s.vx;
+        s.y += s.vy;
+        s.rotation += s.rotSpeed;
+
+        // Wrap
+        if (s.y < -s.size * 2) s.y = canvas.height + s.size * 2;
+        if (s.x < -s.size * 2) s.x = canvas.width + s.size * 2;
+        if (s.x > canvas.width + s.size * 2) s.x = -s.size * 2;
+
+        drawShape(s);
+      }
+      requestAnimationFrame(draw);
+    }
+    draw();
+  });
+})();
+
+/* ── SERVICE PAGES – Showcase Count-Up ── */
+(function() {
+  var showcase = document.querySelector('.svc-showcase');
+  if (!showcase) return;
+
+  var counted = false;
+  var obs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting && !counted) {
+      counted = true;
+      var els = showcase.querySelectorAll('[data-count]');
+      els.forEach(function(el) {
+        var target = parseInt(el.dataset.count, 10);
+        var suffix = el.dataset.suffix || '';
+        var duration = Math.min(2000, 800 + target * 4);
+        var start = performance.now();
+        function step(now) {
+          var t = Math.min((now - start) / duration, 1);
+          t = 1 - Math.pow(1 - t, 3); // easeOutCubic
+          el.textContent = Math.round(target * t) + suffix;
+          if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+      obs.disconnect();
+    }
+  }, { threshold: 0.3 });
+  obs.observe(showcase);
+})();
+
+/* ── SERVICE PAGES – Cinematic Scroll & 3D Tilt ── */
+(function() {
+  // Scroll-triggered reveal for svc- elements
+  var svcTargets = document.querySelectorAll('.svc-category, .svc-trust, .svc-showcase');
+  if (!svcTargets.length) return;
+
+  // Mark page as JS-ready so CSS animations only apply when JS works
+  document.documentElement.classList.add('svc-js-ready');
+
+  var svcObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
       if (e.isIntersecting) {
-        e.target.classList.add('lp-visible');
-        observer.unobserve(e.target);
+        e.target.classList.add('svc-in-view');
+        svcObs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.15 });
-  cards.forEach(function (c) { observer.observe(c); });
+  }, { threshold: 0.05 });
+
+  svcTargets.forEach(function(el) { svcObs.observe(el); });
+
+  // 3D Mouse Tilt on svc-cards (desktop only)
+  if (window.matchMedia('(hover: hover) and (min-width: 768px)').matches) {
+    document.addEventListener('mousemove', function(e) {
+      var cards = document.querySelectorAll('.svc-card');
+      cards.forEach(function(card) {
+        var rect = card.getBoundingClientRect();
+        var inCard = (
+          e.clientX >= rect.left && e.clientX <= rect.right &&
+          e.clientY >= rect.top && e.clientY <= rect.bottom
+        );
+        if (inCard) {
+          var x = (e.clientX - rect.left) / rect.width;
+          var y = (e.clientY - rect.top) / rect.height;
+          var rotX = (0.5 - y) * 12;   // max 6deg
+          var rotY = (x - 0.5) * 12;
+          card.style.transform = 'perspective(800px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg) scale(1.03)';
+          card.classList.add('svc-tilt-active');
+        } else if (card.classList.contains('svc-tilt-active')) {
+          card.style.transform = '';
+          card.classList.remove('svc-tilt-active');
+        }
+      });
+    });
+  }
+
+  // Parallax-drift for category orbs
+  var cats = document.querySelectorAll('.svc-category');
+  if (cats.length) {
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          var scrollY = window.scrollY;
+          cats.forEach(function(cat) {
+            var rect = cat.getBoundingClientRect();
+            var center = rect.top + rect.height / 2;
+            var offset = (window.innerHeight / 2 - center) * 0.04;
+            cat.style.setProperty('--orb-shift', offset + 'px');
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
 })();
