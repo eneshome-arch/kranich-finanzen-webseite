@@ -211,13 +211,15 @@
   /* ── RESIZE ────────────────────────────────────── */
   function resize() {
     var parent = canvas.parentElement;
-    var w = parent.clientWidth;
-    var h = parent.clientHeight;
+    var w = parent.clientWidth  || parent.offsetWidth  || 600;
+    var h = parent.clientHeight || parent.offsetHeight || 500;
+    if (w < 1 || h < 1) { w = 600; h = 500; }
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
   }
-  resize();
+  // Delay first resize to let layout settle
+  setTimeout(resize, 50);
   window.addEventListener('resize', resize);
 
   /* ── ANIMATE ───────────────────────────────────── */
