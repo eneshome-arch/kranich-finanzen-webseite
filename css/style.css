@@ -4902,7 +4902,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .hv-scene { transform: scale(0.85); }
 }
 @media (max-width: 640px) {
-  .hv-scene { display: none; }
+  .hv-scene { width: 100%; height: auto; min-height: 420px; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
