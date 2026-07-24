@@ -4,6 +4,13 @@ window.scrollTo(0, 0);
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ── Mobile: move hero-visual between desc and actions ──
+  if (window.innerWidth <= 768) {
+    const hv = document.querySelector('.hero-visual');
+    const desc = document.querySelector('.hero-desc');
+    if (hv && desc) desc.after(hv);
+  }
+
   // ── Header scroll effect ──────────────────
   const header = document.getElementById('header');
   if (header) {
