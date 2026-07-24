@@ -14,8 +14,6 @@
   <link rel="canonical" href="https://kranichfinanzen.de/anfrage.html">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="images/logo-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
   <style>
     /* ═══ ANFRAGE LANDING PAGE ═══════════════════════════════ */
     :root {
@@ -896,6 +894,13 @@
               <textarea id="anfMsg" name="nachricht" placeholder="Beschreiben Sie kurz Ihr Anliegen..." rows="3"></textarea>
             </div>
 
+            <div class="form-check" style="margin-bottom:14px;display:flex;align-items:flex-start;gap:10px;">
+              <input type="checkbox" id="datenschutz" name="datenschutz" required value="ja" style="margin-top:3px;">
+              <label for="datenschutz" style="font-size:12px;color:#64748b;line-height:1.5;">
+                Ich habe die <a href="datenschutz.html" style="text-decoration:underline;color:#6b7280;">Datenschutzerklärung</a> gelesen und bin mit der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage einverstanden. *
+              </label>
+            </div>
+
             <button type="submit" class="anf-submit">Kostenlos anfragen</button>
 
             <p class="anf-form-note">Ihre Daten werden verschlüsselt übertragen und nur für die Kontaktaufnahme verwendet. <a href="datenschutz.html" style="text-decoration:underline;">Datenschutz</a></p>
@@ -957,7 +962,7 @@
         <div class="anf-proof-label">zufriedene Kunden</div>
       </div>
       <div class="anf-proof-card anf-reveal" style="transition-delay:.08s">
-        <div class="anf-proof-num">10<small>+</small></div>
+        <div class="anf-proof-num">15<small>+</small></div>
         <div class="anf-proof-label">Jahre Erfahrung</div>
       </div>
       <div class="anf-proof-card anf-reveal" style="transition-delay:.16s">

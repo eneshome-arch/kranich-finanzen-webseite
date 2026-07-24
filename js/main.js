@@ -1185,6 +1185,104 @@ document.addEventListener('DOMContentLoaded', () => {
   obs.observe(showcase);
 })();
 
+/* ── SERVICE PAGES – Holographic Logo Background ── */
+(function() {
+  var slides = document.querySelectorAll('.cine-slide');
+  if (!slides.length) return;
+
+  var logoImg = new Image();
+  logoImg.src = 'images/logo-icon.png';
+
+  logoImg.onload = function() {
+    slides.forEach(function(slide) {
+      var canvas = document.createElement('canvas');
+      canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;';
+      slide.appendChild(canvas);
+
+      var ctx = canvas.getContext('2d');
+      var holos = [];
+      var count = 6;
+
+      function resize() {
+        canvas.width = slide.offsetWidth;
+        canvas.height = slide.offsetHeight;
+      }
+      resize();
+      window.addEventListener('resize', function() { resize(); });
+
+      // Distribute across a grid to avoid clumping
+      var cols = 3, rows = 2;
+      for (var i = 0; i < count; i++) {
+        var col = i % cols;
+        var row = Math.floor(i / cols);
+        var cellW = (canvas.width || 1400) / cols;
+        var cellH = (canvas.height || 800) / rows;
+        holos.push({
+          x: cellW * col + cellW * (0.2 + Math.random() * 0.6),
+          y: cellH * row + cellH * (0.2 + Math.random() * 0.6),
+          size: 50 + Math.random() * 40,
+          rotation: (Math.random() - 0.5) * 0.2,
+          rotSpeed: (Math.random() - 0.5) * 0.0008,
+          driftX: (Math.random() - 0.5) * 0.08,
+          driftY: (Math.random() - 0.5) * 0.05,
+          alpha: 0.04 + Math.random() * 0.03,
+          pulseOffset: Math.random() * Math.PI * 2,
+          pulseSpeed: 0.005 + Math.random() * 0.004
+        });
+      }
+
+      var t = 0;
+
+      function draw() {
+        t++;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (var i = 0; i < holos.length; i++) {
+          var h = holos[i];
+          h.x += h.driftX;
+          h.y += h.driftY;
+          h.rotation += h.rotSpeed;
+
+          if (h.x < -h.size) h.x = canvas.width + h.size;
+          if (h.x > canvas.width + h.size) h.x = -h.size;
+          if (h.y < -h.size) h.y = canvas.height + h.size;
+          if (h.y > canvas.height + h.size) h.y = -h.size;
+
+          var pulse = Math.sin(t * h.pulseSpeed + h.pulseOffset) * 0.5 + 0.5;
+          var alpha = h.alpha * (0.5 + pulse * 0.5);
+
+          ctx.save();
+          ctx.translate(h.x, h.y);
+          ctx.rotate(h.rotation);
+
+          var w = h.size;
+          var ht = h.size * 1.4;
+
+          // Glow
+          ctx.globalAlpha = alpha * 0.5;
+          ctx.shadowColor = 'rgba(201,150,42,0.4)';
+          ctx.shadowBlur = 30;
+          ctx.drawImage(logoImg, -w / 2, -ht / 2, w, ht);
+
+          // Main hologram
+          ctx.shadowBlur = 0;
+          ctx.globalAlpha = alpha;
+          ctx.drawImage(logoImg, -w / 2, -ht / 2, w, ht);
+
+          // Screen blend
+          ctx.globalCompositeOperation = 'screen';
+          ctx.globalAlpha = alpha * 0.4;
+          ctx.drawImage(logoImg, -w / 2, -ht / 2, w, ht);
+
+          ctx.restore();
+        }
+        requestAnimationFrame(draw);
+      }
+      draw();
+    });
+  };
+})();
+
 /* ── SERVICE PAGES – Cinematic Scroll & 3D Tilt ── */
 (function() {
   // Scroll-triggered reveal for svc- elements
@@ -1250,4 +1348,78 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, { passive: true });
   }
+
+  // ── Hero Finanzplan: Multi-layer mouse parallax ──
+  var hvDoc = document.getElementById('hvDoc');
+  var hvScene = document.getElementById('hvScene');
+  if (hvDoc && hvScene && window.matchMedia('(hover: hover) and (min-width: 1024px)').matches) {
+    var hvOrbs = hvScene.querySelectorAll('.hv-orb');
+    var hvRaf = null;
+    var hvTarget = { x: 0, y: 0 };
+    var hvCurrent = { x: 0, y: 0 };
+
+    // Smooth lerp animation loop
+    function hvLerp() {
+      hvCurrent.x += (hvTarget.x - hvCurrent.x) * 0.08;
+      hvCurrent.y += (hvTarget.y - hvCurrent.y) * 0.08;
+
+      var rx = hvCurrent.y * 14;   // rotateX from Y mouse
+      var ry = hvCurrent.x * 20;   // rotateY from X mouse
+
+      hvDoc.style.transform = 'perspective(1200px) rotateY(' + ry + 'deg) rotateX(' + rx + 'deg)';
+
+      // Orbs move in opposite directions (parallax depth)
+      hvOrbs.forEach(function(orb, i) {
+        var depth = 1 + (i % 3) * 0.6; // different depths
+        var ox = hvCurrent.x * 22 * depth * (i % 2 === 0 ? 1 : -1);
+        var oy = hvCurrent.y * 16 * depth * (i % 2 === 0 ? -1 : 1);
+        orb.style.setProperty('--px', ox + 'px');
+        orb.style.setProperty('--py', oy + 'px');
+        orb.style.transform = 'translate(calc(var(--px, 0px)), calc(var(--py, 0px)))';
+      });
+
+      hvRaf = requestAnimationFrame(hvLerp);
+    }
+
+    hvScene.addEventListener('mouseenter', function() {
+      hvDoc.style.animation = 'none';
+      hvDoc.classList.remove('hv-floating');
+      if (!hvRaf) hvRaf = requestAnimationFrame(hvLerp);
+    });
+
+    hvScene.addEventListener('mousemove', function(e) {
+      var rect = hvScene.getBoundingClientRect();
+      hvTarget.x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+      hvTarget.y = -((e.clientY - rect.top) / rect.height - 0.5) * 2;
+    });
+
+    hvScene.addEventListener('mouseleave', function() {
+      hvTarget.x = 0;
+      hvTarget.y = 0;
+      // Let lerp settle back to 0, then restore float
+      setTimeout(function() {
+        if (Math.abs(hvCurrent.x) < 0.01 && Math.abs(hvCurrent.y) < 0.01) {
+          cancelAnimationFrame(hvRaf);
+          hvRaf = null;
+          hvDoc.style.transform = '';
+          hvDoc.style.animation = '';
+          hvOrbs.forEach(function(orb) { orb.style.transform = ''; });
+        }
+      }, 800);
+    });
+
+    // Trigger float class after entrance completes
+    setTimeout(function() { hvDoc.classList.add('hv-floating'); }, 1500);
+  }
+
+  // ── Hero Finanzplan: count-up ──
+  try {
+    var hvVals = document.querySelectorAll('.hv-val[data-to]');
+    hvVals.forEach(function(el) {
+      var target = parseInt(el.getAttribute('data-to'), 10);
+      if (isNaN(target)) return;
+      // Sofort finale Zahl setzen als Fallback
+      el.textContent = target;
+    });
+  } catch(e) { console.warn('hv-val fallback error', e); }
 })();

@@ -1,30 +1,31 @@
 # Kranich Finanzen – Website
 
-Offizielle Website von **Kranich Finanzen** – unabhängiger Versicherungsmakler und Finanzberater mit Sitz in Hannover.
+Offizielle Website von **Kranich Finanzen** – unabhängiger Versicherungsmakler und Finanzberater mit Sitz in Hannover. Geführt von Cem Özdemir & Noel Diaz.
 
 ## Seiten
 
 | Seite | Beschreibung |
 |-------|-------------|
-| `index.html` | Startseite mit Hero, Leistungsbereiche, Über-uns, Vorteile, Timeline, CTA |
+| `index.html` | Startseite mit Hero-Finanzplan, Leistungsbereiche, Cinematic Scroll, Google Reviews, Timeline, CTA |
 | `privatkunden.html` | Alle Privatversicherungen (Haftpflicht, Hausrat, KFZ, BU, Kranken u.v.m.) |
 | `gewerbekunden.html` | Alle Gewerbeversicherungen (Betriebshaftpflicht, Cyber, D&O u.v.m.) |
 | `vorsorge.html` | Vorsorge & Finanzen (Riester, Rürup, ETF, PKV, Immobilien) |
-| `ueber-uns.html` | Unternehmen, Werte, Qualifikationen, Standort |
-| `kontakt.html` | Kontaktformular, Rückruf-Service, Anfahrt |
+| `ueber-uns.html` | Geschäftsführung, Werte, Qualifikationen, Standort |
+| `kontakt.html` | Kontaktformular, Google Maps, Anfahrt |
 | `anfrage.html` | Landing Page für Erstberatung / Social Media |
 | `foerderrechner.html` | Förder-Check Marketing-Page |
-| `impressum.html` | Impressum |
-| `datenschutz.html` | Datenschutzerklärung |
+| `leistungen.html` | Leistungsübersicht |
+| `impressum.html` | Impressum (§ 5 DDG) |
+| `datenschutz.html` | Datenschutzerklärung (DSGVO) |
 
 ## Technik
 
 - **Typ:** Statische Website (HTML, CSS, JS)
 - **Hosting:** GitHub Pages
-- **Schrift:** Inter (Google Fonts)
+- **Schrift:** Inter (lokal gehostet, `css/fonts/`)
 - **CSS:** `css/style.css`
 - **JS:** `js/main.js`
-- **Dev-Server:** `python3 -m http.server 9090` im Projektordner
+- **Dev-Server:** `python3 -m http.server 9093` im Projektordner
 
 ## Brandfarben
 
@@ -37,13 +38,23 @@ Offizielle Website von **Kranich Finanzen** – unabhängiger Versicherungsmakle
 ## Features
 
 - Responsive Design (Mobile-first)
-- Cinematic 3D Scroll-Animationen (IntersectionObserver)
-- Glasmorphism-Cards mit Mouse-Tilt-Effekt
-- Animierte geometrische Formen (Canvas)
-- SVG Wave-Animationen in Hero-Sections
-- Alternating Dark/Light Sections mit Gradient-Orbs
+- Interaktiver Finanzplan im Hero (selbstzeichnende SVG-Charts, Count-Up, 3D Mouse-Parallax)
+- Cinematic Horizontal-Scroll Leistungssektion
+- Glasmorphism-Orbs mit Backdrop-Blur
+- Holographischer Licht-Scan-Effekt
+- Google Reviews Sektion
+- Canvas-basierte geometrische Animationen
 - Count-Up Animationen für Statistiken
 - Förder-Check mit interaktivem Rechner
+- DSGVO-konform: Fonts lokal, kein Tracking, kein Analytics
+
+## Rechtliches
+
+- Impressum nach § 5 DDG
+- Datenschutzerklärung nach DSGVO
+- Google Fonts lokal gehostet (kein externer Request)
+- Kontaktformulare mit Datenschutz-Checkbox
+- Kein Tracking / Analytics
 
 ## Kontakt
 
