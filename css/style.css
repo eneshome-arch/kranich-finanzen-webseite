@@ -3161,7 +3161,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .hero::before { display: none; }
   .hero .container { width: 100%; }
   .hero-inner  { grid-template-columns: 1fr; gap: 0; padding: 32px 0 0; min-height: auto; }
-  .hero-visual { display: block; margin: 0 auto 24px; transform: scale(0.72); transform-origin: top center; margin-bottom: -60px; }
+  .hero-visual { display: block; margin: 0 auto; transform: scale(0.72); transform-origin: top center; margin-bottom: -160px; }
   .hero-content { text-align: center; }
   .hero-eyebrow { margin-bottom: 20px; justify-content: center; max-width: 100%; white-space: normal; }
   .hero-title  { font-size: clamp(38px, 9vw, 56px); margin-bottom: 20px; }
