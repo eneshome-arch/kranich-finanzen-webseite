@@ -4904,12 +4904,21 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .hv-doc {
     width: 100%;
     max-width: 320px;
-    opacity: 1;
     transform: none;
-    animation: none;
+    opacity: 0;
+    animation: hv-doc-mobile-in 1s 0.3s ease forwards;
   }
-  .hv-doc.hv-floating { animation: none; }
-  .hv-doc::after { display: none; }
+  .hv-doc.hv-floating {
+    animation: hv-doc-mobile-in 1s 0.3s ease forwards, hv-doc-float-mobile 5s 1.3s ease-in-out infinite;
+  }
+  @keyframes hv-doc-mobile-in {
+    0%   { opacity: 0; transform: translateY(30px) scale(0.96); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes hv-doc-float-mobile {
+    0%,100% { transform: translateY(0); }
+    50%     { transform: translateY(-10px); }
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
