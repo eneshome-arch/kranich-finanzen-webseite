@@ -1,6 +1,11 @@
 // Force scroll to top on page load (prevents mobile browsers from restoring scroll position)
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
 window.scrollTo(0, 0);
+window.addEventListener('load', function() {
+  window.scrollTo(0, 0);
+  setTimeout(function() { window.scrollTo(0, 0); }, 50);
+  setTimeout(function() { window.scrollTo(0, 0); }, 150);
+});
 
 document.addEventListener('DOMContentLoaded', () => {
 
