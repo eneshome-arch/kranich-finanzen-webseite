@@ -3162,7 +3162,8 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .hero::before { display: none; }
   .hero .container { width: 100%; }
   .hero-inner  { grid-template-columns: 1fr; gap: 0; padding: 32px 0 0; min-height: auto; }
-  .hero-visual { display: block; margin: 16px auto -140px; overflow: hidden; }
+  .hero-visual { display: block; margin: 16px auto -140px; }
+  .hero { overflow: hidden; }
   .hero-content { text-align: center; }
   .hero-eyebrow { margin-bottom: 20px; justify-content: center; max-width: 100%; white-space: normal; }
   .hero-title  { font-size: clamp(38px, 9vw, 56px); margin-bottom: 20px; }
@@ -4899,7 +4900,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .hv-scene { transform: scale(0.85); }
 }
 @media (max-width: 768px) {
-  .hv-scene { width: 100%; max-width: 480px; margin: 0 auto; transform: scale(0.75); transform-origin: top center; }
+  .hv-scene { width: 420px; margin: 0 auto; transform: scale(0.8); transform-origin: top center; }
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════
