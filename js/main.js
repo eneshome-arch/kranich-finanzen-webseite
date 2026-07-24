@@ -1,3 +1,7 @@
+// Force scroll to top on page load (prevents mobile browsers from restoring scroll position)
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+window.scrollTo(0, 0);
+
 document.addEventListener('DOMContentLoaded', () => {
 
   // ── Header scroll effect ──────────────────
