@@ -3115,6 +3115,7 @@ h1, h2, h3, h4, h5 { font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Dis
   .hero-float-top   { right: -20px; }
   .hero-float-bottom{ left: -20px; }
   .hero-inner       { grid-template-columns: 1fr; min-height: auto; }
+  .hero-visual      { display: none; }
   .hero             { min-height: auto; }
   .about-grid       { grid-template-columns: 1fr; }
   .about-image-wrap { display: none; }
