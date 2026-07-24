@@ -4,6 +4,10 @@ window.scrollTo(0, 0);
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Scroll to top again after DOM is ready (mobile Safari workaround)
+  window.scrollTo(0, 0);
+  requestAnimationFrame(() => window.scrollTo(0, 0));
+
   // ── Mobile: move hero-visual between desc and actions ──
   if (window.innerWidth <= 768) {
     const hv = document.querySelector('.hero-visual');
