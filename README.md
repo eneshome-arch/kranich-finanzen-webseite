@@ -21,7 +21,8 @@ Offizielle Website von **Kranich Finanzen** – unabhängiger Versicherungsmakle
 ## Technik
 
 - **Typ:** Statische Website (HTML, CSS, JS)
-- **Hosting:** GitHub Pages
+- **Hosting:** Coolify (nginx:alpine) auf eigenem Server
+- **Domain:** kranichfinanzen.de
 - **Schrift:** Inter (lokal gehostet, `css/fonts/`)
 - **CSS:** `css/style.css`
 - **JS:** `js/main.js`
@@ -39,6 +40,7 @@ Offizielle Website von **Kranich Finanzen** – unabhängiger Versicherungsmakle
 
 - Responsive Design (Mobile-first)
 - Interaktiver Finanzplan im Hero (selbstzeichnende SVG-Charts, Count-Up, 3D Mouse-Parallax)
+- Finanzplan-Animation auch auf Mobile sichtbar (skaliert, zwischen Text und Buttons)
 - Cinematic Horizontal-Scroll Leistungssektion
 - Glasmorphism-Orbs mit Backdrop-Blur
 - Holographischer Licht-Scan-Effekt
@@ -46,6 +48,7 @@ Offizielle Website von **Kranich Finanzen** – unabhängiger Versicherungsmakle
 - Canvas-basierte geometrische Animationen
 - Count-Up Animationen für Statistiken
 - Förder-Check mit interaktivem Rechner
+- Scroll-Restoration Fix für Mobile (verhindert Scroll-Sprung beim Laden)
 - DSGVO-konform: Fonts lokal, kein Tracking, kein Analytics
 
 ## Rechtliches
